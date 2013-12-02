@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -32,6 +33,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'bson_ext'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -43,3 +47,17 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development, :test do
+  gem 'pry-debugger'
+  gem 'rspec-rails', '2.13.1'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'database_cleaner'            # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing
+  gem 'factory_girl_rails'          # A fixtures replacement
+  gem 'mongoid-rspec'
+  gem 'poltergeist'                 # A PhantomJS driver for Capybara
+  gem 'selenium-webdriver', '~> 2.35.1'
+end
