@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :company do
     name 'SecondHouz'
     contact { FactoryGirl.build(:contact) }
+    account { FactoryGirl.build(:account) }    
   end
   factory :ecommerce_plan do
     trait :free do
@@ -28,19 +29,21 @@ FactoryGirl.define do
   end
   factory :account do
     user { FactoryGirl.create(:user) }
+    ecommerce_plan { FactoryGirl.create(:ecommerce_plan) }
   end
   factory :user do
     email 'master@boloflix.com'
     first_name 'Adbeel'
     last_name 'Guzman'
+    password '123456'
     trait :owner do
       role :owner
     end          
     trait :agent do
-      role :owner
+      role :agent
     end   
     trait :tenant do
-      role :owner
+      role :tenant
     end   
   end
   factory :contact do

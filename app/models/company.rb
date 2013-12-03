@@ -9,5 +9,5 @@ class Company
 	has_many :letters
 	has_one :account
 
-  validates_presence_of :name, :pet_type, :breed, :age, :weight
+  validates_presence_of :name, :contact, :account
 end
