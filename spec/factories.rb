@@ -46,6 +46,10 @@ FactoryGirl.define do
       role :tenant
     end   
   end
+  factory :property do
+    name 'House Beach Front'
+    
+  end  
   factory :contact do
     addresses { [FactoryGirl.build(:address)] }
     phones { [FactoryGirl.build(:phone)] }

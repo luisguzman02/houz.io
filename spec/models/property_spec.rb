@@ -35,8 +35,8 @@ describe Property do
   
   # optional fields
   it { should have_field(:check_in).of_type(String) }
-  it { should have_field(:directions).of_type(String) }
   it { should have_field(:check_out).of_type(String) }
+  it { should have_field(:directions).of_type(String) }  
   it { should have_field(:bathrooms).of_type(Integer).within(0..10).with_default_value_of(1) }
   it { should have_field(:bedrooms).of_type(Integer).within(0..20).with_default_value_of(1) }
   it { should have_field(:garages).of_type(Integer).within(0..10).with_default_value_of(0) }
