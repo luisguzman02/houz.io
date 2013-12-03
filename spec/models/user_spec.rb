@@ -8,7 +8,7 @@ describe User do
 
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
-  it { should_not be_timestamped_document.with(:updated) }
+  it { should be_timestamped_document.with(:updated) }
 
   #required fields
   it { should validate_presence_of(:email) }
@@ -35,7 +35,7 @@ describe User do
   it { should have_many(:bookings).of_type(Reservation).as_inverse_of(:tenant) }
 
 
-  it 'should creates a user' do
+  it 'should create a new user' do
     @user.save
     @user.should be_persisted          
   end

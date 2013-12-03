@@ -8,8 +8,8 @@ describe Property do
 
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
-  it { should_not be_timestamped_document.with(:updated) }
-  
+  it { should be_timestamped_document.with(:updated) }
+
   #relations
   it { should belong_to(:user) }
   it { should belong_to(:owner).of_type(User).as_inverse_of(:properties)  }
@@ -37,9 +37,9 @@ describe Property do
   it { should have_field(:check_in).of_type(String) }
   it { should have_field(:directions).of_type(String) }
   it { should have_field(:check_out).of_type(String) }
-  it { should have_field(:bathrooms).of_type(Integer).within(0..10)with_default_value_of(1) }
-  it { should have_field(:bedrooms).of_type(Integer).within(0..20)with_default_value_of(1) }
-  it { should have_field(:garages).of_type(Integer).within(0..10)with_default_value_of(0) }
+  it { should have_field(:bathrooms).of_type(Integer).within(0..10).with_default_value_of(1) }
+  it { should have_field(:bedrooms).of_type(Integer).within(0..20).with_default_value_of(1) }
+  it { should have_field(:garages).of_type(Integer).within(0..10).with_default_value_of(0) }
   it { should have_field(:bedding).of_type(Array) }
   it { should have_field(:tags).of_type(Array) }
   it { should have_field(:property_size).of_type(String) }

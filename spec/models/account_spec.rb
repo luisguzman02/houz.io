@@ -7,13 +7,15 @@ describe Account do
   end
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
-  it { should_not be_timestamped_document.with(:updated) }
-  
+  it { should be_timestamped_document.with(:updated) }
+
   # required fields  
   it { should validate_presence_of(:user) }
+  it { should validate_presence_of(:ecommerce_plan) }
 
   # optional fields
-  it { should have_field(:company).of_type(String) }
+  
+  #validations
 
   #relations
   it { should belong_to(:company) }

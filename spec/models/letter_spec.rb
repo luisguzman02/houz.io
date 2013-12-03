@@ -8,8 +8,8 @@ describe Letter do
 
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
-  it { should_not be_timestamped_document.with(:updated) }
-  
+  it { should be_timestamped_document.with(:updated) }
+
   #required
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:body) }
