@@ -3,7 +3,7 @@ require 'spec_helper'
 describe EcommercePlan do
   
   before do
-    @ecommerce_plan = FactoryGirl.build(:ecommerce_plan)
+    @ecommerce_plan = FactoryGirl.build(:ecommerce_plan, :free)
   end
 
   it { should be_timestamped_document }
@@ -22,4 +22,8 @@ describe EcommercePlan do
   it { should have_field(:num_items_allowed).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:price).of_type(Float) }
 
+  it 'creates a new ecommerce plan' do
+    @ecommerce_plan.save
+    @ecommerce_plan.should be_persisted
+  end
 end

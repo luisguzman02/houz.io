@@ -34,6 +34,7 @@ group :doc do
 end
 
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
+gem 'mongoid_slug'
 gem 'bson_ext'
 
 # Use ActiveModel has_secure_password

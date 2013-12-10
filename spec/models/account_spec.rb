@@ -5,7 +5,6 @@ describe Account do
   before do
     @account = FactoryGirl.build(:account)
   end
-  it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
   it { should be_timestamped_document.with(:updated) }
 

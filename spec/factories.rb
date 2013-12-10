@@ -29,7 +29,7 @@ FactoryGirl.define do
   end
   factory :account do
     user { FactoryGirl.create(:user) }
-    ecommerce_plan { FactoryGirl.create(:ecommerce_plan) }
+    ecommerce_plan { FactoryGirl.create(:ecommerce_plan, :free) }
   end
   factory :user do
     email 'master@boloflix.com'
@@ -46,9 +46,17 @@ FactoryGirl.define do
       role :tenant
     end   
   end
+  factory :rate do
+    name 'Regular Rent'
+    type :rent
+    account { FactoryGirl.build(:account) }
+  end
   factory :property do
     name 'House Beach Front'
-    
+    description 'Beatiful House in Front of teh Beach at Rocky Point Mexico.'
+    contact { FactoryGirl.build(:contact)  }
+    user { FactoryGirl.create(:user) }
+    account { FactoryGirl.create(:account) }
   end  
   factory :contact do
     addresses { [FactoryGirl.build(:address)] }

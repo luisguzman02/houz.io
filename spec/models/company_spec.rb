@@ -26,6 +26,6 @@ describe Company do
 
   it 'should create a new company' do
     @company.save
-    @company .should be_persisted
+    @company.should be_persisted
   end
 end

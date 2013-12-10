@@ -17,6 +17,7 @@ describe Activity do
   it { should have_field(:description).of_type(String) }
   
   #relation
+  #it { should belong_to(:user) }
   it { should be_embedded_in(:logeable) } 
 
 end

@@ -17,8 +17,11 @@ describe Letter do
   #fields
   it { should have_field(:name).of_type(String) }
   it { should have_field(:body).of_type(String) }
-  it { should have_field(:document).to_allow(:reservation).with_default_value_of(:reservation)  }
+  it { should have_field(:document).with_default_value_of(:reservation)  }
   
+  #validations
+  it { should validate_inclusion_of(:document).to_allow([:reservation]) }
+
   #relation
   it { should belong_to(:company) }
   
