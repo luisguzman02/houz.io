@@ -12,7 +12,7 @@ class User
   field :nickname, type: String
   
   has_many :bookings, class_name: 'Reservation', inverse_of: :tenant
-  has_many :reservations
+  has_many :reservations, inverse_of: :user
   has_and_belongs_to_many :agent_accounts, class_name: 'Account', inverse_of: :owners
   has_one :account
   embeds_one :contact, as: :contactable,  autobuild: true

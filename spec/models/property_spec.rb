@@ -15,8 +15,9 @@ describe Property do
   it { should belong_to(:owner).of_type(User).as_inverse_of(:properties)  }
   it { should belong_to(:account) }
   it { should embed_one(:contact).with_autobuild }
-  #it { pending should embed_one(:seo) }
-  #it { pending should embed_one(:website_info) }
+  #it { should embed_one(:seo) }
+  #it { should embed_one(:website_info) }
+  it { should embed_many(:payments) }
   it { should accept_nested_attributes_for(:contact) }
   it { should have_many :reservations }
   it { should have_and_belong_to_many(:rates) }

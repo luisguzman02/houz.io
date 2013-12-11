@@ -31,6 +31,7 @@ class Property
   validates_inclusion_of :unit_type, :in => [:house, :condo]
 
   embeds_one :contact, as: :contactable, autobuild: true
+  embeds_many :payments
   belongs_to :user
   belongs_to :owner, class_name: 'User', inverse_of: :properties
   belongs_to :account

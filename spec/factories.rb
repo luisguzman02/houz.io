@@ -21,9 +21,6 @@ FactoryGirl.define do
   factory :letter do
     name 'confirmation email'
   end
-  factory :reservation do
-    user { FactoryGirl.create(:user) }
-  end
   factory :activity do
     description 'Jim created reservation'
   end
@@ -32,10 +29,13 @@ FactoryGirl.define do
     ecommerce_plan { FactoryGirl.create(:ecommerce_plan, :free) }
   end
   factory :user do
-    email 'master@boloflix.com'
+    sequence :email do |n|
+      "user_#{n}@boloflix.com"
+    end
     first_name 'Adbeel'
     last_name 'Guzman'
     password '123456'
+    role :admin
     trait :owner do
       role :owner
     end          
@@ -58,6 +58,12 @@ FactoryGirl.define do
     user { FactoryGirl.create(:user) }
     account { FactoryGirl.create(:account) }
   end  
+  factory :reservation do
+    check_in Date.today
+    check_out Date.today + 2
+    user { FactoryGirl.create(:user) }
+    tenant { FactoryGirl.create(:user, :tenant) }
+  end
   factory :contact do
     addresses { [FactoryGirl.build(:address)] }
     phones { [FactoryGirl.build(:phone)] }
