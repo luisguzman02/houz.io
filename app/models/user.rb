@@ -3,7 +3,7 @@ class User
   include Mongoid::Timestamps
   
   field :email, type: String
-  field :role, type: Symbol, default: :owner
+  field :role, type: Symbol, default: :admin
   field :active, type: Boolean, default: true
   field :first_name, type: String
   field :last_name, type: String
@@ -21,5 +21,5 @@ class User
 
   validates_presence_of :email, :first_name, :last_name, :active, :password, :role
   validates_length_of :password, :within => 6..128
-  validates_inclusion_of :role, :in => [:owner, :tenant, :agent, :admin]
+  validates_inclusion_of :role, :in => [:owner, :tenant, :agent, :admin, :master]
 end

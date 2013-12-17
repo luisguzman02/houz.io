@@ -8,4 +8,5 @@ class EcommercePlan
   field :num_items_allowed, type: Integer, default: 1
 
   validates_presence_of :name, :price, :description, :num_items_allowed
+  validates_uniqueness_of :name
 end

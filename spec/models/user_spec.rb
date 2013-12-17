@@ -24,7 +24,7 @@ describe User do
   
   #optional fields
   it { should have_fields(:title, :nickname, :first_name, :last_name, :email).of_type(String) }
-  it { should have_fields(:role).of_type(Symbol).with_default_value_of(:owner) }
+  it { should have_fields(:role).of_type(Symbol).with_default_value_of(:admin) }
   it { should have_fields(:active).of_type(Boolean).with_default_value_of(true) }
     
   # relations
@@ -40,5 +40,9 @@ describe User do
   it 'should create a new user' do
     @user.save    
     @user.should be_persisted          
+  end
+
+  it '' do
+
   end
 end

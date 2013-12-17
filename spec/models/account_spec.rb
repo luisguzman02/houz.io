@@ -27,7 +27,11 @@ describe Account do
   it { should have_many(:agents).of_type(User).as_inverse_of(:company_account)  }
   
   it 'should create a new account' do
-    @account.save
+    @account.save    
     @account.should be_persisted
+  end
+
+  it '' do
+    
   end
 end

@@ -39,4 +39,13 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # clean up the database
+  require 'database_cleaner'
+  config.before(:suite) do
+    DatabaseCleaner[:mongoid].strategy = :truncation    
+  end
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
 end
