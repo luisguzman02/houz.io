@@ -6,26 +6,26 @@ FactoryGirl.define do
   end
   factory :ecommerce_plan do
     trait :owner_free_pack do
-      name '1 free property'
+      name 'Free'
       description 'Publish 1 to 5 properties for free'
-      num_items_allowed 1
+      num_items_allowed 5
       price 0 
     end
     trait :owner_plus_pack do
-      name '1-5 Properties For 4.99 Month'
-      description 'Administer up to 50 properties for 9.99 Year'
-      num_items_allowed 5
+      name 'Property Owner Plus - 5 Properties Pack'
+      description 'Administer up to 5 properties 4.99 per Month'
+      num_items_allowed 10
       price 4.99
     end
     trait :agency_pack do
-      name 'Up to 50 Properties For 9.99 Month'
-      description 'Administer up to 50 properties for 9.99 Year'
+      name 'Agency Pack'
+      description 'Administer up to 50 properties 9.99 per Month'
       num_items_allowed 50
       price 9.99
     end
     trait :unlimited_pack do
       name 'Unlimited Properties For 24.99 Month'
-      description 'Administer up to 50 properties for 9.99 Year'
+      description '--- pending ---'
       num_items_allowed 500
       price 24.99
     end
@@ -38,7 +38,7 @@ FactoryGirl.define do
   end
   factory :account do
     user { FactoryGirl.create(:user) }
-    ecommerce_plan { FactoryGirl.create(:ecommerce_plan, :free) }
+    ecommerce_plan { FactoryGirl.create(:ecommerce_plan, :owner_free_pack) }
   end
   factory :user do
     sequence :email do |n|

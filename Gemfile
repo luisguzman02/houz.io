@@ -36,6 +36,8 @@ end
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'mongoid_slug'
 gem 'bson_ext'
+gem 'devise'
+gem "haml-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
