@@ -31,7 +31,4 @@ describe Account do
     @account.should be_persisted
   end
 
-  it '' do
-    
-  end
 end
