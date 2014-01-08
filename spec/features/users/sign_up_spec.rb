@@ -8,9 +8,10 @@ describe "sign up process", :js => true do
     fill_in 'First name', :with => 'Adbeel'
     fill_in 'Last name', :with => 'Guzman'
     fill_in 'Password', :with => '123456'  
-    fill_in 'Password confirmation', :with => '123456'  
+    fill_in 'Password confirmation', :with => '123456'      
     click_on 'Register'
-    page.should have_content 'You are successfully registered to SecondHouz'
+    page.should have_content 'You are successfully registered to SecondHouz'    
+    page.should have_content 'Dashboard'    
   end
 
 end
