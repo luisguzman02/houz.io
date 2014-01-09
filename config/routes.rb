@@ -1,9 +1,10 @@
 Secondhouz::Application.routes.draw do
   
-  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout'}
+  devise_for :users, :path_names => {:sign_in => 'login'}
 
   devise_scope :user do
     get "login", :to => "devise/sessions#new"
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

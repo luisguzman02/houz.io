@@ -9,6 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree ./backend
- *= require bootstrap
 */
+$bgDefault      : #e67e22;
+$bgHighlight    : #d35400;
+$colDefault     : #ecf0f1;
+$colHover       : #ffe6d1; 
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "./backend/dashboard";

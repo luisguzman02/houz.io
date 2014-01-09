@@ -10,7 +10,7 @@ describe "sign up process", :js => true do
     fill_in 'Password', :with => '123456'  
     fill_in 'Password confirmation', :with => '123456'      
     click_on 'Register'
-    page.should have_content 'You are successfully registered to SecondHouz'    
+    page.should have_content 'You have signed up successfully.'    
     page.should have_content 'Dashboard'    
   end
 

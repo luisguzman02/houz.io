@@ -34,7 +34,7 @@
                 %li
                   = link_to 'My Dashboard', dashboard_path
                 %li
-                  %a{href: "#"} Logout
+                  = link_to 'Logout', destroy_user_session_path, :method => :delete
           - else
             %form.navbar-form.navbar-right{:role => "form"}
               .form-group
