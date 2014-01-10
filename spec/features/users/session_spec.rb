@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe "user session", :js => true do 
   let(:usr) { FactoryGirl.create(:user) }
-  
-  def login(target='.navbar-form')
-    within(target) do
-      fill_in 'Email', :with => usr.email
-      fill_in 'Password', :with => usr.password
-      click_on 'Sign in'
-    end    
-  end
 
   it "signs me in from login page" do    
     visit login_path
