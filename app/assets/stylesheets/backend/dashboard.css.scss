@@ -1,3 +1,5 @@
+@import "bootstrap/variables";
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html,
@@ -16,7 +18,14 @@ body {
     /* Negative indent footer by its height */
     margin: 0 auto -60px;
     /* Pad bottom by footer height */
-    padding: 0 0 60px;        
+    padding: 0 0 60px;    
+    .navbar-default {
+      .navbar-nav { 
+        .active > a {
+          background-image: none;
+        } 
+      }
+    }   
   }
 
   /* Set the fixed height of the footer here */
@@ -29,6 +38,23 @@ body {
       .text-muted {
         margin: 20px 0;
       }
+    }
+  }
+}
+
+/* tablets and phones */
+@media (max-width: $screen-sm-max) { 
+  body {
+    #wrap {
+      .navbar-default {
+        .navbar-nav { 
+          .dropdown {
+            .dropdown-header {
+              color: #fff;
+            }
+          }
+        }
+      }   
     }
   }
 }
