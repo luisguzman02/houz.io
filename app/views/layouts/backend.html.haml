@@ -6,11 +6,9 @@
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     %meta{content: "", name: "description"}/
     %meta{content: "", name: "author"}/
-    %link{href: "../../docs-assets/ico/favicon.png", rel: "shortcut icon"}/
     = csrf_meta_tags
     / Bootstrap core CSS
     = stylesheet_link_tag    "backend", media: "all", "data-turbolinks-track" => true
-    %link{href: "sticky-footer-navbar.css", rel: "stylesheet"}/
     / Just for debugging purposes. Don't actually copy this line!
     /[if lt IE 9] <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -57,10 +55,10 @@
             %ul.nav.navbar-nav.navbar-right
               %li
                 %a{href: "../navbar/"} Default
-              %li.active
+              %li
                 %a{href: "./"} Static top
               %li
-                %a{href: "../navbar-fixed-top/"} Logout
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
 
       / Begin page content
       #main_content.container      
