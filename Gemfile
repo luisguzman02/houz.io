@@ -29,16 +29,21 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 gem 'mongoid', '~> 4', github: 'mongoid/mongoid'
 gem 'mongoid_slug'
 gem 'bson_ext'
 gem 'devise'
 gem "haml-rails"
+gem "cancan"
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+group :assets do
+  gem 'ckeditor'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -56,6 +61,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'rspec-rails', '2.13.1'
   gem 'capybara'
+  gem 'better_errors'               # Better way to show error messages in development
 end
 
 group :test do
