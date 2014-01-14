@@ -64,4 +64,9 @@ describe Property do
     @property.slug.should be_present
   end
 
+  it 'set account creator to user field if its not specified' do
+    @property.user = nil
+    @property.save
+    @property.should be_persisted 
+  end
 end

@@ -1,0 +1,21 @@
+.page-header
+  %h2 
+    New Property
+    %small Up to 5 properties for free
+  %hr
+  .row
+    .col-md-6
+      = form_for @property, :html => { :role => 'form'} do |f|
+        .form-group
+          = f.label :unit_type, 'Property Type'
+          = f.select :unit_type, Property.utypes, {}, :class => 'form-control'
+        .form-group
+          = f.label :name
+          = f.text_field :name, :class => 'form-control', :placeholder => 'e.g. "Rocky Point Blue House"'
+        .form-group
+          = f.label :description
+          = f.text_area :description, :class => 'form-control'
+        %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
+          %span.glyphicon.glyphicon-floppy-disk
+          Save
+        = link_to 'Cancel', :back, :class => 'btn btn-lg'

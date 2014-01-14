@@ -15,6 +15,8 @@ Secondhouz::Application.routes.draw do
 
   get 'dashboard' => 'dashboard#index'
 
+  resources :properties
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

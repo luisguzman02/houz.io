@@ -28,7 +28,8 @@ class Property
   validates_inclusion_of :bedrooms, :in => 0..20, :message => 'value must be a number between 0 and 20'
   validates_inclusion_of :garages, :in => 0..10, :message => 'value must be a number between 0 and 10'
   validates_length_of :name, :in => 4..50
-  validates_inclusion_of :unit_type, :in => [:house, :condo]
+  validates_inclusion_of :unit_type, :in => lambda { |p| p.object.utypes }
+  validate :account_privileges
 
   embeds_one :contact, as: :contactable, autobuild: true
   embeds_many :payments
@@ -39,4 +40,16 @@ class Property
   has_and_belongs_to_many :rates
 
   accepts_nested_attributes_for :contact
+
+  before_validation do |p|    
+    p.user = p.account.user unless user
+  end
+
+  def account_privileges
+    errors.add(:account, 'does not have the enought credits to add more properties') unless account.can_add_properties?
+  end
+
+  def self.utypes
+    [:house, :condo]
+  end
 end

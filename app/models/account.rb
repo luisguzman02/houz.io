@@ -12,4 +12,9 @@ class Account
   has_many :rates
 
   validates_presence_of :user, :ecommerce_plan
+
+  def can_add_properties?
+    properties.count < ecommerce_plan.num_items_allowed
+  end
+
 end

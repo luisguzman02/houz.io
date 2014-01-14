@@ -1,0 +1,7 @@
+%h2 Properties
+.panel.panel-default
+  .panel-heading Options here
+  %table.table.table-striped
+    - @properties.each |p|
+      %tr{:id => p.id}
+        %td p.name

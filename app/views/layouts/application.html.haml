@@ -53,8 +53,6 @@
       = yield
 
     %hr
-      .container
-        %footer
-          %p &copy; SecondHouz 2014
+      = render 'common/footer'
 
     = javascript_include_tag "application", "data-turbolinks-track" => true

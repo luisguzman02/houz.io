@@ -69,9 +69,7 @@
 
         = yield
 
-    #footer
-      .container
-        %p.text-muted Place sticky footer content here.
+    = render 'common/footer'
 
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application", "data-turbolinks-track" => true
