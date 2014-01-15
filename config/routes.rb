@@ -13,6 +13,7 @@ Secondhouz::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get 'start/welcome' => 'home#start_welcome'
   get 'dashboard' => 'dashboard#index'
 
   resources :properties

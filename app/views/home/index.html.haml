@@ -1,10 +1,13 @@
 - content_for :jumbotron do
   .jumbotron
     .container
-      %h1 Hello, world!
-      %p This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-      %p
-        %a.btn.btn-primary.btn-lg{:role => "button"} Learn more &raquo;
+      .row
+        %h1 Start making your life easier with the most innovative Reservations System.
+        %p 
+          Whether you are a property owner with one or more units, or a vacational rental agency manager with many properties and owners under management, Secondhouz will 
+          simplify the administration of your reservations.
+        %p
+          = link_to 'Start Now »', new_user_registration_path,:class => 'btn btn-success btn-lg', :role => "button"
 .row
   .col-md-4
     %h2 Heading

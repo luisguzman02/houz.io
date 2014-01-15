@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree ./application
- *= require bootstrap
 */
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "./application/frontend";

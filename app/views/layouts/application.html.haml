@@ -25,22 +25,30 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "/"} SecondHouz
+          %a.navbar-brand{:href => "/"} SecondHouz Logo
         .navbar-collapse.collapse
-          - if user_signed_in?
-            .pull-right
-              %ul.nav.navbar-nav
-                %li
-                  = link_to 'My Dashboard', dashboard_path
-                %li
-                  = link_to 'Logout', destroy_user_session_path, :method => :delete
-          - else
-            = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
-              .form-group
-                = f.email_field :email, :placeholder => "Email", :class => 'form-control'
-              .form-group
-                = f.password_field :password, :placeholder => "Password", :class => 'form-control'
-              = f.submit "Sign in", :class => 'button btn btn-success'
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'Features', '#'
+            %li
+              = link_to 'Pricing', '#'
+            %li
+              %a{href: "#contact"} Contact            
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              .pull-right
+                %ul.nav.navbar-nav
+                  %li
+                    = link_to 'My Dashboard', dashboard_path
+                  %li
+                    = link_to 'Logout', destroy_user_session_path, :method => :delete
+            - else
+              = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
+                .form-group
+                  = f.email_field :email, :placeholder => "Email", :class => 'form-control'
+                .form-group
+                  = f.password_field :password, :placeholder => "Password", :class => 'form-control'
+                = f.submit "Sign in", :class => 'button btn btn-default'
 
     - if content_for? :jumbotron
       = yield :jumbotron
