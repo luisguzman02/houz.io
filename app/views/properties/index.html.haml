@@ -1,7 +1,16 @@
 %h2 Properties
 .panel.panel-default
-  .panel-heading Options here
-  %table.table.table-striped
-    - @properties.each |p|
+  .panel-heading 
+    Options here
+    .pull-right
+      = link_to new_property_path do
+        %span.glyphicon.glyphicon-plus
+        New property
+  %table.table.table-striped.table-hover
+    %thead
+      %th Property type
+      %th Name
+    - @properties.each do |p|
       %tr{:id => p.id}
-        %td p.name
+        %td= p.unit_type
+        %td= p.name

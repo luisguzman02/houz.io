@@ -3,10 +3,25 @@ require 'spec_helper'
 describe "Properties", :js => true do 
   
   before do
-    login
+    @acc = FactoryGirl.create(:account)
+    #warden sign in
+    login_as(@acc.user, :scope => :user)
   end
 
-  let(:acc) { FactoryGirl.create(:account) }
+  def create_prop 
+    Proc.new { |ix| @acc.properties.create(:name => "#{prop_name} #{ix}", :description => "#{prop_desc} #{ix}") }
+  end
+
+  describe 'nav bar' do    
+    it 'should highlight properties option' do
+      expect = Proc.new { page.should have_content "Properties" }
+      create_prop.call
+      visit properties_path
+      assert_navbar_option &expect      
+      click_on 'New property'
+      assert_navbar_option &expect
+    end
+  end
 
   describe 'default listing on backend' do 
     it 'redirect to new property page if user try to access listing' do      
@@ -16,7 +31,9 @@ describe "Properties", :js => true do
     end
 
     it 'shows the latest ones' do
-      5.times.each { |ix| acc.properties.create(:name => "#{prop_name} #{ix}", :description => "#{prop_desc} #{ix}") }
+      usr.account = acc
+      usr.save
+      5.times.each create_prop
       lattest = acc.properties.order_by(:created_at => :desc)
       visit properties_path   
       lattest.each_with_index do |it,ix|
@@ -25,12 +42,9 @@ describe "Properties", :js => true do
     end
 
     it 'list only 20 properties with pagination' do
-      FactoryGirl.create_list(:property, 25)
-      last_property = Property.last
-      visit properties_path
-      page.should have_content(last_property.name)
-      page.should have_content(last_property.name)
-      page.should have_selector('table tr', :count => 20)
+      25.times.each create_prop
+      visit properties_path 
+      page.should have_selector('table tbody tr', :count => 20)
       page.should have_css('pagination')
       page.should have_content('»')
     end
@@ -38,11 +52,11 @@ describe "Properties", :js => true do
 
   describe 'searching from backend' do
     it 'search property by id' do
-
+      pending
     end
 
     it 'search property by keyword' do
-
+      pending
     end
   end
 
@@ -54,10 +68,10 @@ describe "Properties", :js => true do
   end
 
   it 'successfully updates a property' do
-
+    pending
   end
 
   it 'removes a property with all its references' do
-
+    pending
   end
 end

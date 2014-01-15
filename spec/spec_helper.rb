@@ -50,4 +50,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
+  
+  include Warden::Test::Helpers
+  Warden.test_mode!
 end

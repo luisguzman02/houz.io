@@ -5,6 +5,12 @@
   %hr
   .row
     .col-md-6
+      -if @property.errors.any?
+        .alert-danger
+          %h2= "#{pluralize(@property.errors.count, "error")} prohibited this job from being saved:"
+          %ul
+            - @property.errors.full_messages.each do |msg|
+              %li= msg
       = form_for @property, :html => { :role => 'form'} do |f|
         .form-group
           = f.label :unit_type, 'Property Type'

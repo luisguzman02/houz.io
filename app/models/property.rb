@@ -28,7 +28,7 @@ class Property
   validates_inclusion_of :bedrooms, :in => 0..20, :message => 'value must be a number between 0 and 20'
   validates_inclusion_of :garages, :in => 0..10, :message => 'value must be a number between 0 and 10'
   validates_length_of :name, :in => 4..50
-  validates_inclusion_of :unit_type, :in => lambda { |p| p.object.utypes }
+  validates_inclusion_of :unit_type, :in => lambda { |p| p.class.utypes }
   validate :account_privileges
 
   embeds_one :contact, as: :contactable, autobuild: true
