@@ -1,7 +1,22 @@
-%h1 My Dashboard
-%p.lead
-  Here we're gonna show graphics, grids, any other important thing
+.page-header 
+  %h1 
+    Welcome to SecondHouz!
+    %small Vacational Rental SaaS
+.lead
+  Please choose the option that best suits to your needs and start using Secondhouz.
+  If you have any questions don't hesitate to contact our support team
   = succeed "." do
-    %code .container
-%p
-  
+    = link_to 'here', ''
+.cointaner
+  .row
+    .col-md-6
+      .well          
+        .lead
+          If you are a property owner you can add one or more properties in just a few steps.
+        = link_to 'Start Now', '', :class => 'button btn btn-warning btn-lg'
+    .col-md-6
+      .well
+        .lead
+          If you are an agency manager you can add and manage your owners and their properties here.
+        = link_to 'Start Now', '', :class => 'button btn btn-success btn-lg'
+      
