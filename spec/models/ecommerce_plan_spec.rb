@@ -33,4 +33,11 @@ describe EcommercePlan do
   it 'should have 4 ecommerce plans created by default' do
     EcommercePlan.all.count.should eql(4)
   end
+
+  it 'returns free plan' do
+    free = EcommercePlan.free
+    free.name.should eq('Free')
+    free.num_items_allowed.should eq(1)
+    free.price.should eq(0)
+  end
 end

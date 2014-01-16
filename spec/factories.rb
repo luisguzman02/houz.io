@@ -8,26 +8,32 @@ FactoryGirl.define do
     trait :owner_free_pack do
       name 'Free'
       description 'Publish 1 to 5 properties for free'
-      num_items_allowed 5
+      num_items_allowed 1
       price 0 
     end
     trait :owner_plus_pack do
       name 'Property Owner Plus - 5 Properties Pack'
       description 'Administer up to 5 properties 4.99 per Month'
-      num_items_allowed 10
+      num_items_allowed 5
+      price 4.99
+    end
+    trait :owner_plus_pack do
+      name 'Property Owner Plus - 15 Properties Pack'
+      description 'Administer up to 15 properties 12.99 per Month'
+      num_items_allowed 15
       price 4.99
     end
     trait :agency_pack do
       name 'Agency Pack'
-      description 'Administer up to 50 properties 9.99 per Month'
+      description 'Administer up to 50 properties 24.99 per Month'
       num_items_allowed 50
-      price 9.99
+      price 24.99
     end
     trait :unlimited_pack do
-      name 'Unlimited Properties For 24.99 Month'
+      name 'Unlimited Properties For 99.99 Month'
       description '--- pending ---'
       num_items_allowed 500
-      price 24.99
+      price 99.99
     end
   end
   factory :letter do

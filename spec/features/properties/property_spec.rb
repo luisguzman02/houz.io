@@ -6,11 +6,7 @@ describe "Properties", :js => true do
     @acc = FactoryGirl.create(:account)
     #warden sign in
     login_as(@acc.user, :scope => :user)
-  end
-
-  def create_prop 
-    Proc.new { |ix| @acc.properties.create(:name => "#{prop_name} #{ix}", :description => "#{prop_desc} #{ix}") }
-  end
+  end  
 
   describe 'nav bar' do    
     it 'should highlight properties option' do

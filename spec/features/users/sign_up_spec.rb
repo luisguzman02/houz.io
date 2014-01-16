@@ -18,13 +18,15 @@ describe "sign up process", :js => true do
     end
   end
 
-  it "sign me up with succesfully user creation message" do    
+  it "arrives to welcome start page with succesfully user creation message" do    
     page.should have_content 'You have signed up successfully.' 
+    page.should have_content 'Please choose the option that best suits to your needs and start using Secondhouz.' 
   end
 
-  it 'should sign up and redirect it to start welcome page' do    
-    page.should have_content 'If you are a property owner' 
-    page.should have_content 'If you are an agency manager' 
+  it 'creates new account after choosing free plan' do
+    within('#free_plan') do
+      click_on 'Start Now' 
+    end    
   end
 
 end

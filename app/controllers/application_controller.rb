@@ -4,12 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+
   def after_sign_in_path_for(resource)
     redirect_uri = dashboard_path
-    redirect_uri = start_welcome_path if resource.account.nil?
+    redirect_uri = welcome_plans_path if resource.account.nil?
     redirect_uri
   end
-  
+
   protected
 
   def configure_permitted_parameters

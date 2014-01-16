@@ -17,6 +17,10 @@ module  BackendHelper
   def prop_name; 'Pink House'; end
   def prop_desc; 'Beautiful Pink House near to the beach'; end
 
+  def create_prop 
+    Proc.new { |ix| @acc.properties.create(:name => "#{prop_name} #{ix}", :description => "#{prop_desc} #{ix}") }
+  end
+  
   # nav bar
   def assert_navbar_option
     within(:xpath, "//ul[@class='nav navbar-nav']/li[@class='active']") do 

@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Ecommerce packages
+free = EcommercePlan.create(:name => 'Free', :price => 0, :description => '1 free property plan.' )

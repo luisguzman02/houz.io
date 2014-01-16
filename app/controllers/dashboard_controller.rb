@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
   def validate_properties
     if current_user.account.nil? 
-      redirect_to start_welcome_path
+      redirect_to welcome_plans_path
     elsif current_user.account.properties.empty?
       redirect_to new_property_path, :notice => 'Add one or more properties to start using Secondhouz.'
     end
