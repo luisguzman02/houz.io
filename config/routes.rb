@@ -14,6 +14,7 @@ Secondhouz::Application.routes.draw do
 
   resources :properties
 
-  get "404", :to => "errors#not_found"
-  get "500", :to => "errors#server_error"
+  #seems not to be working =(
+  get '400', :to => 'errors#not_found'
+  get '500', :to => 'errors#internal_server_error'
 end
