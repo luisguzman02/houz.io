@@ -55,4 +55,8 @@ class User
   validates_presence_of :email, :first_name, :last_name, :active, :password, :role
   validates_length_of :password, :within => 6..128
   validates_inclusion_of :role, :in => [:owner, :tenant, :agent, :admin, :master]
+
+  delegate :can?, :cannot?, :to => :ability
+  def ability; @ability ||= Ability.new(self) end
+  
 end

@@ -1,4 +1,5 @@
-class DashboardController < ApplicationController
+class DashboardController < ApplicationController  
+  load_and_authorize_resource
   layout 'backend'
   before_filter :validate_properties, :except => [:new, :create]
 
