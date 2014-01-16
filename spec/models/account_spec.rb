@@ -46,8 +46,14 @@ describe Account do
     p.should be_persisted
   end
 
-  it 'cannot add more than 5 properties if has the free plan' do
-    5.times.each { add_prop }
+  it 'cannot add more than 1 property if has the free plan' do
+    2.times.each { add_prop }
+    acc.properties.count.should eq(1)    
+  end
+
+  it 'attach insufficient credits error to the document, if its trying to create more than the allowed' do
+    #free plan
+    add_prop
     p = add_prop
     p.should_not be_persisted
     p.errors.messages[:account].first.should eql 'does not have the enought credits to add more properties'    

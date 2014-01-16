@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "backend dasboard", :js => true do 
+describe "backend dasboard", :js => true, :dashboard => true do 
 
   before do
     @acc = FactoryGirl.create(:account)
@@ -17,9 +17,15 @@ describe "backend dasboard", :js => true do
        assert_navbar_option  { page.should have_content "Dashboard" }
     end
 
-    it 'do not show premium options' do
+    it 'do not show premium options if user has the free plan' do
       pending
     end
+  end
+
+  it 'shows unautharized message if user is loggedout' do
+    logout(:user)
+    visit dashboard_path
+    page.should have_content 'You are not authorized to access this page.'    
   end
 
   it 'redirect to new property page if user does not have any property yet' do
@@ -42,7 +48,7 @@ describe "backend dasboard", :js => true do
     page.should have_content @acc.ecommerce_plan.name
   end
 
-  it 'has a link to upgrade from free plan' do
+  it 'has a link to upgrade to premium plan' do
     pending
   end
 
