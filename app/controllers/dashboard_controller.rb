@@ -1,9 +1,15 @@
-class DashboardController < ApplicationController  
-  load_and_authorize_resource
+class DashboardController < ActionController::Base 
+  protect_from_forgery with: :exception
   layout 'backend'
   before_filter :validate_properties, :except => [:new, :create]
 
   def index; end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation) }
+  end
 
   private
 
@@ -14,4 +20,5 @@ class DashboardController < ApplicationController
       redirect_to new_property_path, :notice => 'Add one or more properties to start using Secondhouz.'
     end
   end
+
 end

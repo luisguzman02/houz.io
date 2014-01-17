@@ -1,0 +1,17 @@
+.properties_new, .properties_create {
+  #main_content {
+    form#new_property {
+      #rental_details {
+        .time_select_group {
+          select {
+            width: 47%;
+            display: inline;
+          }
+        }
+        .checkbox {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}

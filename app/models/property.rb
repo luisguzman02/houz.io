@@ -3,23 +3,38 @@ class Property
   include Mongoid::Timestamps
   include Mongoid::Slug
 
+  #basic
   field :name, type: String
   field :unit_type, type: Symbol, default: :house
+  field :description, type: String  
+
+  #details
   field :check_in, type: String
-  field :check_out, type: String
-  field :directions, type: String
-  field :description, type: String
-  field :active, type: Boolean,  default: true
-  field :directions, type: String
-  field :bathrooms, type: Integer, default: 1
-  field :bedrooms, type: Integer, default: 1
-  field :garages, type: Integer, default: 0
-  field :bedding, type: Array
-  field :tags, type: Array
+  field :check_out, type: String   
   field :property_size, type: String
   field :minimum_days, type: Integer, default: 1
   field :num_persons_allowed, type: Integer, default: 4
-  field :pets_allowed, type: Boolean, default: true
+  field :pets_allowed, type: Boolean, default: true  
+
+  #location
+  embeds_one :contact, as: :contactable, autobuild: true  
+  field :directions, type: String
+  field :tags, type: Array
+
+  #rooms
+  field :bathrooms, type: Integer, default: 1
+  field :bedrooms, type: Integer, default: 1
+  field :garages, type: Integer, default: 0
+  field :kitchen, type: Integer, default: 0
+  
+  #amenities
+  field :bedding, type: Array  
+  field :amenities, type: Array    
+
+  #web  
+
+  #settings
+  field :active, type: Boolean,  default: true  
 
   slug :name, :scope => :account
 
@@ -31,7 +46,6 @@ class Property
   validates_inclusion_of :unit_type, :in => lambda { |p| p.class.utypes }
   validate :account_privileges
 
-  embeds_one :contact, as: :contactable, autobuild: true
   embeds_many :payments
   belongs_to :user
   belongs_to :owner, class_name: 'User', inverse_of: :properties

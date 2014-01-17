@@ -9,6 +9,7 @@ class PropertiesController < DashboardController
   end
 
   def create
+    #binding.pry
     @property = current_user.account.properties.build
     if @property.save
       redirect_to properties_path
@@ -17,4 +18,9 @@ class PropertiesController < DashboardController
     end
   end
   
+  private
+
+  def property_params
+    params.require(:property).permit(:name, :unit_type, :description, :check_in, :check_out, :property_size, :minimum_days, :num_persons_allowed, :pets_allowed)
+  end
 end

@@ -20,6 +20,7 @@ describe Property do
   it { should embed_many(:payments) }
   it { should accept_nested_attributes_for(:contact) }
   it { should have_many :reservations }
+  it { should have_many :pictures }
   it { should have_and_belong_to_many(:rates) }
 
   # required fields
@@ -53,6 +54,7 @@ describe Property do
   it { should have_field(:minimum_days).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:num_persons_allowed).of_type(Integer).with_default_value_of(4) }
   it { should have_field(:pets_allowed).of_type(Boolean).with_default_value_of(true) }
+  it { should have_field(:amenities).of_type(Array) }
 
   it 'should create new property' do
     @property.save    

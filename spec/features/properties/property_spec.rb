@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Properties", :js => true do 
+describe "Properties", :js => true, :prop => :all do 
   
   before do
     @acc = FactoryGirl.create(:account)
@@ -56,11 +56,34 @@ describe "Properties", :js => true do
     end
   end
 
-  it 'adds new property' do
-    visit properties_path
-    click_on 'New'
+  describe 'adding a property', :prop => :adding do
+    it 'adds property details' do
+      visit properties_path            
+      select :house, :from => 'Property Type'
+      fill_in 'Name', :with => prop_name 
+      fill_in 'Description', :with => prop_desc
+      select '12:00', :from => :check_in
+      select '11:00', :from => :check_out
+      fill_in 'Minimum Days', :with => 1
+      fill_in 'No. persons allowed', :with => 5
+      check :pets_allowed
+      fill_in 'Property Size', :with => '100 mt2'
+      binding.pry    
+      click_button 'Save'
+      page.should have_content 'New property created successfully.' 
+    end
 
-    page.should have_content 'New property created successfully.' 
+    it 'should be able to fill all the location details' do
+
+    end
+
+    it 'should be able to fill all the location details' do
+
+    end
+
+    it 'assigns owner equivalent to admin by default when its a free plan' do
+
+    end
   end
 
   it 'successfully updates a property' do
