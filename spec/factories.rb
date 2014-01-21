@@ -7,7 +7,7 @@ FactoryGirl.define do
   factory :ecommerce_plan do
     trait :owner_free_pack do
       name 'Free'
-      description 'Publish 1 to 5 properties for free'
+      description '1 free property'
       num_items_allowed 1
       price 0 
     end

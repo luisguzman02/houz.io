@@ -57,27 +57,33 @@ describe "Properties", :js => true, :prop => :all do
   end
 
   describe 'adding a property', :prop => :adding do
-    it 'adds property details' do
-      visit properties_path            
+    def fill_basic_info
       select :house, :from => 'Property Type'
       fill_in 'Name', :with => prop_name 
       fill_in 'Description', :with => prop_desc
-      select '12:00', :from => :check_in
-      select '11:00', :from => :check_out
-      fill_in 'Minimum Days', :with => 1
-      fill_in 'No. persons allowed', :with => 5
-      check :pets_allowed
-      fill_in 'Property Size', :with => '100 mt2'
-      binding.pry    
+    end
+
+    it 'adds property details' do
+      visit properties_path            
+      fill_basic_info
+      select '12 PM', :from => 'property[check_in(4i)]'
+      select '10 AM', :from => 'property[check_out(4i)]'
+      fill_in 'Minimum rental days', :with => 1
+      fill_in 'Num persons allowed', :with => 5
+      check 'property_pets_allowed'
+      fill_in 'Property size', :with => '100'
       click_button 'Save'
       page.should have_content 'New property created successfully.' 
     end
 
     it 'should be able to fill all the location details' do
-
-    end
-
-    it 'should be able to fill all the location details' do
+      visit properties_path            
+      fill_basic_info
+      select 'United States', :from => 'Country'
+      fill_in 'City', :with => 'Seattle'
+      fill_in 'State', :with => 'WA'
+      fill_in 'Zip Code', :with => '98144'
+      fill_in 'Area', :with => 'Downtown'
 
     end
 
@@ -86,11 +92,30 @@ describe "Properties", :js => true, :prop => :all do
     end
   end
 
-  it 'successfully updates a property' do
-    pending
-  end
+  describe 'managing properties', :prop => :manage do
+    def open_edit_property_page
+      create_prop.call 1
+      visit properties_path 
+      pname = @acc.properties.first.name      
+      within('#tb_properties') do
+        page.should have_content pname        
+        click_on pname
+      end
+    end
 
-  it 'removes a property with all its references' do
-    pending
+    it 'successfully updates a property' do
+      open_edit_property_page
+      click_on 'Save'
+      page.should have_content 'Property updated successfully.'  
+    end
+
+    it 'removes a property with all its references' do
+      open_edit_property_page
+      click_on 'Delete'
+      #double in chrome
+      page.driver.browser.switch_to.alert.accept
+      page.driver.browser.switch_to.alert.accept
+      page.should have_content 'New Property'      
+    end
   end
 end

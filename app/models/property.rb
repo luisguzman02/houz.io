@@ -9,8 +9,8 @@ class Property
   field :description, type: String  
 
   #details
-  field :check_in, type: String
-  field :check_out, type: String   
+  field :check_in, type: Time
+  field :check_out, type: Time
   field :property_size, type: String
   field :minimum_days, type: Integer, default: 1
   field :num_persons_allowed, type: Integer, default: 4
@@ -60,10 +60,10 @@ class Property
   end
 
   def account_privileges
-    errors.add(:account, 'does not have the enought credits to add more properties') unless account.can_add_properties?
+    errors.add(:account, 'does not have the enought credits to add more properties') if !account.can_add_properties? && !persisted?
   end
 
   def self.utypes
-    [:house, :condo]
+    [:house, :condo, :mobile_house]
   end
 end

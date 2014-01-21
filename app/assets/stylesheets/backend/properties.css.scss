@@ -1,6 +1,16 @@
-.properties_new, .properties_create {
+.btn {
+  background-image: none;
+  border: none;
+}
+
+//properties form
+.properties_new, .properties_create, .properties_edit, .properties_update {
   #main_content {
-    form#new_property {
+    .head_right {
+      margin-top: 30px;
+      
+    }
+    .property_form {
       #rental_details {
         .time_select_group {
           select {
@@ -10,8 +20,20 @@
         }
         .checkbox {
           margin-top: 30px;
-        }
+        }        
       }
+    }
+  }
+}
+
+//properties listing
+.properties_index {
+  #main_content {
+    #head_right {
+      margin-top: 20px;
+    }
+    #tb_properties {
+      margin-top: 20px;
     }
   }
 }

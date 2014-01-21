@@ -7,6 +7,7 @@ class Contact
   embeds_many :websites
   embeds_many :emails
   embedded_in :contactable, polymorphic: true
+  accepts_nested_attributes_for :addresses, :phones, :websites, :emails
 end
 
 class Address

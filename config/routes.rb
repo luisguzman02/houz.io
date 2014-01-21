@@ -12,7 +12,14 @@ Secondhouz::Application.routes.draw do
   get 'welcome/plans' => 'home#welcome_plans'
   get 'dashboard' => 'dashboard#index'
 
-  resources :properties
+  resources :properties do
+    member do
+
+    end
+    collection do
+
+    end
+  end
 
   #seems not to be working =(
   get '400', :to => 'errors#not_found'

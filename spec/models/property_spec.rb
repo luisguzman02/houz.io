@@ -30,7 +30,7 @@ describe Property do
   it { should validate_presence_of(:active)}
 
   #validations
-  it { should validate_inclusion_of(:unit_type).to_allow([:house, :condo]) }
+  it { should validate_inclusion_of(:unit_type).to_allow([:house, :condo, :mobile_house]) }
   #it { should validate_inclusion_of(:status).to_allow([]) }
   it { should validate_inclusion_of(:bathrooms).to_allow(0..10) }
   it { should validate_inclusion_of(:bedrooms).to_allow(0..20) }
@@ -42,8 +42,8 @@ describe Property do
   it { should have_field(:unit_type).of_type(Symbol).with_default_value_of(:house) }
   it { should have_field(:description).of_type(String) }
   it { should have_field(:active).of_type(Boolean).with_default_value_of(true) }
-  it { should have_field(:check_in).of_type(String) }
-  it { should have_field(:check_out).of_type(String) }
+  it { should have_field(:check_in).of_type(Time) }
+  it { should have_field(:check_out).of_type(Time) }
   it { should have_field(:directions).of_type(String) }  
   it { should have_field(:bathrooms).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:bedrooms).of_type(Integer).with_default_value_of(1) }
