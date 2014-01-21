@@ -82,9 +82,18 @@ describe "Properties", :js => true, :prop => :all do
       select 'United States', :from => 'Country'
       fill_in 'City', :with => 'Seattle'
       fill_in 'State', :with => 'WA'
-      fill_in 'Zip Code', :with => '98144'
+      fill_in 'Zip code', :with => '98144'
       fill_in 'Area', :with => 'Downtown'
+      fill_in 'Directions', :with => 'Right in front of empire state building'
+    end
 
+    it 'assigns current location by default' do
+      local = Geocoder.search("204.57.220.1") 
+      visit properties_path 
+      find_field('Country').value.should eq local.first.country_code
+      find_field('City').value.should eq local.first.city
+      find_field('State').value.should eq local.first.state_code
+      find_field('Zip code').value.should eq local.first.postal_code
     end
 
     it 'assigns owner equivalent to admin by default when its a free plan' do

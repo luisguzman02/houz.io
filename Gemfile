@@ -35,6 +35,9 @@ gem 'bson_ext'
 gem 'devise'
 gem "haml-rails"
 #gem "cancan"
+gem 'geocoder'
+gem 'countries'
+gem 'i18n_country_select'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

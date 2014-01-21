@@ -11,6 +11,11 @@
       
     }
     .property_form {
+      #location {
+        .row:first-child {
+          margin-bottom: 10px;
+        }
+      }
       #rental_details {
         .time_select_group {
           select {

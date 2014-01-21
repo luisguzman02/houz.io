@@ -53,7 +53,7 @@
                       Pets allowed
                 .col-md-3
                 .col-md-3
-          .panel.panel-default#rental_details
+          .panel.panel-default#location
             .panel-heading 
               %strong Location
             .panel-body                
@@ -62,7 +62,7 @@
                   .row
                     .col-md-3
                       = a.label :country
-                      = a.text_field :country, :class => 'form-control'                          
+                      = a.country_code_select :country, [], {}, {:class => 'form-control'}
                     .col-md-3
                       = a.label :city
                       = a.text_field :city, :class => 'form-control'   
@@ -71,8 +71,14 @@
                       = a.text_field :state, :class => 'form-control'   
                     .col-md-3
                       = a.label :zip_code
-                      = a.text_field :zip_code, :class => 'form-control'   
-
+                      = a.text_field :zip_code, :class => 'form-control' 
+                  .row
+                    .col-md-6
+                      = a.label :area
+                      = a.text_field :area, :class => 'form-control', :placeholder => 'e.g. "Downtown",  "Lion\'s Gate", etc.'
+                    .col-md-6
+                      = f.label :directions
+                      = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
 
       .pull-right
         %button{:type => 'submit', :class =>"btn btn-success btn-lg"}

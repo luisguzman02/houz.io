@@ -3,9 +3,9 @@ class PropertiesController < DashboardController
     @properties = current_user.account.properties.order_by(:created_at => :desc)
   end
 
-  def new
+  def new    
     @property = current_user.account.properties.build   
-    @property.contact.addresses.build     
+    @property.contact.addresses.build(local_info)    
   end
 
   def create
@@ -13,6 +13,7 @@ class PropertiesController < DashboardController
     if @property.save
       redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
     else
+      binding.pry      
       render :action => 'new'
     end
   end
@@ -46,6 +47,11 @@ class PropertiesController < DashboardController
   end
 
   private
+
+  def local_info
+    local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
+    {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
+  end
 
   def property_params
     pp = params[:property]

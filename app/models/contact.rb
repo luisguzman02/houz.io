@@ -17,8 +17,8 @@ class Address
   field :city
   field :state
   field :zip_code
-  field :country
   field :area
+  field :country
   embedded_in :contact  
 end
 
