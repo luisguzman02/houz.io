@@ -87,6 +87,17 @@ describe "Properties", :js => true, :prop => :all do
       fill_in 'Directions', :with => 'Right in front of empire state building'
     end
 
+    it 'should be able to fill rooms and amenities' do
+      visit properties_path            
+      fill_basic_info      
+      fill_in 'Bathrooms', :with => '2'
+      fill_in 'Bedrooms', :with => '4'
+      fill_in 'Garages', :with => '1'
+      fill_in 'Kitchen', :with => '1'
+      fill_in 'Bedding', :with => '1 Queen, 2 Individuals'
+      fill_in 'property_amenities', :with => 'Hot tub, TV Cable, AC, Internet, etc'
+    end
+
     it 'assigns current location by default' do
       local = Geocoder.search("204.57.220.1") 
       visit properties_path 

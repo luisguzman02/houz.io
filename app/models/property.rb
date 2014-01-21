@@ -28,8 +28,8 @@ class Property
   field :kitchen, type: Integer, default: 0
   
   #amenities
-  field :bedding, type: Array  
-  field :amenities, type: Array    
+  field :bedding, type: String  
+  field :amenities, type: String    
 
   #web  
 

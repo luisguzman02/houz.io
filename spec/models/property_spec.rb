@@ -48,13 +48,13 @@ describe Property do
   it { should have_field(:bathrooms).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:bedrooms).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:garages).of_type(Integer).with_default_value_of(0) }
-  it { should have_field(:bedding).of_type(Array) }
+  it { should have_field(:bedding).of_type(String) }
   it { should have_field(:tags).of_type(Array) }
   it { should have_field(:property_size).of_type(String) }
   it { should have_field(:minimum_days).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:num_persons_allowed).of_type(Integer).with_default_value_of(4) }
   it { should have_field(:pets_allowed).of_type(Boolean).with_default_value_of(true) }
-  it { should have_field(:amenities).of_type(Array) }
+  it { should have_field(:amenities).of_type(String) }
 
   it 'should create new property' do
     @property.save    

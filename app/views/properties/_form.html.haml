@@ -53,7 +53,7 @@
                       Pets allowed
                 .col-md-3
                 .col-md-3
-          .panel.panel-default#location
+          .panel.panel-default.prop_sect
             .panel-heading 
               %strong Location
             .panel-body                
@@ -79,7 +79,30 @@
                     .col-md-6
                       = f.label :directions
                       = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
-
+          .panel.panel-default.prop_sect
+            .panel-heading 
+              %strong Amenities
+            .panel-body                              
+              .row
+                .col-md-3
+                  = f.label :bedrooms
+                  = f.text_field :bedrooms,:class => 'form-control'
+                .col-md-3
+                  = f.label :bathrooms
+                  = f.text_field :bathrooms, :class => 'form-control'   
+                .col-md-3
+                  = f.label :garages
+                  = f.text_field :garages, :class => 'form-control'   
+                .col-md-3
+                  = f.label :kitchen
+                  = f.text_field :kitchen, :class => 'form-control' 
+              .row
+                .col-md-6
+                  = f.label :bedding
+                  = f.text_field :bedding, :class => 'form-control', :placeholder => 'e.g. "2 Kings, 1 Queen, 1 Individual"'
+                .col-md-6
+                  = f.label :other_amenities
+                  = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
       .pull-right
         %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
           %span.glyphicon.glyphicon-floppy-disk

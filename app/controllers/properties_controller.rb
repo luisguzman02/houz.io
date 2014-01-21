@@ -13,7 +13,6 @@ class PropertiesController < DashboardController
     if @property.save
       redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
     else
-      binding.pry      
       render :action => 'new'
     end
   end
@@ -61,6 +60,8 @@ class PropertiesController < DashboardController
       params[:property].reject! {|k| k.include? 'check'}
       params[:property].merge!({:check_in => check_in, :check_out => check_out})
     end
-    params.require(:property).permit(:name, :unit_type, :description, :check_in, :check_out, :property_size, :minimum_days, :num_persons_allowed, :pets_allowed, :contact)
+    params.require(:property).permit(:name, :unit_type, :description, :check_in, :check_out, :property_size, :minimum_days, 
+      :num_persons_allowed, :pets_allowed, :directions, :bedrooms, :bathrooms, :garages, :kitchen, :bedding, :amenities, 
+      :contact_attributes => {:addresses_attributes =>  [:country, :city, :state, :zip_code, :area] })
   end
 end
