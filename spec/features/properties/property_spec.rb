@@ -123,6 +123,22 @@ describe "Properties", :js => true, :prop => :all do
       end
     end
 
+    def assert_property_opt(o)
+      page.should have_link o
+      click_link o
+      within(:xpath, "//div[@id='head_right']/a[@class='btn btn-primary active']") { page.should have_content(o) }
+    end
+
+    it 'should have rates button on property page leading you to proper page' do
+      open_edit_property_page
+      assert_property_opt 'Rates'
+    end
+
+    it 'should have pictures button on property page leading you to proper page' do
+      open_edit_property_page
+      assert_property_opt 'Pictures'
+    end
+
     it 'successfully updates a property' do
       open_edit_property_page
       click_on 'Save'

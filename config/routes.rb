@@ -14,7 +14,8 @@ Secondhouz::Application.routes.draw do
 
   resources :properties do
     member do
-
+      get :rates
+      get :pictures
     end
     collection do
 

@@ -3,13 +3,18 @@
   border: none;
 }
 
+//properties
+.properties {
+  #main_content {
+    #head_right {
+      margin-top: 20px;
+    }
+  }
+}
+
 //properties form
 .properties_new, .properties_create, .properties_edit, .properties_update {
   #main_content {
-    .head_right {
-      margin-top: 30px;
-      
-    }
     .property_form {
       .prop_sect {
         .row:first-child {
@@ -34,9 +39,6 @@
 //properties listing
 .properties_index {
   #main_content {
-    #head_right {
-      margin-top: 20px;
-    }
     #tb_properties {
       margin-top: 20px;
     }

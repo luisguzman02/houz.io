@@ -1,4 +1,6 @@
 class PropertiesController < DashboardController
+  before_filter :load_property, :only => [:edit, :rates, :pictures]
+
   def index
     @properties = current_user.account.properties.order_by(:created_at => :desc)
   end
@@ -17,9 +19,7 @@ class PropertiesController < DashboardController
     end
   end
 
-  def edit
-    @property = current_user.account.properties.find(params[:id])
-    render :template => "errors/not_found", :status => :not_found unless @property 
+  def edit    
   end
 
   def update
@@ -46,6 +46,11 @@ class PropertiesController < DashboardController
   end
 
   private
+
+  def load_property
+    @property = current_user.account.properties.find(params[:id])
+    render :template => "errors/not_found", :status => :not_found unless @property 
+  end
 
   def local_info
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location

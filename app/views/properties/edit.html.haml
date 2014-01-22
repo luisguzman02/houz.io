@@ -1,11 +1,2 @@
-.page-header
-  .pull-left
-    %h2 
-      Edit Property  
-      %small= "(Id: #{@property.slug})"
-  .pull-right.head_right
-    = link_to @property, :method => :delete, :class => 'btn btn-danger', data: { confirm: 'Are you sure you want to remove this property?' } do
-      %span.glyphicon.glyphicon-trash
-      Delete
-  .clearfix
+= render 'head'       
 = render 'form'
