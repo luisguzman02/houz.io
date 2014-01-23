@@ -4,7 +4,7 @@ class Rate
 
   field :name, type: String
   field :type, type: Symbol, default: :rent
-  field :always_apply, type: Boolean
+  field :always_apply, type: Boolean, default: true
   field :hold_for_return, type: Boolean
   field :value_type, type: Symbol, default: :amount
   field :value, type: Float

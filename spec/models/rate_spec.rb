@@ -19,7 +19,7 @@ describe Rate do
   #fields
   it { should have_field(:type).of_type(Symbol).with_default_value_of(:rent)  }
   it { should have_field(:name).of_type(String) }
-  it { should have_field(:always_apply).of_type(Boolean) }
+  it { should have_field(:always_apply).of_type(Boolean).with_default_value_of(true) }
   it { should have_field(:hold_for_return).of_type(Boolean) }
   it { should have_field(:value_type).of_type(Symbol).with_default_value_of(:amount) }
   it { should have_field(:value).of_type(Float) }

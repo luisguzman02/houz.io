@@ -35,8 +35,10 @@
                   %br
                   = f.time_select :check_out, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 11, :min => 15)}, {:class => 'form-control' }
                 .col-md-3
-                  = f.label :minimum_days, 'Minimum rental days'
-                  = f.text_field :minimum_days, :class => 'form-control'
+                  = f.label :minimum_days, 'Minimum stay'
+                  .input-group
+                    = f.text_field :minimum_days, :class => 'form-control'
+                    %span.input-group-addon nights
                 .col-md-3    
                   = f.label :property_size
                   .input-group

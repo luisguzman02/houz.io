@@ -58,4 +58,9 @@ describe Account do
     p.should_not be_persisted
     p.errors.messages[:account].first.should eql 'does not have the enought credits to add more properties'    
   end
+
+  it 'creates 2 default rates on each account' do
+    acc.rates.count.should eq 2
+    acc.rates.find_by(:name => 'Default').class.should eq Rate
+  end
 end
