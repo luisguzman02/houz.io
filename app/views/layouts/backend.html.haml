@@ -35,13 +35,13 @@
                 = link_to 'Properties', properties_path
               %li
                 %a{href: "#contact"} Contact
-              %li.dropdown
+              %li.dropdown{:class => ['rates'].include?(controller_name) ? 'active' : ''}
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                  Dropdown
+                  Back-office
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    %a{href: "#"} Action
+                    = link_to 'Rates', rates_path
                   %li
                     %a{href: "#"} Another action
                   %li

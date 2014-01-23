@@ -18,9 +18,10 @@ Secondhouz::Application.routes.draw do
       get :pictures
     end
     collection do
-
     end
   end
+
+  resources :rates
 
   #seems not to be working =(
   get '400', :to => 'errors#not_found'
