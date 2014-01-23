@@ -11,7 +11,7 @@ describe "Properties", :js => true, :prop => :all do
   describe 'nav bar' do    
     it 'should highlight properties option' do
       expect = Proc.new { page.should have_content "Properties" }
-      create_prop.call
+      create_prop.call 1
       visit properties_path
       assert_navbar_option &expect      
       click_on 'New property'
@@ -68,7 +68,7 @@ describe "Properties", :js => true, :prop => :all do
       fill_basic_info
       select '12 PM', :from => 'property[check_in(4i)]'
       select '10 AM', :from => 'property[check_out(4i)]'
-      fill_in 'Minimum rental days', :with => 1
+      fill_in 'Minimum stay', :with => 1
       fill_in 'Num persons allowed', :with => 5
       check 'property_pets_allowed'
       fill_in 'Property size', :with => '100'

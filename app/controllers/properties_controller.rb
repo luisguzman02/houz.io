@@ -2,16 +2,16 @@ class PropertiesController < DashboardController
   before_filter :load_property, :only => [:edit, :rates, :pictures]
 
   def index
-    @properties = current_user.account.properties.order_by(:created_at => :desc)
+    @properties = current_account.properties.order_by(:created_at => :desc)
   end
 
   def new    
-    @property = current_user.account.properties.build   
+    @property = current_account.properties.build   
     @property.contact.addresses.build(local_info)    
   end
 
   def create
-    @property = current_user.account.properties.build property_params
+    @property = current_account.properties.build property_params
     if @property.save
       redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
     else
@@ -19,11 +19,8 @@ class PropertiesController < DashboardController
     end
   end
 
-  def edit    
-  end
-
   def update
-    @property = current_user.account.properties.find(params[:id])
+    @property = current_account.properties.find(params[:id])
     if @property.save
       redirect_to edit_property_path(@property), :notice => 'Property updated successfully.' 
     else
@@ -32,7 +29,7 @@ class PropertiesController < DashboardController
   end
 
   def destroy
-    @property = current_user.account.properties.find(params[:id])
+    @property = current_account.properties.find(params[:id])
     if @property.destroy
       redirect_to properties_path, :notice => 'The property was successfully removed.'
     else
@@ -40,15 +37,10 @@ class PropertiesController < DashboardController
     end
   end
 
-  def show
-    @property = current_user.account.properties.find(params[:id])
-    render :template => "errors/not_found", :status => :not_found unless @property    
-  end
-
   private
 
   def load_property
-    @property = current_user.account.properties.find(params[:id])
+    @property = current_account.properties.find(params[:id])
     render :template => "errors/not_found", :status => :not_found unless @property 
   end
 
