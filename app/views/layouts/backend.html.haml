@@ -1,0 +1,71 @@
+!!!
+%html
+  %head
+    %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/    
+    = stylesheet_link_tag "backend", media: "all", "data-turbolinks-track" => true
+    
+    / Placed at the end of the document so the pages load faster
+    = javascript_include_tag "backend", "data-turbolinks-track" => true, :type => 'text/javascript'
+    = csrf_meta_tags
+    / Just for debugging purposes. Don't actually copy this line!
+    /[if lt IE 9] <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  %body{:class => "#{controller.controller_name} #{controller.controller_name}_#{controller.action_name}"}
+    / Wrap all page content here
+    #wrap
+      .navbar.navbar-default.navbar-static-top{role: "navigation"}
+        .container
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{href: "/"} SecondHouz
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav
+              %li{:class => controller_name.eql?('dashboard') ? 'active' : ''}
+                = link_to 'Dashboard', dashboard_path
+              %li{:class => controller_name.eql?('properties') ? 'active' : ''}
+                = link_to 'Properties', properties_path
+              %li
+                %a{href: "#contact"} Contact
+              %li.dropdown{:class => ['rates'].include?(controller_name) ? 'active' : ''}
+                %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+                  Back-office
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to 'Rates', rates_path
+                  %li
+                    %a{href: "#"} Another action
+                  %li
+                    %a{href: "#"} Something else here
+                  %li.divider
+                  %li.dropdown-header Nav header
+                  %li
+                    %a{href: "#"} Separated link
+                  %li
+                    %a{href: "#"} One more separated link
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                %a{href: "../navbar/"} Default
+              %li
+                %a{href: "./"} Static top
+              %li
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
+
+      / Begin page content
+      #main_content.container      
+        - flash.each do |name, msg|
+          .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
+            %a.close{'data-dismiss' => 'alert'}x
+            = msg
+
+        = yield
+
+    = render 'common/footer'    

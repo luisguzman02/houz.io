@@ -1,0 +1,17 @@
+.page-header
+  .pull-left
+    %h2 
+      Properties
+  .pull-right#head_right
+    = link_to new_property_path, :id => '#new_property_btn', :class => 'btn btn-success btn-lg' do
+      %span.glyphicon.glyphicon-plus
+      New property
+  .clearfix
+%table.table.table-striped.table-hover#tb_properties
+  %thead
+    %th Name
+    %th Property type    
+  - @properties.each do |p|
+    %tr{:id => p.id}      
+      %td= link_to p.name, edit_property_path(p)
+      %td= p.unit_type
