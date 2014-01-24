@@ -1,21 +1,4 @@
-.page-header
-  .row
-    .col-md-6
-      %h2 
-        Rates
-    .col-md-6
-      .pull-right#head_right
-        = link_to new_rate_path, :id => '#new_property_btn', :class => 'btn btn-success btn-lg' do
-          %span.glyphicon.glyphicon-plus
-          New rate  
-.row
-  .col-md-5    
-    %table.table
-      - @rates.each do |r|
-        %tr.active{:id => r.id}      
-          %td= r.type.capitalize
-          %td= link_to r.name, edit_rate_path(r)      
-          %td= "#{r.value_type.eql?(:pct) ? '%' : '$'} #{r.value.round}"
-  .col-md-6
-    %center
-      Click on the name to see more about the rate. 
+- content_for :rate_view do
+  %center
+    Click on the name to see more about the rate. 
+= render 'lay'

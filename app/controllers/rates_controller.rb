@@ -1,10 +1,10 @@
 class RatesController < DashboardController
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
+  before_action :only => [:index, :edit, :update] {@rates = current_account.rates }
 
   # GET /rates
   # GET /rates.json
-  def index
-    @rates = current_account.rates
+  def index    
   end
 
   # GET /rates/1
