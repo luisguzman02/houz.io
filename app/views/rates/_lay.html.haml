@@ -8,7 +8,7 @@
         = link_to new_rate_path, :id => '#new_property_btn', :class => 'btn btn-success btn-lg' do
           %span.glyphicon.glyphicon-plus
           New rate  
-.row
+.row#rates_content
   .col-md-5    
     %table.table
       - @rates.each do |r|

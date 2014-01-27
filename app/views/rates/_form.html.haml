@@ -7,17 +7,35 @@
           %li= msg
 
   .form-group
-    = f.label :name
-    = f.text_field :name, :class => 'form-control'
-  .form-group
     = f.label :type
-    = f.text_field :type, :class => 'form-control'
+    = f.select :type, rate_select_options(:types), {}, :class => 'form-control'
   .form-group
-    = f.label :always_apply
-    = f.check_box :always_apply
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'  
   .form-group
-    = f.label :hold_for_return
-    = f.check_box :hold_for_return
+    = f.label 'Value'
+    .row
+      .col-md-4
+        = f.select :value_type, rate_select_options(:value_types), {}, :class => 'form-control'
+      .col-md-8
+        = f.text_field :value, :class => 'form-control'      
+  .form-group
+    .row
+      .col-md-6
+        .checkbox    
+          = f.label :always_apply, 'Always apply in reservation'
+          = f.check_box :always_apply
+      .col-md-6
+        .checkbox
+          = f.label :hold_for_return, 'Hold for further return'
+          = f.check_box :hold_for_return
+  .form-group
+    .row
+      .col-md-6
+        .checkbox    
+          = f.label :periodically, 'Season Rate'
+          = f.check_box :periodically
+  %hr          
   .actions
-    = f.submit 'Save', :class => 'btn btn-success'
-    = link_to 'Cancel', rates_path
+    = f.submit 'Save', :class => 'btn btn-primary col-md-4'
+    = link_to 'Cancel', rates_path, :class => 'col-md-8'

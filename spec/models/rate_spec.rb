@@ -23,7 +23,9 @@ describe Rate do
   it { should have_field(:hold_for_return).of_type(Mongoid::Boolean) }
   it { should have_field(:value_type).of_type(Symbol).with_default_value_of(:amount) }
   it { should have_field(:value).of_type(Float) }
-  it { should have_field(:periodically).of_type(Mongoid::Boolean) }
+  it { should have_field(:seasonable).of_type(Mongoid::Boolean) }
+  it { should have_field(:start_season).of_type(Date) }
+  it { should have_field(:end_season).of_type(Date) }
   
   #relation
   it { should belong_to(:account) }

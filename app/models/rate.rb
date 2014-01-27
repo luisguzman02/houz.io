@@ -8,12 +8,22 @@ class Rate
   field :hold_for_return, type: Boolean
   field :value_type, type: Symbol, default: :amount
   field :value, type: Float
-  field :periodically, type: Boolean
+  field :seasonable, type: Boolean
+  field :start_season, type: Date
+  field :end_season, type: Date
 	
   belongs_to :account
   has_and_belongs_to_many :properties
 
   validates_presence_of :name, :type, :account  
-  validates_inclusion_of :type, :in => [:rent, :adjustment, :rate, :discount, :commision]
-  validates_inclusion_of :value_type, :in => [:amount, :percentage]
+  validates_inclusion_of :type, :in => lambda { |r| r.class.types }
+  validates_inclusion_of :value_type, :in => lambda { |r| r.class.value_types }
+
+  def self.value_types
+    [:amount, :percentage]
+  end
+
+  def self.types
+    [:rent, :adjustment, :rate, :discount, :commision]
+  end
 end

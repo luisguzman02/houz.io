@@ -28,7 +28,7 @@ class RatesController < DashboardController
 
     respond_to do |format|
       if @rate.save
-        format.html { redirect_to @rate, notice: 'Rate was successfully created.' }
+        format.html { redirect_to rates_path, notice: 'Rate was successfully created.' }
         format.json { render action: 'show', status: :created, location: @rate }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class RatesController < DashboardController
   def update
     respond_to do |format|
       if @rate.update(rate_params)
-        format.html { redirect_to @rate, notice: 'Rate was successfully updated.' }
+        format.html { redirect_to rates_path, notice: 'Rate was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +69,6 @@ class RatesController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rate_params
-      params.require(:rate).permit(:name, :type, :always_apply, :hold_for_return)
+      params.require(:rate).permit(:name, :type, :always_apply, :hold_for_return, :value_type, :value, :periodically)
     end
 end
