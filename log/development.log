@@ -7106,3 +7106,1535 @@ Processing by RatesController#index as HTML
   Rendered rates/index.html.haml within layouts/backend (2.9ms)
   Rendered common/_footer.html.haml (0.1ms)
 Completed 200 OK in 22ms (Views: 16.4ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 09:09:59 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 1.1700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4630ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.9830ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.8510ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7540ms
+  Rendered rates/_form.html.haml (1004.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8240ms
+  Rendered rates/_lay.html.haml (6.3ms)
+  Rendered rates/edit.html.haml within layouts/backend (1017.8ms)
+  Rendered common/_footer.html.haml (1.2ms)
+Completed 200 OK in 1422ms (Views: 1234.4ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:00 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 09:10:01 -0700
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 09:10:04 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5730ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5280ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4440ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4600ms
+  Rendered rates/_form.html.haml (6.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7230ms
+  Rendered rates/_lay.html.haml (5.9ms)
+  Rendered rates/edit.html.haml within layouts/backend (15.4ms)
+  Rendered common/_footer.html.haml (1.4ms)
+Completed 200 OK in 37ms (Views: 30.2ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 09:10:06 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8580ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5260ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5820ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6230ms
+  Rendered rates/_form.html.haml (5.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7110ms
+  Rendered rates/_lay.html.haml (3.0ms)
+  Rendered rates/edit.html.haml within layouts/backend (81.5ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 105ms (Views: 95.7ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 09:10:08 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7490ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8270ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4800ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.8490ms
+  Rendered properties/index.html.haml within layouts/backend (7.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 33ms (Views: 24.4ms)
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 09:10:13 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6170ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6630ms
+  Rendered properties/_form.html.haml (109.2ms)
+  Rendered properties/new.html.haml within layouts/backend (112.9ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 2068ms (Views: 126.8ms)
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 09:10:22 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6340ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5310ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4520ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8130ms
+  Rendered rates/_lay.html.haml (3.0ms)
+  Rendered rates/index.html.haml within layouts/backend (5.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 23ms (Views: 16.9ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 09:10:25 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6050ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5980ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.4610ms
+  Rendered rates/_form.html.haml (3.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6240ms
+  Rendered rates/_lay.html.haml (2.5ms)
+  Rendered rates/edit.html.haml within layouts/backend (7.9ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 28ms (Views: 20.5ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 09:10:28 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6240ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7160ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6650ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6100ms
+  Rendered rates/_form.html.haml (5.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8880ms
+  Rendered rates/_lay.html.haml (3.0ms)
+  Rendered rates/edit.html.haml within layouts/backend (10.2ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 32ms (Views: 23.6ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 09:11:12 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.5090ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.3970ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6090ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5810ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5800ms
+  Rendered rates/_form.html.haml (3.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6690ms
+  Rendered rates/_lay.html.haml (2.5ms)
+  Rendered rates/edit.html.haml within layouts/backend (8.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 29ms (Views: 19.9ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 09:11:14 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6470ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5910ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5480ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5150ms
+  Rendered rates/_form.html.haml (4.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.9010ms
+  Rendered rates/_lay.html.haml (3.5ms)
+  Rendered rates/edit.html.haml within layouts/backend (10.8ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 100ms (Views: 92.3ms)
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 09:11:25 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8640ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6490ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5170ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8710ms
+  Rendered rates/_lay.html.haml (3.8ms)
+  Rendered rates/index.html.haml within layouts/backend (5.2ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 25ms (Views: 17.1ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 9.6710ms
+  MOPED: 127.0.0.1:27017 INSERT       database=secondhouz_development collection=system.indexes documents=[{:unique=>true, :ns=>"secondhouz_development.properties", :key=>{:account=>1, :_slugs=>1}, :name=>"account_1__slugs_1"}] flags=[]
+                         COMMAND      database=secondhouz_development command={:getlasterror=>1, :w=>1} runtime: 41.1460ms
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:06:17 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6280ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 3.2060ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 4.1050ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 2.2180ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 2.0700ms
+  Rendered rates/_lay.html.haml (4.9ms)
+  Rendered rates/index.html.haml within layouts/backend (11.2ms)
+Completed 500 Internal Server Error in 399ms
+
+ExecJS::RuntimeError - SyntaxError: reserved word "var"
+  (in /Users/adbeel/workspace/ror/secondhouz/app/assets/javascripts/backend/dashboard.js.coffee):
+  execjs (2.0.2) lib/execjs/external_runtime.rb:66:in `extract_result'
+  execjs (2.0.2) lib/execjs/external_runtime.rb:28:in `block in exec'
+  execjs (2.0.2) lib/execjs/external_runtime.rb:41:in `compile_to_tempfile'
+  execjs (2.0.2) lib/execjs/external_runtime.rb:27:in `exec'
+  execjs (2.0.2) lib/execjs/external_runtime.rb:19:in `eval'
+  execjs (2.0.2) lib/execjs/external_runtime.rb:33:in `call'
+  coffee-script (2.2.0) lib/coffee_script.rb:57:in `compile'
+  tilt (1.4.1) lib/tilt/coffee.rb:46:in `evaluate'
+  tilt (1.4.1) lib/tilt/template.rb:103:in `render'
+  sprockets (2.10.1) lib/sprockets/context.rb:197:in `block in evaluate'
+  sprockets (2.10.1) lib/sprockets/context.rb:194:in `each'
+  sprockets (2.10.1) lib/sprockets/context.rb:194:in `evaluate'
+  sprockets (2.10.1) lib/sprockets/processed_asset.rb:12:in `initialize'
+  sprockets (2.10.1) lib/sprockets/base.rb:374:in `new'
+  sprockets (2.10.1) lib/sprockets/base.rb:374:in `block in build_asset'
+  sprockets (2.10.1) lib/sprockets/base.rb:395:in `circular_call_protection'
+  sprockets (2.10.1) lib/sprockets/base.rb:373:in `build_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:94:in `block in build_asset'
+  sprockets (2.10.1) lib/sprockets/caching.rb:58:in `cache_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:93:in `build_asset'
+  sprockets (2.10.1) lib/sprockets/base.rb:287:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:61:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/processed_asset.rb:44:in `block in init_with'
+  sprockets (2.10.1) lib/sprockets/processed_asset.rb:37:in `map'
+  sprockets (2.10.1) lib/sprockets/processed_asset.rb:37:in `init_with'
+  sprockets (2.10.1) lib/sprockets/asset.rb:24:in `from_hash'
+  sprockets (2.10.1) lib/sprockets/caching.rb:54:in `cache_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:93:in `build_asset'
+  sprockets (2.10.1) lib/sprockets/base.rb:287:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:61:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/bundled_asset.rb:37:in `init_with'
+  sprockets (2.10.1) lib/sprockets/asset.rb:24:in `from_hash'
+  sprockets (2.10.1) lib/sprockets/caching.rb:54:in `cache_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:93:in `build_asset'
+  sprockets (2.10.1) lib/sprockets/base.rb:287:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/index.rb:61:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/environment.rb:75:in `find_asset'
+  sprockets (2.10.1) lib/sprockets/base.rb:295:in `[]'
+  sprockets-rails (2.0.1) lib/sprockets/rails/helper.rb:144:in `lookup_asset_for_path'
+  sprockets-rails (2.0.1) lib/sprockets/rails/helper.rb:91:in `block in javascript_include_tag'
+  sprockets-rails (2.0.1) lib/sprockets/rails/helper.rb:90:in `map'
+  sprockets-rails (2.0.1) lib/sprockets/rails/helper.rb:90:in `javascript_include_tag'
+  app/views/layouts/backend.html.haml:9:in `_app_views_layouts_backend_html_haml___1092130026833491701_70203935626600'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/adbeel/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:453:in `_run__2484799676651231792__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__2078030238205827552__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/adbeel/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/adbeel/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/adbeel/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/70203948145580/variables" for 127.0.0.1 at 2014-01-27 10:06:17 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7360ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5820ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6420ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8130ms
+  Rendered rates/_lay.html.haml (4.0ms)
+  Rendered rates/index.html.haml within layouts/backend (5.9ms)
+  Rendered common/_footer.html.haml (0.4ms)
+Completed 200 OK in 254ms (Views: 246.5ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:36 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:37 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.3000ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6520ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6270ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7090ms
+  Rendered rates/_lay.html.haml (3.1ms)
+  Rendered rates/index.html.haml within layouts/backend (4.5ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 227ms (Views: 217.7ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:06:49 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8170ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6590ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5380ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8250ms
+  Rendered rates/_lay.html.haml (3.6ms)
+  Rendered rates/index.html.haml within layouts/backend (4.8ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 215ms (Views: 207.5ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:07 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:07:08 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:19:56 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.9740ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5320ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5380ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6100ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8790ms
+  Rendered rates/_lay.html.haml (4.7ms)
+  Rendered rates/index.html.haml within layouts/backend (6.3ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 1946ms (Views: 1936.4ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:19:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:58 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:58 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:58 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:19:59 -0700
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 10:20:04 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.0930ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7460ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7060ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 3.2240ms
+  Rendered properties/index.html.haml within layouts/backend (5.8ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 29ms (Views: 19.7ms)
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:20:09 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7140ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8460ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4930ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7820ms
+  Rendered rates/_lay.html.haml (4.4ms)
+  Rendered rates/index.html.haml within layouts/backend (6.9ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 27ms (Views: 19.5ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 10:20:11 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6180ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5440ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8700ms
+  Rendered properties/index.html.haml within layouts/backend (3.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 24ms (Views: 17.5ms)
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:20:13 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5400ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6790ms
+  Rendered properties/_form.html.haml (40.1ms)
+  Rendered properties/new.html.haml within layouts/backend (43.5ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 394ms (Views: 124.8ms)
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:20:29 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6230ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.2490ms
+  Rendered properties/_form.html.haml (45.9ms)
+  Rendered properties/new.html.haml within layouts/backend (49.0ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 1853ms (Views: 1636.3ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:20:31 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:20:32 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:20:52 -0700
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:23:05 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.7620ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7770ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8140ms
+  Rendered properties/_form.html.haml (36.1ms)
+  Rendered properties/new.html.haml within layouts/backend (38.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 1852ms (Views: 56.2ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:23:07 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:23:08 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:25:28 -0700
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:28:10 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.6390ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5170ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5970ms
+  Rendered properties/_form.html.haml (105.2ms)
+  Rendered properties/new.html.haml within layouts/backend (107.2ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 389ms (Views: 125.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:28:11 -0700
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:31:45 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.5410ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4680ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5850ms
+  Rendered properties/_form.html.haml (36.2ms)
+  Rendered properties/new.html.haml within layouts/backend (107.4ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 2039ms (Views: 1762.1ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:31:47 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:31:48 -0700
+
+
+Started GET "/properties/new" for 127.0.0.1 at 2014-01-27 10:32:33 -0700
+Processing by PropertiesController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} runtime: 0.5340ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4480ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5060ms
+  Rendered properties/_form.html.haml (35.9ms)
+  Rendered properties/new.html.haml within layouts/backend (38.4ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 1859ms (Views: 1684.9ms)
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:32:35 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:32:38 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8560ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7920ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 3.5060ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 1.5910ms
+  Rendered rates/_lay.html.haml (4.3ms)
+  Rendered rates/index.html.haml within layouts/backend (6.3ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 28ms (Views: 18.7ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 10:32:41 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6550ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5660ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4900ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7360ms
+  Rendered properties/index.html.haml within layouts/backend (2.6ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 23ms (Views: 16.1ms)
+
+
+Started GET "/properties/rocky-point-beach-home/edit" for 127.0.0.1 at 2014-01-27 10:32:42 -0700
+Processing by PropertiesController#edit as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5730ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7560ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7130ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 2.0870ms
+  Rendered properties/_head.html.haml (3.2ms)
+  Rendered properties/_form.html.haml (133.6ms)
+  Rendered properties/edit.html.haml within layouts/backend (141.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 164ms (Views: 153.7ms)
+
+
+Started GET "/properties/rocky-point-beach-home/rates" for 127.0.0.1 at 2014-01-27 10:32:46 -0700
+Processing by PropertiesController#rates as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7400ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6660ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5460ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.6720ms
+  Rendered properties/_head.html.haml (1.5ms)
+  Rendered properties/rates.html.haml within layouts/backend (4.5ms)
+  Rendered common/_footer.html.haml (0.3ms)
+Completed 200 OK in 24ms (Views: 15.6ms)
+
+
+Started GET "/properties/rocky-point-beach-home/pictures" for 127.0.0.1 at 2014-01-27 10:32:47 -0700
+Processing by PropertiesController#pictures as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6590ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8100ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6880ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.8030ms
+  Rendered properties/_head.html.haml (1.9ms)
+  Rendered properties/pictures.html.haml within layouts/backend (6.0ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 26ms (Views: 17.2ms)
+
+
+Started GET "/properties/rocky-point-beach-home/rates" for 127.0.0.1 at 2014-01-27 10:32:49 -0700
+Processing by PropertiesController#rates as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6760ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5610ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5320ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.6290ms
+  Rendered properties/_head.html.haml (1.5ms)
+  Rendered properties/rates.html.haml within layouts/backend (2.8ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 23ms (Views: 14.7ms)
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:32:51 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6740ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7310ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7120ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8050ms
+  Rendered rates/_lay.html.haml (3.7ms)
+  Rendered rates/index.html.haml within layouts/backend (5.0ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 27ms (Views: 20.2ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:32:54 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7650ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6950ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6860ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 3.1330ms
+  Rendered rates/_form.html.haml (3.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6590ms
+  Rendered rates/_lay.html.haml (2.6ms)
+  Rendered rates/edit.html.haml within layouts/backend (9.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 35ms (Views: 23.1ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 10:32:56 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4760ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6540ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6560ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6690ms
+  Rendered rates/_form.html.haml (3.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6620ms
+  Rendered rates/_lay.html.haml (2.7ms)
+  Rendered rates/edit.html.haml within layouts/backend (8.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 28ms (Views: 20.6ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:32:58 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.9400ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7770ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6730ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5960ms
+  Rendered rates/_form.html.haml (4.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7120ms
+  Rendered rates/_lay.html.haml (2.6ms)
+  Rendered rates/edit.html.haml within layouts/backend (9.3ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 29ms (Views: 19.9ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 10:32:59 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.4880ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7560ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7270ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6000ms
+  Rendered rates/_form.html.haml (5.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6250ms
+  Rendered rates/_lay.html.haml (3.1ms)
+  Rendered rates/edit.html.haml within layouts/backend (11.2ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 33ms (Views: 24.4ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:33:00 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5910ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8570ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6210ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5590ms
+  Rendered rates/_form.html.haml (3.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6660ms
+  Rendered rates/_lay.html.haml (2.7ms)
+  Rendered rates/edit.html.haml within layouts/backend (9.0ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 29ms (Views: 20.7ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 10:33:02 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5740ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7550ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5740ms
+  Rendered rates/_form.html.haml (3.7ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7120ms
+  Rendered rates/_lay.html.haml (2.6ms)
+  Rendered rates/edit.html.haml within layouts/backend (8.8ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 28ms (Views: 20.1ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:33:03 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7020ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7720ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5210ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5930ms
+  Rendered rates/_form.html.haml (4.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6760ms
+  Rendered rates/_lay.html.haml (3.0ms)
+  Rendered rates/edit.html.haml within layouts/backend (9.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 29ms (Views: 21.1ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 10:33:05 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5700ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5640ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6540ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.9040ms
+  Rendered properties/index.html.haml within layouts/backend (3.5ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 24ms (Views: 16.6ms)
+
+
+Started GET "/properties/rocky-point-beach-home/edit" for 127.0.0.1 at 2014-01-27 10:33:07 -0700
+Processing by PropertiesController#edit as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5290ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6240ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5560ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.6780ms
+  Rendered properties/_head.html.haml (1.3ms)
+  Rendered properties/_form.html.haml (40.3ms)
+  Rendered properties/edit.html.haml within layouts/backend (44.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 65ms (Views: 58.4ms)
+
+
+Started GET "/properties/rocky-point-beach-home/rates" for 127.0.0.1 at 2014-01-27 10:33:09 -0700
+Processing by PropertiesController#rates as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6570ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6330ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7360ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.8120ms
+  Rendered properties/_head.html.haml (1.3ms)
+  Rendered properties/rates.html.haml within layouts/backend (2.5ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 22ms (Views: 13.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-01-27 10:33:11 -0700
+Processing by DashboardController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7230ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5310ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4560ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=ecommerce_plans selector={"$query"=>{"_id"=>BSON::ObjectId('52d716b84164625b0b080000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.8330ms
+  Rendered dashboard/index.html.haml within layouts/backend (48.8ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 68ms (Views: 61.2ms)
+
+
+Started GET "/properties" for 127.0.0.1 at 2014-01-27 10:33:12 -0700
+Processing by PropertiesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6040ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.7420ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.8000ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"$query"=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{"created_at"=>-1}} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7400ms
+  Rendered properties/index.html.haml within layouts/backend (2.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 24ms (Views: 16.7ms)
+
+
+Started GET "/properties/rocky-point-beach-home/edit" for 127.0.0.1 at 2014-01-27 10:33:41 -0700
+Processing by PropertiesController#edit as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.5240ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6980ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6860ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.9290ms
+  Rendered properties/_head.html.haml (2.0ms)
+  Rendered properties/_form.html.haml (41.5ms)
+  Rendered properties/edit.html.haml within layouts/backend (48.2ms)
+  Rendered common/_footer.html.haml (0.2ms)
+Completed 200 OK in 324ms (Views: 313.3ms)
+
+
+Started GET "/properties/rocky-point-beach-home/rates" for 127.0.0.1 at 2014-01-27 10:33:44 -0700
+Processing by PropertiesController#rates as HTML
+  Parameters: {"id"=>"rocky-point-beach-home"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 1.0360ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8760ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5800ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=properties selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_slugs"=>{"$in"=>["rocky-point-beach-home"]}} flags=[] limit=1 skip=0 batch_size=nil fields=nil runtime: 0.6450ms
+  Rendered properties/_head.html.haml (1.8ms)
+  Rendered properties/rates.html.haml within layouts/backend (3.2ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 28ms (Views: 18.2ms)
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:33:54 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6380ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6560ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6570ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8740ms
+  Rendered rates/_lay.html.haml (4.3ms)
+  Rendered rates/index.html.haml within layouts/backend (6.3ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 26ms (Views: 19.2ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:33:56 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6760ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6650ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5270ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7660ms
+  Rendered rates/_form.html.haml (5.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7840ms
+  Rendered rates/_lay.html.haml (3.4ms)
+  Rendered rates/edit.html.haml within layouts/backend (11.7ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 37ms (Views: 29.1ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 10:34:20 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8290ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.9380ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.7090ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7220ms
+  Rendered rates/_form.html.haml (4.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6650ms
+  Rendered rates/_lay.html.haml (2.6ms)
+  Rendered rates/edit.html.haml within layouts/backend (9.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 31ms (Views: 20.9ms)
+
+
+Started PATCH "/rates/52e063e8416462a2ea060000" for 127.0.0.1 at 2014-01-27 10:34:24 -0700
+Processing by RatesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XiuITB1wHzbplI6YZ+xVU3mBCafdlhiJ+SPNd6Uh6Po=", "rate"=>{"name"=>"Cleaning", "type"=>"rate", "always_apply"=>"1", "hold_for_return"=>"0"}, "commit"=>"Save", "id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6610ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6990ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5200ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5390ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"_id"=>BSON::ObjectId('52d842c6416462caa9000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8300ms
+  MOPED: 127.0.0.1:27017 UPDATE       database=secondhouz_development collection=rates selector={"_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} update={"$set"=>{"type"=>:rate, "hold_for_return"=>false, "updated_at"=>2014-01-27 17:34:24 UTC}} flags=[]
+                         COMMAND      database=secondhouz_development command={:getlasterror=>1, :w=>1} runtime: 8.5160ms
+Redirected to http://localhost:3000/rates/52e063e8416462a2ea060000
+Completed 302 Found in 38ms
+
+
+Started GET "/rates/52e063e8416462a2ea060000" for 127.0.0.1 at 2014-01-27 10:34:24 -0700
+Processing by RatesController#show as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5220ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.6790ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.5680ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5450ms
+  Rendered rates/show.html.haml within layouts/backend (4.6ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 27ms (Views: 19.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/backend.css?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/backend.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/spin.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/backend/dashboard.js?body=1" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/assets/spinner_mid.gif" for 127.0.0.1 at 2014-01-27 10:34:25 -0700
+
+
+Started GET "/rates" for 127.0.0.1 at 2014-01-27 10:34:32 -0700
+Processing by RatesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8520ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8010ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.8060ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.8770ms
+  Rendered rates/_lay.html.haml (3.0ms)
+  Rendered rates/index.html.haml within layouts/backend (4.1ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 24ms (Views: 16.2ms)
+
+
+Started GET "/rates/52e063e8416462a2ea050000/edit" for 127.0.0.1 at 2014-01-27 10:34:34 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea050000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5390ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5990ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.6980ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea050000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5900ms
+  Rendered rates/_form.html.haml (5.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.7170ms
+  Rendered rates/_lay.html.haml (2.9ms)
+  Rendered rates/edit.html.haml within layouts/backend (11.0ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 30ms (Views: 22.2ms)
+
+
+Started GET "/rates/52e063e8416462a2ea060000/edit" for 127.0.0.1 at 2014-01-27 10:34:36 -0700
+Processing by RatesController#edit as HTML
+  Parameters: {"id"=>"52e063e8416462a2ea060000"}
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=users selector={"$query"=>{"_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.5780ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=accounts selector={"$query"=>{"user_id"=>BSON::ObjectId('52cf24b14164620feb000000')}, "$orderby"=>{:_id=>1}} flags=[] limit=-1 skip=0 batch_size=nil fields=nil runtime: 0.8050ms
+  MOPED: 127.0.0.1:27017 COMMAND      database=secondhouz_development command={:count=>"properties", :query=>{"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')}} runtime: 0.4870ms
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000'), "_id"=>BSON::ObjectId('52e063e8416462a2ea060000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.5290ms
+  Rendered rates/_form.html.haml (3.3ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=secondhouz_development collection=rates selector={"account_id"=>BSON::ObjectId('52d842c6416462caa9000000')} flags=[] limit=0 skip=0 batch_size=nil fields=nil runtime: 0.6910ms
+  Rendered rates/_lay.html.haml (2.9ms)
+  Rendered rates/edit.html.haml within layouts/backend (8.4ms)
+  Rendered common/_footer.html.haml (0.1ms)
+Completed 200 OK in 29ms (Views: 20.7ms)

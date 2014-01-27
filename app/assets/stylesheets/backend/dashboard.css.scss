@@ -28,7 +28,19 @@ body {
           background-image: none;
         } 
       }
-    }   
+    }  
+    #main_spinner {
+      background: none repeat scroll 0 0 #EEEEEE;
+      border: 6px solid #333333;
+      border-radius: 5px;
+      left: 50%;
+      opacity: 0.8;
+      padding: 10px;
+      position: absolute;
+      top: 160px;
+      z-index: 99;
+      display: none;
+    } 
   }
 
   /* Set the fixed height of the footer here */
