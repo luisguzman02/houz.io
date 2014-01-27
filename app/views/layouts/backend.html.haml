@@ -60,6 +60,9 @@
                 = link_to 'Logout', destroy_user_session_path, :method => :delete
 
       / Begin page content
+      #main_spinner
+        = image_tag('spinner_mid.gif')
+        %center Loading
       #main_content.container      
         - flash.each do |name, msg|
           .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
