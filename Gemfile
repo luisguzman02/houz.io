@@ -36,6 +36,8 @@ gem "haml-rails"
 gem 'geocoder'
 gem 'countries'
 gem 'i18n_country_select'
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -43,7 +45,7 @@ group :doc do
 end
 
 group :assets do
-  gem 'ckeditor'
+  gem 'ckeditor'  
 end
 
 group :development, :test do

@@ -6,8 +6,12 @@
   #rates_content {
     h3 {
       margin-top: 0;
-      color: #a0a0a0;
-      margin-bottom: 15px;
+      margin-bottom: 0;
     }
+  }
+  .date-range-selected > .ui-state-active,
+  .date-range-selected > .ui-state-default {
+     background: none;
+     background-color: lightsteelblue;
   }
 }

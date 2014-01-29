@@ -1,8 +1,3 @@
-ready = ->
-  #document.addEventListener "page:fetch", ->
-  #  $("#main_spinner").show()
-  #document.addEventListener "page:receive", ->
-  #  $("#main_spinner").hide()  
-
-$(document).ready(ready)
-$(document).on('page:load', ready)
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
