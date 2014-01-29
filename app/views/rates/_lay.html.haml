@@ -8,7 +8,7 @@
         %tr{:id => r.id, :class => "#{(@rate.present? && r.id.eql?(@rate.id)) ? 'active' : ''}"}      
           %td= r.type.capitalize
           %td= link_to r.name, edit_rate_path(r)      
-          %td= "#{r.value_type.eql?(:pct) ? '%' : '$'} #{r.value.round}"
+          %td= "#{r.value_type.eql?(:pct) ? '%' : '$'} #{r.value}"
   .col-md-7
     - if content_for? :rate_view
       .panel.panel-default

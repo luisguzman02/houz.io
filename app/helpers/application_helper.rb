@@ -14,4 +14,18 @@ module ApplicationHelper
   def current_account
     current_user.account
   end
+
+  def render_model_errors(model)
+    errors = ''
+    if model.errors.any?
+      h3 = content_tag :h3, "#{pluralize(model.errors.count, "error")} prohibited this property from being saved:"
+      lis = ''
+      model.errors.full_messages.each do |msg|
+        lis << content_tag(:li, msg)
+      end
+      ul = content_tag :ul, lis.html_safe
+      errors = content_tag(:div, (h3 + ul), :class => 'alert alert-danger')
+    end
+    errors
+  end
 end
