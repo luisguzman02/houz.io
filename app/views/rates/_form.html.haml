@@ -1,17 +1,19 @@
 = form_for @rate, :html => {:role => 'form', :class => 'property_form'} do |f|
   - if @rate.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@rate.errors.count, "error")} prohibited this rate from being saved:"
+    .alert.alert-danger
+      %h4 "#{pluralize(@rate.errors.count, "error")} prohibited this rate from being saved:"
       %ul
         - @rate.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
-    = f.label :type
-    = f.select :type, rate_select_options(:types), {}, :class => 'form-control'
-  .form-group
-    = f.label :name
-    = f.text_field :name, :class => 'form-control'  
+    .row
+      .col-md-4
+        = f.label :type
+        = f.select :type, rate_select_options(:types), {}, :class => 'form-control'
+      .col-md-8
+        = f.label :name
+        = f.text_field :name, :class => 'form-control'  
   .form-group
     = f.label 'Value'
     .row
@@ -30,12 +32,18 @@
           = f.label :hold_for_return, 'Hold for further return'
           = f.check_box :hold_for_return
   .form-group
-    .row
-      .col-md-6
-        .checkbox    
-          = f.label :periodically, 'Season Rate'
-          = f.check_box :periodically
+    .checkbox
+      = f.label :seasonable, 'Season Rate'
+      = f.check_box :seasonable
+    = f.hidden_field :start_season, :class => 'form-control'
+    = f.hidden_field :end_season, :class => 'form-control'
+  .row  
+    .col-md-12    
+      .datepicker_range{:style => "#{@rate.seasonable ? '' : 'display: none'}"}
   %hr          
-  .actions
-    = f.submit 'Save', :class => 'btn btn-primary col-md-4'
-    = link_to 'Cancel', rates_path, :class => 'col-md-8'
+  .row
+    .col-md-4
+      = f.submit 'Save', :class => 'btn btn-primary btn-lg col-md-8'
+    .col-md-8
+      - if @rate.persisted?    
+        .pull-right= link_to 'Delete', @rate, :class => 'btn btn-danger', :method => :delete, data: { confirm: 'Are you sure you want to remove this rate?' } 

@@ -1,6 +1,6 @@
 class RatesController < DashboardController
   before_action :set_rate, only: [:show, :edit, :update, :destroy]
-  before_action :only => [:index, :edit, :update] {@rates = current_account.rates }
+  before_action :only => [:index, :edit, :update, :new, :create] {@rates = current_account.rates }
 
   # GET /rates
   # GET /rates.json
@@ -24,8 +24,7 @@ class RatesController < DashboardController
   # POST /rates
   # POST /rates.json
   def create
-    @rate = Rate.new(rate_params)
-
+    @rate = current_account.rates.build rate_params
     respond_to do |format|
       if @rate.save
         format.html { redirect_to rates_path, notice: 'Rate was successfully created.' }
@@ -56,7 +55,7 @@ class RatesController < DashboardController
   def destroy
     @rate.destroy
     respond_to do |format|
-      format.html { redirect_to rates_url }
+      format.html { redirect_to rates_url, notice: 'Rate was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +68,6 @@ class RatesController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rate_params
-      params.require(:rate).permit(:name, :type, :always_apply, :hold_for_return, :value_type, :value, :periodically)
+      params.require(:rate).permit(:name, :type, :always_apply, :hold_for_return, :value_type, :value, :seasonable, :start_season, :end_season)
     end
 end

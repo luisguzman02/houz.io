@@ -9,6 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.datepicker
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require jquery-ui/blitzer
 */
 @import url(http://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro);
 
