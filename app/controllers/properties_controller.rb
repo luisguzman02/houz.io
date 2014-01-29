@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_filter :load_property, :only => [:edit, :rates, :pictures]
+  before_action :set_property, :only => [:edit, :rates, :pictures]
 
   def index
     @properties = current_account.properties.order_by(:created_at => :desc)
@@ -39,7 +39,7 @@ class PropertiesController < DashboardController
 
   private
 
-  def load_property
+  def set_property
     @property = current_account.properties.find(params[:id])
     render :template => "errors/not_found", :status => :not_found unless @property 
   end

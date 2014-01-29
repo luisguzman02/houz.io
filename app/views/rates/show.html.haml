@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @rate.name
+%p
+  %b Type:
+  = @rate.type
+%p
+  %b Always apply:
+  = @rate.always_apply
+%p
+  %b Hold for return:
+  = @rate.hold_for_return
+
+= link_to 'Edit', edit_rate_path(@rate)
+\|
+= link_to 'Back', rates_path

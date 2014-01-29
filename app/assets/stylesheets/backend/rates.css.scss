@@ -1,0 +1,17 @@
+// Place all the styles related to the rates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.rates {
+  #rates_content {
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .date-range-selected > .ui-state-active,
+  .date-range-selected > .ui-state-default {
+     background: none;
+     background-color: lightsteelblue;
+  }
+}

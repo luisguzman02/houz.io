@@ -25,7 +25,7 @@ describe User do
   #optional fields
   it { should have_fields(:title, :nickname, :first_name, :last_name, :email).of_type(String) }
   it { should have_fields(:role).of_type(Symbol).with_default_value_of(:admin) }
-  it { should have_fields(:active).of_type(Boolean).with_default_value_of(true) }
+  it { should have_fields(:active).of_type(Mongoid::Boolean).with_default_value_of(true) }
     
   # relations
   it { should embed_one(:contact).with_autobuild }

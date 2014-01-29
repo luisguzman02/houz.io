@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Secondhouz::Application.config.secret_key_base = 'ba58c2f556768a143961b017f013fb69ebc55e89f1c29f0581a1f91d0302cb9637c554c95867621845c832e19559073bf5675d7d6d642c0bbec05102bbb3aed4'
+Secondhouz::Application.config.secret_key_base = '2f4040c2e937d26348a95e5cadb4b32deb9bbf5e63ad6ce1a370cee511bc1db5c3d48d2569fc4382673f722617f26f40cff78027273055ba6d293b5057563a9f'

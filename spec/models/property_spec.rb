@@ -41,7 +41,7 @@ describe Property do
   it { should have_field(:name).of_type(String) }
   it { should have_field(:unit_type).of_type(Symbol).with_default_value_of(:house) }
   it { should have_field(:description).of_type(String) }
-  it { should have_field(:active).of_type(Boolean).with_default_value_of(true) }
+  it { should have_field(:active).of_type(Mongoid::Boolean).with_default_value_of(true) }
   it { should have_field(:check_in).of_type(Time) }
   it { should have_field(:check_out).of_type(Time) }
   it { should have_field(:directions).of_type(String) }  
@@ -53,7 +53,7 @@ describe Property do
   it { should have_field(:property_size).of_type(String) }
   it { should have_field(:minimum_days).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:num_persons_allowed).of_type(Integer).with_default_value_of(4) }
-  it { should have_field(:pets_allowed).of_type(Boolean).with_default_value_of(true) }
+  it { should have_field(:pets_allowed).of_type(Mongoid::Boolean).with_default_value_of(true) }
   it { should have_field(:amenities).of_type(String) }
 
   it 'should create new property' do

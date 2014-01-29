@@ -1,0 +1,33 @@
+.page-header
+  %h2 
+    Rates
+.row#rates_content
+  .col-md-5    
+    %table.table
+      - @rates.each do |r|
+        %tr{:id => r.id, :class => "#{(@rate.present? && r.id.eql?(@rate.id)) ? 'active' : ''}"}      
+          %td= r.type.capitalize
+          %td= link_to r.name, edit_rate_path(r)      
+          %td= "#{r.value_type.eql?(:pct) ? '%' : '$'} #{r.value.round}"
+  .col-md-7
+    - if content_for? :rate_view
+      .panel.panel-default
+        .panel-heading 
+          .pull-left
+            %h3= "#{@rate.present? && @rate.name.present? ? @rate.name : 'New rate'}"
+          .pull-right
+            .close= link_to 'X', rates_path
+          .clearfix
+        .panel-body             
+          = yield :rate_view
+    - else
+      %center
+        = link_to new_rate_path, :id => '#new_property_btn', :class => 'btn btn-success btn-lg' do
+          %span.glyphicon.glyphicon-plus
+          Add new rate  
+        %br
+        %br
+        OR
+        %br
+        %br
+        Click on a rate name to be able to update or delete a rate. 

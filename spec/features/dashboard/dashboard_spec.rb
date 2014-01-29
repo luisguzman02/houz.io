@@ -25,7 +25,7 @@ describe "backend dasboard", :js => true, :dashboard => true do
   it 'shows unautharized message if user is loggedout' do
     logout(:user)
     visit dashboard_path
-    page.should have_content 'You are not authorized to access this page.'    
+    page.should have_content 'You need to sign in or sign up before continuing'    
   end
 
   it 'redirect to new property page if user does not have any property yet' do
