@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :rates, :pictures]
+  before_action :set_property, :only => [:edit, :update, :rates, :pictures]
 
   def index
     @properties = current_account.properties.order_by(:created_at => :desc)
@@ -20,7 +20,6 @@ class PropertiesController < DashboardController
   end
 
   def update
-    @property = current_account.properties.find(params[:id])
     if @property.save
       redirect_to edit_property_path(@property), :notice => 'Property updated successfully.' 
     else
@@ -35,6 +34,10 @@ class PropertiesController < DashboardController
     else
       redirect_to edit_property_path(@property), :error => 'Something went wrong trying to delete a property. We\'re already taking care of the issue.' 
     end
+  end
+
+  def rates
+
   end
 
   private

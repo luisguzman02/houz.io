@@ -2,5 +2,22 @@
 .panel.panel-primary
   .panel-heading 
     %h4 Rates
-  .panel-body     
-    Hi there
+  .panel-body
+    .col-md-3
+    .col-md-6
+      = form_tag rates_property_path(@property), :method => :put do
+        %table.table
+          %thead
+            %th Type
+            %th Name
+            %th Value
+          %tbody
+            - @property.rates.each do |r|
+              %tr
+                %td= r.type
+                %td= r.name
+                %td
+                  = r.value_type.eql?(:percentage) ? " % " : " $ "
+                  = text_field_tag 'value', r.value
+    .col-md-3
+    

@@ -51,7 +51,7 @@ class Property
   belongs_to :owner, class_name: 'User', inverse_of: :properties
   belongs_to :account
   has_many :reservations
-  has_and_belongs_to_many :rates
+  has_many :property_rates
   has_many :pictures
 
   accepts_nested_attributes_for :contact
@@ -62,7 +62,9 @@ class Property
 
   after_create do |p|
     #add default rates to property
-    p.rates = p.account.rates.where(:always_apply => true)
+    p.account.rates.where(:always_apply => true).each do |r|
+      p.property_rates.build :rate_id => r.id, :value => r.value      
+    end    
     p.save
   end
 

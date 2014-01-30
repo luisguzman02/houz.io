@@ -14,7 +14,7 @@ Secondhouz::Application.routes.draw do
 
   resources :properties do
     member do
-      get :rates
+      match :rates, :via => [:put, :get]
       get :pictures
     end
     collection do
