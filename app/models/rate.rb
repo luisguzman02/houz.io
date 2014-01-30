@@ -19,11 +19,6 @@ class Rate
   validates_inclusion_of :type, :in => lambda { |r| r.class.types }
   validates_inclusion_of :value_type, :in => lambda { |r| r.class.value_types }
 
-  def self.value_types
-    [:amount, :percentage]
-  end
-
-  def self.types
-    [:rent, :adjustment, :rate, :discount, :commision]
-  end
+  def self.value_types; [:amount, :percentage]; end
+  def self.types; [:rent, :adjustment, :rate, :discount, :commision]; end
 end

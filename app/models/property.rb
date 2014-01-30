@@ -52,11 +52,18 @@ class Property
   belongs_to :account
   has_many :reservations
   has_and_belongs_to_many :rates
+  has_many :pictures
 
   accepts_nested_attributes_for :contact
 
   before_validation do |p|    
     p.user = p.account.user unless user
+  end
+
+  after_create do |p|
+    #add default rates to property
+    p.rates = p.account.rates.where(:always_apply => true)
+    p.save
   end
 
   def account_privileges

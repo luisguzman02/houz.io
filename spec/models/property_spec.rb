@@ -71,4 +71,13 @@ describe Property do
     @property.save
     @property.should be_persisted 
   end
+
+  it 'adds default rates after property created' do
+    @acc = FactoryGirl.create(:account)
+    p = @acc.properties.build :name => 'Some house for rental', :description => 'Cool house near the beach'
+    p.save
+    @acc.rates.where(:always_apply => true).each do |r|
+      p.rates.find(r.id).should_not be_nil      
+    end    
+  end
 end
