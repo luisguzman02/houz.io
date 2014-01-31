@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @letter.name
+%p
+  %b Body:
+  = @letter.body
+%p
+  %b Document:
+  = @letter.document
+
+= link_to 'Edit', edit_letter_path(@letter)
+\|
+= link_to 'Back', letters_path
