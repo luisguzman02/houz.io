@@ -6,18 +6,34 @@
     .col-md-3
     .col-md-6
       = form_tag rates_property_path(@property), :method => :put do
-        %table.table
-          %thead
-            %th Type
-            %th Name
-            %th Value
-          %tbody
-            - @property.rates.each do |r|
-              %tr
-                %td= r.type
-                %td= r.name
-                %td
-                  = r.value_type.eql?(:percentage) ? " % " : " $ "
-                  = text_field_tag 'value', r.value
+        .row
+          .col-xs-2 
+            %center 
+              %strong Type
+          .col-xs-6 
+            %center 
+              %strong Name
+          .col-xs-4 
+            %center 
+              %strong Value
+        .row
+          %hr
+        - @property.property_rates.each do |pr|
+          .row.ratelns{:id => "pr_#{pr.id}"}
+            .col-xs-2
+              %center= pr.rate.type.to_s.humanize
+            .col-xs-6
+              %center= pr.rate.name
+            .col-xs-4 
+              .input-group
+                %span.input-group-addon= pr.rate.value_type.eql?(:percentage) ? " % " : " $ "
+                = text_field_tag 'value', pr.value, :class => 'form-control'                
+        .row
+          %hr
+        .row
+          .col-md-4
+          .col-md-4
+            = submit_tag 'Save', :class => 'btn btn-lg btn-success col-md-12'
+          .col-md-4
     .col-md-3
     

@@ -77,7 +77,7 @@ describe Property do
     p = @acc.properties.build :name => 'Some house for rental', :description => 'Cool house near the beach'
     p.save
     @acc.rates.where(:always_apply => true).each do |r|
-      p.property_rates.find_by(:rate_id => r.id).should_not be_nil      
+      PropertyRate.find_by(:property_id => p.id, :rate_id => r.id).should_not be_nil      
     end    
   end
 end

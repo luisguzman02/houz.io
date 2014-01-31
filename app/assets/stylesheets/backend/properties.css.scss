@@ -12,6 +12,16 @@
   }
 }
 
+//property rates
+.properties_rates {
+  hr {
+    margin: 10px 0;
+  }
+  .ratelns {
+    padding: 5px 0;
+  }
+}
+
 //properties form
 .properties_new, .properties_create, .properties_edit, .properties_update {
   #main_content {

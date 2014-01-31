@@ -63,9 +63,8 @@ class Property
   after_create do |p|
     #add default rates to property
     p.account.rates.where(:always_apply => true).each do |r|
-      p.property_rates.build :rate_id => r.id, :value => r.value      
-    end    
-    p.save
+      p.property_rates.create :rate_id => r.id, :value => r.value      
+    end        
   end
 
   def account_privileges
