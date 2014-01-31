@@ -11,6 +11,7 @@ Secondhouz::Application.routes.draw do
 
   resources :users
   resources :rates
+  resources :letters
 
   resources :properties do
     member do
