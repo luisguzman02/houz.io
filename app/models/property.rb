@@ -50,9 +50,9 @@ class Property
   belongs_to :user
   belongs_to :owner, class_name: 'User', inverse_of: :properties
   belongs_to :account
-  has_many :reservations
-  has_many :property_rates
-  has_many :pictures
+  has_many :reservations, :dependent => :destroy 
+  has_many :property_rates, :dependent => :destroy
+  has_many :pictures, :dependent => :destroy
 
   accepts_nested_attributes_for :contact
 
@@ -71,7 +71,16 @@ class Property
     errors.add(:account, 'does not have the enought credits to add more properties') if !account.can_add_properties? && !persisted?
   end
 
+  def set_rates(prs={})
+    prs.each do |k,v|
+      if (pr = property_rates.find(k))
+        pr.value = v
+        pr.save
+      end
+    end
+  end
+
   def self.utypes
     [:house, :condo, :mobile_house]
-  end
+  end  
 end

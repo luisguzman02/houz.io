@@ -79,6 +79,10 @@ describe "Rates", :js => true, :rates => :all do
         page.should have_checked_field 'rate_seasonable'
       end  
     end
+
+    it 'shows properties that includes specific rate' do
+      pending
+    end
   end
 
   it 'deletes a rate' do

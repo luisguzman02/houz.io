@@ -27,6 +27,13 @@ module  BackendHelper
       yield
     end
   end
+
+  def fill_basic_info
+    visit properties_path
+    select :house, :from => 'Property Type'
+    fill_in 'Name', :with => prop_name 
+    fill_in 'Description', :with => prop_desc
+  end
 end
 
 RSpec.configure do |config|

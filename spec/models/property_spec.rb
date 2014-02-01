@@ -19,9 +19,9 @@ describe Property do
   #it { should embed_one(:website_info) }
   it { should embed_many(:payments) }
   it { should accept_nested_attributes_for(:contact) }
-  it { should have_many :reservations }
-  it { should have_many :pictures }
-  it { should have_many(:property_rates) }
+  it { should have_many(:reservations).with_dependent(:destroy) }
+  it { should have_many(:pictures).with_dependent(:destroy) }
+  it { should have_many(:property_rates).with_dependent(:destroy) }
 
   # required fields
   it { should validate_presence_of(:name) }
