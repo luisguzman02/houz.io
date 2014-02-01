@@ -44,7 +44,7 @@ FactoryGirl.define do
   end
   factory :account do
     user { FactoryGirl.create(:user) }
-    ecommerce_plan { FactoryGirl.create(:ecommerce_plan, :owner_free_pack) }
+    ecommerce_plan { EcommercePlan.free || FactoryGirl.create(:ecommerce_plan, :owner_free_pack) }
   end
   factory :user do
     sequence :email do |n|

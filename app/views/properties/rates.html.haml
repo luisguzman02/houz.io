@@ -2,5 +2,39 @@
 .panel.panel-primary
   .panel-heading 
     %h4 Rates
-  .panel-body     
-    Hi there
+  .panel-body
+    .col-md-3
+    .col-md-6
+      = form_tag rates_property_path(@property), :method => :put do
+        .row
+          .col-xs-2 
+            %center 
+              %strong Type
+          .col-xs-6 
+            %center 
+              %strong Name
+          .col-xs-4 
+            %center 
+              %strong Value
+        .row
+          %hr
+        - @property.property_rates.each do |pr|
+          .row.ratelns{:id => "pr_#{pr.rate.id}"}
+            .col-xs-2
+              %center= pr.rate.type.to_s.humanize
+            .col-xs-6
+              %center= link_to pr.rate.name, edit_rate_path(pr.rate)
+            .col-xs-4 
+              .input-group
+                %span.input-group-addon= pr.rate.value_type.eql?(:percentage) ? " % " : " $ "
+                = text_field_tag "property_rates[#{pr.id}]", pr.value, :class => 'form-control'                
+        .row
+          %hr
+        .row
+          .col-xs-8
+            - if request.method.eql? 'POST'
+              %small.text-muted Successfully saved.
+          .col-xs-4
+            = submit_tag 'Save', :class => 'btn btn-lg btn-success col-xs-12'            
+    .col-md-3
+    

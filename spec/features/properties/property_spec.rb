@@ -56,15 +56,8 @@ describe "Properties", :js => true, :prop => :all do
     end
   end
 
-  describe 'adding a property', :prop => :adding do
-    def fill_basic_info
-      select :house, :from => 'Property Type'
-      fill_in 'Name', :with => prop_name 
-      fill_in 'Description', :with => prop_desc
-    end
-
+  describe 'adding a property', :prop => :adding do    
     it 'adds property details' do
-      visit properties_path            
       fill_basic_info
       select '12 PM', :from => 'property[check_in(4i)]'
       select '10 AM', :from => 'property[check_out(4i)]'
@@ -77,7 +70,6 @@ describe "Properties", :js => true, :prop => :all do
     end
 
     it 'should be able to fill all the location details' do
-      visit properties_path            
       fill_basic_info
       select 'United States', :from => 'Country'
       fill_in 'City', :with => 'Seattle'
@@ -88,7 +80,6 @@ describe "Properties", :js => true, :prop => :all do
     end
 
     it 'should be able to fill rooms and amenities' do
-      visit properties_path            
       fill_basic_info      
       fill_in 'Bathrooms', :with => '2'
       fill_in 'Bedrooms', :with => '4'
@@ -113,6 +104,10 @@ describe "Properties", :js => true, :prop => :all do
   end
 
   describe 'managing properties', :prop => :manage do
+    before do
+      open_edit_property_page
+    end
+
     def open_edit_property_page
       create_prop.call 1
       visit properties_path 
@@ -126,32 +121,34 @@ describe "Properties", :js => true, :prop => :all do
     def assert_property_opt(o)
       page.should have_link o
       click_link o
-      within(:xpath, "//div[@id='head_right']/a[@class='btn btn-primary active']") { page.should have_content(o) }
+      within(:xpath, "//div[@id='head_right']/a[@class='btn btn-default active']") { page.should have_content(o) }
     end
 
     it 'should have rates button on property page leading you to proper page' do
-      open_edit_property_page
       assert_property_opt 'Rates'
     end
 
     it 'should have pictures button on property page leading you to proper page' do
-      open_edit_property_page
       assert_property_opt 'Pictures'
     end
 
     it 'successfully updates a property' do
-      open_edit_property_page
       click_on 'Save'
       page.should have_content 'Property updated successfully.'  
     end
 
     it 'removes a property with all its references' do
-      open_edit_property_page
       click_on 'Delete'
-      #double in chrome
+      #sometime needs double accept in chrome, dunno why
       page.driver.browser.switch_to.alert.accept
-      page.driver.browser.switch_to.alert.accept
+      #page.driver.browser.switch_to.alert.accept
       page.should have_content 'New Property'      
+    end
+
+    it 'cancel button takes you to properies page' do
+      click_link 'Cancel'
+      page.should have_content 'Properties'
+      page.should have_link 'New property'
     end
   end
 end

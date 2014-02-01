@@ -40,6 +40,9 @@ gem 'countries'
 gem 'i18n_country_select'
 gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
+gem "rmagick"
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

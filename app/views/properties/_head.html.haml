@@ -6,9 +6,9 @@
         %small= "(Id: #{@property.slug})"
     .col-md-6
       .pull-right#head_right
-        = link_to 'Details', edit_property_path(@property), :id => 'edit_prop_lnk', :class => "btn btn-primary#{action_name.eql?('edit') ? ' active' : ''}"
-        = link_to 'Rates', rates_property_path(@property), :id => 'rat_prop_lnk', :class => "btn btn-primary#{action_name.eql?('rates') ? ' active' : ''}"
-        = link_to 'Pictures', pictures_property_path(@property), :id => 'pic_prop_lnk', :class => "btn btn-primary#{action_name.eql?('pictures') ? ' active' : ''}"     
+        = link_to 'Details', edit_property_path(@property), :id => 'edit_prop_lnk', :class => "btn btn-default#{action_name.eql?('edit') ? ' active' : ''}"
+        = link_to 'Rates', rates_property_path(@property), :id => 'rat_prop_lnk', :class => "btn btn-default#{action_name.eql?('rates') ? ' active' : ''}"
+        = link_to 'Pictures', pictures_property_path(@property), :id => 'pic_prop_lnk', :class => "btn btn-default#{action_name.eql?('pictures') ? ' active' : ''}"     
         = link_to @property, :method => :delete, :id => 'del_prop_lnk', :class => 'btn btn-danger', data: { confirm: 'Are you sure you want to remove this property?' } do
           %span.glyphicon.glyphicon-trash
           Delete 

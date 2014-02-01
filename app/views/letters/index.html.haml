@@ -1,0 +1,23 @@
+%h1 Listing letters
+
+%table
+  %tr
+    %th Name
+    %th Body
+    %th Document
+    %th
+    %th
+    %th
+
+  - @letters.each do |letter|
+    %tr
+      %td= letter.name
+      %td= letter.body
+      %td= letter.document
+      %td= link_to 'Show', letter
+      %td= link_to 'Edit', edit_letter_path(letter)
+      %td= link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Letter', new_letter_path

@@ -19,9 +19,9 @@ describe Property do
   #it { should embed_one(:website_info) }
   it { should embed_many(:payments) }
   it { should accept_nested_attributes_for(:contact) }
-  it { should have_many :reservations }
-  it { should have_many :pictures }
-  it { should have_and_belong_to_many(:rates) }
+  it { should have_many(:reservations).with_dependent(:destroy) }
+  it { should have_many(:pictures).with_dependent(:destroy) }
+  it { should have_many(:property_rates).with_dependent(:destroy) }
 
   # required fields
   it { should validate_presence_of(:name) }
@@ -70,5 +70,14 @@ describe Property do
     @property.user = nil
     @property.save
     @property.should be_persisted 
+  end
+
+  it 'adds default rates after property created' do
+    @acc = FactoryGirl.create(:account)
+    p = @acc.properties.build :name => 'Some house for rental', :description => 'Cool house near the beach'
+    p.save
+    @acc.rates.where(:always_apply => true).each do |r|
+      PropertyRate.find_by(:property_id => p.id, :rate_id => r.id).should_not be_nil      
+    end    
   end
 end

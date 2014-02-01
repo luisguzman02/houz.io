@@ -1,4 +1,4 @@
-.btn {
+.btn-primary, .btn-success, .btn-danger {
   background-image: none;
   border: none;
 }
@@ -9,6 +9,16 @@
     #head_right {
       margin-top: 20px;
     }
+  }
+}
+
+//property rates
+.properties_rates {
+  hr {
+    margin: 10px 0;
+  }
+  .ratelns {
+    padding: 5px 0;
   }
 }
 

@@ -1,0 +1,13 @@
+= form_for @letter do |f|
+  = render_model_errors @letter
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :body
+    = f.text_field :body
+  .field
+    = f.label :document
+    = f.text_field :document
+  .actions
+    = f.submit 'Save'
