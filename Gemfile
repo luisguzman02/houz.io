@@ -67,6 +67,8 @@ group :test do
   gem 'poltergeist'                 # A PhantomJS driver for Capybara
   gem 'selenium-webdriver', '~> 2.35.1'
 end
+
+gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
