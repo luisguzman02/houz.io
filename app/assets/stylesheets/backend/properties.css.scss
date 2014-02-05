@@ -22,6 +22,18 @@
   }
 }
 
+//property pictures
+.properties_pictures {
+  #pic_list {
+    margin-top: 20px;
+    .prop_pic{
+      float: left;
+      margin-right: 10px;
+      height: 210px;
+    }
+  }  
+}
+
 //properties form
 .properties_new, .properties_create, .properties_edit, .properties_update {
   #main_content {

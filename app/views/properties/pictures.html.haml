@@ -2,5 +2,20 @@
 .panel.panel-primary
   .panel-heading 
     %h4 Pictures
-  .panel-body     
-    Hi there
+  .panel-body
+    .row
+      .col-md-12 
+        = form_for :picture, :url => pictures_property_path(@property), :method => :put, :html => {:role => 'form', :multipart => true} do |f| 
+          .form-group
+            .row-fluid          
+              = f.label 'Upload a picture'
+            .row-fluid
+              .pull-left          
+                = f.file_field :picture
+              .pull-left
+                = f.submit 'Upload', :class => 'btn btn-success'   
+    %hr 
+    .row#pic_list
+      .col-md-12
+        = render @property.pictures
+          

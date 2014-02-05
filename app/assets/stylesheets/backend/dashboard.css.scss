@@ -13,6 +13,12 @@ body {
   .page-header {
     margin-top: 20px;
   }
+
+  .clearfix10 {
+    height: 10px;
+    line-height: 10px;
+    clear: both;
+  }
   
   /* Wrapper for page content to push down footer */
   #wrap {

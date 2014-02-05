@@ -3,5 +3,5 @@ class Picture
   include Mongoid::Timestamps
 
   belongs_to :property
-  mount_uploader :image, PictureUploader
+  mount_uploader :picture, PictureUploader
 end

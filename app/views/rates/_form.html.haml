@@ -40,4 +40,4 @@
       = f.submit 'Save', :class => 'btn btn-primary btn-lg col-md-8'
     .col-md-8
       - if @rate.persisted?    
-        .pull-right= link_to 'Delete', @rate, :class => 'danger', :method => :delete, data: { confirm: 'Are you sure you want to remove this rate?' } 
+        .pull-right= link_to 'Delete', @rate, :class => 'text-danger', :method => :delete, data: { confirm: 'Are you sure you want to remove this rate?' } 
