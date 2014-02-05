@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Picture do
-  pending
+  it { should belong_to(:property) }
 end

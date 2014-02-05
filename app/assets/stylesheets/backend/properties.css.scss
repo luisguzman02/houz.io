@@ -61,8 +61,37 @@
 //properties listing
 .properties_index {
   #main_content {
-    #tb_properties {
-      margin-top: 20px;
+    .property_item {
+      width: 49%;
+      float: left;
+      .no_img_placer {
+        height: 76px;
+        margin: 0;
+        padding: 16px 6px;
+        text-align: center;
+        width: 100px;
+        a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    .property_item:nth-child(2n) {
+      margin-right: 15px;
+    }    
+  }
+}
+
+
+
+/* tablets and phones */
+@media (max-width: $screen-sm-max) { 
+.properties_index {
+  #main_content {
+    .property_item {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 10px;
     }
   }
+}
 }

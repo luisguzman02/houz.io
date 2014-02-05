@@ -68,7 +68,7 @@ class Property
   end
 
   def account_privileges
-    errors.add(:account, 'does not have the enought credits to add more properties') if !account.can_add_properties? && !persisted?
+    #errors.add(:account, 'does not have the enought credits to add more properties') if !account.can_add_properties? && !persisted?
   end
 
   def set_rates(prs={})

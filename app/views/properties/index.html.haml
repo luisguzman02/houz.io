@@ -7,11 +7,4 @@
       %span.glyphicon.glyphicon-plus
       New property
   .clearfix
-%table.table.table-striped.table-hover#tb_properties
-  %thead
-    %th Name
-    %th Property type    
-  - @properties.each do |p|
-    %tr{:id => p.id}      
-      %td= link_to p.name, edit_property_path(p)
-      %td= p.unit_type
+= render @properties

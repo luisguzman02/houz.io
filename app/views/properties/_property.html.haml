@@ -1,0 +1,15 @@
+.panel.panel-success.property_item
+  .panel-heading
+    %h3.panel-title
+      = property.name
+      %small= "ID: #{property.slug}"
+  .panel-body
+    - if property.pictures.empty?
+      .no_img_placer.panel.panel-default        
+        = link_to pictures_property_path(property) do
+          .text-muted
+            %span.glyphicon.glyphicon-plus
+            %br
+            Add Pictures
+    - else
+      = image_tag property.pictures.first.picture.url(:thumb)
