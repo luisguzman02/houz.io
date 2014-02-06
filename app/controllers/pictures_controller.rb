@@ -1,4 +1,4 @@
-class PicturesController < ApplicationController
+class PicturesController < DashboardController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
