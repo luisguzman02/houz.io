@@ -34,29 +34,31 @@
               %li{:class => controller_name.eql?('properties') ? 'active' : ''}
                 = link_to 'Properties', properties_path
               %li
-                %a{href: "#contact"} Contact
+                = link_to 'Reservations', reservations_path
               %li.dropdown{:class => ['rates'].include?(controller_name) ? 'active' : ''}
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                  Back-office
+                  Back Office
                   %b.caret
                 %ul.dropdown-menu
                   %li
                     = link_to 'Rates', rates_path
                   %li
-                    %a{href: "#"} Another action
+                    = link_to 'Company Letters', ''
                   %li
-                    %a{href: "#"} Something else here
+                    = link_to 'For Developers', ''
                   %li.divider
-                  %li.dropdown-header Nav header
+                  %li.dropdown-header User Management
                   %li
-                    %a{href: "#"} Separated link
+                    = link_to 'Agents', ''
                   %li
-                    %a{href: "#"} One more separated link
+                    = link_to 'Owners', ''
+                  %li
+                    = link_to 'Tenants', ''
             %ul.nav.navbar-nav.navbar-right
               %li
-                %a{href: "../navbar/"} Default
-              %li
-                %a{href: "./"} Static top
+                = link_to '' do
+                  %span.glyphicon.glyphicon-question-sign
+                  Help
               %li
                 = link_to 'Logout', destroy_user_session_path, :method => :delete
 

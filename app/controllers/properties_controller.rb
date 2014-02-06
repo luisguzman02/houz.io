@@ -40,6 +40,10 @@ class PropertiesController < DashboardController
     @property.set_rates params[:property_rates] if request.method.eql? 'POST'
   end
 
+  def pictures    
+    @property.pictures.create pic_params if request.method.eql? 'POST'
+  end
+
   private
 
   def set_property
@@ -50,6 +54,10 @@ class PropertiesController < DashboardController
   def local_info
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
     {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
+  end
+
+  def pic_params
+    params.require(:picture).permit(:picture)
   end
 
   def property_params
