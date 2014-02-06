@@ -1,4 +1,6 @@
 Secondhouz::Application.routes.draw do  
+  resources :reservations
+
   devise_for :users, :path_names => {:sign_in => 'login'}
 
   devise_scope :user do
@@ -12,11 +14,12 @@ Secondhouz::Application.routes.draw do
   resources :users
   resources :rates
   resources :letters
+  resources :pictures
 
   resources :properties do
     member do
       match :rates, :via => [:put, :get]
-      get :pictures
+      match :pictures, :via => [:put, :get]
     end
     collection do
     end

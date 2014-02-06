@@ -1,0 +1,33 @@
+.panel.panel-success.property_item
+  .panel-heading
+    %h3.panel-title
+      = property.name
+      %small= "ID: #{property.slug}"
+  .panel-body
+    .row
+      .col-xs-4
+        - if property.pictures.empty?
+          .no_img_placer.panel.panel-default        
+            = link_to pictures_property_path(property) do
+              .text-muted
+                %span.glyphicon.glyphicon-plus
+                %br
+                Add Pictures
+        - else
+          = image_tag property.pictures.first.picture.url(:thumb)
+      .col-xs-8
+        .pull-right
+          = link_to edit_property_path(property), :class => "btn btn-warning" do
+            %span.glyphicon.glyphicon-pencil
+            Edit
+          / = link_to '', :class => "btn btn-warning" do
+          /   %span.glyphicon.glyphicon-new-window
+          /   Book
+          = link_to '', :class => "btn btn-warning" do
+            %span.glyphicon.glyphicon-calendar
+            Availability
+        .clearfix10
+        .pull-right
+          .label.label-success Tag 1
+          .label.label-success Tag 2
+          .label.label-success Tag 3

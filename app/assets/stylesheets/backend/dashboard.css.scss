@@ -11,7 +11,13 @@ body {
     font-size: 80%;
   }
   .page-header {
-    margin-top: 20px;
+    margin-top: 10px;
+  }
+
+  .clearfix10 {
+    height: 10px;
+    line-height: 10px;
+    clear: both;
   }
   
   /* Wrapper for page content to push down footer */
