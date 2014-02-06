@@ -1,4 +1,6 @@
 Secondhouz::Application.routes.draw do  
+  resources :reservations
+
   devise_for :users, :path_names => {:sign_in => 'login'}
 
   devise_scope :user do
