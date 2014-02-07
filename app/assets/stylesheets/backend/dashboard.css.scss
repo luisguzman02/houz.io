@@ -19,6 +19,15 @@ body {
     line-height: 10px;
     clear: both;
   }
+
+  .label {
+    a {
+      color: #fff;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
   
   /* Wrapper for page content to push down footer */
   #wrap {

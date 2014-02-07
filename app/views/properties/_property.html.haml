@@ -28,6 +28,5 @@
             Availability
         .clearfix10
         .pull-right
-          .label.label-success Tag 1
-          .label.label-success Tag 2
-          .label.label-success Tag 3
+          - property.tags.each do |t|
+            .label.label-success= link_to t, ''

@@ -83,7 +83,7 @@ FactoryGirl.define do
     tenant { FactoryGirl.create(:user, :tenant) }
   end
   factory :contact do
-    addresses { [FactoryGirl.build(:address)] }
+    address { FactoryGirl.build(:address) }
     phones { [FactoryGirl.build(:phone)] }
     websites { [FactoryGirl.build(:website)] }
     emails { [FactoryGirl.build(:email)] }
