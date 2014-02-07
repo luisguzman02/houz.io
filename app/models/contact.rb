@@ -2,12 +2,12 @@ class Contact
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :addresses
+  embeds_one :address
   embeds_many :phones
   embeds_many :websites
   embeds_many :emails
   embedded_in :contactable, polymorphic: true
-  accepts_nested_attributes_for :addresses, :phones, :websites, :emails
+  accepts_nested_attributes_for :address, :phones, :websites, :emails
 end
 
 class Address

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.datepicker
 //= require jquery.ui.core
+//= require jquery.tokeninput
 //= require turbolinks
 //= require_self
 //= require bootstrap

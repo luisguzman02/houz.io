@@ -1,0 +1,19 @@
+ready_properties = ->
+  $("#property_tags").tokenInput "/properties/tags.json",
+    crossDomain: false
+    prePopulate: $("#property_tags").data("pre")
+    theme: "facebook"
+    preventDuplicates: true
+    noResultsText: "Press enter to add the tag."
+    hintText: "Type your tag"
+    minChars: 2
+
+
+  $("#token-input-property_tags").on "keypress", (e) ->    
+    if e.which is 13 and @value isnt ""
+      e.preventDefault()
+      $("#property_tags").tokenInput("add", {id: @value, name: @value})         
+
+
+$(document).ready(ready_properties)
+$(document).on('page:load', ready_properties)  

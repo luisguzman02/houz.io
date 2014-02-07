@@ -19,7 +19,7 @@ class Property
   #location
   embeds_one :contact, as: :contactable, autobuild: true  
   field :directions, type: String
-  field :tags, type: Array
+  field :tags, type: Array, default: []
 
   #rooms
   field :bathrooms, type: Integer, default: 1
@@ -78,6 +78,11 @@ class Property
         pr.save
       end
     end
+  end
+
+  def tags_token_input
+    return [] if tags.nil?
+    tags.map! { |t| {:id => t, :name => t} }.to_json    
   end
 
   def self.utypes
