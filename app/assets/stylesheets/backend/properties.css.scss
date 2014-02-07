@@ -34,10 +34,33 @@
   }  
 }
 
+//Token Input
+.token-input-dropdown-facebook,
+ul.token-input-list-facebook,
+li.token-input-token-facebook {
+  font-size: 16px;
+  font-family:  "Source Sans Pro",​sans-serif;
+}
+
 //properties form
 .properties_new, .properties_create, .properties_edit, .properties_update {
   #main_content {
     .property_form {
+      ul.token-input-list-facebook {        
+        background-color: #FFFFFF;
+        background-image: none;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #555555;
+        display: block;        
+        height: 36px;
+        line-height: 1.42857;
+        padding: 6px 12px;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        vertical-align: middle;
+        width: 100%;
+      }
       .prop_sect {
         .row:first-child {
           margin-bottom: 10px;

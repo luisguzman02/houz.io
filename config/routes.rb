@@ -22,6 +22,7 @@ Secondhouz::Application.routes.draw do
       match :pictures, :via => [:put, :get]
     end
     collection do
+      get :tags
     end
   end
 

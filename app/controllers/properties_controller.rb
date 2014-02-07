@@ -44,6 +44,20 @@ class PropertiesController < DashboardController
     @property.pictures.create pic_params if request.method.eql? 'POST'
   end
 
+  def tags    
+    respond_to do |format|
+      format.html
+      format.json { 
+        re = /#{Regexp.escape(params[:q])}/i
+        tags = current_account.properties.only(:tags).where(:tags.ne => nil).map {|p| p.tags }
+        tags.flatten!
+        tags = tags.grep re
+        tags.map! { |t| {:id => t, :name => t} }
+        render :json => tags
+      }
+    end    
+  end
+
   private
 
   def set_property

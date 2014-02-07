@@ -34,6 +34,7 @@ $navbar-default-toggle-hover-bg: #d35400;
 $navbar-default-toggle-border-color: #d35400;
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "token-input-facebook";
 @import "./backend/dashboard";
 @import "./backend/properties";
 @import "./backend/rates";

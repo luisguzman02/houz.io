@@ -80,6 +80,11 @@ class Property
     end
   end
 
+  def tags_token_input
+    return [] if tags.nil?
+    tags.map! { |t| {:id => t, :name => t} }.to_json    
+  end
+
   def self.utypes
     [:house, :condo, :mobile_house]
   end  

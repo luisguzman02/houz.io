@@ -126,6 +126,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-tokeninput-rails (1.6.0)
     jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
     jquery-ui-themes (0.0.11)
@@ -272,6 +273,7 @@ DEPENDENCIES
   i18n_country_select
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-tokeninput-rails
   jquery-ui-rails
   jquery-ui-themes
   mongoid!
