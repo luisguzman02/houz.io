@@ -35,11 +35,14 @@
 }
 
 //Token Input
-.token-input-dropdown-facebook,
+div.token-input-dropdown-facebook{
+  font-size: 12px;  
+}
 ul.token-input-list-facebook,
 li.token-input-token-facebook {
   font-size: 16px;
   font-family:  "Source Sans Pro",​sans-serif;
+  font-weight: normal;
 }
 
 //properties form

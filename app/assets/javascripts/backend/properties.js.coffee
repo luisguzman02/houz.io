@@ -10,9 +10,9 @@ ready_properties = ->
 
 
   $("#token-input-property_tags").on "keypress", (e) ->    
-    if e.which is 13  
+    if e.which is 13 and @value isnt ""
       e.preventDefault()
-      $("#property_tags").tokenInput("add", {id: @.value, name: @.value})         
+      $("#property_tags").tokenInput("add", {id: @value, name: @value})         
 
 
 $(document).ready(ready_properties)

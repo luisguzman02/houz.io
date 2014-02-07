@@ -2,13 +2,13 @@
   .col-md-12
     = render_model_errors @property
     = form_for @property, :html => {:role => 'form', :class => 'property_form'} do |f|
-      .panel.panel-primary
+      .panel.panel-success
         .panel-heading 
           %h4 Details
         .panel-body     
           .form-group
             = f.label :unit_type, 'Property Type'
-            = f.select :unit_type, Property.utypes, {}, :class => 'form-control'
+            = f.select :unit_type, property_types_select_options, {}, :class => 'form-control'
           .form-group
             = f.label :name
             = f.text_field :name, :class => 'form-control', :placeholder => 'e.g. "Rocky Point Blue House"'
@@ -17,7 +17,7 @@
             = f.text_area :description, :class => 'form-control'  
           .form-group
             = f.label :tags
-            = f.text_field :tags, :class => 'form-control', :placeholder => 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"', 'data-pre' => @property.tags_token_input         
+            = f.text_field :tags, :class => 'form-control', :placeholder => 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"', 'data-pre' => @property.tags_token_input                   
           .panel.panel-default#rental_details
             .panel-heading 
               %strong Rental details
@@ -58,7 +58,7 @@
               %strong Location
             .panel-body                
               = f.fields_for :contact do |c|
-                = c.fields_for :addresses do |a|
+                = c.fields_for :address do |a|
                   .row
                     .col-md-3
                       = a.label :country
@@ -103,8 +103,8 @@
                 .col-md-6
                   = f.label :other_amenities
                   = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
-      .pull-right
-        %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
-          %span.glyphicon.glyphicon-floppy-disk
-          Save
-        = link_to 'Cancel', properties_path, :class => 'btn btn-lg'
+          = link_to 'Delete this property',  @property, :method => :delete, :id => 'del_prop_lnk', :class => 'text-danger', data: { confirm: 'Are you sure you want to remove this property?' }  
+          .pull-right
+            %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
+              %span.glyphicon.glyphicon-floppy-disk
+              Save        
