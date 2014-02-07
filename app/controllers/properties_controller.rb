@@ -7,7 +7,7 @@ class PropertiesController < DashboardController
 
   def new    
     @property = current_account.properties.build   
-    @property.contact.addresses.build(local_info)    
+    @property.contact.build_address(local_info)    
   end
 
   def create
@@ -20,7 +20,7 @@ class PropertiesController < DashboardController
   end
 
   def update
-    if @property.save
+    if @property.update(property_params)
       redirect_to edit_property_path(@property), :notice => 'Property updated successfully.' 
     else
       render :action => 'edit'
@@ -82,8 +82,9 @@ class PropertiesController < DashboardController
       params[:property].reject! {|k| k.include? 'check'}
       params[:property].merge!({:check_in => check_in, :check_out => check_out})
     end
-    params.require(:property).permit(:name, :unit_type, :description, :check_in, :check_out, :property_size, :minimum_days, 
+    params[:property][:tags] = params[:property][:tags].split(',')    
+    params.require(:property).permit(:name, :unit_type, :description, { tags: [] }, :check_in, :check_out, :property_size, :minimum_days, 
       :num_persons_allowed, :pets_allowed, :directions, :bedrooms, :bathrooms, :garages, :kitchen, :bedding, :amenities, 
-      :contact_attributes => {:addresses_attributes =>  [:country, :city, :state, :zip_code, :area] })
+      :contact_attributes => {:address_attributes =>  [:country, :city, :state, :zip_code, :area] })
   end
 end
