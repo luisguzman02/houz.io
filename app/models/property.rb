@@ -19,7 +19,7 @@ class Property
   #location
   embeds_one :contact, as: :contactable, autobuild: true  
   field :directions, type: String
-  field :tags, type: Array
+  field :tags, type: Array, default: []
 
   #rooms
   field :bathrooms, type: Integer, default: 1
