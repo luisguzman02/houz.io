@@ -4,9 +4,13 @@
 -------------------------------------------------- */
 html,
 body {
+  background: image-url("bg_stripe.png")repeat; 
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
 
+  h1,h2,h3,h4{
+    font-family: $font-family-serif;    
+  }
   code {
     font-size: 80%;
   }
@@ -28,6 +32,11 @@ body {
       text-decoration: none;
     }
   }
+
+  .btn-primary, .btn-success, .btn-danger, .btn-warning {
+    background-image: none;
+    border: none;
+  }
   
   /* Wrapper for page content to push down footer */
   #wrap {
@@ -44,6 +53,18 @@ body {
         } 
       }
     }  
+    #main_content {
+      background-color: #fff;
+      border-radius: 5px;
+      border: 1px solid #eee;
+      padding-bottom: 20px;
+      .alert {
+        margin-top: 20px;
+      }
+      #head_right {
+        margin-top: 20px;
+      }
+    }
     #main_spinner {
       background: none repeat scroll 0 0 #EEEEEE;
       border: 6px solid #333333;
@@ -61,7 +82,7 @@ body {
   /* Set the fixed height of the footer here */
   #footer {
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #0f0f0f;
     .container {
       padding-left: 15px;
       padding-right: 15px;      
