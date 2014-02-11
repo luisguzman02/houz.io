@@ -51,7 +51,7 @@ class Property
   belongs_to :owner, class_name: 'User', inverse_of: :properties
   belongs_to :account
   has_many :reservations, :dependent => :destroy 
-  has_many :property_rates, :dependent => :destroy
+  embeds_many :rates, :as => :rateable
   has_many :pictures, :dependent => :destroy
 
   accepts_nested_attributes_for :contact
@@ -60,10 +60,10 @@ class Property
     p.user = p.account.user unless user
   end
 
-  after_create do |p|
+  after_validation do |p|
     #add default rates to property
     p.account.rates.where(:always_apply => true).each do |r|
-      p.property_rates.create :rate_id => r.id, :value => r.value      
+      p.rates << r   
     end        
   end
 
@@ -73,9 +73,9 @@ class Property
 
   def set_rates(prs={})
     prs.each do |k,v|
-      if (pr = property_rates.find(k))
-        pr.value = v
-        pr.save
+      if (pr = rates.find(k))
+        r.value = v
+        r.save
       end
     end
   end
@@ -85,7 +85,23 @@ class Property
     tags.map! { |t| {:id => t, :name => t} }.to_json    
   end
 
+  def check_availability(args)
+    s = Date.parse(args[:check_in]).beginning_of_day
+    e = Date.parse(args[:check_out]).end_of_day    
+    reservations.where(:check_in.gte => s, :check_in.lt => s).and({:check_out.gte => e},{ :check_out.lt => e}).count == 0    
+  end
+
+  def rates_by_day(ci,co)
+    ci = Date.parse(ci)
+    co = Date.parse(co)
+    r = []
+    ci.upto(co-1) do |d|
+
+      r << [d, ]
+    end
+  end
+
   def self.utypes
     [:house, :condo, :mobile_house]
-  end  
+  end    
 end
