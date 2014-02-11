@@ -1,5 +1,6 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures]
+  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail]
+  respond_to :json, :only => :booking_detail
 
   def index
     @properties = current_account.properties.order_by(:created_at => :desc)
@@ -56,6 +57,16 @@ class PropertiesController < DashboardController
         render :json => tags
       }
     end    
+  end
+
+  def booking_detail
+    if @property.check_availability(params)
+      bd = {
+        :property => @property,
+        :rates => @property.rates_by_day(params[:check_in], params[:check_out])
+      }
+    end
+    render :json => bd
   end
 
   private

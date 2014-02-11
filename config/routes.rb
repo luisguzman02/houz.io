@@ -13,12 +13,16 @@ Secondhouz::Application.routes.draw do
   resources :rates
   resources :letters
   resources :pictures
-  resources :reservations
+
+  resources :reservations do
+
+  end
 
   resources :properties do
     member do
       match :rates, :via => [:put, :get]
       match :pictures, :via => [:put, :get]
+      get :booking_detail
     end
     collection do
       get :tags

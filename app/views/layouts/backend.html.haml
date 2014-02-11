@@ -16,7 +16,12 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   %body{:class => "#{controller.controller_name} #{controller.controller_name}_#{controller.action_name}"}
-    / Wrap all page content here
+    #blackout
+    #main_spinner
+      = image_tag('spinner_lg.gif')
+      %center Loading
+    #spinner.hide
+      %center= image_tag('spinner_mid.gif')      
     #wrap
       .navbar.navbar-default.navbar-static-top{role: "navigation"}
         .container
@@ -60,12 +65,7 @@
                   %span.glyphicon.glyphicon-question-sign
                   Help
               %li
-                = link_to 'Logout', destroy_user_session_path, :method => :delete
-
-      / Begin page content
-      #main_spinner
-        = image_tag('spinner_mid.gif')
-        %center Loading
+                = link_to 'Logout', destroy_user_session_path, :method => :delete            
       #main_content.container      
         - flash.each do |name, msg|
           .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}

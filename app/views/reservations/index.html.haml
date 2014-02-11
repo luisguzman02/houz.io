@@ -6,45 +6,6 @@
     = link_to '#', :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
       %span.glyphicon.glyphicon-plus
       New Reservation
-    #inquiery_booking.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
-      = form_tag '', :id => 'inquiery_booking_form', :role => 'form' do |f|
-        .modal-dialog
-          .modal-content
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-              %h4#myModalLabel.modal-title New Reservation
-            .modal-body    
-              .row
-                .col-md-12
-                  .form-group
-                    = label_tag :property                    
-                    = select_tag :site_type, options_for_select(account_properties_select_options), :class => 'form-control'      
-              .row#date_range_icon
-                .col-md-6
-                  .form-group            
-                    = label_tag :check_in   
-                    .input-group                 
-                      = text_field_tag :check_in, '', :class => 'form-control'
-                      %a.input-group-addon{:trigger => :check_in, :href => '#'}
-                        %span.glyphicon.glyphicon-calendar
-                .col-md-6
-                  = label_tag :check_out  
-                  .input-group                
-                    = text_field_tag :check_out, '', :class => 'form-control'
-                    %a.input-group-addon{:trigger => :check_out, :href => '#'}
-                      %span.glyphicon.glyphicon-calendar
-              .row
-                .col-md-6
-                  .form-group
-                    = label_tag :staying
-                    .input-group                
-                      = text_field_tag :staying, '', :class => 'form-control'
-                      %span.input-group-addon Nights                      
-              %hr/
-              %h4 Booking Details
-              %p Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-            .modal-footer
-              %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-              %button.btn.btn-primary{type: "button"} Book
+    = render 'booking_popup'
           
   .clearfix

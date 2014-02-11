@@ -4,6 +4,6 @@ module PropertiesHelper
   end
 
   def account_properties_select_options
-    current_account.properties.map! {|p| [p.name, p.id]}
+    current_account.properties.where(:active => true).map! {|p| [p.name, p.id]}
   end  
 end
