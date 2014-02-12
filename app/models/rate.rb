@@ -12,10 +12,9 @@ class Rate
   field :start_season, type: Date
   field :end_season, type: Date
 	
-  belongs_to :account
-  has_and_belongs_to_many :properties
+  embedded_in :rateable, polymorphic: true
 
-  validates_presence_of :name, :type, :account  
+  validates_presence_of :name, :type
   validates_inclusion_of :type, :in => lambda { |r| r.class.types }
   validates_inclusion_of :value_type, :in => lambda { |r| r.class.value_types }
 

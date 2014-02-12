@@ -56,4 +56,7 @@ class User
   validates_length_of :password, :within => 6..128
   validates_inclusion_of :role, :in => [:owner, :tenant, :agent, :admin, :master]
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

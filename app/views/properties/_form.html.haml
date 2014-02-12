@@ -2,9 +2,9 @@
   .col-md-12
     = render_model_errors @property
     = form_for @property, :html => {:role => 'form', :class => 'property_form'} do |f|
-      .panel.panel-success
+      .panel.panel-default
         .panel-heading 
-          %h4 Details
+          %strong Details
         .panel-body     
           .form-group
             = f.label :unit_type, 'Property Type'
@@ -18,93 +18,93 @@
           .form-group
             = f.label :tags
             = f.text_field :tags, :class => 'form-control', :placeholder => 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"', 'data-pre' => @property.tags_token_input                   
-          .panel.panel-default#rental_details
-            .panel-heading 
-              %strong Rental details
-            .panel-body
+      .panel.panel-default#rental_details
+        .panel-heading 
+          %strong Rental details
+        .panel-body
+          .row
+            .col-md-3
+              .form-group.time_select_group              
+                = f.label :check_in
+                %br
+                = f.time_select :check_in, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 12), :simple_time_select => true}, {:class => 'form-control' }
+            .col-md-3.time_select_group
+              = f.label :check_out
+              %br
+              = f.time_select :check_out, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 11, :min => 15)}, {:class => 'form-control' }
+            .col-md-3
+              = f.label :minimum_days, 'Minimum stay'
+              .input-group
+                = f.text_field :minimum_days, :class => 'form-control'
+                %span.input-group-addon nights
+            .col-md-3    
+              = f.label :property_size
+              .input-group
+                = f.text_field :property_size, :class => 'form-control'
+                %span.input-group-addon SQ M.
+          .row
+            .col-md-3
+              = f.label :num_persons_allowed
+              = f.text_field :num_persons_allowed, :class => 'form-control'
+            .col-md-3
+              .checkbox
+                %label
+                  = f.check_box :pets_allowed
+                  Pets allowed
+            .col-md-3
+            .col-md-3
+      .panel.panel-default.prop_sect
+        .panel-heading 
+          %strong Location
+        .panel-body                
+          = f.fields_for :contact do |c|
+            = c.fields_for :address do |a|
               .row
                 .col-md-3
-                  .form-group.time_select_group              
-                    = f.label :check_in
-                    %br
-                    = f.time_select :check_in, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 12), :simple_time_select => true}, {:class => 'form-control' }
-                .col-md-3.time_select_group
-                  = f.label :check_out
-                  %br
-                  = f.time_select :check_out, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 11, :min => 15)}, {:class => 'form-control' }
+                  = a.label :country
+                  = a.country_code_select :country, [], {}, {:class => 'form-control'}
                 .col-md-3
-                  = f.label :minimum_days, 'Minimum stay'
-                  .input-group
-                    = f.text_field :minimum_days, :class => 'form-control'
-                    %span.input-group-addon nights
-                .col-md-3    
-                  = f.label :property_size
-                  .input-group
-                    = f.text_field :property_size, :class => 'form-control'
-                    %span.input-group-addon SQ M.
-              .row
+                  = a.label :city
+                  = a.text_field :city, :class => 'form-control'   
                 .col-md-3
-                  = f.label :num_persons_allowed
-                  = f.text_field :num_persons_allowed, :class => 'form-control'
+                  = a.label :state
+                  = a.text_field :state, :class => 'form-control'   
                 .col-md-3
-                  .checkbox
-                    %label
-                      = f.check_box :pets_allowed
-                      Pets allowed
-                .col-md-3
-                .col-md-3
-          .panel.panel-default.prop_sect
-            .panel-heading 
-              %strong Location
-            .panel-body                
-              = f.fields_for :contact do |c|
-                = c.fields_for :address do |a|
-                  .row
-                    .col-md-3
-                      = a.label :country
-                      = a.country_code_select :country, [], {}, {:class => 'form-control'}
-                    .col-md-3
-                      = a.label :city
-                      = a.text_field :city, :class => 'form-control'   
-                    .col-md-3
-                      = a.label :state
-                      = a.text_field :state, :class => 'form-control'   
-                    .col-md-3
-                      = a.label :zip_code
-                      = a.text_field :zip_code, :class => 'form-control' 
-                  .row
-                    .col-md-6
-                      = a.label :area
-                      = a.text_field :area, :class => 'form-control', :placeholder => 'e.g. "Downtown",  "Lion\'s Gate", etc.'
-                    .col-md-6
-                      = f.label :directions
-                      = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
-          .panel.panel-default.prop_sect
-            .panel-heading 
-              %strong Amenities
-            .panel-body                              
-              .row
-                .col-md-3
-                  = f.label :bedrooms
-                  = f.text_field :bedrooms,:class => 'form-control'
-                .col-md-3
-                  = f.label :bathrooms
-                  = f.text_field :bathrooms, :class => 'form-control'   
-                .col-md-3
-                  = f.label :garages
-                  = f.text_field :garages, :class => 'form-control'   
-                .col-md-3
-                  = f.label :kitchen
-                  = f.text_field :kitchen, :class => 'form-control' 
+                  = a.label :zip_code
+                  = a.text_field :zip_code, :class => 'form-control' 
               .row
                 .col-md-6
-                  = f.label :bedding
-                  = f.text_field :bedding, :class => 'form-control', :placeholder => 'e.g. "2 Kings, 1 Queen, 1 Individual"'
+                  = a.label :area
+                  = a.text_field :area, :class => 'form-control', :placeholder => 'e.g. "Downtown",  "Lion\'s Gate", etc.'
                 .col-md-6
-                  = f.label :other_amenities
-                  = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
-          = link_to 'Delete this property',  @property, :method => :delete, :id => 'del_prop_lnk', :class => 'text-danger', data: { confirm: 'Are you sure you want to remove this property?' }  
-          .pull-right
-            %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
-              %span.glyphicon.glyphicon-floppy-disk
-              Save        
+                  = f.label :directions
+                  = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
+      .panel.panel-default.prop_sect
+        .panel-heading 
+          %strong Amenities
+        .panel-body                              
+          .row
+            .col-md-3
+              = f.label :bedrooms
+              = f.text_field :bedrooms,:class => 'form-control'
+            .col-md-3
+              = f.label :bathrooms
+              = f.text_field :bathrooms, :class => 'form-control'   
+            .col-md-3
+              = f.label :garages
+              = f.text_field :garages, :class => 'form-control'   
+            .col-md-3
+              = f.label :kitchen
+              = f.text_field :kitchen, :class => 'form-control' 
+          .row
+            .col-md-6
+              = f.label :bedding
+              = f.text_field :bedding, :class => 'form-control', :placeholder => 'e.g. "2 Kings, 1 Queen, 1 Individual"'
+            .col-md-6
+              = f.label :other_amenities
+              = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
+      = link_to 'Delete this property',  @property, :method => :delete, :id => 'del_prop_lnk', :class => 'text-danger', data: { confirm: 'Are you sure you want to remove this property?' }  if @property.persisted?
+      .pull-right
+        %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
+          %span.glyphicon.glyphicon-floppy-disk
+          Save        

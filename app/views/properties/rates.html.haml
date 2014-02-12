@@ -18,16 +18,16 @@
               %strong Value
         .row
           %hr
-        - @property.property_rates.each do |pr|
-          .row.ratelns{:id => "pr_#{pr.rate.id}"}
+        - @property.rates.each do |r|
+          .row.ratelns{:id => "r_#{r.id}"}
             .col-xs-2
-              %center= pr.rate.type.to_s.humanize
+              %center= r.type.to_s.humanize
             .col-xs-6
-              %center= link_to pr.rate.name, edit_rate_path(pr.rate)
+              %center= link_to r.name, ''
             .col-xs-4 
               .input-group
-                %span.input-group-addon= pr.rate.value_type.eql?(:percentage) ? " % " : " $ "
-                = text_field_tag "property_rates[#{pr.id}]", pr.value, :class => 'form-control'                
+                %span.input-group-addon= r.value_type.eql?(:percentage) ? " % " : " $ "
+                = text_field_tag "rates[#{r.id}]", r.value, :class => 'form-control'                
         .row
           %hr
         .row

@@ -9,8 +9,4 @@ class EcommercePlan
 
   validates_presence_of :name, :price, :description, :num_items_allowed
   validates_uniqueness_of :name
-
-  def self.free
-    self.find_by(:price => 0)
-  end
 end

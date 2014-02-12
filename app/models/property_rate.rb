@@ -3,7 +3,6 @@ class PropertyRate
   include Mongoid::Timestamps
 
   field :value
-
-  belongs_to :rate
-  belongs_to :property
+  belongs_to :rate  
+  embedded_in :contact
 end

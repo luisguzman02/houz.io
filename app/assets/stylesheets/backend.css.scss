@@ -14,10 +14,10 @@
  *= require jquery.ui.theme
  *= require jquery-ui/blitzer
 */
-@import url(http://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Lato|Source+Sans+Pro|Montserrat|);
 
 $font-family-sans-serif : 'Source Sans Pro', sans-serif;
-$font-family-serif : "Lato", "Open Sans", Helvetica, sans-serif;
+$font-family-serif : "Montserrat", "Lato", sans-serif;
 $font-size-base : 16px;
 
 $navbar-default-bg : #e67e22;

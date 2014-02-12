@@ -7,18 +7,23 @@ Secondhouz::Application.routes.draw do
 
   root to: "home#index"
   get 'welcome/plans' => 'home#welcome_plans'
-  get 'dashboard' => 'dashboard#index'
+  get 'upgrade' => 'home#upgrade'
+  get 'dashboard' => 'dashboard#index'  
 
   resources :users
   resources :rates
   resources :letters
   resources :pictures
-  resources :reservations
+
+  resources :reservations do
+
+  end
 
   resources :properties do
     member do
       match :rates, :via => [:put, :get]
       match :pictures, :via => [:put, :get]
+      get :booking_detail
     end
     collection do
       get :tags

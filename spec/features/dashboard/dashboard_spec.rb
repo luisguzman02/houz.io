@@ -42,7 +42,8 @@ describe "backend dasboard", :js => true, :dashboard => true do
     page.should have_content 'Please choose the option that best suits to your needs and start using Secondhouz.'
   end
 
-  it 'shows current plan' do
+  it 'shows current plan or 14 days trial period' do
+    binding.pry
     create_prop.call
     visit dashboard_path
     page.should have_content @acc.ecommerce_plan.name

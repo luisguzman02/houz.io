@@ -53,7 +53,7 @@
 
     - if content_for? :jumbotron
       = yield :jumbotron
-
+    
     #main_content.container
       - flash.each do |name, msg|
         .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
