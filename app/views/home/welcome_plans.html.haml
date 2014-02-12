@@ -1,61 +1,21 @@
-.page-header 
-  %h1 
-    Welcome to SecondHouz!    
-.lead
-  Please choose the option that best suits to your needs and start using Secondhouz.
-  If you have any questions don't hesitate to contact our support team
-  = succeed "." do
-    = link_to 'here', ''
-.cointaner
-  .row
-    .col-md-6#free_plan
-      .panel.panel-default  
-        .panel-body
-          %p
-            .lead
-              %strong 1. Basic Plan 
-              %small (Free)
-            %table.table
-              %tr
-                %td 1 Free Property
-              %tr
-                %td Complete access to all the reservation's system features
-              %tr
-                %td Rental history
-              %tr
-                %td Availability chart              
-              %tr
-                %td Back-end booking system
-              %tr
-                %td Upgrade to a Premium Plan any time you want.
-          .row
-            .col-md-4
-            = link_to 'Start Now', welcome_plans_path(:o => :free), :class => 'button btn btn-primary btn-lg col-md-4'
-            .col-md-4
-    .col-md-6#premium_plan
-      .well
-        %p
-          .lead
-            %strong 2. Premium Plan 
-            %small (start at $4.99/month)
-          %table.table
-            %tr
-              %td All of the free plan features.
-            %tr
-              %td Up to 100 Properties
-            %tr
-              %td Manage multiple property owners
-            %tr
-              %td Owner Login
-            %tr
-              %td Easily configurable seasonal rates.
-            %tr
-              %td Company letters (Rental Agreement, Confirmation letter, Payment Receipts)
-            %tr
-              %td Properties Search            
-        .row
-          .col-md-4
-          = link_to 'See Prices', '/#pricing', :class => 'button btn btn-primary btn-lg col-md-4'
-          .col-md-4
-        .clearfix
-      
+.row
+  .col-md-3
+  .col-md-6
+    .page-header 
+      %h1 
+        Welcome to SecondHouz!    
+    .lead
+      %p
+        = "Hi #{current_user.full_name},"
+      %br  
+      %p
+        Your 14-day free trial start now.
+        Add a new property and discoover all the awesome features Secondhouz have for your vacational rental needs.
+      %p
+        If you have any questions don't hesitate to contact our
+        = succeed "." do
+          = link_to 'support team', ''
+      %br
+      %p
+        %center= link_to 'Create new Property', welcome_plans_path(:o => :trial), :class => 'button btn btn-success btn-lg'
+  .col-md-3

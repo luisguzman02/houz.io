@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     redirect_uri = dashboard_path
-    redirect_uri = welcome_plans_path if resource.account.nil?
+    #redirect_uri = welcome_plans_path if resource.account.nil?
     redirect_uri
   end
 

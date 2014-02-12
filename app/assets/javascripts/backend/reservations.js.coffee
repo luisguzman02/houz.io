@@ -24,7 +24,7 @@ load_inquiery_booking_property = ->
   if $('#check_in').val() isnt '' and $('#check_in').val() isnt ''
     $('#inquiery_booking_form #booking_info').loading()
 
-    $.getJSON '', _params, (data) ->
+    # $.getJSON '', _params, (data) ->
 
 $(document).ready(ready_reservations)
 $(document).on('page:load', ready_reservations)

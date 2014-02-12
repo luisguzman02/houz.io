@@ -7,7 +7,8 @@ Secondhouz::Application.routes.draw do
 
   root to: "home#index"
   get 'welcome/plans' => 'home#welcome_plans'
-  get 'dashboard' => 'dashboard#index'
+  get 'upgrade' => 'home#upgrade'
+  get 'dashboard' => 'dashboard#index'  
 
   resources :users
   resources :rates

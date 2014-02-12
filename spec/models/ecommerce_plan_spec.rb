@@ -3,8 +3,7 @@ require 'spec_helper'
 describe EcommercePlan do
   
   before do
-    @ecommerce_plan_free = FactoryGirl.create(:ecommerce_plan, :owner_free_pack)
-    @plan_owner_plus = FactoryGirl.create(:ecommerce_plan, :owner_plus_pack)
+    @basic_pack = FactoryGirl.create(:ecommerce_plan, :basic_pack)
     @agency_pack = FactoryGirl.create(:ecommerce_plan, :agency_pack)
     @unlimited_pack = FactoryGirl.create(:ecommerce_plan, :unlimited_pack)
   end
@@ -27,17 +26,10 @@ describe EcommercePlan do
   it { should have_field(:price).of_type(Float) }
 
   it 'successfully creates a new ecommerce plan' do
-    @ecommerce_plan_free.should be_persisted
+    @basic_pack.should be_persisted
   end
 
-  it 'should have 4 ecommerce plans created by default' do
-    EcommercePlan.all.count.should eql(4)
-  end
-
-  it 'returns free plan' do
-    free = EcommercePlan.free
-    free.name.should eq('Free')
-    free.num_items_allowed.should eq(1)
-    free.price.should eq(0)
+  it 'should have 3 ecommerce plans created by default' do
+    EcommercePlan.all.count.should eql(3)
   end
 end

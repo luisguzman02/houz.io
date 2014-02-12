@@ -5,22 +5,10 @@ FactoryGirl.define do
     account { FactoryGirl.build(:account) }    
   end
   factory :ecommerce_plan do
-    trait :owner_free_pack do
-      name 'Free'
-      description '1 free property'
-      num_items_allowed 1
-      price 0 
-    end
-    trait :owner_plus_pack do
+    trait :basic_pack do
       name 'Property Owner Plus - 5 Properties Pack'
       description 'Administer up to 5 properties 4.99 per Month'
       num_items_allowed 5
-      price 4.99
-    end
-    trait :owner_plus_pack do
-      name 'Property Owner Plus - 15 Properties Pack'
-      description 'Administer up to 15 properties 12.99 per Month'
-      num_items_allowed 15
       price 4.99
     end
     trait :agency_pack do

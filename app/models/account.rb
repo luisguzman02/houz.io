@@ -19,10 +19,22 @@ class Account
     properties.count < ecommerce_plan.num_items_allowed
   end
 
+  def package
+    ecommerce_plan.name if ecommerce_plan.present?
+    diff = (Date.today - created_at.to_date).to_i
+    raise AccountExpiredTrialError if diff > 14
+    'Free Trial'
+  end
+
   private 
 
   def create_default_rates
     self.rates.build :name => 'Default', :value => '1'
     self.rates.build :name => 'Cleaning', :value => '1', :type => :rate
-  end
+  end  
+
 end
+
+class AccountException < Exception; end
+class AccountExpiredTrialError < AccountException; end
+class AccountBillingError < AccountException; end

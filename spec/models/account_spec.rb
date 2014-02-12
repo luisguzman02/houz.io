@@ -46,7 +46,7 @@ describe Account do
     p.should be_persisted
   end
 
-  it 'notify to update to premium if trail period expired' do
+  it 'notify to update to premium if trial period expired' do
     pending
   end
 
@@ -61,5 +61,14 @@ describe Account do
   it 'creates 2 default rates on each account' do
     acc.rates.count.should eq 2
     acc.rates.find_by(:name => 'Default').class.should eq Rate
+  end
+
+  it 'returns free trial as package name, and user doesnt have a premium package' do
+    acc.package.should eq 'Free Trial'
+  end
+
+  it 'throws an error when free trial has expired' do    
+    acc.created_at = acc.created_at.to_date - 16
+    expect { acc.package }.to raise_error(AccountExpiredTrialError)    
   end
 end
