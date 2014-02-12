@@ -8,11 +8,15 @@ class HomeController < ApplicationController
       return false
     end
     if params['o'].present? && params['o'].eql?('trial')
-      acc = current_user.build_account
-      if acc.save
-        redirect_to new_properties_path
+      if current_user.account.nil?
+        acc = current_user.build_account
+        if acc.save
+          redirect_to new_property_path
+        else
+          render :template => "errors/internal_server_error", :status => :internal_server_error 
+        end
       else
-        render :template => "errors/internal_server_error", :status => :internal_server_error 
+        redirect_to new_property_path
       end
     end
   end

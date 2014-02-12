@@ -38,15 +38,13 @@
                 = link_to 'Dashboard', dashboard_path
               %li{:class => controller_name.eql?('properties') ? 'active' : ''}
                 = link_to 'Properties', properties_path
-              %li
+              %li{:class => controller_name.eql?('reservations') ? 'active' : ''}
                 = link_to 'Reservations', reservations_path
               %li.dropdown{:class => ['rates'].include?(controller_name) ? 'active' : ''}
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                   Back Office
                   %b.caret
                 %ul.dropdown-menu
-                  %li
-                    = link_to 'Rates', rates_path
                   %li
                     = link_to 'Company Letters', ''
                   %li
