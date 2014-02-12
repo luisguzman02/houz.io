@@ -38,7 +38,7 @@ class PropertiesController < DashboardController
   end
 
   def rates
-    @property.set_rates params[:property_rates] if request.method.eql? 'POST'
+    @property.set_rates params[:rates] if request.method.eql? 'POST'
   end
 
   def pictures    

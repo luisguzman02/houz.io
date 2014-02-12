@@ -28,7 +28,7 @@ class Property
   field :kitchen, type: Integer, default: 0
   
   #amenities
-  field :bedding, type: String  
+  field :bedding, type: String
   field :amenities, type: String    
 
   #web  
@@ -60,7 +60,7 @@ class Property
     p.user = p.account.user unless user
   end
 
-  after_validation do |p|
+  before_create do |p|
     #add default rates to property
     p.account.rates.where(:always_apply => true).each do |r|
       p.rates << r   
@@ -73,7 +73,7 @@ class Property
 
   def set_rates(prs={})
     prs.each do |k,v|
-      if (pr = rates.find(k))
+      if (r = rates.find(k))
         r.value = v
         r.save
       end
@@ -97,7 +97,6 @@ class Property
     r = []
     ci.upto(co-1) do |d|
 
-      r << [d, ]
     end
   end
 
