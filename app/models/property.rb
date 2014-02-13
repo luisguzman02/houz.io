@@ -91,13 +91,36 @@ class Property
     reservations.where(:check_in.gte => s, :check_in.lt => s).and({:check_out.gte => e},{ :check_out.lt => e}).count == 0    
   end
 
+  # all_r = {
+  #   :rent => {
+  #     :name => 'Rent',
+  #     :value => 300,
+  #     :detail => [
+  #       { '2014-01-10' => 100 },
+  #       { '2014-01-11' => 100 },
+  #       { '2014-01-12' => 100 },
+  #     ]
+  #   },
+  #   'Cleaning' => 50.0
+  #   'Other Fee' => 10.0
+  # }
   def rates_by_day(ci,co)
     ci = Date.parse(ci)
     co = Date.parse(co)
-    r = []
+    all_r = {}
+    all_r[:rent] = Hash.new(0)
     ci.upto(co-1) do |d|
-
+      _r = rates.where(:seasonable => true).and(:start_season.gte => d, :end_season.lte => d).sum(:value)
+      _r = rates.where(:type => :rent).sum(:value) if _r.eql? 0
+      all_r[:rent][:detail] = [] if all_r[:rent][:detail].eql?(0)     
+      all_r[:rent][:name] = :rent.to_s.humanize
+      all_r[:rent][:value] += _r
+      all_r[:rent][:detail] << {d => _r}
+    end    
+    rates.not_in(:type => :rent).each do |r|
+      all_r[r.name] = r.value      
     end
+    all_r
   end
 
   def self.utypes

@@ -17,7 +17,7 @@ describe "backend dasboard", :js => true, :dashboard => true do
        assert_navbar_option  { page.should have_content "Dashboard" }
     end
 
-    it 'do not show premium options if user has the free plan' do
+    it 'hide options of avanced plan if accoutn has the basic plan' do
       pending
     end
   end
@@ -39,14 +39,14 @@ describe "backend dasboard", :js => true, :dashboard => true do
     @acc.user = nil
     @acc.save
     visit dashboard_path
-    page.should have_content 'Please choose the option that best suits to your needs and start using Secondhouz.'
+    page.should have_content 'Welcome'
+    page.should have_link 'Create new Property'
   end
 
   it 'shows current plan or 14 days trial period' do
-    binding.pry
     create_prop.call
     visit dashboard_path
-    page.should have_content @acc.ecommerce_plan.name
+    page.should have_content @acc.package
   end
 
   it 'has a link to upgrade to premium plan' do
