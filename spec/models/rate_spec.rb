@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Rate do
   
   before do
-    @rate = FactoryGirl.build(:rate)
+    #@rate = FactoryGirl.build(:rate)
   end
 
   it { should be_timestamped_document }
@@ -28,11 +28,10 @@ describe Rate do
   it { should have_field(:end_season).of_type(Date) }
   
   #relation
-  it { should belong_to(:account) }
-  it { should have_and_belong_to_many(:properties) }
+  it { should be_embedded_in(:rateable) }
 
-  it 'should create new rate' do
-    @rate.save
-    @rate.should be_persisted
-  end
+  # it 'should create new rate' do
+  #   @rate.save
+  #   @rate.should be_persisted
+  # end
 end

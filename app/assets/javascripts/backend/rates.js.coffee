@@ -2,15 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
-  start_ = $('#rate_start_season').val().split('-')
-  end_ = $('#rate_end_season').val().split('-')
-  start_date = new Date(start_[0], (start_[1]-1), start_[2], 0, 0, 0, 0)
-  end_date = new Date(end_[0], (end_[1]-1), end_[2], 23, 59, 59, 59)
-  both = {
-    s:start_date.getTime(),
-    e:end_date.getTime(),
-    clear:true
-  }
+  if $("#rate_start_season").length > 0 and  $("#rate_end_season").length > 0
+    start_ = $('#rate_start_season').val().split('-') 
+    end_ = $('#rate_end_season').val().split('-') 
+    start_date = new Date(start_[0], (start_[1]-1), start_[2], 0, 0, 0, 0)
+    end_date = new Date(end_[0], (end_[1]-1), end_[2], 23, 59, 59, 59)
+    both = {
+      s:start_date.getTime(),
+      e:end_date.getTime(),
+      clear:true
+    }
   $(".datepicker_range").datepicker
     dateFormat: 'yy-mm-dd'    
     numberOfMonths: 2

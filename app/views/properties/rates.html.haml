@@ -1,10 +1,21 @@
 = render 'head'
-.panel.panel-success
-  .panel-heading 
-    %h4 Rates
-  .panel-body
-    .col-md-3
-    .col-md-6
+/ .panel.panel-success
+/   .panel-heading 
+/     %h4 Rates
+/   .panel-body
+.col-md-3
+.col-md-6
+  .row
+    .col-xs-8  
+      %h4 Rates        
+    .col-xs-4
+      .pull-right
+        = link_to '', :class => 'btn btn-success' do
+          %span.glyphicon.glyphicon-plus
+          Add a Rate
+  .clearfix10
+  .panel.panel-default
+    .panel-body
       = form_tag rates_property_path(@property), :method => :put do
         .row
           .col-xs-2 
@@ -18,16 +29,16 @@
               %strong Value
         .row
           %hr
-        - @property.property_rates.each do |pr|
-          .row.ratelns{:id => "pr_#{pr.rate.id}"}
+        - @property.rates.each do |r|
+          .row.ratelns{:id => "r_#{r.id}"}
             .col-xs-2
-              %center= pr.rate.type.to_s.humanize
+              %center= r.type.to_s.humanize
             .col-xs-6
-              %center= link_to pr.rate.name, edit_rate_path(pr.rate)
+              %center= link_to r.name, ''
             .col-xs-4 
               .input-group
-                %span.input-group-addon= pr.rate.value_type.eql?(:percentage) ? " % " : " $ "
-                = text_field_tag "property_rates[#{pr.id}]", pr.value, :class => 'form-control'                
+                %span.input-group-addon= r.value_type.eql?(:percentage) ? " % " : " $ "
+                = text_field_tag "rates[#{r.id}]", r.value, :class => 'form-control'                
         .row
           %hr
         .row
@@ -35,6 +46,6 @@
             - if request.method.eql? 'POST'
               %small.text-muted Successfully saved.
           .col-xs-4
-            = submit_tag 'Save', :class => 'btn btn-lg btn-success col-xs-12'            
-    .col-md-3
+            = submit_tag 'Save', :class => 'btn btn-lg btn-warning col-xs-12'            
+.col-md-3
     

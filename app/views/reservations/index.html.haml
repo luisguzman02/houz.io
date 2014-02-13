@@ -1,17 +1,11 @@
-%h1 Listing reservations
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @reservations.each do |reservation|
-    %tr
-      %td= link_to 'Show', reservation
-      %td= link_to 'Edit', edit_reservation_path(reservation)
-      %td= link_to 'Destroy', reservation, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Reservation', new_reservation_path
+.page-header
+  .pull-left
+    %h2 
+      Reservations
+  .pull-right#head_right
+    = link_to '#', :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
+      %span.glyphicon.glyphicon-plus
+      New Reservation
+    = render 'booking_popup'
+          
+  .clearfix

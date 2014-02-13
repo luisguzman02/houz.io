@@ -21,7 +21,7 @@ describe Property do
   it { should accept_nested_attributes_for(:contact) }
   it { should have_many(:reservations).with_dependent(:destroy) }
   it { should have_many(:pictures).with_dependent(:destroy) }
-  it { should have_many(:property_rates).with_dependent(:destroy) }
+  it { should embed_many(:rates)  }
 
   # required fields
   it { should validate_presence_of(:name) }
@@ -77,7 +77,7 @@ describe Property do
     p = @acc.properties.build :name => 'Some house for rental', :description => 'Cool house near the beach'
     p.save
     @acc.rates.where(:always_apply => true).each do |r|
-      PropertyRate.find_by(:property_id => p.id, :rate_id => r.id).should_not be_nil      
+      p.rates.find_by(:name => r.name).should_not be_nil      
     end    
   end
 end

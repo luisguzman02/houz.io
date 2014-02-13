@@ -28,7 +28,7 @@ class Property
   field :kitchen, type: Integer, default: 0
   
   #amenities
-  field :bedding, type: String  
+  field :bedding, type: String
   field :amenities, type: String    
 
   #web  
@@ -51,7 +51,7 @@ class Property
   belongs_to :owner, class_name: 'User', inverse_of: :properties
   belongs_to :account
   has_many :reservations, :dependent => :destroy 
-  has_many :property_rates, :dependent => :destroy
+  embeds_many :rates, :as => :rateable
   has_many :pictures, :dependent => :destroy
 
   accepts_nested_attributes_for :contact
@@ -60,10 +60,10 @@ class Property
     p.user = p.account.user unless user
   end
 
-  after_create do |p|
+  before_create do |p|
     #add default rates to property
     p.account.rates.where(:always_apply => true).each do |r|
-      p.property_rates.create :rate_id => r.id, :value => r.value      
+      p.rates << r   
     end        
   end
 
@@ -73,9 +73,9 @@ class Property
 
   def set_rates(prs={})
     prs.each do |k,v|
-      if (pr = property_rates.find(k))
-        pr.value = v
-        pr.save
+      if (r = rates.find(k))
+        r.value = v
+        r.save
       end
     end
   end
@@ -85,7 +85,45 @@ class Property
     tags.map! { |t| {:id => t, :name => t} }.to_json    
   end
 
+  def check_availability(args)
+    s = Date.parse(args[:check_in]).beginning_of_day
+    e = Date.parse(args[:check_out]).end_of_day    
+    reservations.where(:check_in.gte => s, :check_in.lt => s).and({:check_out.gte => e},{ :check_out.lt => e}).count == 0    
+  end
+
+  # all_r = {
+  #   :rent => {
+  #     :name => 'Rent',
+  #     :value => 300,
+  #     :detail => [
+  #       { '2014-01-10' => 100 },
+  #       { '2014-01-11' => 100 },
+  #       { '2014-01-12' => 100 },
+  #     ]
+  #   },
+  #   'Cleaning' => 50.0
+  #   'Other Fee' => 10.0
+  # }
+  def rates_by_day(ci,co)
+    ci = Date.parse(ci)
+    co = Date.parse(co)
+    all_r = {}
+    all_r[:rent] = Hash.new(0)
+    ci.upto(co-1) do |d|
+      _r = rates.where(:seasonable => true).and(:start_season.gte => d, :end_season.lte => d).sum(:value)
+      _r = rates.where(:type => :rent).sum(:value) if _r.eql? 0
+      all_r[:rent][:detail] = [] if all_r[:rent][:detail].eql?(0)     
+      all_r[:rent][:name] = :rent.to_s.humanize
+      all_r[:rent][:value] += _r
+      all_r[:rent][:detail] << {d => _r}
+    end    
+    rates.not_in(:type => :rent).each do |r|
+      all_r[r.name] = r.value      
+    end
+    all_r
+  end
+
   def self.utypes
     [:house, :condo, :mobile_house]
-  end  
+  end    
 end

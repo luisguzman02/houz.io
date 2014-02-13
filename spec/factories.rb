@@ -5,22 +5,10 @@ FactoryGirl.define do
     account { FactoryGirl.build(:account) }    
   end
   factory :ecommerce_plan do
-    trait :owner_free_pack do
-      name 'Free'
-      description '1 free property'
-      num_items_allowed 1
-      price 0 
-    end
-    trait :owner_plus_pack do
+    trait :basic_pack do
       name 'Property Owner Plus - 5 Properties Pack'
       description 'Administer up to 5 properties 4.99 per Month'
       num_items_allowed 5
-      price 4.99
-    end
-    trait :owner_plus_pack do
-      name 'Property Owner Plus - 15 Properties Pack'
-      description 'Administer up to 15 properties 12.99 per Month'
-      num_items_allowed 15
       price 4.99
     end
     trait :agency_pack do
@@ -44,7 +32,7 @@ FactoryGirl.define do
   end
   factory :account do
     user { FactoryGirl.create(:user) }
-    ecommerce_plan { EcommercePlan.free || FactoryGirl.create(:ecommerce_plan, :owner_free_pack) }
+    #ecommerce_plan { EcommercePlan.free || FactoryGirl.create(:ecommerce_plan, :owner_free_pack) }
   end
   factory :user do
     sequence :email do |n|
@@ -66,8 +54,7 @@ FactoryGirl.define do
   end
   factory :rate do
     name 'Regular Rent'
-    type :rent
-    account { FactoryGirl.build(:account) }
+    type :rent    
   end
   factory :property do
     name 'House Beach Front'
