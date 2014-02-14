@@ -44,6 +44,7 @@ gem "rmagick"
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'jquery-tokeninput-rails'
+gem 'draper', '~> 1.3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -8,7 +8,8 @@ class PropertiesController < DashboardController
 
   def new    
     @property = current_account.properties.build   
-    @property.contact.build_address(local_info)    
+    @property.contact.build_address(local_info)      
+    @property = @property.decorate
   end
 
   def create
@@ -60,9 +61,9 @@ class PropertiesController < DashboardController
   end
 
   def booking_detail
-    if @property.check_availability(params)
+    if @property.check_availability(params)      
       bd = {
-        :property => @property,
+        :property => @property.booking_info,
         :rates => @property.rates_by_day(params[:check_in], params[:check_out])
       }
     end
@@ -74,6 +75,7 @@ class PropertiesController < DashboardController
   def set_property
     @property = current_account.properties.find(params[:id])
     render :template => "errors/not_found", :status => :not_found unless @property 
+    @property = @property.decorate if @property.present?
   end
 
   def local_info
@@ -88,8 +90,8 @@ class PropertiesController < DashboardController
   def property_params
     pp = params[:property]
     if pp[:check_in].nil? && pp[:check_out].nil?
-      check_in = Time.local(pp['check_in(1i)'], pp['check_in(2i)'], pp['check_in(3i)'], pp['check_in(4i)'], pp['check_in(5i)'])
-      check_out = Time.local(pp['check_out(1i)'], pp['check_out(2i)'], pp['check_out(3i)'], pp['check_out(4i)'], pp['check_out(5i)'])
+      check_in = "#{params[:date][:ci_hour]}:#{params[:date][:ci_minutes]}"
+      check_out = "#{params[:date][:co_hour]}:#{params[:date][:co_minutes]}"
       params[:property].reject! {|k| k.include? 'check'}
       params[:property].merge!({:check_in => check_in, :check_out => check_out})
     end
