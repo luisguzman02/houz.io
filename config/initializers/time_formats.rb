@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:time_in_zone] = "%I:%M %p"
