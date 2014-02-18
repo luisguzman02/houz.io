@@ -33,7 +33,7 @@ describe Reservation do
   
   #relation
   it { should belong_to(:user) }
-  it { should have_one(:property) }
+  it { should belong_to(:property) }
   it { should belong_to(:tenant).of_type(User).as_inverse_of(:bookings) }
   it { should embed_many(:activities) }
   it { should embed_many(:payments) }

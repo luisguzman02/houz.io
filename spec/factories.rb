@@ -68,6 +68,7 @@ FactoryGirl.define do
     check_out Date.today + 2
     user { FactoryGirl.create(:user) }
     tenant { FactoryGirl.create(:user, :tenant) }
+    property { FactoryGirl.create(:property)  }
   end
   factory :contact do
     address { FactoryGirl.build(:address) }

@@ -71,4 +71,8 @@ describe Account do
     acc.created_at = acc.created_at.to_date - 16
     expect { acc.package }.to raise_error(AccountExpiredTrialError)    
   end
+
+  it 'returns all account properties' do
+    pending
+  end
 end
