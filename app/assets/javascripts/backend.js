@@ -15,10 +15,10 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.core
 //= require jquery.tokeninput
-//= require turbolinks
 //= require_self
 //= require bootstrap
 //= require spin
 //= require_tree ./backend
-//= require_tree ./templates
 //= require hamlcoffee
+//= require_tree ./templates
+//= require turbolinks

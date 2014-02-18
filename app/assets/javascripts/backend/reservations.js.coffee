@@ -22,8 +22,9 @@ ready_reservations = ->
   load_inquiery_booking_property()
 
 load_inquiery_booking_property = ->
-  if $('#reservation_property_id').val() is ''
+  if $('#reservation_property_id').val() is '' or $('#reservation_property_id').val() is undefined
     $('#inquiery_booking_form #booking_info').html('<p>Please choose desired property</p>')
+    return false
 
   if $('#reservation_check_in').val() isnt '' and $('#reservation_check_out').val() isnt ''
     $('#inquiery_booking_form #booking_info').loading()

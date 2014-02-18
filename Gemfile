@@ -45,17 +45,14 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'jquery-tokeninput-rails'
 gem 'draper', '~> 1.3'
+gem 'ckeditor' 
+gem 'haml_coffee_assets'          # To handle js templates
+gem 'execjs'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-#group :assets do
-  gem 'ckeditor' 
-  gem 'haml_coffee_assets'          # To handle js templates
-  gem 'execjs'
-#end
 
 group :development, :test do
   gem 'pry-debugger'
