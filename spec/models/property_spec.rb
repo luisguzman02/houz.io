@@ -42,8 +42,8 @@ describe Property do
   it { should have_field(:unit_type).of_type(Symbol).with_default_value_of(:house) }
   it { should have_field(:description).of_type(String) }
   it { should have_field(:active).of_type(Mongoid::Boolean).with_default_value_of(true) }
-  it { should have_field(:check_in).of_type(Time) }
-  it { should have_field(:check_out).of_type(Time) }
+  it { should have_field(:check_in).of_type(String).with_default_value_of("12:00") }
+  it { should have_field(:check_out).of_type(String).with_default_value_of("11:15") }
   it { should have_field(:directions).of_type(String) }  
   it { should have_field(:bathrooms).of_type(Integer).with_default_value_of(1) }
   it { should have_field(:bedrooms).of_type(Integer).with_default_value_of(1) }

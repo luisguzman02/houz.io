@@ -27,11 +27,15 @@
               .form-group.time_select_group              
                 = f.label :check_in
                 %br
-                = f.time_select :check_in, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 12), :simple_time_select => true}, {:class => 'form-control' }
+                = select_hour(@property.hour_check_in, {field_name: 'ci_hour', ampm: true}, {:class => 'form-control'})
+                = ":"
+                = select_minute(@property.minute_check_in, {field_name: 'ci_minutes', minute_step: 15}, {:class => 'form-control'})
             .col-md-3.time_select_group
               = f.label :check_out
               %br
-              = f.time_select :check_out, {minute_step: 15, ampm: true, :include_minutes => false, :default => Time.now.change(:hour => 11, :min => 15)}, {:class => 'form-control' }
+              = select_hour(@property.hour_check_out, {field_name: 'co_hour', ampm: true}, {:class => 'form-control'})
+              = ":"
+              = select_minute(@property.minute_check_out, {field_name: 'co_minutes', minute_step: 15}, {:class => 'form-control'})
             .col-md-3
               = f.label :minimum_days, 'Minimum stay'
               .input-group

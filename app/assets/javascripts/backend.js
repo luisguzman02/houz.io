@@ -20,3 +20,5 @@
 //= require bootstrap
 //= require spin
 //= require_tree ./backend
+//= require_tree ./templates
+//= require hamlcoffee

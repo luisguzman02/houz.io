@@ -1,0 +1,29 @@
+.row
+  .col-md-6
+    %p 
+      %strong= @property.name
+      %br 
+      %em                
+        Check-in: 
+        = @property.check_in
+        %br
+        Sleeps: 
+        = @property.num_persons_allowed 
+        = "(Pets allowed)" if @property.pets_allowed
+        %br
+        = "#{@property.bedrooms} Bethrooms, "
+        = "#{@property.bathrooms} Bathrooms, "
+        %br
+        = "#{@property.kitchen} Kitchen, "
+        = "#{@property.garages} Garages "                
+  .col-md-6
+    .row
+      .col-xs-12
+        .pull-right
+          %strong Amount to pay
+    - for r in @rates
+      .row
+        .col-xs-8
+          .pull-right= r.name
+        .col-xs-4
+          .pull-right= "$ #{r.value}"

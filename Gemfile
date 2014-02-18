@@ -10,7 +10,7 @@ gem 'rails', '4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'bootstrap-sass', '~> 3.0.3.0'  
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -44,15 +44,18 @@ gem "rmagick"
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'jquery-tokeninput-rails'
+gem 'draper', '~> 1.3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-group :assets do
-  gem 'ckeditor'  
-end
+#group :assets do
+  gem 'ckeditor' 
+  gem 'haml_coffee_assets'          # To handle js templates
+  gem 'execjs'
+#end
 
 group :development, :test do
   gem 'pry-debugger'

@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 ready = ->
   if $("#rate_start_season").length > 0 and  $("#rate_end_season").length > 0
     start_ = $('#rate_start_season').val().split('-') 
@@ -12,6 +9,7 @@ ready = ->
       e:end_date.getTime(),
       clear:true
     }
+    
   $(".datepicker_range").datepicker
     dateFormat: 'yy-mm-dd'    
     numberOfMonths: 2
@@ -38,11 +36,6 @@ ready = ->
       $(".datepicker_range").show()
     else
       $(".datepicker_range").hide()
-
-  #document.addEventListener "page:fetch", ->
-  #  $("#main_spinner").show()
-  #document.addEventListener "page:receive", ->
-  #  $("#main_spinner").hide()  
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

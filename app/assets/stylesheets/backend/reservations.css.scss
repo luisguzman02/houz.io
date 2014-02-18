@@ -1,8 +1,16 @@
 //Reservations
 .reservations {
+  background-color: blue;
   #main_content {
-    #head_right {
-      margin-top: 20px;
-    }    
+    .page-header {
+      border: 0;
+    }
+    #inquiery_booking {
+      .modal-dialog > .modal-content > .modal-body{
+        .alert{
+          margin-bottom: 0;
+        }
+      }
+    }            
   }
 }

@@ -4,7 +4,7 @@ class ReservationsController < DashboardController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations.order_by(:desc => :created_at)
   end
 
   # GET /reservations/1
@@ -24,8 +24,7 @@ class ReservationsController < DashboardController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
-
+    @reservation = current_user.reservations.build  reservation_params
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -69,6 +68,6 @@ class ReservationsController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params[:reservation]
+      params.require(:reservation).permit(:check_in, :check_out, :property_id)
     end
 end

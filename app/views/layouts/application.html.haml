@@ -55,10 +55,10 @@
       = yield :jumbotron
     
     #main_content.container
-      - flash.each do |name, msg|
-        .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
-          %a.close{'data-dismiss' => 'alert'}x
-          = msg
+      / - flash.each do |name, msg|
+      /   .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
+      /     %a.close{'data-dismiss' => 'alert'}x
+      /     = msg
       = yield
 
     %hr
