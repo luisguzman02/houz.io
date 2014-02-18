@@ -14,7 +14,10 @@ class ReservationsController < DashboardController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    respond_to do |format|
+      format.html { @reservation = current_user.reservations.build }
+      format.js
+    end
   end
 
   # GET /reservations/1/edit
@@ -24,7 +27,7 @@ class ReservationsController < DashboardController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = current_user.reservations.build  reservation_params
+    @reservation = current_user.reservations.build  reservation_params    
     respond_to do |format|
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -63,7 +66,7 @@ class ReservationsController < DashboardController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
-      @reservation = Reservation.find(params[:id])
+      @reservation = current_user.reservations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

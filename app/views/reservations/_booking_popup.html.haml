@@ -1,41 +1,8 @@
-#inquiery_booking.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "NewBooking", role: "dialog", tabindex: "-1"}
-  = form_for :reservation, :url => reservations_path(:format => :json), :html => {:id => 'inquiery_booking_form', :role => 'form'}, :remote => true, :method => :post do |f|
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-          %h4#NewBooking.modal-title New Reservation
-        .modal-body    
-          .row
-            .col-md-12
-              .form-group
-                = f.label :property                    
-                = f.select :property_id, options_for_select(account_properties_select_options), {}, :class => 'form-control'      
-          .row#date_range_icon
-            .col-md-6
-              .form-group            
-                = f.label :check_in, 'Arrival'  
-                .input-group                 
-                  = f.text_field :check_in, :class => 'form-control'
-                  %a.input-group-addon{:trigger => :reservation_check_in, :href => '#'}
-                    %span.glyphicon.glyphicon-calendar
-            .col-md-6
-              = f.label :check_out , 'Departure'
-              .input-group                
-                = f.text_field :check_out, :class => 'form-control'
-                %a.input-group-addon{:trigger => :reservation_check_out, :href => '#'}
-                  %span.glyphicon.glyphicon-calendar
-          .row
-            .col-md-6
-              .form-group
-                = label_tag :staying
-                .input-group                
-                  = text_field_tag :staying, '', :class => 'form-control'
-                  %span.input-group-addon Nights                      
-          %hr/
-          %h4 Booking Details
-          .alert.alert-success#booking_info
-            %p Please choose arrival and departure dates.
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-          = submit_tag 'Book', :class => 'btn btn-warning', :disabled => true, :id => :book_btn
+#inquiery_booking.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "NewBooking", role: "dialog", tabindex: "-1"}    
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#NewBooking.modal-title New Reservation
+      .modal-body  
+        %center= image_tag('spinner_mid.gif')         

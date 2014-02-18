@@ -17,8 +17,8 @@
 //= require jquery.tokeninput
 //= require_self
 //= require bootstrap
+//= require turbolinks
 //= require spin
 //= require_tree ./backend
 //= require hamlcoffee
 //= require_tree ./templates
-//= require turbolinks

@@ -3,7 +3,7 @@
     %h2 
       Reservations
   .pull-right#head_right
-    = link_to '#', :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
+    = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
       %span.glyphicon.glyphicon-plus
       New Reservation
     = render 'booking_popup'
@@ -29,9 +29,10 @@
         %td= r.rsv_type.to_s.humanize
         %td= r.created_at.to_date
         %td= r.property.name
-        %td= r.tenant
         %td
-          = "#{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"
-          %strong= " - #{pluralize(r.nights_staying, 'night')}"
+          = r.tenant.nil? ? link_to('Add tenant', '', :class => 'text-muted add_tenant', :rsv_id => r.id) : r.tenant.full_name
+        %td
+          = link_to "#{pluralize(r.nights_staying, 'night')}", r
+          = " - #{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"          
 
 
