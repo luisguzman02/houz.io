@@ -18,6 +18,4 @@
 @import "bootstrap";
 @import "bootstrap/theme";
 @import "token-input-facebook";
-@import "./backend/dashboard";
-@import "./backend/properties";
-@import "./backend/rates";
+@import "./backend/*";

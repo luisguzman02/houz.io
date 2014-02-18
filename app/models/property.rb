@@ -92,26 +92,5 @@ class Property
     e = Date.parse(co).end_of_day    
     reservations.where(:check_in.gte => s, :check_in.lt => s).and({:check_out.gte => e},{ :check_out.lt => e}).count == 0    
   end
-
-  def rates_by_day(ci,co)
-    ci = Date.parse(ci)
-    co = Date.parse(co)
-    all_r = []
-    rent = Hash.new(0)
-    rent[:name] = :rent.to_s.humanize
-    rent[:detail] = []
-    ci.upto(co-1) do |d|
-      _r = rates.where(:seasonable => true).and(:start_season.gte => d, :end_season.lte => d).sum(:value)
-      _r = rates.where(:type => :rent).sum(:value) if _r.eql? 0      
-      rent[:value] += _r
-      rent[:detail] << {d => _r}      
-    end    
-    all_r << rent
-    #more rates
-    rates.not_in(:type => :rent).each do |r|
-      all_r << {:name => r.name, :value => r.value}
-    end
-    all_r
-  end
   
 end

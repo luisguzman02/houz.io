@@ -14,13 +14,52 @@ class PropertyDecorator < Draper::Decorator
     else      
       super
     end
-  end
-
-  def booking_info
-    { 
-      :num_persons_allowed => num_persons_allowed, 
-      :check_in =>  readable_check_in,
-      :check_out => readable_check_out   
-    }   
   end  
+
+  def booking_info(ci,co)
+    if object.check_availability(ci,co)     
+      bd = {
+        :property => {           
+          :check_in =>  readable_check_in,
+          :check_out => readable_check_out,
+          :name => name,
+          :num_persons_allowed => num_persons_allowed,  
+          :pets_allowed => pets_allowed,
+          :bathrooms => bathrooms,
+          :bedrooms => bedrooms,
+          :garages => garages,
+          :kitchen => kitchen
+        },
+        :rates => rates_by_day(ci,co)
+      }
+    else
+      bd = { :error => 'Property not available at these dates'}
+    end      
+  end 
+
+  def rates_by_day(ci,co)
+    ci = Date.parse(ci)
+    co = Date.parse(co)
+    all_r = []
+    total = 0
+    rent = Hash.new(0)    
+    rent[:detail] = []
+    ci.upto(co-1) do |d|
+      _r = rates.where(:seasonable => true).and(:start_season.gte => d, :end_season.lte => d).sum(:value)
+      _r = rates.where(:type => :rent).sum(:value) if _r.eql? 0      
+      rent[:value] += _r
+      rent[:detail] << {d => _r}
+      rent[:nights] += 1      
+    end       
+    rent[:name] = "#{:rent.to_s.humanize} #{h.pluralize(rent[:nights], 'night')}"
+    total += rent[:value]
+    all_r << rent
+    #more rates
+    rates.not_in(:type => :rent).each do |r|
+      all_r << {:name => r.name, :value => r.value}
+      total += r.value
+    end
+    all_r << {:name => 'Total', :value => total}
+    all_r
+  end
 end

@@ -61,13 +61,7 @@ class PropertiesController < DashboardController
   end
 
   def booking_detail
-    if @property.check_availability(params)      
-      bd = {
-        :property => @property.booking_info,
-        :rates => @property.rates_by_day(params[:check_in], params[:check_out])
-      }
-    end
-    render :json => bd
+    render :json => @property.booking_info(params[:check_in], params[:check_out])
   end
 
   private

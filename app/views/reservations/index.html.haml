@@ -7,5 +7,31 @@
       %span.glyphicon.glyphicon-plus
       New Reservation
     = render 'booking_popup'
-          
-  .clearfix
+  .clearfix        
+.panel.panel-default
+  .panel-body
+    .pull-right
+      .input-group
+        = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
+        .input-group-addon
+          %span.glyphicon.glyphicon-search
+  %table.table.table-striped
+    %thead
+      %th
+      %th Type
+      %th Created
+      %th Property
+      %th Tenant
+      %th Staying
+    - @reservations.each do |r|
+      %tr
+        %td= check_box_tag :rsv_sel
+        %td= r.rsv_type.to_s.humanize
+        %td= r.created_at.to_date
+        %td= r.property.name
+        %td= r.tenant
+        %td
+          = "#{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"
+          %strong= " - #{pluralize(r.nights_staying, 'night')}"
+
+
