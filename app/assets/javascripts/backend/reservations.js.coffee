@@ -13,7 +13,7 @@ window.ReservationsNew =
           days = Math.floor((d2.getTime() - d1.getTime()) / 86400000)
           $('#staying').val(days)
         ReservationsNew.load_inquiery_booking_property()  
-        
+
     $(document).on "submit", "#inquiery_booking #inquiery_booking_form", (event) ->
       $('#inquiery_booking .modal-body').loading()
 
@@ -38,12 +38,15 @@ window.ReservationsNew =
           $("#inquiery_booking_form #book_btn").attr "disabled", true 
 
 ready_reservations_home = ->
-  $(".reservations_index").on "click", "#new_reservation_btn", (e) ->
+  $(".reservations_index").on "click", "#new_reservation_btn, .add_tenant", (e) ->
     $("#inquiery_booking .modal-body").loading()    
 
   $(".reservations_index").on "click", "#inquiery_booking #date_range_icon .input-group-addon", (e) ->
-    e.preventDefault();      
-    $("##{$(@).attr('trigger')}").datepicker("show");   
+    e.preventDefault()
+    $("##{$(@).attr('trigger')}").datepicker("show");  
+
+  #$(".reservations_index").on "click", ".add_tenant", (e) ->
+  #  $("#inquiery_booking .modal-body").loading()
 
   #$("#inquiery_booking").on "shown.bs.modal", (e) ->
 

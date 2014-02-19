@@ -30,8 +30,8 @@
   .alert.alert-success#booking_info
     %p Please choose arrival and departure dates.
   %hr
-    .row
-      .col-md-12
-        .pull-right
-          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
-          = submit_tag 'Book', :class => 'btn btn-warning', :disabled => true, :id => :book_btn
+  .row
+    .col-md-12
+      .pull-right
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        = submit_tag 'Continue', :class => 'btn btn-warning', :disabled => true, :id => :book_btn

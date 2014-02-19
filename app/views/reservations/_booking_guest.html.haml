@@ -1,0 +1,29 @@
+= form_for @reservation, :url => edit_reservation_path(@reservation), :format => :js, :html => {:id => 'inquiery_booking_form_tenant', :role => 'form'}, :remote => true, :method => :post do |f| 
+  .row
+    .col-md-12
+      .form-group
+        = f.label :rsv_type, 'Booking Type'                    
+        = f.select :rsv_type, rsv_types_select_options, {}, :class => 'form-control'        
+  .row
+    .col-md-12    
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", href: "#home"} Guest
+        %li
+          %a{"data-toggle" => "tab", href: "#profile"} Registered Tenant
+      .tab-content
+        #home.tab-pane.active 
+          Guest Info
+        #profile.tab-pane 
+          .col-md-6
+            .form-group
+              = label_tag :teannt
+              .input-group                
+                = text_field_tag :tenant, '', :class => 'form-control'
+                %span.input-group-addon Nights    
+  %hr
+  .row
+    .col-md-12
+      .pull-right
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        = submit_tag 'Book', :class => 'btn btn-warning'

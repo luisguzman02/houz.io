@@ -16,7 +16,11 @@
 //= require jquery.ui.core
 //= require jquery.tokeninput
 //= require_self
-//= require bootstrap
+//= require bootstrap/alert
+//= require bootstrap/collapse
+//= require bootstrap/dropdown
+//= require bootstrap/modal
+//= require bootstrap/tab
 //= require turbolinks
 //= require spin
 //= require_tree ./backend

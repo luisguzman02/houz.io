@@ -37,6 +37,8 @@ describe Reservation do
   it { should belong_to(:tenant).of_type(User).as_inverse_of(:bookings) }
   it { should embed_many(:activities) }
   it { should embed_many(:payments) }
+  it { should embed_one(:guest)}
+  it { should accept_nested_attributes_for(:guest) }  
 
   it 'should create new reservation' do
     @reservation.save

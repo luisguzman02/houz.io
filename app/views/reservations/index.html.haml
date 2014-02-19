@@ -30,7 +30,7 @@
         %td= r.created_at.to_date
         %td= r.property.name
         %td
-          = r.tenant.nil? ? link_to('Add tenant', '', :class => 'text-muted add_tenant', :rsv_id => r.id) : r.tenant.full_name
+          = r.tenant.nil? ? link_to('Add tenant', edit_reservation_path(r), :format => :js, :class => 'text-muted add_tenant', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true) : r.tenant.full_name
         %td
           = link_to "#{pluralize(r.nights_staying, 'night')}", r
           = " - #{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"          

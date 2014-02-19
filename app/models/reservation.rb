@@ -2,6 +2,8 @@ class Reservation
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
+  RSV_TYPES = [:regular, :owner_time, :agent_block]
+
   field :rsv_type, type: Symbol, default: :regular
   field :check_in, type: Date
   field :check_out, type: Date
@@ -11,7 +13,7 @@ class Reservation
   field :notes, type: String
 
   validates_presence_of :rsv_type, :check_in, :check_out, :user, :property
-  validates_inclusion_of :rsv_type, :in => [:regular, :owner_time, :agent_block]
+  validates_inclusion_of :rsv_type, :in => Reservation::RSV_TYPES
   validates_inclusion_of :num_adults, :in => 1..300
   validates_inclusion_of :num_children, :in => 0..300  
 
@@ -20,6 +22,9 @@ class Reservation
   belongs_to :tenant, class_name: 'User', inverse_of: :bookings
   embeds_many :activities
   embeds_many :payments
+  embeds_one :guest
+
+  accepts_nested_attributes_for :guest
 
   def nights_staying
     (check_out - check_in).to_i
