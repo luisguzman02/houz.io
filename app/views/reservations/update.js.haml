@@ -1,0 +1,8 @@
+- if @reservation.errors.any?
+  - @reservation.errors.each do |k|
+    - if k.eql? :guest
+      - if @reservation.guest.errors.any?      
+        - @reservation.guest.errors.each do |gk|
+          $("#reservation_guest_attributes_#{gk}").parent().addClass('has-error')
+- else  
+  Turbolinks.visit("#{reservations_path}")

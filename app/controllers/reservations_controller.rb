@@ -1,5 +1,6 @@
 class ReservationsController < DashboardController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation_guest, :only => [:edit]
 
   # GET /reservations
   # GET /reservations.json
@@ -22,6 +23,7 @@ class ReservationsController < DashboardController
 
   # GET /reservations/1/edit
   def edit
+    
   end
 
   # POST /reservations
@@ -32,23 +34,27 @@ class ReservationsController < DashboardController
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
+        format.js { set_reservation_guest }
       else
         format.html { render action: 'new' }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
 
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
-  def update
+  def update    
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { head :no_content }
+        format.js { }
       else
         format.html { render action: 'edit' }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
@@ -69,8 +75,14 @@ class ReservationsController < DashboardController
       @reservation = current_user.reservations.find(params[:id])
     end
 
+    def set_reservation_guest
+      @reservation.guest.contact.build_address if @reservation.guest.contact.address.nil?
+      @reservation.guest.contact.phones.build if @reservation.guest.contact.phones.empty?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:check_in, :check_out, :property_id)
+      params.require(:reservation).permit(:check_in, :check_out, :property_id, :rsv_type, :guest_attributes => [:name, :email, :source, 
+        :contact_attributes => {:address_attributes =>  [:country, :city, :state, :street], :phones_attributes => [:number] }])
     end
 end

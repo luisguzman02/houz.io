@@ -9,6 +9,6 @@ class Guest
   embeds_one :contact, :autobuild => true
   embedded_in :reservation
 
-  validates_presence_of :name, :email, :contact
-
+  validates_presence_of :name, :email, :contact  
+  accepts_nested_attributes_for :contact
 end

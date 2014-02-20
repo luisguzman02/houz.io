@@ -22,7 +22,7 @@ class Reservation
   belongs_to :tenant, class_name: 'User', inverse_of: :bookings
   embeds_many :activities
   embeds_many :payments
-  embeds_one :guest
+  embeds_one :guest, :autobuild => true
 
   accepts_nested_attributes_for :guest
 
