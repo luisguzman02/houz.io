@@ -22,7 +22,6 @@
 //= require bootstrap/modal
 //= require bootstrap/tab
 //= require turbolinks
-//= require spin
 //= require_tree ./backend
 //= require hamlcoffee
 //= require_tree ./templates
