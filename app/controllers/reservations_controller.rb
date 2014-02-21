@@ -6,7 +6,7 @@ class ReservationsController < DashboardController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = ReservationDecorator.decorate_collection(current_user.reservations.order_by(:desc => :created_at))    
+    @reservations = ReservationDecorator.decorate_collection(current_user.reservations.order_by(:created_at => :desc))    
   end
 
   # GET /reservations/1

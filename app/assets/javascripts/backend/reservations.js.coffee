@@ -11,8 +11,9 @@ app.factory "Reservation", ["$resource", ($resource) ->
 @ReservationsController = ["$scope", "Reservation", ($scope, Reservation) ->
   $scope.reservations = Reservation.query()
   
-  $scope.delete = (r) ->
-    r.$delete()    
+  $scope.delete = (r,index) ->
+    Reservation.delete r, ->
+      $scope.reservations.splice index, 1
 ]    
 
 window.ReservationsNew =

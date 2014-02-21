@@ -49,9 +49,11 @@
         <td>{{rsv.created_at}}</td>
         <td>{{rsv.property.name}}</td>
         <td>{{rsv.tenant_info}}</td>
-        <td>{{rsv.staying_info}}</td>
         <td>
-          <button ng-click="delete(rsv)" class="btn btn-danger">Remove</button>
+          {{rsv.num_nights}}  {{rsv.check_in}} - {{rsv.check_out}}
+       </td>
+        <td>
+          <button ng-click="delete(rsv, $index)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>
