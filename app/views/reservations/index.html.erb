@@ -1,0 +1,59 @@
+<div class="page-header">
+  <div class="pull-left">
+    <h2>Reservations</h2>
+  </div>
+  <div class="pull-right">
+    <%= link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      New Reservation
+    <% end %>
+    <%= render 'booking_popup' %>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div ng-app="Booking" class="panel panel-default" ng-controller="ReservationsController" >
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do%>
+          <span class="glyphicon glyphicon-remove"></span>
+          Delete
+        <% end%>
+      </div>
+      <div class="col-md-6">
+        <div class="pull-right">
+          <div class="input-group">
+            <%= text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'%>
+            <div class="input-group-addon">
+              <div class="glyphicon glyphicon-search"></div>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <th></th>
+      <th>Type</th>
+      <th>Created</th>
+      <th>Guest/Tenant</th>
+      <th>Property</th>
+      <th>Staying</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rsv in reservations" ng-animate=" 'slide' ">
+        <td></td>
+        <td>{{rsv.type_humanized}}</td>
+        <td>{{rsv.created_at}}</td>
+        <td>{{rsv.property.name}}</td>
+        <td>{{rsv.tenant_info}}</td>
+        <td>{{rsv.staying_info}}</td>
+        <td>
+          <button ng-click="delete(rsv)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

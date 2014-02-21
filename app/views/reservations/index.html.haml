@@ -10,34 +10,32 @@
   .clearfix        
 .panel.panel-default
   .panel-body
-    .pull-right
-      .input-group
-        = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
-        .input-group-addon
-          %span.glyphicon.glyphicon-search
+    .row
+      .col-md-6
+        = link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do
+          %span.glyphicon.glyphicon-remove
+          Delete
+      .col-md-6
+        .pull-right
+          .input-group
+            = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
+            .input-group-addon
+              %span.glyphicon.glyphicon-search
   %table.table.table-striped
     %thead
       %th
       %th Type
       %th Created
       %th Property
-      %th Tenant
+      %th Guest/Tenant
       %th Staying
     - @reservations.each do |r|
       %tr
-        %td= check_box_tag :rsv_sel
-        %td= r.rsv_type.to_s.humanize
+        %td= check_box_tag "rsv_selector_#{r.id}", r.id, false, :class => :rsv_selector
+        %td= r.type_humanized
         %td= r.created_at.to_date
         %td= r.property.name
-        %td
-          - if r.tenant.present?
-            = r.tenant.full_name
-          - elsif r.guest.present?             
-            = r.guest.name
-          - else
-            link_to('Add tenant', edit_reservation_path(r), :format => :js, :class => 'text-muted add_tenant', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true)
-        %td
-          = link_to "#{pluralize(r.nights_staying, 'night')}", r
-          = " - #{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"          
+        %td= r.tenant_info          
+        %td= r.staying_info          
 
 

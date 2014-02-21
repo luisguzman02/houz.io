@@ -1,11 +1,12 @@
 class ReservationsController < DashboardController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   before_action :set_reservation_guest, :only => [:edit]
+  respond_to :json
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = current_user.reservations.order_by(:desc => :created_at)
+    @reservations = ReservationDecorator.decorate_collection(current_user.reservations.order_by(:desc => :created_at))    
   end
 
   # GET /reservations/1
@@ -73,6 +74,7 @@ class ReservationsController < DashboardController
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = current_user.reservations.find(params[:id])
+      @reservation = @reservation.decorate if @reservation.present?
     end
 
     def set_reservation_guest

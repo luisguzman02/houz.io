@@ -15,6 +15,8 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.core
 //= require jquery.tokeninput
+//= require angular
+//= require angular-resource
 //= require_self
 //= require bootstrap/alert
 //= require bootstrap/collapse

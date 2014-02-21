@@ -1,3 +1,20 @@
+app = angular.module("Booking", ["ngResource"])
+
+app.config [ "$httpProvider", ($httpProvider) ->
+  $httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=csrf-token]").attr("content")
+]
+
+app.factory "Reservation", ["$resource", ($resource) ->
+  $resource("/reservations/:id.json", {id: "@id"})
+]
+
+@ReservationsController = ["$scope", "Reservation", ($scope, Reservation) ->
+  $scope.reservations = Reservation.query()
+  
+  $scope.delete = (r) ->
+    r.$delete()    
+]    
+
 window.ReservationsNew =
 
   init: ->
@@ -43,7 +60,13 @@ ready_reservations_home = ->
 
   $(".reservations_index").on "click", "#inquiery_booking #date_range_icon .input-group-addon", (e) ->
     e.preventDefault()
-    $("##{$(@).attr('trigger')}").datepicker("show");  
+    $("##{$(@).attr('trigger')}").datepicker("show"); 
+
+  $(".reservations_index").on "click", "#reservations_remove", (e) ->
+    e.preventDefault()
+    $("input.rsv_selector:checkbox:checked").each ->
+      alert @value
+    
 
   #$(".reservations_index").on "click", ".add_tenant", (e) ->
   #  $("#inquiery_booking .modal-body").loading()
