@@ -15,10 +15,12 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-6">
+        <!--
         <%= link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do%>
           <span class="glyphicon glyphicon-remove"></span>
           Delete
         <% end%>
+      -->
       </div>
       <div class="col-md-6">
         <div class="pull-right">
@@ -53,7 +55,7 @@
           {{rsv.num_nights}}  {{rsv.check_in}} - {{rsv.check_out}}
        </td>
         <td>
-          <button ng-click="delete(rsv, $index)" class="btn btn-danger">Delete</button>
+          <button confirmed-click="delete(rsv, $index)" class="btn btn-danger" ng-confirm-click="Are you sure you want to remove this reservation?">Delete</button>
         </td>
       </tr>
     </tbody>

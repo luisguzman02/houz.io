@@ -8,6 +8,14 @@ app.factory "Reservation", ["$resource", ($resource) ->
   $resource("/reservations/:id.json", {id: "@id"})
 ]
 
+app.directive "ngConfirmClick", [->
+  link: (scope, element, attr) ->
+    msg = attr.ngConfirmClick or "Are you sure?"
+    clickAction = attr.confirmedClick
+    element.bind "click", (event) ->
+      scope.$eval clickAction  if window.confirm(msg)
+]      
+
 @ReservationsController = ["$scope", "Reservation", ($scope, Reservation) ->
   $scope.reservations = Reservation.query()
   

@@ -7,7 +7,7 @@ class Reservation
   field :rsv_type, type: Symbol, default: :regular
   field :check_in, type: Date
   field :check_out, type: Date
-  field :num_adults, type: Integer, default: 1
+  field :num_adults, type: Integer, default: 2
   field :num_children, type: Integer, default: 0
   field :stage, type: Symbol
   field :notes, type: String
@@ -28,5 +28,9 @@ class Reservation
 
   def nights_staying
     (check_out - check_in).to_i
+  end
+
+  def discard
+    self.destroy
   end
 end

@@ -11,4 +11,8 @@ describe "Reservations", :js => true, :rsv => :all do
   it 'creates new reservation by checking available properties' do
     pending
   end
+
+  it 'deletes single reservation' do
+    pending
+  end
 end

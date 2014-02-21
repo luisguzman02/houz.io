@@ -16,8 +16,9 @@ class ReservationsController < DashboardController
 
   # GET /reservations/new
   def new
+    @reservation = current_user.reservations.build
     respond_to do |format|
-      format.html { @reservation = current_user.reservations.build }
+      format.html { }
       format.js
     end
   end
@@ -63,7 +64,7 @@ class ReservationsController < DashboardController
   # DELETE /reservations/1
   # DELETE /reservations/1.json
   def destroy
-    @reservation.destroy
+    @reservation.discard
     respond_to do |format|
       format.html { redirect_to reservations_url }
       format.json { head :no_content }
@@ -84,7 +85,7 @@ class ReservationsController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:check_in, :check_out, :property_id, :rsv_type, :guest_attributes => [:name, :email, :source, 
+      params.require(:reservation).permit(:check_in, :check_out, :num_adults, :num_children, :property_id, :rsv_type, :guest_attributes => [:name, :email, :source, 
         :contact_attributes => {:address_attributes =>  [:country, :city, :state, :street], :phones_attributes => [:number] }])
     end
 end

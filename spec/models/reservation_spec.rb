@@ -6,6 +6,11 @@ describe Reservation do
     @reservation = FactoryGirl.build(:reservation)
   end
   
+  def assert_rsv_creation
+    @reservation.save
+    @reservation.should be_persisted
+  end
+
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
   it { should be_timestamped_document.with(:updated) }
@@ -28,8 +33,8 @@ describe Reservation do
 
   #validations
   it { should validate_inclusion_of(:rsv_type).to_allow([:regular, :owner_time, :agent_block]) }
-  it { should validate_inclusion_of(:num_adults).to_allow(1..300) }
-  it { should validate_inclusion_of(:num_children).to_allow(1..300) }
+  it { should validate_inclusion_of(:num_adults).to_allow(1..300).with_default_value_of(2) }
+  it { should validate_inclusion_of(:num_children).to_allow(1..300).with_default_value_of(0) }
   
   #relation
   it { should belong_to(:user) }
@@ -41,8 +46,13 @@ describe Reservation do
   it { should accept_nested_attributes_for(:guest) }  
 
   it 'should create new reservation' do
-    @reservation.save
-    @reservation.should be_persisted
+    assert_rsv_creation
+  end
+
+  it 'destroys completely the reservation if status is pending' do
+    assert_rsv_creation
+    @reservation.discard
+    @reservation.should_not be_persisted
   end
 
 end
