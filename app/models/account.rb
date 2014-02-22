@@ -7,6 +7,7 @@ class Account
   has_and_belongs_to_many :owners, class_name: 'User', inverse_of: :agent_accounts
   has_and_belongs_to_many :tenants, class_name: 'User', inverse_of: nil  
   has_many :agents, class_name: 'User', inverse_of: :company_account
+  has_many :reservations
   belongs_to :ecommerce_plan
   has_many :properties
   embeds_many :rates, :as => :rateable

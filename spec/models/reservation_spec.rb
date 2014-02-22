@@ -3,9 +3,15 @@ require 'spec_helper'
 describe Reservation do
   
   before do
-    @reservation = FactoryGirl.build(:reservation)
+    @acc = FactoryGirl.build(:account)
+    @reservation = FactoryGirl.build(:reservation, :user => @acc.user)
   end
   
+  def assert_rsv_creation
+    @reservation.save
+    @reservation.should be_persisted
+  end
+
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
   it { should be_timestamped_document.with(:updated) }
@@ -21,8 +27,8 @@ describe Reservation do
   it { should have_field(:rsv_type).of_type(Symbol).with_default_value_of(:regular) }
   it { should have_field(:check_in).of_type(Date) }
   it { should have_field(:check_out).of_type(Date) }
-  it { should have_field(:num_adults).of_type(Integer) }
-  it { should have_field(:num_children).of_type(Integer) }
+  it { should have_field(:num_adults).of_type(Integer).with_default_value_of(2) }
+  it { should have_field(:num_children).of_type(Integer).with_default_value_of(0) }
   it { should have_field(:stage).of_type(Symbol) }
   it { should have_field(:notes).of_type(String) }  
 
@@ -33,14 +39,22 @@ describe Reservation do
   
   #relation
   it { should belong_to(:user) }
+  it { should belong_to(:account) }
   it { should belong_to(:property) }
   it { should belong_to(:tenant).of_type(User).as_inverse_of(:bookings) }
   it { should embed_many(:activities) }
   it { should embed_many(:payments) }
+  it { should embed_one(:guest).with_autobuild}
+  it { should accept_nested_attributes_for(:guest) }  
 
   it 'should create new reservation' do
-    @reservation.save
-    @reservation.should be_persisted
+    assert_rsv_creation
+  end
+
+  it 'destroys completely the reservation if status is pending' do
+    assert_rsv_creation
+    @reservation.discard
+    @reservation.should_not be_persisted
   end
 
 end

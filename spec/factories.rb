@@ -50,7 +50,7 @@ FactoryGirl.define do
     end   
     trait :tenant do
       role :tenant
-    end   
+    end       
   end
   factory :rate do
     name 'Regular Rent'

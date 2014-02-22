@@ -1,0 +1,64 @@
+= form_for @reservation, :url => reservation_path(@reservation), :format => :json, :remote => true, :html => {:id => 'inquiery_booking_form_tenant', :role => 'form'} do |f| 
+  .row
+    .col-md-12
+      .form-group        
+        = f.label :rsv_type, 'Reservation Type'                    
+        = f.select :rsv_type, rsv_types_select_options, {}, :class => 'form-control'        
+  .row
+    .col-md-12    
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", href: "#home"} Guest
+        %li
+          %a{"data-toggle" => "tab", href: "#profile"} Registered Tenant
+      .tab-content
+        #home.tab-pane.active 
+          .row
+            .col-md-12
+              = f.fields_for :guest do |g|
+                .row
+                  .col-md-6
+                    .form-group                  
+                      = g.label :name, 'Full name', :class => 'control-label'
+                      = g.text_field :name, :class => 'form-control', :placeholder => 'e.g. John Medina'
+                  .col-md-6
+                    .form-group
+                      = g.label :email, :class => 'control-label'
+                      = g.email_field :email, :class => 'form-control'
+                = g.fields_for :contact do |c|
+                  = c.fields_for :address do |a|
+                    .form-group
+                      = a.label :address
+                      = a.text_field :street, :class => 'form-control'
+                    .form-group
+                      = a.label :country
+                      = a.country_code_select :country, [[ 'United States', 'US' ], [ 'Mexico', 'MX' ]], {}, {:class => 'form-control'}
+                    .row
+                      .col-md-6
+                        .form-group
+                          = a.label :city, :class => 'control-label'
+                          = a.text_field :city, :class => 'form-control'                           
+                      .col-md-6
+                        .form-group
+                          = a.label :state, :class => 'control-label'
+                          = a.text_field :state, :class => 'form-control'
+                  = c.fields_for :phones do |p|
+                    .form-group
+                      = p.label :numer, 'Phone', :class => 'control-label'
+                      = p.text_field :number, :class => 'form-control'                                    
+                .form-group
+                  = g.label :source
+                  = g.text_field :source, :class => 'form-control', :placeholder => 'e.g. Google, Local news, 9flats'
+        #profile.tab-pane 
+          .row
+            .col-md-12
+              .form-group
+                = label_tag :tenant
+                .input-group                
+                  = text_field_tag :tenant, '', :class => 'form-control'
+                  %span.input-group-addon Nights      
+  .row
+    .col-md-12
+      .pull-right
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        = submit_tag 'Book', :class => 'btn btn-warning'

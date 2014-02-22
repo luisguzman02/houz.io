@@ -1,0 +1,4 @@
+$('#inquiery_booking .modal-body').html("#{escape_javascript render(partial: 'reservations/booking_guest')}");
+$('#inquiery_booking .modal-header .modal-title').html("Booking <small>##{@reservation.id}<small>");
+:plain
+  ReservationsNew.addToAngularScope("#{@reservation.id}")

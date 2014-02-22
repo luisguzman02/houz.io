@@ -3,35 +3,39 @@
     %h2 
       Reservations
   .pull-right#head_right
-    = link_to '#', :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
+    = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
       %span.glyphicon.glyphicon-plus
       New Reservation
     = render 'booking_popup'
   .clearfix        
 .panel.panel-default
   .panel-body
-    .pull-right
-      .input-group
-        = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
-        .input-group-addon
-          %span.glyphicon.glyphicon-search
+    .row
+      .col-md-6
+        = link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do
+          %span.glyphicon.glyphicon-remove
+          Delete
+      .col-md-6
+        .pull-right
+          .input-group
+            = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
+            .input-group-addon
+              %span.glyphicon.glyphicon-search
   %table.table.table-striped
     %thead
       %th
       %th Type
       %th Created
       %th Property
-      %th Tenant
+      %th Guest/Tenant
       %th Staying
     - @reservations.each do |r|
       %tr
-        %td= check_box_tag :rsv_sel
-        %td= r.rsv_type.to_s.humanize
+        %td= check_box_tag "rsv_selector_#{r.id}", r.id, false, :class => :rsv_selector
+        %td= r.type_humanized
         %td= r.created_at.to_date
         %td= r.property.name
-        %td= r.tenant
-        %td
-          = "#{r.check_in.to_s(:second_date)} - #{r.check_out.to_s(:second_date)}"
-          %strong= " - #{pluralize(r.nights_staying, 'night')}"
+        %td= r.tenant_info          
+        %td= r.staying_info          
 
 
