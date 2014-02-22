@@ -1,3 +1,4 @@
+#AngularJS
 app = angular.module("Booking", ["ngResource"])
 
 app.config [ "$httpProvider", ($httpProvider) ->
@@ -25,7 +26,7 @@ app.directive "ngConfirmClick", [->
 
   $scope.addtoList = (id) ->
     $scope.reservations.splice(0, 0, Reservation.get({id: id}))
-]    
+]
 
 window.ReservationsNew =
 
@@ -71,7 +72,7 @@ window.ReservationsNew =
     scope.$apply ->
       scope.addtoList(id)
 
-ready_reservations_home = ->
+ready_reservations_home = ->  
   $(".reservations_index").on "click", "#new_reservation_btn, .add_tenant", (e) ->
     $("#inquiery_booking .modal-body").loading()    
 
@@ -82,14 +83,20 @@ ready_reservations_home = ->
   $(".reservations_index").on "click", "#reservations_remove", (e) ->
     e.preventDefault()
     $("input.rsv_selector:checkbox:checked").each ->
-      alert @value
-    
+      alert @value        
 
   #$(".reservations_index").on "click", ".add_tenant", (e) ->
   #  $("#inquiery_booking .modal-body").loading()
 
   #$("#inquiery_booking").on "shown.bs.modal", (e) ->
 
+
 #page load triggers
-$(document).ready(ready_reservations_home)
-$(document).on('page:load', ready_reservations_home)
+$(document).ready(ready_reservations_home)  
+$(document).on('page:load', ->
+  ready_reservations_home()
+  #bootstrapAngular
+  $('[ng-app]').each ->    
+    module = $(this).attr('ng-app')
+    angular.bootstrap(this, [module])
+)
