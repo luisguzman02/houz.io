@@ -42,20 +42,24 @@
       <th>Guest/Tenant</th>
       <th>Property</th>
       <th>Staying</th>
+      <th>Arrival</th>
+      <th>Departure</th>
       <th></th>
     </thead>
     <tbody>
       <tr ng-repeat="rsv in reservations" ng-animate=" 'slide' ">
         <td></td>
         <td>{{rsv.type_humanized}}</td>
-        <td>{{rsv.created_at}}</td>
+        <td>{{rsv.created_at}}</td>     
+        <td>{{rsv.tenant_info}} </td>           
         <td>{{rsv.property.name}}</td>
-        <td>{{rsv.tenant_info}}</td>
-        <td>
-          {{rsv.num_nights}}  {{rsv.check_in}} - {{rsv.check_out}}
-       </td>
+        <td>{{rsv.num_nights}}</td>
+        <td>{{rsv.check_in}}</td>
+        <td>{{rsv.check_out}}</td>
         <td>
           <button confirmed-click="delete(rsv, $index)" class="btn btn-danger" ng-confirm-click="Are you sure you want to remove this reservation?">Delete</button>
+          <a href="{{}}" class="btn btn-default">Edit</a>
+          <a href="{{rsv.url}}" class="text-warning">Show</a>
         </td>
       </tr>
     </tbody>

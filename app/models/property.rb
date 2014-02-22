@@ -59,7 +59,7 @@ class Property
   accepts_nested_attributes_for :contact     
 
   before_validation do |p|    
-    p.user = p.account.user unless user
+    p.user ||= p.account.user
   end
 
   before_create do |p|

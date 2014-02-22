@@ -6,5 +6,5 @@ json.array!(@reservations) do |reservation|
   json.property { 
     json.name reservation.property.name    
   }
-  json.url reservation_url(reservation, format: :json)
+  json.url reservation_url(reservation)
 end
