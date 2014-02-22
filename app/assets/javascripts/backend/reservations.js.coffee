@@ -22,6 +22,9 @@ app.directive "ngConfirmClick", [->
   $scope.delete = (r,index) ->
     Reservation.delete r, ->
       $scope.reservations.splice index, 1
+
+  $scope.addtoList = (id) ->
+    $scope.reservations.splice(0, 0, Reservation.get({id: id}))
 ]    
 
 window.ReservationsNew =
@@ -62,6 +65,11 @@ window.ReservationsNew =
         else
           $('#booking_info').html(data.error)        
           $("#inquiery_booking_form #book_btn").attr "disabled", true 
+
+  addToAngularScope: (id) ->
+    scope = angular.element($("#rsv_listing")).scope()
+    scope.$apply ->
+      scope.addtoList(id)
 
 ready_reservations_home = ->
   $(".reservations_index").on "click", "#new_reservation_btn, .add_tenant", (e) ->

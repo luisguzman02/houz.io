@@ -1,7 +1,6 @@
 class ReservationsController < DashboardController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   before_action :set_reservation_guest, :only => [:edit]
-  respond_to :json
 
   # GET /reservations
   # GET /reservations.json
@@ -24,8 +23,7 @@ class ReservationsController < DashboardController
   end
 
   # GET /reservations/1/edit
-  def edit
-    
+  def edit    
   end
 
   # POST /reservations

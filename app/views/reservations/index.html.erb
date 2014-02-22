@@ -11,7 +11,7 @@
   </div>
   <div class="clearfix"></div>
 </div>
-<div ng-app="Booking" class="panel panel-default" ng-controller="ReservationsController" >
+<div ng-app="Booking" class="panel panel-default" ng-controller="ReservationsController" id="rsv_listing">
   <div class="panel-body">
     <div class="row">
       <div class="col-md-6">
@@ -58,7 +58,7 @@
         <td>{{rsv.check_out}}</td>
         <td>
           <button confirmed-click="delete(rsv, $index)" class="btn btn-danger" ng-confirm-click="Are you sure you want to remove this reservation?">Delete</button>
-          <a href="{{}}" class="btn btn-default">Edit</a>
+          <a href="{{rsv.url_edit}}" class="btn btn-default">Edit</a>
           <a href="{{rsv.url}}" class="text-warning">Show</a>
         </td>
       </tr>
