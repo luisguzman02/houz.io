@@ -1,7 +1,7 @@
 class DashboardController < ActionController::Base 
   include ApplicationHelper
   protect_from_forgery with: :exception
-  layout 'backend'
+  layout 'canvas_admin'
   before_action :authenticate_user!
   before_action :validate_properties, :except => [:new, :create]
   before_action :configure_permitted_parameters, if: :devise_controller?

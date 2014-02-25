@@ -26,4 +26,5 @@
 //= require turbolinks
 //= require_tree ./backend
 //= require hamlcoffee
+//= require canvas_admin
 //= require_tree ./templates

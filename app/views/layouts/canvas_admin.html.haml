@@ -1,0 +1,139 @@
+!!!
+%html
+  %head
+    %title Dashboard - Canvas Admin Rails
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    = stylesheet_link_tag "backend", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "backend", "data-turbolinks-track" => true, :type => 'text/javascript'
+    = csrf_meta_tags
+  %body{:class => "#{controller.controller_name} #{controller.controller_name}_#{controller.action_name}"}
+    #wrapper
+      %header#header
+        %h1#site-logo
+          %a{href: "/"}
+            %img{alt: "Site Logo", src: "/assets/logos/logo.png"}/
+        %a#top-bar-toggle.navbar-toggle.collapsed{"data-target" => ".top-bar-collapse", "data-toggle" => "collapse", href: "javascript:;"}
+          %i.fa.fa-cog
+        %a#sidebar-toggle.navbar-toggle.collapsed{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", href: "javascript:;"}
+          %i.fa.fa-reorder
+      / header
+      %nav#top-bar.collapse.top-bar-collapse
+        %ul.nav.navbar-nav.pull-left
+          %li
+            = link_to root_path do
+              %i.fa.fa-home
+              Home
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javascript:;"}
+              Dropdown
+              %span.caret
+            %ul.dropdown-menu{role: "menu"}
+              %li
+                %a{href: "javascript:;"}
+                  %i.fa.fa-user>
+                  \  Example #1
+              %li
+                %a{href: "javascript:;"}
+                  %i.fa.fa-calendar>
+                  \  Example #2
+              %li.divider
+              %li
+                %a{href: "javascript:;"}
+                  %i.fa.fa-tasks>
+                  \  Example #3
+        %ul.nav.navbar-nav.pull-right
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javascript:;"}
+              %i.fa.fa-user
+              = current_user.full_name
+              %span.caret
+            %ul.dropdown-menu{role: "menu"}
+              %li
+                %a{href: "./page-profile.html"}
+                  %i.fa.fa-user
+                  \  My Profile
+              %li
+                %a{href: "./page-calendar.html"}
+                  %i.fa.fa-calendar
+                  \  My Calendar
+              %li
+                %a{href: "./page-settings.html"}
+                  %i.fa.fa-cogs
+                  \  Settings
+              %li.divider
+              %li
+                = link_to destroy_user_session_path do
+                  %i.fa.fa-sign-out
+                  \  Logout
+      / /#top-bar
+      #sidebar-wrapper.collapse.sidebar-collapse
+        #search
+          %form
+            %input.form-control.input-sm{name: "search", placeholder: "Search...", type: "text"}/
+            %button#search-btn.btn{type: "submit"}
+              %i.fa.fa-search
+        / #search
+        %nav#sidebar
+          %ul#main-nav.open-active
+            %li{:class => controller_name.eql?('dashboard') ? 'active' : ''}
+              = link_to dashboard_path do
+                %i.fa.fa-dashboard
+                Dashboard
+            %li{:class => controller_name.eql?('properties') ? 'active' : ''}
+              = link_to properties_path do
+                %i.fa.fa-list
+                Properties                           
+            %li.dropdown
+              %a{href: "javascript:;"}
+                %i.fa.fa-book
+                Reservations
+                %span.caret
+              %ul.sub-nav
+                %li
+                  %a{href: "./form-regular.html"}
+                    %i.fa.fa-location-arrow
+                    Regular Elements
+                %li
+                  %a{href: "./form-extended.html"}
+                    %i.fa.fa-magic
+                    Extended Elements
+                %li
+                  %a{href: "./form-validation.html"}
+                    %i.fa.fa-check
+                    Validation
+            %li.dropdown
+              %a{href: "javascript:;"}
+                %i.fa.fa-group
+                User Management
+                %span.caret
+              %ul.sub-nav
+                %li
+                  %a{href: "./ui-buttons.html"}
+                    %i.fa.fa-hand-o-up
+                    Agents
+                %li
+                  %a{href: "./ui-tabs.html"}
+                    %i.fa.fa-reorder
+                    Owners
+                %li
+                  %a{href: "./ui-popups.html"}
+                    %i.fa.fa-asterisk
+                    Tenants                            
+        / #sidebar
+      / /#sidebar-wrapper
+      #content
+        #content-header
+          %h1 
+            - if content_for? :page_title
+              = yield :page_title
+        / #content-header
+        #content-container
+          / place = yield  here
+          = yield
+        / /#content-container
+      / #content
+    / #wrapper
+    %footer#footer
+      %ul.nav.pull-right
+        %li
+          Copyright © 2014, Secondhouz.com.

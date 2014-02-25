@@ -4,12 +4,9 @@
 -------------------------------------------------- */
 html,
 body {
-  background: image-url("bg_stripe.png")repeat; 
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-
+  
   h1,h2,h3,h4{
-    font-family: $font-family-serif;    
+    font-family: $font-family-sans-serif;    
   }
   code {
     font-size: 80%;
@@ -66,7 +63,7 @@ body {
         } 
       }
     }  
-    #main_content {
+    #content-container {
       background-color: #fff;
       border-radius: 5px;
       border: 1px solid #eee;

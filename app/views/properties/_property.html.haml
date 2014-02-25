@@ -1,9 +1,10 @@
-.panel.panel-success.property_item
-  .panel-heading
+.portlet.property_item
+  .portlet-header
     %h3.panel-title
+      %i.fa.fa-home
       = property.name
-      %small= "ID: #{property.slug}"
-  .panel-body
+      / %small= "ID: #{property.slug}"
+  .portlet-content
     .row
       .col-xs-4
         - if property.pictures.empty?

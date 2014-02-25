@@ -1,1 +1,209 @@
-pending
+.row
+  .col-md-8
+    %h3
+      INV-038273
+      %small.pull-right Sep 15th, 2013
+    %hr/
+    %br/
+    .row
+      .col-md-6.col-sm-6
+        %h4 From:
+        %table.table
+          %tbody
+            %tr
+              %td{style: "width: 90px"}
+                .thumbnail
+                  %img{alt: "Avatar", src: "./img/avatars/avatar-1.jpg", style: "width: 90px;"}/
+              %td
+                %strong Canvas Admin Inc.
+                %br/
+                2501 N Green Valley Pkwy, Suite 150
+                %br/
+                Henderson, NV 89014
+                %br/
+                US
+                %br/
+                Phone: 702-555-7777
+                %br/
+                Fax: 702 444-6666
+      / /.col
+      .col-md-6.col-sm-6
+        %h4 To:
+        %table.table
+          %tbody
+            %tr
+              %td{style: "width: 90px"}
+                .thumbnail
+                  %img{alt: "Avatar", src: "./img/avatars/avatar-2.jpg", style: "width: 90px;"}/
+              %td
+                %strong Nikita Chanel Inc.
+                %br/
+                1050 St Rose Pkwy, Suite 75
+                %br/
+                Las Vegas, NV 89183
+                %br/
+                US
+      / /.col
+    / /.row
+    %hr/
+    %h3 Invoice Details
+    %br/
+    .table-responsive
+      %table.table
+        %thead
+          %tr
+            %th Qty
+            %th Unit
+            %th Description
+            %th.price Price
+            %th.total Total
+        %tbody
+          %tr
+            %td 23.5
+            %td Hours
+            %td Custom Web Design
+            %td 100.00
+            %td $2350.00
+          %tr
+            %td 10
+            %td Hours
+            %td Graphic Design
+            %td 75.00
+            %td $750.00
+          %tr
+            %td 1
+            %td Product
+            %td CMS Install/Setup
+            %td 1000.00
+            %td $1000.00
+          %tr
+            %td 1
+            %td Discount
+            %td Customer Loyalty Discount
+            %td (250.00)
+            %td ($250.00)
+          %tr.row-subtotal
+            %td{colspan: "3"}
+            %td
+              %strong Subtotal:
+            %td $4100.00
+          %tr
+            %td{colspan: "3"}
+            %td
+              %strong Discounts:
+            %td ($250.00)
+          %tr
+            %td{colspan: "3"}
+            %td
+              %strong Total Due:
+            %td
+              %strong $3850.00
+    / /.table-resonsive
+    %br/
+    %br/
+    %h3
+      Invoice Notes
+      %a.btn.btn-xs.btn-secondary.pull-right{href: "javascript:;"}
+        %i.fa.fa-pencil
+        Edit Notes
+    %hr/
+    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+    %br/
+    %br/
+    %br/
+    %h3
+      History  Comments
+      %a.btn.btn-secondary.btn-xs.pull-right{href: "javascript:;"}
+        %i.fa.fa-comment
+        Add Comment
+    %br/
+    .table-responsive
+      %table.table.table-striped
+        %tbody
+          %tr
+            %td{style: "width: 125px;"} Sep 20th, 2013
+            %td
+              %p
+                %strong Loyalty Discount Applied
+              %p Thanks for working with us again! We've applied the discount to your invoice.
+            %td
+              .thumbnail.pull-right{style: "width: 60px;"}
+                %img{alt: "Avatar", src: "./img/avatars/avatar-1.jpg"}/
+          %tr
+            %td{style: "width: 125px;"} Sep 18th, 2013
+            %td
+              %p
+                %strong Submitted Payment
+              %p Nikita submitted a payment of $3547 for invoice INV-038273
+            %td
+              .thumbnail.pull-right{style: "width: 60px;"}
+                %img{alt: "Avatar", src: "./img/avatars/avatar-2.jpg"}/
+          %tr
+            %td{style: "width: 125px;"} Sep 15th, 2013
+            %td
+              %p
+                %strong Invoice Generated
+              %p Invoice was generated on Sep 15th, 2013 by Rod Howard.
+            %td
+              .thumbnail.pull-right{style: "width: 60px;"}
+                %img{alt: "Avatar", src: "./img/avatars/avatar-1.jpg"}/
+    / /.table-responsive
+  / /.col
+  .col-md-4.col-sidebar-right
+    %p
+      %a.btn.btn-jumbo.btn-primary.btn-block{href: "javascript:;"}
+        Pay Invoice
+        %br/
+    %p
+      %a.btn.btn-lg.btn-tertiary.btn-block{href: "javascript:;"} Close Invoice
+    %br/
+    %h4 Invoice Actions
+    %hr/
+    .list-group
+      %a.list-group-item{href: "javascript:;"}
+        %i.fa.fa-envelope
+        %strong Send
+        Invoice
+      %a.list-group-item{href: "javascript:;"}
+        %i.fa.fa-pencil
+        %strong Edit
+        Invoice
+      %a.list-group-item{href: "javascript:;"}
+        %i.fa.fa-print
+        %strong Print
+        Invoice
+      %a.list-group-item{href: "javascript:;"}
+        %i.fa.fa-copy
+        %strong Duplicate
+        Invoice
+      %a.list-group-item{href: "javascript:;"}
+        %i.fa.fa-times
+        %strong Delete
+        Invoice
+    %br/
+    %h4 Closed Invoices
+    %hr/
+    .list-group
+      %a.list-group-item{href: "javascript:;"}
+        %h5
+          %i.fa.fa-file-text-o
+          INV-036582
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      %a.list-group-item{href: "javascript:;"}
+        %h5
+          %i.fa.fa-file-text-o
+          INV-0335698
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      %a.list-group-item{href: "javascript:;"}
+        %h5
+          %i.fa.fa-file-text-o
+          INV-028756
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      %a.list-group-item{href: "javascript:;"}
+        %h5
+          %i.fa.fa-file-text-o
+          INV-0215893
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  / /.col
+/ /.row

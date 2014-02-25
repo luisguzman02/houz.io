@@ -13,9 +13,8 @@
  *= require jquery.ui.core
  *= require jquery.ui.theme
  *= require jquery-ui/blitzer
+ *= require token-input-facebook
 */
-@import "./backend/bootstrap_vars";
 @import "bootstrap";
-@import "bootstrap/theme";
-@import "token-input-facebook";
+@import "canvas_admin";
 @import "./backend/*";

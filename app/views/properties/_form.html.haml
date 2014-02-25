@@ -4,6 +4,7 @@
     = form_for @property, :html => {:role => 'form', :class => 'property_form'} do |f|
       .panel.panel-default
         .panel-heading 
+          %i.fa.fa-list-alt
           %strong Details
         .panel-body     
           .form-group
@@ -20,6 +21,7 @@
             = f.text_field :tags, :class => 'form-control', :placeholder => 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"', 'data-pre' => @property.tags_token_input                   
       .panel.panel-default#rental_details
         .panel-heading 
+          %i.fa.fa-calendar
           %strong Rental details
         .panel-body
           .row
@@ -59,6 +61,7 @@
             .col-md-3
       .panel.panel-default.prop_sect
         .panel-heading 
+          %i.fa.fa-location-arrow
           %strong Location
         .panel-body                
           = f.fields_for :contact do |c|
@@ -85,6 +88,7 @@
                   = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
       .panel.panel-default.prop_sect
         .panel-heading 
+          %i.fa.fa-th-list
           %strong Amenities
         .panel-body                              
           .row
@@ -109,6 +113,6 @@
               = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
       = link_to 'Delete this property',  @property, :method => :delete, :id => 'del_prop_lnk', :class => 'text-danger', data: { confirm: 'Are you sure you want to remove this property?' }  if @property.persisted?
       .pull-right
-        %button{:type => 'submit', :class =>"btn btn-success btn-lg"}
+        %button{:type => 'submit', :class =>"btn btn-primary btn-lg"}
           %span.glyphicon.glyphicon-floppy-disk
           Save        
