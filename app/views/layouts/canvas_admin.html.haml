@@ -126,6 +126,8 @@
       / #content
     / #wrapper
     %footer#footer
-      %ul.nav.pull-right
+      %ul.nav.pull-left
         %li
           Copyright © 2014, Secondhouz.com.
+    - if content_for? :modals
+      = yield :modals

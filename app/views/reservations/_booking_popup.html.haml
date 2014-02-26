@@ -1,8 +1,9 @@
-#inquiery_booking.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "NewBooking", role: "dialog", tabindex: "-1"}    
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4#NewBooking.modal-title New Reservation
-      .modal-body  
-        %center= image_tag('spinner_mid.gif')         
+- content_for :modals do
+  #inquiery_booking.modal.modal-styled.fade.in{"aria-hidden" => "true", "aria-labelledby" => "NewBooking", role: "dialog", tabindex: "-1"}    
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#NewBooking.modal-title New Reservation
+        .modal-body  
+          %center= image_tag('spinner_mid.gif')          

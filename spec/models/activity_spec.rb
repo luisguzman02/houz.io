@@ -11,13 +11,16 @@ describe Activity do
   it { should_not be_timestamped_document.with(:updated) }
 
   #required
-  it { should validate_presence_of(:description) }
+  it { should validate_presence_of(:logeable) }
+  it { should validate_presence_of(:action) }
+  it { should validate_presence_of(:user) }
 
   #fields
   it { should have_field(:description).of_type(String) }
+  it { should have_field(:action).of_type(Symbol) }
   
   #relation
-  #it { should belong_to(:user) }
-  it { should be_embedded_in(:logeable) } 
+  it { should belong_to(:user) }
+  it { should belong_to(:logeable) } 
 
 end

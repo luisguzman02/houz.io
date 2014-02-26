@@ -1,6 +1,7 @@
 class Reservation
 	include Mongoid::Document
 	include Mongoid::Timestamps
+  include Loggable
 
   RSV_TYPES = [:regular, :owner_time, :agent_block]
 
@@ -20,8 +21,7 @@ class Reservation
   belongs_to :property
   belongs_to :user, inverse_of: :reservations
   belongs_to :tenant, class_name: 'User', inverse_of: :bookings
-  belongs_to :account
-  embeds_many :activities
+  belongs_to :account  
   embeds_many :payments
   embeds_one :guest, :autobuild => true
 

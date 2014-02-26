@@ -51,6 +51,7 @@ class User
   embeds_one :contact, as: :contactable,  autobuild: true
   has_many :properties, dependent: :destroy
   belongs_to :company_account, class_name: 'Account', inverse_of: :agents
+  has_many :activities
 
   validates_presence_of :email, :first_name, :last_name, :active, :password, :role
   validates_length_of :password, :within => 6..128

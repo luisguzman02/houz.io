@@ -80,4 +80,8 @@ describe Property do
       p.rates.find_by(:name => r.name).should_not be_nil      
     end    
   end
+
+  it 'check booking availability' do
+    pending
+  end
 end

@@ -43,8 +43,6 @@
                 Las Vegas, NV 89183
                 %br/
                 US
-      / /.col
-    / /.row
     %hr/
     %h3 Reservation Details    
     %hr/
@@ -53,12 +51,17 @@
         %ul.icons-list
           %li
             %i.icon-li.fa.fa-caret-right
+            %strong Staying: 
+            = @reservation.nights_staying
+            nights
+          %li
+            %i.icon-li.fa.fa-caret-right
             %strong Check-in: 
             = @reservation.check_in.to_date
           %li
             %i.icon-li.fa.fa-caret-right
             %strong Check-in: 
-            = @reservation.check_out.to_date
+            = @reservation.check_out.to_date            
       .col-md-4
         %ul.icons-list
           %li
@@ -80,7 +83,6 @@
             %strong Status:  
             %span.label.label-default
               On Hold
-    / /.table-resonsive
     %br/
     %h3
       Reservation Notes

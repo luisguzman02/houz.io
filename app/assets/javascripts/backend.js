@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.datepicker
 //= require jquery.ui.core
 //= require jquery.tokeninput
 //= require angular
@@ -27,4 +26,5 @@
 //= require_tree ./backend
 //= require hamlcoffee
 //= require canvas_admin
+//= require canvas_admin/datepicker/bootstrap-datepicker
 //= require_tree ./templates
