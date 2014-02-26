@@ -83,24 +83,16 @@
               = link_to properties_path do
                 %i.fa.fa-list
                 Properties                           
-            %li.dropdown
+            %li.dropdown{:class => controller_name.eql?('reservations') ? 'active' : ''}
               %a{href: "javascript:;"}
                 %i.fa.fa-book
                 Reservations
                 %span.caret
               %ul.sub-nav
                 %li
-                  %a{href: "./form-regular.html"}
-                    %i.fa.fa-location-arrow
-                    Regular Elements
-                %li
-                  %a{href: "./form-extended.html"}
-                    %i.fa.fa-magic
-                    Extended Elements
-                %li
-                  %a{href: "./form-validation.html"}
-                    %i.fa.fa-check
-                    Validation
+                  = link_to reservations_path do
+                    %i.fa.fa-reorder
+                    List of Reservations
             %li.dropdown
               %a{href: "javascript:;"}
                 %i.fa.fa-group

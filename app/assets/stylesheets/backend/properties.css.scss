@@ -73,20 +73,23 @@ li.token-input-token-facebook {
 //properties listing
 .properties_index {
   #content-container {
-    .property_item {
+    .property_item {      
       width: 49%;
       float: left;
       clear: none;
-      .no_img_placer {
-        height: 76px;
-        margin: 0;
-        padding: 16px 6px;
-        text-align: center;
-        width: 100px;
-        a:hover {
-          text-decoration: none;
-        }
-      }
+      .portlet-content{
+        padding-bottom: 0;
+        .no_img_placer {
+          height: 76px;
+          margin: 0;
+          padding: 16px 6px;
+          text-align: center;
+          width: 100px;
+          a:hover {
+            text-decoration: none;
+          }
+        } 
+      }      
     }
     .property_item:nth-child(2n) {
       margin-left: 15px;
