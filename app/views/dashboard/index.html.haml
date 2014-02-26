@@ -1,4 +1,410 @@
-.page-header
-  %h2 
-    Dashboard
-    %small= "(Current plan: #{current_account.package})"
+- content_for :page_title do
+  Dashboard  
+%div
+  %h4.heading-inline
+    Weekly Sales Stats
+    \  
+    %small For the week of Jun 15 - Jun 22, 2011
+    \  
+  .btn-group
+    %button.btn.btn-default.btn-sm.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+      %i.fa.fa-clock-o
+      \ 
+      Change Week
+      %span.caret
+    %ul.dropdown-menu{role: "menu"}
+      %li
+        %a{href: "javascript:;"} Action
+      %li
+        %a{href: "javascript:;"} Another action
+      %li
+        %a{href: "javascript:;"} Something else here
+      %li.divider
+      %li
+        %a{href: "javascript:;"} Separated link
+%br/
+.row
+  .col-md-3.col-sm-6
+    %a.dashboard-stat.primary{href: "javascript:;"}
+      .visual
+        %i.fa.fa-star
+      / /.visual
+      .details
+        %span.content New Orders
+        %span.value 1,236
+      / /.details
+      %i.fa.fa-play-circle.more
+    / /.dashboard-stat
+  / /.col-md-3
+  .col-md-3.col-sm-6
+    %a.dashboard-stat.secondary{href: "javascript:;"}
+      .visual
+        %i.fa.fa-shopping-cart
+      / /.visual
+      .details
+        %span.content Abandoned Carts
+        %span.value 256
+      / /.details
+      %i.fa.fa-play-circle.more
+    / /.dashboard-stat
+  / /.col-md-3
+  .col-md-3.col-sm-6
+    %a.dashboard-stat.tertiary{href: "javascript:;"}
+      .visual
+        %i.fa.fa-clock-o
+      / /.visual
+      .details
+        %span.content Avg. Support Time
+        %span.value 4:37
+      / /.details
+      %i.fa.fa-play-circle.more
+    / /.dashboard-stat
+  / /.col-md-3
+  .col-md-3.col-sm-6
+    %a.dashboard-stat{href: "javascript:;"}
+      .visual
+        %i.fa.fa-money
+      / /.visual
+      .details
+        %span.content Total Revenue
+        %span.value $173K
+      / /.details
+      %i.fa.fa-play-circle.more
+    / /.dashboard-stat
+  / /.col-md-9
+/ /.row
+.row
+  .col-md-9
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-bar-chart-o
+          Area Chart
+      / /.portlet-header
+      .portlet-content
+        .pull-left
+          .btn-group{"data-toggle" => "buttons"}
+            %label.btn.btn-sm.btn-default
+              %input#option1{name: "options", type: "radio"}/
+              Day
+            %label.btn.btn-sm.btn-default
+              %input#option2{name: "options", type: "radio"}/
+              Week
+            %label.btn.btn-sm.btn-default.active
+              %input#option3{name: "options", type: "radio"}/
+              Month
+          \ 
+          .btn-group
+            %button.btn.btn-sm.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+              Custom Date
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{href: "javascript:;"} Dropdown link
+              %li
+                %a{href: "javascript:;"} Dropdown link
+        .pull-right
+          .btn-group
+            %button.btn.btn-sm.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+              %i.fa.fa-cog
+              \  
+              %span.caret
+            %ul.dropdown-menu.pull-right{role: "menu"}
+              %li
+                %a{href: "javascript:;"} Action
+              %li
+                %a{href: "javascript:;"} Another action
+              %li
+                %a{href: "javascript:;"} Something else here
+              %li.divider
+              %li
+                %a{href: "javascript:;"} Separated link
+        .clear
+        %hr/
+        #area-chart.chart-holder{style: "height: 250px"}
+        / /#bar-chart
+      / /.portlet-content
+    / /.portlet
+    .row
+      .col-md-6
+        .portlet
+          .portlet-header
+            %h3
+              %i.fa.fa-money
+              Recent Orders
+            %ul.portlet-tools.pull-right
+              %li
+                %button.btn.btn-sm.btn-default
+                  Add Order
+          / /.portlet-header
+          .portlet-content
+            .table-responsive
+              %table.table
+                %thead
+                  %tr
+                    %th Purchased On
+                    %th Items
+                    %th Amount
+                    %th
+                %tbody
+                  %tr
+                    %td 09/21/2013
+                    %td 3
+                    %td $108.35
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+                  %tr
+                    %td 09/21/2013
+                    %td 1
+                    %td $30.89
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+                  %tr
+                    %td 09/20/2013
+                    %td 2
+                    %td $52.06
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+                  %tr
+                    %td 09/19/2013
+                    %td 4
+                    %td $73.54
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+                  %tr
+                    %td 09/19/2013
+                    %td 4
+                    %td $73.54
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+                  %tr
+                    %td 09/19/2013
+                    %td 4
+                    %td $73.54
+                    %td
+                      %a.btn.btn-xs.btn-tertiary{href: "javascript:;"}
+                        View   
+                        %i.fa.fa-chevron-right
+            / /.table-responsive
+            %hr/
+            %a.btn.btn-sm.btn-secondary{href: "javascript:;"} View All Orders
+          / /.portlet-content
+        / /.portlet
+      / /.col-md-4
+      .col-md-6
+        .portlet
+          .portlet-header
+            %h3
+              %i.fa.fa-group
+              Recent Signups
+            %ul.portlet-tools.pull-right
+              %li
+                %button.btn.btn-sm.btn-default
+                  Add User
+          / /.portlet-header
+          .portlet-content
+            .table-responsive
+              %table#user-signups.table.table-striped.table-checkable
+                %thead
+                  %tr
+                    %th.checkbox-column
+                      %input#check-all.icheck-input{type: "checkbox"}/
+                    %th.hidden-xs
+                      First Name
+                    %th Last Name
+                    %th
+                      Status
+                    %th.align-center
+                      Approve
+                %tbody
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "joey"}/
+                    %td.hidden-xs Joey
+                    %td Greyson
+                    %td
+                      %span.label.label-success Approved
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "wolf"}/
+                    %td.hidden-xs Wolf
+                    %td Bud
+                    %td
+                      %span.label.label-default Pending
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "sam"}/
+                    %td.hidden-xs Sam
+                    %td Mitchell
+                    %td
+                      %span.label.label-success Approved
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "carlos"}/
+                    %td.hidden-xs Carlos
+                    %td Lopez
+                    %td
+                      %span.label.label-success Approved
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "rob"}/
+                    %td.hidden-xs Rob
+                    %td Johnson
+                    %td
+                      %span.label.label-default Pending
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+                  %tr
+                    %td.checkbox-column
+                      %input.icheck-input{name: "actiony", type: "checkbox", value: "mike"}/
+                    %td.hidden-xs Mike
+                    %td Jones
+                    %td
+                      %span.label.label-default Pending
+                    %td.align-center
+                      %a.btn.btn-xs.btn-primary{"data-original-title" => "Approve", href: "javascript:void(0);"}
+                        %i.fa.fa-check
+            / /.table-responsive
+            %hr/
+            Apply to Selected:   
+            %select#apply-selected.ui-select2{name: "table-select", style: "width: 125px"}
+              %option{value: ""} Select Action
+              %option{value: "approve"} Approve
+              %option{value: "edit"} Edit
+              %option{value: "delete"} Delete
+          / /.portlet-content
+        / /.portlet
+      / /.col-md-4
+    / /.row
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-calendar
+          Full Calendar
+      / /.portlet-header
+      .portlet-content
+        #full-calendar
+      / /.portlet-content
+    / /.portlet
+  / /.col-md-9
+  .col-md-3
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-bar-chart-o
+          Donut Chart
+      / /.portlet-header
+      .portlet-content
+        #donut-chart.chart-holder{style: "height: 250px"}
+      / /.portlet-content
+    / /.portlet
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-compass
+          Traffic Overview
+      / /.portlet-header
+      .portlet-content
+        .progress-stat
+          .stat-header
+            .stat-label
+              \% New Visits
+            / /.stat-label
+            .stat-value
+              77.7%
+            / /.stat-value
+          / /stat-header
+          .progress.progress-striped.active
+            .progress-bar.progress-bar-primary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "77", role: "progressbar", style: "width: 77%"}
+              %span.sr-only 77.74% Visit Rate
+          / /.progress
+        / /.progress-stat
+        .progress-stat
+          .stat-header
+            .stat-label
+              \% Mobile Visitors
+            / /.stat-label
+            .stat-value
+              33.2%
+            / /.stat-value
+          / /stat-header
+          .progress.progress-striped.active
+            .progress-bar.progress-bar-tertiary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "33", role: "progressbar", style: "width: 33%"}
+              %span.sr-only 33% Mobile Visitors
+          / /.progress
+        / /.progress-stat
+        .progress-stat
+          .stat-header
+            .stat-label
+              Bounce Rate
+            / /.stat-label
+            .stat-value
+              42.7%
+            / /.stat-value
+          / /stat-header
+          .progress.progress-striped.active
+            .progress-bar.progress-bar-secondary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "42", role: "progressbar", style: "width: 42%"}
+              %span.sr-only 42.7% Bounce Rate
+          / /.progress
+        / /.progress-stat
+        %br/
+      / /.portlet-content
+    / /.portlet
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-bar-chart-o
+          Sparkline
+      / /.portlet-header
+      .portlet-content
+        .row.row-marginless
+          .spark-stat.col-md-6.col-sm-6.col-xs-6
+            #total-visits 32, 38, 46, 49, 53, 48, 47, 56
+            %span.value 1,564
+            %h5 Total Visits
+          / /.col
+          .spark-stat.col-md-6.col-sm-6.col-xs-6
+            #new-visits 32, 38, 46, 49, 53, 48, 47, 56
+            %span.value 872
+            %h5 New Visits
+          / /.col
+        / /.row
+        .row.row-marginless
+          .spark-stat.col-md-6.col-sm-6.col-xs-6
+            #unique-visits 32, 38, 46, 49, 53, 48, 47, 56
+            %span.value 845
+            %h5 Unique Visits
+          / /.col
+          .spark-stat.col-md-6.col-sm-6.col-xs-6
+            #revenue-visits{"data-bar-color" => "#c00"} 32, 38, 46, 49, 53, 48, 47, 56
+            %span.value $13,492
+            %h5 Revenue Visits
+          / /.col
+        / /.row
+      / /.portlet-content
+    / /.portlet
+  / /.col
+/ /.row

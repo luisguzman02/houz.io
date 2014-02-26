@@ -1,10 +1,8 @@
-.page-header
-  .pull-left
-    %h2 
-      Properties
-  .pull-right#head_right
-    = link_to new_property_path, :id => '#new_property_btn', :class => 'btn btn-success btn-lg' do
-      %span.glyphicon.glyphicon-plus
-      New property
-  .clearfix
+- content_for :page_title do
+  Properties
+.pull-right#head_right
+  = link_to new_property_path, :id => '#new_property_btn', :class => 'btn btn-primary btn-lg' do
+    %span.glyphicon.glyphicon-plus
+    New property
+.clearfix10
 = render @properties

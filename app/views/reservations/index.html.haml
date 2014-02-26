@@ -1,13 +1,11 @@
-.page-header
-  .pull-left
-    %h2 
-      Reservations
-  .pull-right#head_right
-    = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
-      %span.glyphicon.glyphicon-plus
-      New Reservation
-    = render 'booking_popup'
-  .clearfix        
+- content_for :page_title do
+  Reservations 
+.pull-right#head_right
+  = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-primary btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
+    %span.glyphicon.glyphicon-plus
+    New Reservation
+  = render 'booking_popup'
+.clearfix        
 .panel.panel-default
   .panel-body
     .row

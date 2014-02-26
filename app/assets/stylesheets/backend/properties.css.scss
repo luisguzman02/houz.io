@@ -33,7 +33,7 @@ li.token-input-token-facebook {
 
 //properties form
 .properties_new, .properties_create, .properties_edit, .properties_update {
-  #main_content {
+  #content-container {
     .property_form {
       ul.token-input-list-facebook {        
         background-color: #FFFFFF;
@@ -72,23 +72,27 @@ li.token-input-token-facebook {
 
 //properties listing
 .properties_index {
-  #main_content {
-    .property_item {
+  #content-container {
+    .property_item {      
       width: 49%;
       float: left;
-      .no_img_placer {
-        height: 76px;
-        margin: 0;
-        padding: 16px 6px;
-        text-align: center;
-        width: 100px;
-        a:hover {
-          text-decoration: none;
-        }
-      }
+      clear: none;
+      .portlet-content{
+        padding-bottom: 0;
+        .no_img_placer {
+          height: 76px;
+          margin: 0;
+          padding: 16px 6px;
+          text-align: center;
+          width: 100px;
+          a:hover {
+            text-decoration: none;
+          }
+        } 
+      }      
     }
     .property_item:nth-child(2n) {
-      margin-right: 15px;
+      margin-left: 15px;
     }    
   }
 }
@@ -98,12 +102,15 @@ li.token-input-token-facebook {
 /* tablets and phones */
 @media (max-width: $screen-sm-max) { 
 .properties_index {
-  #main_content {
+  #content-container {
     .property_item {
       width: 100%;
       margin: 0;
       margin-bottom: 10px;
     }
+    .property_item:nth-child(2n) {
+      margin: 0;
+    } 
   }
 }
 }
