@@ -8,8 +8,9 @@ GIT
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
 
-PATH
-  remote: ../canvas_admin_rails
+GIT
+  remote: https://github.com/adbeelitamar/canvas_admin_rails.git
+  revision: d6747f95960a2d07a8a7e0559025116a9ce0adb4
   specs:
     canvas_admin_rails (0.0.1)
       rails (~> 4.0.0)
