@@ -5,4 +5,4 @@
         - @reservation.guest.errors.each do |gk|
           $("#reservation_guest_attributes_#{gk}").parent().addClass('has-error')
 - else  
-  Turbolinks.visit("#{reservations_path}")
+  Turbolinks.visit("#{reservation_path(@reservation)}")

@@ -31,6 +31,10 @@ class Reservation
     r.account ||= r.user.account
   end
 
+  def logs
+    Activity.where(:logeable_type => self.class, :logeable_id => self.id)
+  end
+
   def nights_staying
     (check_out - check_in).to_i
   end

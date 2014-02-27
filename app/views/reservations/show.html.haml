@@ -25,24 +25,38 @@
                 = "#{@reservation.property.contact.address.city}, #{@reservation.property.contact.address.state} #{@reservation.property.contact.address.zip_code}"
                 %br/
                 = @reservation.property.contact.address.country
-                %br/                
+                %br/ 
+                %strong Owner:
+                = @reservation.property.owner.full_name             
       / /.col
       .col-md-6.col-sm-6
         %h4 Tenant/Guest:
         %table.table
           %tbody
             %tr
-              %td{style: "width: 90px"}
-                .thumbnail
-                  %img{alt: "Avatar", src: "./img/avatars/avatar-2.jpg", style: "width: 90px;"}/
-              %td
-                %strong Nikita Chanel Inc.
-                %br/
-                1050 St Rose Pkwy, Suite 75
-                %br/
-                Las Vegas, NV 89183
-                %br/
-                US
+              - if @reservation.tenant?
+
+              - else
+                - if @reservation.guest.name.present?
+                  %td{style: "width: 90px"}
+                    .thumbnail
+                      = image_tag 'default.png', size: "100x100"
+                  %td
+                    %strong= @reservation.guest.name
+                    %br/
+                    = @reservation.guest.contact.address.street
+                    %br/
+                    = @reservation.guest.contact.address.location
+                    %br/
+                    = @reservation.guest.contact.address.country
+                    %br/
+                    %strong Source: 
+                    = @reservation.guest.source
+                - else
+                  %td
+                    = link_to edit_reservation_path(@reservation), :format => :js, :class => 'btn btn-xs btn-secondary  add_tenant', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true do
+                      %i.fa.fa-user
+                      Add Tenant/Guest
     %hr/
     %h3 Reservation Details    
     %hr/
@@ -77,7 +91,7 @@
           %li
             %i.icon-li.fa.fa-caret-right
             %strong Id: 
-            = @reservation.id
+            = @reservation.id          
           %li
             %i.icon-li.fa.fa-caret-right
             %strong Status:  
@@ -104,18 +118,14 @@
     .table-responsive
       %table.table.table-striped
         %tbody
-          %tr
-            %td{style: "width: 125px;"} Sep 20th, 2013
-            %td
-              %p
-                %strong Loyalty Discount Applied
-              %p Thanks for working with us again! We've applied the discount to your invoice.
-          %tr
-            %td{style: "width: 125px;"} Sep 18th, 2013
-            %td
-              %p
-                %strong Submitted Payment
-              %p Nikita submitted a payment of $3547 for invoice INV-038273
+          - @reservation.logs.each do |a|
+            %tr
+              %td{style: "width: 125px;"}= a.created_at.to_s(:short_date)
+              %td
+                %p
+                  %strong= a.user.full_name
+                  created this reservation, with ID: 
+                  %em.text-muted= "#{a.logeable.id}"
   .col-md-4.col-sidebar-right
     %p
       %a.btn.btn-jumbo.btn-primary.btn-block{href: "javascript:;"}
@@ -130,23 +140,19 @@
       %a.list-group-item{href: "javascript:;"}
         %i.fa.fa-envelope
         %strong Send
-        Invoice
+        Reservation
       %a.list-group-item{href: "javascript:;"}
         %i.fa.fa-pencil
         %strong Edit
-        Invoice
+        Reservation
       %a.list-group-item{href: "javascript:;"}
         %i.fa.fa-print
         %strong Print
-        Invoice
-      %a.list-group-item{href: "javascript:;"}
-        %i.fa.fa-copy
-        %strong Duplicate
-        Invoice
-      %a.list-group-item{href: "javascript:;"}
+        Reservation
+      = link_to @reservation, :method => :delete, :class=> 'list-group-item', data: { confirm: 'Are you sure you want to remove this reservation?' } do
         %i.fa.fa-times
         %strong Delete
-        Invoice
+        Reservation
     %br/
     %h4 Closed Invoices
     %hr/

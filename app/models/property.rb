@@ -60,6 +60,7 @@ class Property
 
   before_validation do |p|    
     p.user ||= p.account.user
+    p.owner ||= p.account.user
   end
 
   before_create do |p|

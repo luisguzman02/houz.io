@@ -90,6 +90,11 @@
                 %span.caret
               %ul.sub-nav
                 %li
+                  = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
+                    %i.fa.fa-file-o
+                    New Reservation
+                  = render 'booking_popup' if controller_name.eql?('reservations')
+                %li
                   = link_to reservations_path do
                     %i.fa.fa-reorder
                     List of Reservations

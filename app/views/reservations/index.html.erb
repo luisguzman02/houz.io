@@ -1,13 +1,6 @@
 <% content_for :page_title do %>
   Reservations
 <% end %>
-<div class="pull-right">
-  <%= link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-primary btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Reservation
-  <% end %>
-  <%= render 'booking_popup' %>
-</div>
 <div class="clearfix"></div>
 <div ng-app="Booking" class="panel panel-default" ng-controller="ReservationsController" id="rsv_listing">
   <div class="panel-body">
