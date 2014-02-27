@@ -1,5 +1,6 @@
 - content_for :page_title do
   Reservation  
+= render 'booking_popup'
 .row
   .col-md-8
     %h3
@@ -100,82 +101,17 @@
     %br/
     %h3
       Reservation Notes
-      %a.btn.btn-xs.btn-secondary.pull-right{href: "javascript:;"}
+      = link_to edit_notes_reservation_path(@reservation), :format => :js, :class => 'btn btn-xs btn-secondary pull-right edit_notes', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true do
         %i.fa.fa-pencil
-        Edit Notes
+        Edit Notes      
     %hr/
-    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-    %br/
-    %br/
-    %br/
+    %p= @reservation.notes
+    %br/    
     %h3
       Activity
-      %a.btn.btn-secondary.btn-xs.pull-right{href: "javascript:;"}
-        %i.fa.fa-comment
-        Add Comment
     %br/
     .table-responsive
       %table.table.table-striped
         %tbody
-          - @reservation.logs.each do |a|
-            %tr
-              %td{style: "width: 125px;"}= a.created_at.to_s(:short_date)
-              %td
-                %p
-                  %strong= a.user.full_name
-                  created this reservation, with ID: 
-                  %em.text-muted= "#{a.logeable.id}"
-  .col-md-4.col-sidebar-right
-    %p
-      %a.btn.btn-jumbo.btn-primary.btn-block{href: "javascript:;"}
-        Add Payment
-        %br/
-    %p
-      %a.btn.btn-lg.btn-tertiary.btn-block{href: "javascript:;"} Remove Reservation
-    %br/
-    %h4 Reservation Actions
-    %hr/
-    .list-group
-      %a.list-group-item{href: "javascript:;"}
-        %i.fa.fa-envelope
-        %strong Send
-        Reservation
-      %a.list-group-item{href: "javascript:;"}
-        %i.fa.fa-pencil
-        %strong Edit
-        Reservation
-      %a.list-group-item{href: "javascript:;"}
-        %i.fa.fa-print
-        %strong Print
-        Reservation
-      = link_to @reservation, :method => :delete, :class=> 'list-group-item', data: { confirm: 'Are you sure you want to remove this reservation?' } do
-        %i.fa.fa-times
-        %strong Delete
-        Reservation
-    %br/
-    %h4 Closed Invoices
-    %hr/
-    .list-group
-      %a.list-group-item{href: "javascript:;"}
-        %h5
-          %i.fa.fa-file-text-o
-          INV-036582
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %a.list-group-item{href: "javascript:;"}
-        %h5
-          %i.fa.fa-file-text-o
-          INV-0335698
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %a.list-group-item{href: "javascript:;"}
-        %h5
-          %i.fa.fa-file-text-o
-          INV-028756
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %a.list-group-item{href: "javascript:;"}
-        %h5
-          %i.fa.fa-file-text-o
-          INV-0215893
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-  / /.col
-/ /.row
+          = render @reservation.logs            
+  = render 'rsv_detail_sidebar'

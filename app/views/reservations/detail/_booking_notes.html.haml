@@ -1,0 +1,11 @@
+= form_for @reservation, :url => reservation_path(@reservation), :format => :json, :remote => true, :html => {:id => 'inquiery_booking_form_tenant', :role => 'form'} do |f| 
+  .row
+    .col-md-12
+      .form-group        
+        = f.label :notes, 'Notes'                    
+        = f.text_area :notes, :class => 'form-control'
+  .row
+    .col-md-12
+      .pull-right
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        = submit_tag 'Book', :class => 'btn btn-warning'

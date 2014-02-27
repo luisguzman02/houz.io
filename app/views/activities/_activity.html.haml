@@ -1,1 +1,7 @@
-= "#{activity.user.full_name} created Reservation"
+%tr
+  %td{style: "width: 125px;"}= activity.created_at.to_s(:short_date)
+  %td
+    %p
+      %strong= activity.user.full_name
+      = "#{activity.action} this #{activity.logeable_type} with ID: "
+      %em.text-muted= "#{activity.logeable.id}"

@@ -89,7 +89,7 @@ window.ReservationsNew =
       scope.addtoList(id)
 
 ready_reservations_home = ->  
-  $(".reservations_index").on "click", "#new_reservation_btn, .add_tenant", (e) ->
+  $(".reservations").on "click", "#new_reservation_btn, .add_tenant, .edit_notes", (e) ->
     $("#inquiery_booking .modal-body").loading()    
 
   $(".reservations_index").on "click", "#inquiery_booking #date_range_icon .input-group-addon", (e) ->

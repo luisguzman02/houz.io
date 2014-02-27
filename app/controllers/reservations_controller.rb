@@ -1,5 +1,5 @@
 class ReservationsController < DashboardController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy, :edit_notes]
   before_action :set_reservation_guest, :only => [:edit]
 
   # GET /reservations
@@ -83,7 +83,7 @@ class ReservationsController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:check_in, :check_out, :num_adults, :num_children, :property_id, :rsv_type, :guest_attributes => [:name, :email, :source, 
+      params.require(:reservation).permit(:check_in, :check_out, :num_adults, :num_children, :property_id, :rsv_type, :notes, :guest_attributes => [:name, :email, :source, 
         :contact_attributes => {:address_attributes =>  [:country, :city, :state, :street], :phones_attributes => [:number] }])
     end
 end

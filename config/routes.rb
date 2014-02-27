@@ -18,7 +18,9 @@ Secondhouz::Application.routes.draw do
   resources :pictures
 
   resources :reservations do
-
+    member do
+      match :edit_notes, :via => [:put, :get]
+    end 
   end
 
   resources :properties do
