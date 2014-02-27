@@ -32,6 +32,7 @@ class ReservationsController < DashboardController
     @reservation = current_user.reservations.build  reservation_params    
     respond_to do |format|
       if @reservation.save
+        track_activity @reservation
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
         format.js { set_reservation_guest }
@@ -48,6 +49,7 @@ class ReservationsController < DashboardController
   def update    
     respond_to do |format|
       if @reservation.update(reservation_params)
+        track_activity@reservation.object, (reservation_params[:notes].present? ? :update_notes : :update)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { head :no_content }
         format.js { }

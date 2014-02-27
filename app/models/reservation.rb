@@ -1,7 +1,6 @@
 class Reservation
 	include Mongoid::Document
 	include Mongoid::Timestamps
-  include Loggable
 
   RSV_TYPES = [:regular, :owner_time, :agent_block]
 
@@ -24,6 +23,7 @@ class Reservation
   belongs_to :account  
   embeds_many :payments
   embeds_one :guest, :autobuild => true
+  has_many :activities
 
   accepts_nested_attributes_for :guest
 
@@ -32,7 +32,7 @@ class Reservation
   end
 
   def logs
-    Activity.where(:logeable_type => self.class, :logeable_id => self.id)
+    Activity.where(:logeable_type => self.class, :logeable_id => self.id).order_by(:created_at => :desc)
   end
 
   def nights_staying
