@@ -17,7 +17,7 @@
       %header#header
         %h1#site-logo
           %a{href: "/"}
-            %img{alt: "Site Logo", src: "/assets/logos/logo.png"}/
+            = image_tag 'logos/logo.png'
         %a#top-bar-toggle.navbar-toggle.collapsed{"data-target" => ".top-bar-collapse", "data-toggle" => "collapse", href: "javascript:;"}
           %i.fa.fa-cog
         %a#sidebar-toggle.navbar-toggle.collapsed{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", href: "javascript:;"}

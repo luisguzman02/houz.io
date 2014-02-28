@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mongoid/mongoid.git
-  revision: c8af8d0836b086cebc4a609037a97747e9f3359b
+  revision: bde8ac1b0f16aaad7e343073ce8c5b5b9c9ffc5b
   specs:
     mongoid (4.0.0.beta1)
       activemodel (>= 4.0.0)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/adbeelitamar/canvas_admin_rails.git
-  revision: 1a4dd3416d08774987c08c3df57286cc1e38b7a7
+  revision: 037a410ab1b1ffbece2c95aa5861ad770cf4e756
   specs:
     canvas_admin_rails (0.0.1)
       rails (~> 4.0.0)
