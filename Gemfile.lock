@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/adbeelitamar/canvas_admin_rails.git
-  revision: 037a410ab1b1ffbece2c95aa5861ad770cf4e756
+  revision: e37aeb3e4a9296bc9a32fe3f17b54835c265e909
   specs:
     canvas_admin_rails (0.0.1)
       rails (~> 4.0.0)
