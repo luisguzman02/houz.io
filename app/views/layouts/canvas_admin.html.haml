@@ -17,11 +17,11 @@
       %header#header
         %h1#site-logo
           %a{href: "/"}
-            %img{alt: "Site Logo", src: "/assets/logos/logo.png"}/
+            = image_tag 'canvas_admin/logos/logo.png'
         %a#top-bar-toggle.navbar-toggle.collapsed{"data-target" => ".top-bar-collapse", "data-toggle" => "collapse", href: "javascript:;"}
           %i.fa.fa-cog
         %a#sidebar-toggle.navbar-toggle.collapsed{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", href: "javascript:;"}
-          %i.fa.fa-reorder
+          %i.fa.fa-list
       / header
       %nav#top-bar.collapse.top-bar-collapse
         %ul.nav.navbar-nav.pull-left
@@ -97,7 +97,7 @@
               %ul.sub-nav
                 %li
                   = link_to reservations_path do
-                    %i.fa.fa-reorder
+                    %i.fa.fa-list
                     List of Reservations
             %li.dropdown
               %a{href: "javascript:;"}
@@ -111,7 +111,7 @@
                     Agents
                 %li
                   %a{href: "./ui-tabs.html"}
-                    %i.fa.fa-reorder
+                    %i.fa.fa-list
                     Owners
                 %li
                   %a{href: "./ui-popups.html"}
