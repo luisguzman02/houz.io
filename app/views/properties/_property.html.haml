@@ -2,7 +2,7 @@
   .portlet-header
     %h3.panel-title
       %i.fa.fa-home
-      = property.name
+      = link_to property.name, property
       / %small= "ID: #{property.slug}"
   .portlet-content
     .row

@@ -67,6 +67,10 @@
           = f.fields_for :contact do |c|
             = c.fields_for :address do |a|
               .row
+                .col-md-12
+                  = a.label :street, 'Address'
+                  = a.text_field :street, :class => 'form-control' , :placeholder => 'e.g Golf Links Road 5055'
+              .row
                 .col-md-3
                   = a.label :country
                   = a.country_code_select :country, [], {}, {:class => 'form-control'}

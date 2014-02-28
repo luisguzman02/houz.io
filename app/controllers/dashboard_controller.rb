@@ -8,6 +8,10 @@ class DashboardController < ActionController::Base
 
   def index; end
 
+  def track_activity(logeable, action = params[:action].to_sym)
+    current_user.activities.create(:logeable => logeable, :action => action)
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -31,18 +31,33 @@ app.directive "ngConfirmClick", [->
 window.ReservationsNew =
 
   init: ->
-    $(".datepicker").datepicker
-      dateFormat: 'yy-mm-dd'
-      minDate: 0
-      onClose: (selectedDate) ->        
-        $("#reservation_check_out").datepicker "option", "minDate", selectedDate  if @id is 'check_in'        
-      onSelect: (dateText, inst) ->        
-        d1 = $('#reservation_check_in').datepicker('getDate')
-        d2 = $('#reservation_check_out').datepicker('getDate')
-        if d1 isnt null and d2 isnt null
-          days = Math.floor((d2.getTime() - d1.getTime()) / 86400000)
-          $('#staying').val(days)
-        ReservationsNew.load_inquiery_booking_property()  
+    $(".datepicker").datepicker(
+      format: "yyyy/mm/dd",
+      autoclose: true
+      # minDate: 0      
+    ).on('show', (e) ->
+      
+    ).on('hide', (selectedDate) ->
+      $("#reservation_check_out").datepicker "setStartDate", selectedDate.date if @id is 'reservation_check_in' 
+    ).on 'changeDate', (e) ->
+      d1 = $('#reservation_check_in').datepicker('getDate')
+      d2 = $('#reservation_check_out').datepicker('getDate')
+      # console.log d1
+      # console.log d2
+      if d1 isnt null and d2 isnt null
+        days = Math.floor((d2.getTime() - d1.getTime()) / 86400000)
+        $('#staying_field').val(days)
+      ReservationsNew.load_inquiery_booking_property()  
+      
+      # onClose: (selectedDate) ->        
+      #   $("#reservation_check_out").datepicker "option", "minDate", selectedDate  if @id is 'check_in'        
+      # onSelect: (dateText, inst) ->   
+      #   d1 = $('#reservation_check_in').datepicker('getDate')
+      #   d2 = $('#reservation_check_out').datepicker('getDate')
+      #   if d1 isnt null and d2 isnt null
+      #     days = Math.floor((d2.getTime() - d1.getTime()) / 86400000)
+      #     $('#staying_field').val(days)
+      #   ReservationsNew.load_inquiery_booking_property()  
 
     $(document).on "submit", "#inquiery_booking #inquiery_booking_form", (event) ->
       $('#inquiery_booking .modal-body').loading()
@@ -73,12 +88,12 @@ window.ReservationsNew =
       scope.addtoList(id)
 
 ready_reservations_home = ->  
-  $(".reservations_index").on "click", "#new_reservation_btn, .add_tenant", (e) ->
+  $(".reservations").on "click", "#new_reservation_btn, .add_tenant, .edit_notes", (e) ->
     $("#inquiery_booking .modal-body").loading()    
 
   $(".reservations_index").on "click", "#inquiery_booking #date_range_icon .input-group-addon", (e) ->
-    e.preventDefault()
-    $("##{$(@).attr('trigger')}").datepicker("show"); 
+    e.preventDefault()        
+    $("##{$(@).attr('trigger')}").datepicker("show");     
 
   $(".reservations_index").on "click", "#reservations_remove", (e) ->
     e.preventDefault()

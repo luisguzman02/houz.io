@@ -1,0 +1,6 @@
+%tr
+  %td= activity.created_at.to_s(:short_date)
+  %td
+    %p
+      %strong= activity.user.full_name
+      = humanify(activity).html_safe

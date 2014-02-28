@@ -1,5 +1,5 @@
 class ReservationsController < DashboardController
-  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy, :edit_notes]
   before_action :set_reservation_guest, :only => [:edit]
 
   # GET /reservations
@@ -32,6 +32,7 @@ class ReservationsController < DashboardController
     @reservation = current_user.reservations.build  reservation_params    
     respond_to do |format|
       if @reservation.save
+        track_activity @reservation
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reservation }
         format.js { set_reservation_guest }
@@ -48,6 +49,7 @@ class ReservationsController < DashboardController
   def update    
     respond_to do |format|
       if @reservation.update(reservation_params)
+        track_activity@reservation.object, (reservation_params[:notes].present? ? :update_notes : :update)
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { head :no_content }
         format.js { }
@@ -83,7 +85,7 @@ class ReservationsController < DashboardController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:check_in, :check_out, :num_adults, :num_children, :property_id, :rsv_type, :guest_attributes => [:name, :email, :source, 
+      params.require(:reservation).permit(:check_in, :check_out, :num_adults, :num_children, :property_id, :rsv_type, :notes, :guest_attributes => [:name, :email, :source, 
         :contact_attributes => {:address_attributes =>  [:country, :city, :state, :street], :phones_attributes => [:number] }])
     end
 end

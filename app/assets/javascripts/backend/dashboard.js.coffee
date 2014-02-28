@@ -1,6 +1,6 @@
 ready_dashboard = ->  
   $.fn.loading = ->
-    $(@).html($('#spinner').html())    
+    $(@).html($('#spinner').html())   
 
 $(document).ready(ready_dashboard)
 $(document).on('page:load', ->

@@ -42,7 +42,7 @@ describe Reservation do
   it { should belong_to(:account) }
   it { should belong_to(:property) }
   it { should belong_to(:tenant).of_type(User).as_inverse_of(:bookings) }
-  it { should embed_many(:activities) }
+  it { should have_many(:activities) }
   it { should embed_many(:payments) }
   it { should embed_one(:guest).with_autobuild}
   it { should accept_nested_attributes_for(:guest) }  
@@ -55,6 +55,11 @@ describe Reservation do
     assert_rsv_creation
     @reservation.discard
     @reservation.should_not be_persisted
+  end
+
+  it 'creates booking creation activity' do
+    assert_rsv_creation
+    Activity.where(:logeable_type => Reservation.to_s).and(:logeable_id => @reservation.id).should_not be_nil   
   end
 
 end

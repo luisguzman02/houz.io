@@ -20,6 +20,14 @@ class Address
   field :area
   field :country
   embedded_in :contact  
+
+  def location(format=:us)    
+    loc = ''
+    if city || state || zip_code
+      loc =  "#{city}, #{state} #{zip_code}"
+    end
+    loc
+  end
 end
 
 class Phone

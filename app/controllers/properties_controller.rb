@@ -92,6 +92,6 @@ class PropertiesController < DashboardController
     params[:property][:tags] = params[:property][:tags].split(',')    
     params.require(:property).permit(:name, :unit_type, :description, { tags: [] }, :check_in, :check_out, :property_size, :minimum_days, 
       :num_persons_allowed, :pets_allowed, :directions, :bedrooms, :bathrooms, :garages, :kitchen, :bedding, :amenities, 
-      :contact_attributes => {:address_attributes =>  [:country, :city, :state, :zip_code, :area] })
+      :contact_attributes => {:address_attributes =>  [:country, :city, :state, :zip_code, :area, :street] })
   end
 end

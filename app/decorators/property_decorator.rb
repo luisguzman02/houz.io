@@ -37,29 +37,8 @@ class PropertyDecorator < Draper::Decorator
     end      
   end 
 
-  def rates_by_day(ci,co)
-    ci = Date.parse(ci)
-    co = Date.parse(co)
-    all_r = []
-    total = 0
-    rent = Hash.new(0)    
-    rent[:detail] = []
-    ci.upto(co-1) do |d|
-      _r = rates.where(:seasonable => true).and(:start_season.gte => d, :end_season.lte => d).sum(:value)
-      _r = rates.where(:type => :rent).sum(:value) if _r.eql? 0      
-      rent[:value] += _r
-      rent[:detail] << {d => _r}
-      rent[:nights] += 1      
-    end       
-    rent[:name] = "#{:rent.to_s.humanize} #{h.pluralize(rent[:nights], 'night')}"
-    total += rent[:value]
-    all_r << rent
-    #more rates
-    rates.not_in(:type => :rent).each do |r|
-      all_r << {:name => r.name, :value => r.value}
-      total += r.value
-    end
-    all_r << {:name => 'Total', :value => total}
-    all_r
+  def rates_by_day(check_in,check_out)
+    all_r = object.rates_within check_in, check_out
+    all_r << {:name => 'Total', :value => all_r.inject(0){|sum,e| sum += e[:value] }}    
   end
 end
