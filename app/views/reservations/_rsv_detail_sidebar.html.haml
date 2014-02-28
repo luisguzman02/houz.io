@@ -9,7 +9,7 @@
   %h3 Rates
   %hr/
   .list-group#rates_detail
-    - @reservation.property.rates.each do |r|
+    - @reservation.rates.each do |r|
       .list-group-item
         %h4 
           = r.name            

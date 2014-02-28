@@ -21,6 +21,7 @@ class Reservation
   belongs_to :user, inverse_of: :reservations
   belongs_to :tenant, class_name: 'User', inverse_of: :bookings
   belongs_to :account  
+  embeds_many :rates, :as => :rateable
   embeds_many :payments
   embeds_one :guest, :autobuild => true
   has_many :activities
@@ -30,6 +31,8 @@ class Reservation
   before_validation do |r|    
     r.account ||= r.user.account
   end
+
+  before_create {|r| r.rates = property.rates }
 
   def logs
     Activity.where(:logeable_type => self.class, :logeable_id => self.id).order_by(:created_at => :desc)

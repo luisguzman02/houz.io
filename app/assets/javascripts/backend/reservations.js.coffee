@@ -38,7 +38,6 @@ window.ReservationsNew =
     ).on('show', (e) ->
       
     ).on('hide', (selectedDate) ->
-      console.log selectedDate.date      
       $("#reservation_check_out").datepicker "setStartDate", selectedDate.date if @id is 'reservation_check_in' 
     ).on 'changeDate', (e) ->
       d1 = $('#reservation_check_in').datepicker('getDate')
