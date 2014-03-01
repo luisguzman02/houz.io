@@ -1,93 +1,280 @@
 .row
-  .col-md-4
-    .panel.panel-default
-      .panel-body
-        .lead
-          %center
-            %strong Basic
-            %h1 
-              $ 4.99
-              %small (monthly)
-        %table.table
-          %tr
-            %td 1 Property management
-          %tr
-            %td Rental history
-          %tr
-            %td Availability chart              
-          %tr
-            %td Back-end booking system
-          %tr
-            %td Easily configurable seasonal rates.
-        .row
-          .col-md-1 
-          = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
-          .col-md-1
-  .col-md-4
-    .panel.panel-default
-      .panel-body
-        .lead
-          %center
-            %strong Plus
-            %sup 
-              %small Recommended
-            %h1
-              $ 24.99
-              %small (monthly)
-        %table.table
-          %tr
-            %td Up to 50 Properties management
-          %tr
-            %td Rental history
-          %tr
-            %td Availability chart              
-          %tr
-            %td Back-end booking system
-          %tr
-            %td Manage multiple property owners
-          %tr
-            %td Owner Login
-          %tr
-            %td Easily configurable seasonal rates.
-          %tr
-            %td Company letters (Rental Agreement, Confirmation letter, Payment Receipts)
-          %tr
-            %td Properties Search 
-        .row
-          .col-md-1 
-          = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
-          .col-md-1 
-  .col-md-4
-    .panel.panel-default
-      .panel-body
-        .lead
-          %center
-            %strong Unlimited
-            %h1  
-              $ 99.99              
-              %small (monthly)
-        %table.table
-          %tr
-            %td Unlimited Properties
-          %tr
-            %td Rental history
-          %tr
-            %td Availability chart              
-          %tr
-            %td Back-end booking system
-          %tr
-            %td Manage multiple property owners
-          %tr
-            %td Owner Login
-          %tr
-            %td Easily configurable seasonal rates.
-          %tr
-            %td Company letters (Rental Agreement, Confirmation letter, Payment Receipts)
-          %tr
-            %td Properties Search
-          %tr
-            %td Tools for Developers              
-        .row
-          .col-md-1 
-          = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
-          .col-md-1
+  .col-md-12
+    .align-center
+      .btn-group{"data-toggle" => "buttons"}
+        %label.btn.btn-tertiary.active{style: "width: 125px;"}
+          %input#option1{name: "options", type: "radio"}
+            Monthly
+        %label.btn.btn-tertiary{style: "width: 125px;"}
+          %input#option2{name: "options", type: "radio"}
+            Yearly
+            %small (15% off)
+      %br/
+      %br/
+      %br/
+      .row
+        .col-md-3.col-sm-6
+          .pricing-plan
+            %h3.pricing-title Starter
+            %p.pricing-label For Individuals
+            %hr
+              %span.pricing-price
+                %span.pricing-amount $19
+                \/ month
+              %hr
+                %ul.pricing-details
+                  %li
+                    %strong 5
+                    users
+                  %li
+                    %strong 10
+                    projects
+                  %li
+                    %strong 10BG
+                    of space
+                  %li
+                    %strong 5
+                    email accounts
+                %a.btn.btn-primary.btn-lg{href: "javascript:;"} Choose plan
+        .col-md-3.col-sm-6
+          .pricing-plan
+            %h3.pricing-title Basic
+            %p.pricing-label For blogs  small business
+            %hr
+              %span.pricing-price
+                %span.pricing-amount $29
+                \/ month
+              %hr
+                %ul.pricing-details
+                  %li
+                    %strong 10
+                    users
+                  %li
+                    %strong 50
+                    projects
+                  %li
+                    %strong 50BG
+                    of space
+                  %li
+                    %strong 10
+                    email accounts
+                %a.btn.btn-primary.btn-lg{href: "javascript:;"} Choose plan
+        .col-md-3.col-sm-6
+          .pricing-plan.promoted
+            = image_tag 'label-yellow.png', :class => "pricing-best-value"
+            %h3.pricing-title Pro
+            %p.pricing-label For consultants  corporate teams
+            %hr
+              %span.pricing-price
+                %span.pricing-amount $49
+                \/ month
+              %hr
+                %ul.pricing-details
+                  %li
+                    %span.pricing-help{"data-content" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", title: "What's a user?"}
+                      %strong 100
+                      users
+                  %li
+                    %span.pricing-help{"data-content" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", title: "What's a project?"}
+                      %strong Unlimited
+                      projects
+                  %li
+                    %span.pricing-help{"data-content" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", title: "What's storage for?"}
+                      %strong 1TB
+                      of space
+                  %li
+                    %span.pricing-help{"data-content" => "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", title: "What's an email for?"}
+                      %strong 100
+                      email accounts
+                %a.btn.btn-primary.btn-lg{href: "javascript:;"} Choose plan
+        .col-md-3.col-sm-6
+          .pricing-plan
+            %h3.pricing-title Ultra
+            %p.pricing-label For large enterprises
+            %hr
+              %span.pricing-price
+                %span.pricing-amount $99
+                \/ month
+              %hr
+                %ul.pricing-details
+                  %li
+                    %strong 500
+                    users
+                  %li
+                    %strong Unlimited
+                    projects
+                  %li
+                    %strong 5TB
+                    of space
+                  %li
+                    %strong 500
+                    email accounts
+                %a.btn.btn-primary.btn-lg{href: "javascript:;"} Choose plan
+      %br/
+      %h4.align-center
+        %strong Need More?
+        %span We offer larger plans for companies with even more contacts.
+        %a{href: "javascript:;"}
+          Learn More
+          %i.fa.fa-expand
+%br/
+%br/
+.row
+  %h3.align-center All Plans Come With
+  %hr/
+  .col-md-3.col-sm-6
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-check-square
+        Free Setup
+      %li
+        %i.icon-li.fa.fa-check-square
+        SSL Protection
+      %li
+        %i.icon-li.fa.fa-check-square
+        Unlimited Downloads
+      %li
+        %i.icon-li.fa.fa-check-square
+        Unlimited Pushes
+  / /.col
+  .col-md-3.col-sm-6
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-check-square
+        Over the Air Install and Update
+      %li
+        %i.icon-li.fa.fa-check-square
+        Realtime Dashboard
+      %li
+        %i.icon-li.fa.fa-check-square
+        Package History Archive
+      %li
+        %i.icon-li.fa.fa-check-square
+        Easy to Use Interface
+  / /.col
+  .col-md-3.col-sm-6
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-check-square
+        Full Featured
+      %li
+        %i.icon-li.fa.fa-check-square
+        Crash Reporting (with SDK)
+      %li
+        %i.icon-li.fa.fa-check-square
+        Custom Event Logging (with SDK)
+      %li
+        %i.icon-li.fa.fa-check-square
+        Commandline Tools
+  / /.col
+  .col-md-3.col-sm-6
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-check-square
+        Over the Air Install and Update
+      %li
+        %i.icon-li.fa.fa-check-square
+        Realtime Dashboard
+      %li
+        %i.icon-li.fa.fa-check-square
+        Package History Archive
+      %li
+        %i.icon-li.fa.fa-check-square
+        Easy to Use Interface
+  / /.col
+/ /.row
+
+
+/ .row
+/   .col-md-4
+/     .panel.panel-default
+/       .panel-body
+/         .lead
+/           %center
+/             %strong Basic
+/             %h1 
+/               $ 4.99
+/               %small (monthly)
+/         %table.table
+/           %tr
+/             %td 1 Property management
+/           %tr
+/             %td Rental history
+/           %tr
+/             %td Availability chart              
+/           %tr
+/             %td Back-end booking system
+/           %tr
+/             %td Easily configurable seasonal rates.
+/         .row
+/           .col-md-1 
+/           = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
+/           .col-md-1
+/   .col-md-4
+/     .panel.panel-default
+/       .panel-body
+/         .lead
+/           %center
+/             %strong Plus
+/             %sup 
+/               %small Recommended
+/             %h1
+/               $ 24.99
+/               %small (monthly)
+/         %table.table
+/           %tr
+/             %td Up to 50 Properties management
+/           %tr
+/             %td Rental history
+/           %tr
+/             %td Availability chart              
+/           %tr
+/             %td Back-end booking system
+/           %tr
+/             %td Manage multiple property owners
+/           %tr
+/             %td Owner Login
+/           %tr
+/             %td Easily configurable seasonal rates.
+/           %tr
+/             %td Company letters (Rental Agreement, Confirmation letter, Payment Receipts)
+/           %tr
+/             %td Properties Search 
+/         .row
+/           .col-md-1 
+/           = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
+/           .col-md-1 
+/   .col-md-4
+/     .panel.panel-default
+/       .panel-body
+/         .lead
+/           %center
+/             %strong Unlimited
+/             %h1  
+/               $ 99.99              
+/               %small (monthly)
+/         %table.table
+/           %tr
+/             %td Unlimited Properties
+/           %tr
+/             %td Rental history
+/           %tr
+/             %td Availability chart              
+/           %tr
+/             %td Back-end booking system
+/           %tr
+/             %td Manage multiple property owners
+/           %tr
+/             %td Owner Login
+/           %tr
+/             %td Easily configurable seasonal rates.
+/           %tr
+/             %td Company letters (Rental Agreement, Confirmation letter, Payment Receipts)
+/           %tr
+/             %td Properties Search
+/           %tr
+/             %td Tools for Developers              
+/         .row
+/           .col-md-1 
+/           = link_to 'Get Started', '', :class => 'btn btn-primary col-md-10'
+/           .col-md-1

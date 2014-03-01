@@ -53,19 +53,11 @@
               %i.fa.fa-user
               = current_user.full_name
               %span.caret
-            %ul.dropdown-menu{role: "menu"}
-              %li
-                %a{href: "./page-profile.html"}
-                  %i.fa.fa-user
-                  \  My Profile
-              %li
-                %a{href: "./page-calendar.html"}
-                  %i.fa.fa-calendar
-                  \  My Calendar
+            %ul.dropdown-menu{role: "menu"}              
               %li
                 %a{href: "./page-settings.html"}
                   %i.fa.fa-cogs
-                  \  Settings
+                  \  Account Settings
               %li.divider
               %li
                 = link_to destroy_user_session_path do
