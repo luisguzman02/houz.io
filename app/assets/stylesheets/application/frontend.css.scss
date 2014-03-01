@@ -1,13 +1,24 @@
 body {
   padding-top: 50px;
   padding-bottom: 20px;
+  background: none;
   #main_content {
     margin-top: 20px;    
+  }
+  #features, #pricing {
+    h1, h2 {
+      font-family: $font-family-sans-serif;
+      margin: 10px 0;
+    }
+    p {
+      font-family: Lato, 'Source Sans Pro', sans-serif;
+      font-size: 14px;
+    }
   }
 }
 
 //homepage
-.jumbotron {
+.jumbotron {  
   h1 {
     font-size: 45px;
   }
