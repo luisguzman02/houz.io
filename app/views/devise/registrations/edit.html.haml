@@ -7,23 +7,20 @@
     .tab-content.stacked-content
       #profile-tab.tab-pane.fade.in.active        
         %h3 Edit User Basic Info
-        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         %hr/         
         = formify(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put}) do |f|
           = f.remote_errors_list :profile     
-          .form-group
-            = f.text_field :first_name, :autofocus => true         
-          .form-group
-            = f.text_field :last_name
-          .form-group
-            = f.email_field :email, :autofocus => true
+          = f.text_field :first_name, :autofocus => true         
+          = f.text_field :last_name
+          = f.email_field :email, :autofocus => true
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}         
-          .form-group= f.submit "Update", :class => 'btn btn-primary'
+          = f.submit "Update", :class => 'btn btn-primary'          
       #password-tab.tab-pane.fade
         %h3 Change Your Password
-        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
         %hr/        
         = formify(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put }) do |f|                        
           = f.remote_errors_list :password     
@@ -38,7 +35,7 @@
             = f.label :current_password
             %i (we need your current password to confirm your changes)
             = f.password_field :current_password, :class => 'form-control'
-          .form-group= f.submit "Update", :class => 'btn btn-primary'
+          = f.submit "Update", :class => 'btn btn-primary'
           
         / %h3 Cancel my account
         / %p
