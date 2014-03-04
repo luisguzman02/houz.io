@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "registrations", :js => true, :devise => :re  do   
+describe "Registrations", :js => true, :devise => :re  do   
   before do
     login '#main_content'
     visit edit_user_registration_path
   end
 
-  describe 'Profile Settings' do    
+  describe 'Profile Settings' do        
     it "can edit user basic info successfully" do        
       fill_in 'First name', :with => 'Itamar'
       fill_in 'Last name', :with => 'Ibarra'
@@ -19,11 +19,24 @@ describe "registrations", :js => true, :devise => :re  do
     end
 
     it 'shows an error trying to choose an existing email' do
-      pending
+      @user2 = FactoryGirl.create(:user)
+      fill_in 'Email', :with => @user2.email
+      click_button 'Update'
+      within('#errors_profile')  do
+        page.should have_content 'Email is already taken'
+      end
     end
 
-    it 'shows error if first or last name are empty' do
-      pending
+    it 'shows error if fields are empty' do
+      fill_in 'First name', :with => ''
+      fill_in 'Last name', :with => ''
+      fill_in 'Email', :with => ''
+      click_button 'Update'
+      within('#errors_profile')  do
+        page.should have_content 'Email can\'t be blank'
+        page.should have_content 'First name can\'t be blank'
+        page.should have_content 'Last name can\'t be blank'
+      end
     end
   end 
 
