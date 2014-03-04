@@ -36,6 +36,7 @@ describe User do
   it { should have_many(:reservations) }
   it { should have_many(:bookings).of_type(Reservation).as_inverse_of(:tenant) }
   it { should have_many(:activities)}
+  it { should have_one(:picture) }
 
 
   it 'should create a new user' do
