@@ -2,6 +2,9 @@ Secondhouz::Application.routes.draw do
   resources :activities
 
   devise_for :users, :path_names => {:sign_in => 'login'}, :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    # post 'users/update_profile', :to => "registrations#update_profile"
+  end
 
   devise_scope :user do
     get "login", :to => "devise/sessions#new"

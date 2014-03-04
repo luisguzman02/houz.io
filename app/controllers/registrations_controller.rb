@@ -3,7 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = User.find(current_user.id)
-
     successfully_updated = if needs_password?(@user, params)      
       @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
     else           
@@ -13,9 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     if successfully_updated
       sign_in @user, :bypass => true            
       respond_to do |format|
-        format.html { 
-          redirect_to after_update_path_for(@user)
-        }
+        format.html { redirect_to after_update_path_for(@user) }
         format.js
       end  
     else
@@ -26,12 +23,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def needs_password?(user, params)
-    user.email != params[:user][:email] ||
-      params[:user][:password].present?
-  end
-
-  def user_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :picture)
+  def needs_password?(user, params)    
+    params[:user][:password].present? || params[:section].eql?('password')
   end
 end

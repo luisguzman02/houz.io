@@ -1,19 +1,8 @@
 - if @user.errors.any?
-  $("#errors_password .alert ul").empty();  
+  $("#errors_#{params[:section]} .alert ul").empty();  
   - @user.errors.full_messages.each do |m|  
-    $('#errors_password .alert ul').append("<li>#{m}</li>");
-  $("#errors_password").removeClass('hidden');
+    $('#errors_#{params[:section]} .alert ul').append("<li>#{m}</li>");
+  $("#errors_#{params[:section]}").removeClass('hidden');
 - else
-  $("#errors_password").addClass('hidden');  
-  :plain
-    $.howl ({
-      type: 'success', 
-      title: 'Password updated', 
-      content: 'Your password was successfully updated.', 
-      iconCls: 'fa fa-check-square-o',
-      sticky: true
-    });  
-    $("#user_password").val('')
-    $("#user_password_confirmation").val('')
-    $("#user_current_password").val('')
-    $('#acc_settings_tab a[href="#profile-tab"]').tab('show')
+  $("#errors_#{params[:section]}").addClass('hidden');  
+  = render "update_#{params[:section]}"  
