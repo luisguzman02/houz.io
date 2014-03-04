@@ -1,30 +1,70 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  %div
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, :autocomplete => "off"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  %div
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password
-  %div= f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
-= link_to "Back", :back
+- content_for :page_title do
+  Account Settings
+.row
+  .col-md-3.col-sm-4    
+    = render 'accounts/settings_menu'
+  .col-md-9.col-sm-8
+    .tab-content.stacked-content
+      #profile-tab.tab-pane.fade.in.active        
+        %h3 Edit User Basic Info
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %hr/        
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put}) do |f|
+          = devise_error_messages!          
+          .form-group
+            = f.label :first_name
+            %br/
+            = f.text_field :first_name, :autofocus => true, :class => 'form-control'          
+          .form-group
+            = f.label :last_name
+            %br/
+            = f.text_field :last_name, :autofocus => true, :class => 'form-control'   
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, :autofocus => true, :class => 'form-control'
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            %div
+              Currently waiting confirmation for: #{resource.unconfirmed_email}         
+          .form-group= f.submit "Update", :class => 'btn btn-primary'
+      #password-tab.tab-pane.fade
+        %h3 Change Your Password
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %hr/
+        %br/
+        #errors_password.hidden
+          .alert.alert-danger
+            %ul  
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put }) do |f|                        
+          .form-group
+            = f.label :password
+            %i (leave blank if you don't want to change it)
+            %br/
+            = f.password_field :password, :autocomplete => "off", :class => 'form-control'
+          .form-group
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, :class => 'form-control'
+          .form-group
+            = f.label :current_password
+            %i (we need your current password to confirm your changes)
+            %br/
+            = f.password_field :current_password, :class => 'form-control'
+          .form-group= f.submit "Update", :class => 'btn btn-primary'
+          
+        / %h3 Cancel my account
+        / %p
+        /   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}
+        / = link_to "Back", :back    
+      #messaging.tab-pane.fade
+        %h3 Message Settings
+        %p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+      #payments.tab-pane.fade
+        %h3 Payments Settings
+        %p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+      #reports.tab-pane.fade
+        %h3 Reports Settings
+        %p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
