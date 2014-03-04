@@ -55,12 +55,12 @@
               %span.caret
             %ul.dropdown-menu{role: "menu"}              
               %li
-                %a{href: "./page-settings.html"}
+                = link_to edit_user_registration_path do 
                   %i.fa.fa-cogs
                   \  Account Settings
               %li.divider
               %li
-                = link_to destroy_user_session_path do
+                = link_to destroy_user_session_path, :method => :delete do
                   %i.fa.fa-sign-out
                   \  Logout
       / /#top-bar
