@@ -8,21 +8,15 @@
       #profile-tab.tab-pane.fade.in.active        
         %h3 Edit User Basic Info
         %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-        %hr/        
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put}) do |f|
-          = devise_error_messages!          
+        %hr/         
+        = formify(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put}) do |f|
+          = f.remote_errors_list :profile     
           .form-group
-            = f.label :first_name
-            %br/
-            = f.text_field :first_name, :autofocus => true, :class => 'form-control'          
+            = f.text_field :first_name, :autofocus => true         
           .form-group
-            = f.label :last_name
-            %br/
-            = f.text_field :last_name, :autofocus => true, :class => 'form-control'   
+            = f.text_field :last_name
           .form-group
-            = f.label :email
-            %br/
-            = f.email_field :email, :autofocus => true, :class => 'form-control'
+            = f.email_field :email, :autofocus => true
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             %div
               Currently waiting confirmation for: #{resource.unconfirmed_email}         
@@ -30,25 +24,19 @@
       #password-tab.tab-pane.fade
         %h3 Change Your Password
         %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-        %hr/
-        %br/
-        #errors_password.hidden
-          .alert.alert-danger
-            %ul  
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put }) do |f|                        
+        %hr/        
+        = formify(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true, :html => { :role => 'form', :method => :put }) do |f|                        
+          = f.remote_errors_list :password     
           .form-group
             = f.label :password
             %i (leave blank if you don't want to change it)
-            %br/
-            = f.password_field :password, :autocomplete => "off", :class => 'form-control'
+            = f.password_field :password, :autocomplete => "off", :autofocus => true, :class => 'form-control'
           .form-group
             = f.label :password_confirmation
-            %br/
             = f.password_field :password_confirmation, :class => 'form-control'
           .form-group
             = f.label :current_password
             %i (we need your current password to confirm your changes)
-            %br/
             = f.password_field :current_password, :class => 'form-control'
           .form-group= f.submit "Update", :class => 'btn btn-primary'
           

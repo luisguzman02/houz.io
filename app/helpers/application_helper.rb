@@ -28,4 +28,10 @@ module ApplicationHelper
     end
     errors
   end
+
+  def formify(object, options = {}, &block)
+    options[:builder] = SimplyBootstrapFormBuilder    
+    form_for(object, options, &block)
+  end      
+  
 end
