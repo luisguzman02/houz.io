@@ -48,6 +48,7 @@
           %li
             %i.icon-li.fa.fa-user
             = link_to @property.owner.full_name, @property.owner, :class => 'text-primary'
+            (Owner)
           %li
             %i.icon-li.fa.fa-map-marker
             = @property.contact.address.location

@@ -1,9 +1,10 @@
-body {
+body {   
   padding-top: 50px;
   padding-bottom: 20px;
   background: none;
+  // background: image-url("bg_stripe.png")repeat;
   #main_content {
-    margin-top: 20px;    
+    margin-top: 20px;       
   }
   #features, #pricing {
     h1, h2 {
@@ -18,8 +19,21 @@ body {
 }
 
 //homepage
-.jumbotron {  
+#start_front {
+  background: url("http://immobilier-brossard.info/immo/wp-content/uploads/2013/12/hd-wallpapers-house-beach-marclundquist-wallpaper-art-1920x1080-wallpaper.jpg") 
+    no-repeat scroll -190px -120px rgba(0, 0, 0, 0);
+  height: 500px;    
+  padding-top: 60px;    
   h1 {
+    font-family:  Montserrat, 'Source Sans Pro', sans-serif;
     font-size: 45px;
+    font-weight: bold;
+    text-shadow: 2px 2px #fff;
+    color: #2E3643;
+  }
+  p {
+    font-family: Lato, 'Source Sans Pro', sans-serif;
+    line-height: 29px; 
+    color: #2E3643;  
   }
 }
