@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Dashboard - Canvas Admin Rails
+    %title= "#{content_for?(:page_title) ? yield(:page_title) : 'Dashboard'} - Secondhouz.com"
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     = stylesheet_link_tag "backend", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "backend", "data-turbolinks-track" => true, :type => 'text/javascript'
@@ -83,7 +83,7 @@
                 Properties                           
             %li.dropdown{:class => controller_name.eql?('reservations') ? 'active' : ''}
               %a{href: "javascript:;"}
-                %i.fa.fa-book
+                %i.fa.fa-calendar-o
                 Reservations
                 %span.caret
               %ul.sub-nav
@@ -108,21 +108,15 @@
                 %li
                   %a{href: "./ui-popups.html"}
                     %i.fa.fa-asterisk
-                    Tenants                            
-        / #sidebar
-      / /#sidebar-wrapper
+                    Tenants
       #content
         #content-header
           %h1 
             - if content_for? :page_title
               = yield :page_title
-        / #content-header
         #content-container
           / place = yield  here
           = yield
-        / /#content-container
-      / #content
-    / #wrapper
     %footer#footer
       %ul.nav.pull-left
         %li

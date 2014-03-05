@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail]
+  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail, :show]
   respond_to :json, :only => :booking_detail
 
   def index

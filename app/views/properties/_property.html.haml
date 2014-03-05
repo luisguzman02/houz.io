@@ -18,16 +18,16 @@
           = image_tag property.pictures.first.picture.url(:thumb)
       .col-xs-8
         .pull-right
-          = link_to edit_property_path(property), :class => "btn btn-warning" do
+          = link_to edit_property_path(property), :class => "btn btn-primary" do
             %span.glyphicon.glyphicon-pencil
             Edit
           / = link_to '', :class => "btn btn-warning" do
           /   %span.glyphicon.glyphicon-new-window
           /   Book
-          = link_to '', :class => "btn btn-warning" do
+          = link_to '', :class => "btn btn-secondary" do
             %span.glyphicon.glyphicon-calendar
             Availability
         .clearfix10
         .pull-right
           - property.tags.each do |t|
-            .label.label-success= link_to t, ''
+            .label.label-tertiary= link_to t, ''
