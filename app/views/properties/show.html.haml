@@ -1,66 +1,41 @@
-- content_for :page_title do
-  Property
-  %small= "Id: #{@property.id}"
 .row
-  .col-md-9
-    .row
-      .col-md-4.col-sm-5
-        .thumbnail
-          = image_tag @property.pictures.first.picture.url(:profile)
-        %br/
-        .list-group
-          = link_to rates_property_path(@property), :class => 'list-group-item' do
-            %i.fa.fa-money
-            \  Rates            
-            %i.fa.fa-chevron-right.list-group-chevron
-            %span.badge= @property.rates.count
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-picture-o
-            \  Pictures
-            %i.fa.fa-chevron-right.list-group-chevron
-            %span.badge= @property.pictures.count
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-archive
-            \  Rental History
-            %i.fa.fa-chevron-right.list-group-chevron
-            %span.badge= @property.reservations.count
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-edit
-            \  Edit
-            %i.fa.fa-chevron-right.list-group-chevron            
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-trash-o
-            \  Delete
-            %i.fa.fa-chevron-right.list-group-chevron
-      .col-md-8.col-sm-7
-        %h2= @property.name
-        %h4= @property.unit_type.to_s.humanize
-        %hr/
-        %p
-          = link_to '', :class => "btn btn-primary" do
-            %i.fa.fa-sign-in
-            Upcoming Ocupancy
-          = link_to '', :class => "btn btn-secondary" do
-            %i.fa.fa-calendar
-            Availability
-        %hr/
-        %ul.icons-list
-          %li
-            %i.icon-li.fa.fa-user
-            = link_to @property.owner.full_name, @property.owner, :class => 'text-primary'
-            (Owner)
-          %li
-            %i.icon-li.fa.fa-map-marker
-            = @property.contact.address.location
-          %li
-            %i.icon-li.fa.fa-tags
-            - @property.tags.each do |t|
-              .label.label-tertiary= link_to t, ''
-        %br/
-        %p= @property.description
-        %hr/
-        
-  .col-md-3.col-sm-6.col-sidebar-right    
+  .col-md-3.col-sm-5
+    = render 'property_side'
+  .col-md-6.col-sm-7
+    %h2= @property.name
+    %h4= @property.unit_type.to_s.humanize
+    %hr/
+    %p
+      = link_to '', :class => "btn btn-primary" do
+        %i.fa.fa-sign-in
+        Upcoming Ocupancy
+      = link_to '', :class => "btn btn-secondary" do
+        %i.fa.fa-calendar
+        Availability
+    %hr/
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-user
+        = link_to @property.owner.full_name, @property.owner, :class => 'text-primary'
+        (Owner)
+      %li
+        %i.icon-li.fa.fa-map-marker
+        = @property.contact.address.location
+      %li
+        %i.icon-li.fa.fa-tags
+        - @property.tags.each do |t|
+          .label.label-tertiary= link_to t, ''
+    %br/
+    %h4 Description
+    %hr/
+    %p= @property.description
+    %br/
+    %h4 Rental Details
+    %hr/
+    %br/
+    %h4 Amenities
+    %hr/        
+  .col-md-3.col-sm-5.col-sidebar-right    
     %br/
     .well
       %h4 Rental Details

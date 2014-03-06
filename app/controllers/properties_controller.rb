@@ -23,7 +23,7 @@ class PropertiesController < DashboardController
 
   def update
     if @property.update(property_params)
-      redirect_to edit_property_path(@property), :notice => 'Property updated successfully.' 
+      redirect_to property_path(@property), :notice => 'Property updated successfully.' 
     else
       render :action => 'edit'
     end

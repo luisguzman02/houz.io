@@ -1,46 +1,43 @@
-.col-md-3
-.col-md-6
-  .row
-    .col-xs-8  
-      %h4 Rates        
-    .col-xs-4
-      .pull-right
-        = link_to '', :class => 'btn btn-success' do
+.row
+  .col-md-3
+    = render 'property_side'
+  .col-md-9
+    %h3 Property Rates
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum. Sed vel magna nunc. Phasellus vitae nisl iaculis, luctus nibh sit amet, ornare felis. Vestibulum ullamcorper viverra pharetra. Ut cursus condimentum ante, nec condimentum diam. 
+    .row
+      .col-xs-9
+      .col-xs-3
+        = link_to '', :class => 'btn btn-secondary col-xs-12' do
           %span.glyphicon.glyphicon-plus
-          Add a Rate
-  .clearfix10
-  .panel.panel-default
-    .panel-body
-      = form_tag rates_property_path(@property), :method => :put do
-        .row
-          .col-xs-2 
-            %center 
-              %strong Type
-          .col-xs-6 
-            %center 
-              %strong Name
-          .col-xs-4 
-            %center 
-              %strong Value
-        .row
-          %hr
-        - @property.rates.each do |r|
-          .row.ratelns{:id => "r_#{r.id}"}
-            .col-xs-2
-              %center= r.type.to_s.humanize
-            .col-xs-6
-              %center= link_to r.name, ''
-            .col-xs-4 
-              .input-group
-                %span.input-group-addon= r.value_type.eql?(:percentage) ? " % " : " $ "
-                = text_field_tag "rates[#{r.id}]", r.value, :class => 'form-control'                
-        .row
-          %hr
-        .row
-          .col-xs-8
-            - if request.method.eql? 'POST'
-              %small.text-muted Successfully saved.
-          .col-xs-4
-            = submit_tag 'Save', :class => 'btn btn-lg btn-warning col-xs-12'            
-.col-md-3
-    
+          Add a Rate    
+    = form_tag rates_property_path(@property), :method => :put do
+      %table.table.table-bordered.table-highlight
+        %thead
+          %tr
+            %th Type
+            %th Name
+            %th Value
+        %tbody
+          - @property.rates.each do |r|
+            %tr
+              %td= r.type.to_s.humanize
+              %td                
+                = r.name.to_s.humanize
+                - if r.seasonable
+                  %em.text-muted= "#{r.start_season.to_date} - #{r.end_season.to_date}"
+              %td.col-md-3
+                .input-group
+                  %span.input-group-addon= r.value_type.eql?(:percentage) ? " % " : " $ "
+                  = text_field_tag "rates[#{r.id}]", r.value, :class => 'form-control'               
+      .row
+        .col-xs-9
+          - if request.method.eql? 'POST'
+            :javascript
+              $.howl ({
+                type: 'success', 
+                title: 'Successfully saved', 
+                content: 'Property rates were successfully saved.', 
+                iconCls: 'fa fa-check-square-o',    
+              }); 
+        .col-xs-3
+          = submit_tag 'Save', :class => 'btn btn-primary col-xs-12'            
