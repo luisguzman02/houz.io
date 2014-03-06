@@ -1,0 +1,72 @@
+<div class="row" ng-app="PropertyRates" ng-controller="PRatesController">
+  <div ng-init="proid='<%=@property.slug%>'"></div>
+  <div class="col-md-3">
+    <%= render 'property_side'%>
+  </div>
+  <div class="col-md-9">
+    <h3>Property Rates</h3>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum. Sed vel magna nunc. Phasellus vitae nisl iaculis, luctus nibh sit amet, ornare felis. Vestibulum ullamcorper viverra pharetra. Ut cursus condimentum ante, nec condimentum diam. 
+    </p>
+    <div class="row">
+      <div class="col-xs-9"></div>
+      <div class="col-xs-3">
+        <%= link_to '', :class => 'btn btn-secondary col-xs-12' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Add a Rate
+        <% end %>
+      </div>
+    </div>
+    <table class="table table-bordered table-highlight">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Type</th>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="prate in property_rates" ng-animate=" 'slide' ">
+          <td align="center">
+            <a href="#" confirmed-click="delete(prate, $index)" title="Remove this rate" class="text-danger" ng-confirm-click="Are you sure you want to remove this reservation?">
+              <i class="fa fa-trash-o"></i>                  
+            </a>
+          </td>
+          <td>{{prate.type}}</td>
+          <td>
+            {{prate.name}}
+            <em class="text-muted" ng-show="prate.seasonable">{{prate.start_season}} - {{prate.end_season}}</em>
+          </td>
+          <td class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <span ng-show="prate.value_type == 'percentage'">%</span>
+                <span ng-show="prate.value_type == 'amount'">$</span>
+              </span>
+              <input ng:model="prate.value" class="form-control" type="text" />
+            </div>
+          </td>
+        </tr>      
+      </tbody>
+    </table>    
+      <div class="row">
+        <div class="col-xs-9">        
+          <% if request.method.eql? 'POST' %>
+            <javascript>
+              $.howl ({
+                type: 'success', 
+                title: 'Successfully saved', 
+                content: 'Property rates were successfully saved.', 
+                iconCls: 'fa fa-check-square-o',    
+              });
+            </javascript>
+          <% end %>
+        </div>
+        <div class="col-xs-3">
+          <button ng-click="savePropertyRates()" class="btn btn-primary col-xs-12">Save</button>
+        </div>
+      </div>  
+    </div>
+  </div>  
+</div>           
