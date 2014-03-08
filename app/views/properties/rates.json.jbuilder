@@ -1,1 +1,0 @@
-json.partial! partial: 'rates/rate', collection: @property.rates, as: :rate

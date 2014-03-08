@@ -1,7 +1,7 @@
 <div class="row" ng-app="PropertyRates" ng-controller="PRatesController">
-  <div ng-init="proid='<%=@property.slug%>'"></div>
+  <div ng-init="concern_id='<%=@property.id%>'"></div>
   <div class="col-md-3">
-    <%= render 'property_side'%>
+    <%= render 'properties/property_side'%>
   </div>
   <div class="col-md-9">
     <h3>Property Rates</h3>
@@ -11,10 +11,11 @@
     <div class="row">
       <div class="col-xs-9"></div>
       <div class="col-xs-3">
-        <%= link_to '', :class => 'btn btn-secondary col-xs-12' do %>
+        <%= link_to new_property_rate_path(@concern_id), :remote => true, :format => :js, :id => 'new_property_rate', :class => 'btn btn-secondary col-xs-12', 'data-toggle' => 'modal', 'data-target' => '#property_rate_form' do %>
           <span class="glyphicon glyphicon-plus"></span>
           Add a Rate
         <% end %>
+        <%=render 'properties/rates/form' %>
       </div>
     </div>
     <table class="table table-bordered table-highlight">
@@ -51,20 +52,9 @@
       </tbody>
     </table>    
       <div class="row">
-        <div class="col-xs-9">        
-          <% if request.method.eql? 'POST' %>
-            <javascript>
-              $.howl ({
-                type: 'success', 
-                title: 'Successfully saved', 
-                content: 'Property rates were successfully saved.', 
-                iconCls: 'fa fa-check-square-o',    
-              });
-            </javascript>
-          <% end %>
-        </div>
+        <div class="col-xs-9"></div>
         <div class="col-xs-3">
-          <button ng-click="savePropertyRates()" class="btn btn-primary col-xs-12">Save</button>
+          <button ng-click="save()" class="btn btn-primary col-xs-12">Save</button>
         </div>
       </div>  
     </div>

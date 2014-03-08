@@ -6,7 +6,7 @@
   = image_tag @property.pictures.first.picture.url(:profile)
 %br/
 .list-group
-  = link_to rates_property_path(@property), :class => 'list-group-item' do
+  = link_to property_rates_path(@property), :class => 'list-group-item' do
     %i.fa.fa-money
     \  Rates            
     %i.fa.fa-chevron-right.list-group-chevron

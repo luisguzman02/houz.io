@@ -74,13 +74,15 @@ class Property
     #errors.add(:account, 'does not have the enought credits to add more properties') if !account.can_add_properties? && !persisted?
   end
 
-  def set_rates(prs={})
-    prs.each do |k,v|
-      if (r = rates.find(k))
-        r.value = v
+  def update_rates(prs)
+    prs.each do |hr|
+      if (r = rates.find(hr['id']))
+        r.value = hr['value']
         r.save
       end
     end
+  rescue
+    false
   end
 
   def tags_token_input
