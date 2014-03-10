@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.core
+//= require jquery.ui.datepicker
 //= require jquery.tokeninput
 //= require angular
 //= require angular-resource

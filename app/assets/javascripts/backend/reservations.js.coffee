@@ -31,17 +31,17 @@ app.directive "ngConfirmClick", [->
 window.ReservationsNew =
 
   init: ->
-    $(".datepicker").datepicker(
+    $(".datepicker").bootstrapDP(
       format: "yyyy/mm/dd",
       autoclose: true
       # minDate: 0      
     ).on('show', (e) ->
       
     ).on('hide', (selectedDate) ->
-      $("#reservation_check_out").datepicker "setStartDate", selectedDate.date if @id is 'reservation_check_in' 
+      $("#reservation_check_out").bootstrapDP "setStartDate", selectedDate.date if @id is 'reservation_check_in' 
     ).on 'changeDate', (e) ->
-      d1 = $('#reservation_check_in').datepicker('getDate')
-      d2 = $('#reservation_check_out').datepicker('getDate')
+      d1 = $('#reservation_check_in').bootstrapDP('getDate')
+      d2 = $('#reservation_check_out').bootstrapDP('getDate')
       # console.log d1
       # console.log d2
       if d1 isnt null and d2 isnt null
@@ -93,7 +93,7 @@ ready_reservations_home = ->
 
   $(".reservations_index").on "click", "#inquiery_booking #date_range_icon .input-group-addon", (e) ->
     e.preventDefault()        
-    $("##{$(@).attr('trigger')}").datepicker("show");     
+    $("##{$(@).attr('trigger')}").bootstrapDP("show");     
 
   $(".reservations_index").on "click", "#reservations_remove", (e) ->
     e.preventDefault()

@@ -1,4 +1,4 @@
-ready = ->
+ready_rates = ->  
   if $("#rate_start_season").length > 0 and  $("#rate_end_season").length > 0
     start_ = $('#rate_start_season').val().split('-') 
     end_ = $('#rate_end_season').val().split('-') 
@@ -9,7 +9,7 @@ ready = ->
       e:end_date.getTime(),
       clear:true
     }
-    
+
   $(".datepicker_range").datepicker
     dateFormat: 'yy-mm-dd'    
     numberOfMonths: 2
@@ -30,12 +30,26 @@ ready = ->
     beforeShowDay: (date) ->      
       day_selected = (date.getTime() >= Math.min(both.s, both.e) and date.getTime() <= Math.max(both.s, both.e))       
       [true, ((if day_selected then "date-range-selected" else "")), '']
-  
+
   $(".rates").on "click", "#rate_seasonable", (e) ->
     if $(@).is(':checked')
       $(".datepicker_range").show()
     else
       $(".datepicker_range").hide()
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+window.RatesFormRemote =
+  init: ->        
+    $(document).on "click", "#rate_seasonable", (e) ->
+      if $(@).is(':checked')
+        $("#rate_start_season, #rate_end_season").removeAttr('disabled')
+      else
+        $("#rate_start_season, #rate_end_season").attr('disabled', true)        
+
+    alert('holly')
+    $(".input-daterange").bootstrapDP()            
+    alert('damn')
+    
+$(document).ready ->  
+  ready_rates()
+
+$(document).on('page:load', ready_rates)

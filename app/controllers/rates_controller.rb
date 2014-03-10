@@ -54,7 +54,6 @@ class RatesController < DashboardController
   # PATCH/PUT /rates/1.json
   def update
     respond_to do |format|
-      binding.pry
       if @rate.update(rate_params)
         format.html { redirect_to rates_path, notice: 'Rate was successfully updated.' }
         format.json { head :no_content }
@@ -91,6 +90,7 @@ class RatesController < DashboardController
       if params[:property_id].present? 
         @concern_id = params[:property_id]     
         @property = @concern_o = current_account.properties.find(@concern_id)   
-      end      
+      end
+      @rates = @concern_o.rates  
     end
 end
