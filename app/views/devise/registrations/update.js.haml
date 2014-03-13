@@ -1,0 +1,8 @@
+- if @user.errors.any?
+  $("#errors_#{params[:section]} .alert ul").empty();  
+  - @user.errors.full_messages.each do |m|  
+    $('#errors_#{params[:section]} .alert ul').append("<li>#{m}</li>");
+  $("#errors_#{params[:section]}").removeClass('hidden');
+- else
+  $("#errors_#{params[:section]}").addClass('hidden');  
+  = render "update_#{params[:section]}"  

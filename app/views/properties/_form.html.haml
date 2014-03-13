@@ -115,7 +115,6 @@
             .col-md-6
               = f.label :other_amenities
               = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
-      = link_to 'Delete this property',  @property, :method => :delete, :id => 'del_prop_lnk', :class => 'text-danger', data: { confirm: 'Are you sure you want to remove this property?' }  if @property.persisted?
       .pull-right
         %button{:type => 'submit', :class =>"btn btn-primary btn-lg"}
           %span.glyphicon.glyphicon-floppy-disk

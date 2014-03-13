@@ -1,0 +1,9 @@
+- content_for :modals do
+  #property_rate_form.modal.modal-styled.fade.in{"aria-hidden" => "true", "aria-labelledby" => "NewPropertyRate", role: "dialog", tabindex: "-1"}    
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+          %h4#NewPropertyRate.modal-title Add a Rate
+        .modal-body  
+          %center= image_tag('spinner_mid.gif')          

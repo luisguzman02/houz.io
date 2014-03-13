@@ -81,6 +81,10 @@ describe Property do
     end    
   end
 
+  it 'update property rates from json post' do
+    pending
+  end
+
   it 'check booking availability' do
     pending
   end

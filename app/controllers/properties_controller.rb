@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail]
+  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail, :show]
   respond_to :json, :only => :booking_detail
 
   def index
@@ -23,7 +23,7 @@ class PropertiesController < DashboardController
 
   def update
     if @property.update(property_params)
-      redirect_to edit_property_path(@property), :notice => 'Property updated successfully.' 
+      redirect_to property_path(@property), :notice => 'Property updated successfully.' 
     else
       render :action => 'edit'
     end
@@ -36,10 +36,6 @@ class PropertiesController < DashboardController
     else
       redirect_to edit_property_path(@property), :error => 'Something went wrong trying to delete a property. We\'re already taking care of the issue.' 
     end
-  end
-
-  def rates
-    @property.set_rates params[:rates] if request.method.eql? 'POST'
   end
 
   def pictures    

@@ -1,21 +1,33 @@
 - content_for :jumbotron do
-  .jumbotron
+  .jumbotron#start_front
     .container
       .row
-        %h1 Start making your life easier with the most innovative Reservations System.
-        %p 
-          Whether you are a property owner with one or more units, or a vacational rental agency manager with many properties and owners under management, Secondhouz will 
-          simplify the administration of your reservations.
-        %p
-          = link_to 'Start Now »', new_user_registration_path,:class => 'btn btn-primary btn-lg', :role => "button"
-.row{:id => 'features'}
+        .col-md-2                    
+        .col-md-8              
+          %center    
+            %h1 The Most Innovative Vacation Rental Software    
+            %br/     
+            %p             
+              Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Secondhouz will 
+              make your vacation rental operations easier.              
+            = form_tag '', :class => 'form-inline', :role => 'form' do
+              .form-group
+                = text_field_tag :email, '', :class => 'form-control input-lg',  :placeholder => 'Enter your email'
+                = link_to 'Start Now »', new_user_registration_path,:class => 'btn btn-secondary btn-lg', :role => "button"
+        .col-md-2
+.clearfix        
+.row{:id => 'features'}     
+  %center
+    .page-header 
+      %h1 Features
+.row
   .row
     %br/
     %br/
   .row
     .col-md-4
       %center 
-        %i.fa.fa-book.fa-5x.text-primary
+        %i.fa.fa-calendar-o.fa-5x.text-primary
         %br/
         %h2 Reservation System
         %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.    
@@ -50,13 +62,15 @@
       %center 
         %i.fa.fa-desktop.fa-5x.text-primary
         %br/
-        %h2 Vacational Rental Website
+        %h2 Vacation Rental Website
         %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.    
-%br/      
-.jumbotron{:id => 'pricing'}      
+%br/  
+.div{:id => 'features'}     
   %center
     .page-header 
-      %h1 Pricing
+      %h1 Pricing    
+.jumbotron{:id => 'pricing'}      
+  %center
     %h3 Start your 14-day free trial today!
     %h4 No sign-up fees. No credit card required. No long-term commitments.
     %br/    

@@ -1,255 +1,54 @@
 .row
-  .col-md-9
-    .row
-      .col-md-4.col-sm-5
-        .thumbnail
-          %img{alt: "Profile Picture", src: "./img/avatars/avatar-large-1.jpg"}/
-        / /.thumbnail
-        %br/
-        .list-group
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-asterisk
-            \  Activity Feed
-            %i.fa.fa-chevron-right.list-group-chevron
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-book
-            \  Projects
-            %i.fa.fa-chevron-right.list-group-chevron
-            %span.badge 3
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-envelope
-            \  Messages
-            %i.fa.fa-chevron-right.list-group-chevron
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-group
-            \  Friends
-            %i.fa.fa-chevron-right.list-group-chevron
-            %span.badge 7
-          %a.list-group-item{href: "javascript:;"}
-            %i.fa.fa-cog
-            \  Settings
-            %i.fa.fa-chevron-right.list-group-chevron
-        / /.list-group
-      / /.col
-      .col-md-8.col-sm-7
-        %h2 Rod Howard
-        %h4 Visual, UI, UX Designer
-        %hr/
-        %p
-          %a.btn.btn-primary{href: "javascript:;"} Follow Rod
-          \  
-          %a.btn.btn-secondary{href: "javascript:;"} Send Message
-        %hr/
-        %ul.icons-list
-          %li
-            %i.icon-li.fa.fa-envelope
-            rod@jumpstartui.com
-          %li
-            %i.icon-li.fa.fa-globe
-            jumstartthemes.com
-          %li
-            %i.icon-li.fa.fa-map-marker
-            Las Vegas, NV
-        %br/
-        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.
-        %hr/
-        %br/
-        %h3.heading Social Feed
-        .feed-item.feed-item-idea
-          .feed-icon
-            %i.fa.fa-lightbulb-o
-          / /.feed-icon
-          .feed-subject
-            %p
-              %a{href: "javascript:;"} Rod Howard
-              shared an idea:
-              %a{href: "javascript:;"} Create an Awesome Idea
-          / /.feed-subject
-          .feed-content
-            %ul.icons-list
-              %li
-                %i.icon-li.fa.fa-quote-left
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-          / /.feed-content
-          .feed-actions
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-thumbs-up
-              123
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-comment-o
-              29
-            %a.pull-right{href: "javascript:;"}
-              %i.fa.fa-clock-o
-              2 days ago
-          / /.feed-actions
-        / /.feed-item
-        .feed-item.feed-item-image
-          .feed-icon
-            %i.fa.fa-picture-o
-          / /.feed-icon
-          .feed-subject
-            %p
-              %a{href: "javascript:;"} John Doe
-              posted the
-              = succeed ":" do
-                %strong 4 files
-              %a{href: "javascript:;"} Annual Reports
-          / /.feed-subject
-          .feed-content
-            .thumbnail{style: "width: 375px"}
-              .thumbnail-view
-                %a.thumbnail-view-hover.ui-lightbox{href: "./img/mockup.png"}
-                %img{alt: "Gallery Image", src: "./img/mockup.png", style: "width: 100%;"}/
-            / /.thumbnail
-          / /.feed-content
-          .feed-actions
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-thumbs-up
-              123
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-comment-o
-              29
-            %a.pull-right{href: "javascript:;"}
-              %i.fa.fa-clock-o
-              2 days ago
-          / /.feed-actions
-        / /.feed-item
-        .feed-item.feed-item-file
-          .feed-icon
-            %i.fa.fa-cloud-upload
-          / /.feed-icon
-          .feed-subject
-            %p
-              %a{href: "javascript:;"} John Doe
-              posted the
-              = succeed ":" do
-                %strong 4 files
-              %a{href: "javascript:;"} Annual Reports
-          / /.feed-subject
-          .feed-content
-            %ul.icons-list
-              %li
-                %i.icon-li.fa.fa-file-text-o
-                %a{href: "javascript:;"} Annual Report 2007
-                \- annual_report_2007.pdf
-              %li
-                %i.icon-li.fa.fa-file-text-o
-                %a{href: "javascript:;"} Annual Report 2008
-                \- annual_report_2007.pdf
-              %li
-                %i.icon-li.fa.fa-file-text-o
-                %a{href: "javascript:;"} Annual Report 2009
-                \- annual_report_2007.pdf
-              %li
-                %i.icon-li.fa.fa-file-text-o
-                %a{href: "javascript:;"} Annual Report 2010
-                \- annual_report_2007.pdf
-          / /.feed-content
-          .feed-actions
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-thumbs-up
-              123
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-comment-o
-              29
-            %a.pull-right{href: "javascript:;"}
-              %i.fa.fa-clock-o
-              2 days ago
-          / /.feed-actions
-        / /.feed-item
-        .feed-item.feed-item-bookmark
-          .feed-icon
-            %i.fa.fa-bookmark
-          / /.feed-icon
-          .feed-subject
-            %p
-              %a{href: "javascript:;"} Rod Howard
-              bookmarked a page on Delicious:
-              %a{href: "javascript:;"} Jumpstart Themes
-          / /.feed-subject
-          .feed-content
-          / /.feed-content
-          .feed-actions
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-thumbs-up
-              123
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-comment-o
-              29
-            %a.pull-right{href: "javascript:;"}
-              %i.fa.fa-clock-o
-              2 days ago
-          / /.feed-actions
-        / /.feed-item
-        .feed-item.feed-item-question
-          .feed-icon
-            %i.fa.fa-question
-          / /.feed-icon
-          .feed-subject
-            %p
-              %a{href: "javascript:;"} Rod Howard
-              posted the question:
-              %a{href: "javascript:;"} Who can I call to get a new parking pass for the Rowan Building?
-          / /.feed-subject
-          .feed-content
-            %ul.icons-list
-              %li
-                %i.icon-li.fa.fa-quote-left
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-          / /.feed-content
-          .feed-actions
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-thumbs-up
-              123
-            %a.pull-left{href: "javascript:;"}
-              %i.fa.fa-comment-o
-              29
-            %a.pull-right{href: "javascript:;"}
-              %i.fa.fa-clock-o
-              2 days ago
-          / /.feed-actions
-        / /.feed-item
-  .col-md-3.col-sm-6.col-sidebar-right
-    %h4 Easy Statistics
-    .list-group
-      %a.list-group-item{href: "javascript:;"}
-        %h3.pull-right
-          %i.fa.fa-eye
-        %h4.list-group-item-heading 38,847
-        %p.list-group-item-text Profile Views
-      %a.list-group-item{href: "javascript:;"}
-        %h3.pull-right
-          %i.fa.fa-facebook-square
-        %h4.list-group-item-heading 3,482
-        %p.list-group-item-text Facebook Likes
-      %a.list-group-item{href: "javascript:;"}
-        %h3.pull-right
-          %i.fa.fa-twitter-square
-        %h4.list-group-item-heading 5,845
-        %p.list-group-item-text Twitter Followers
-    / /.list-group
+  .col-md-3.col-sm-5
+    = render 'property_side'
+  .col-md-6.col-sm-7
+    %h2= @property.name
+    %h4= @property.unit_type.to_s.humanize
+    %hr/
+    %p
+      = link_to '', :class => "btn btn-primary" do
+        %i.fa.fa-sign-in
+        Upcoming Ocupancy
+      = link_to '', :class => "btn btn-secondary" do
+        %i.fa.fa-calendar
+        Availability
+    %hr/
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-user
+        = link_to @property.owner.full_name, @property.owner, :class => 'text-primary'
+        (Owner)
+      %li
+        %i.icon-li.fa.fa-map-marker
+        = @property.contact.address.location
+      %li
+        %i.icon-li.fa.fa-tags
+        - @property.tags.each do |t|
+          .label.label-tertiary= link_to t, ''
+    %br/
+    %h4 Description
+    %hr/
+    %p= @property.description
+    %br/
+    %h4 Rental Details
+    %hr/
+    %br/
+    %h4 Amenities
+    %hr/        
+  .col-md-3.col-sm-5.col-sidebar-right    
     %br/
     .well
-      %h4 Recent Activity
+      %h4 Rental Details
       %ul.icons-list.text-md
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Rod
-          uploaded 6 files.
-          %br/
-          %small about 4 hours ago
+          %strong Check-in
+          = @property.readable_check_in
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Rod
-          followed the research interest:
-          = succeed "." do
-            %a{href: "javascript:;"} Open Access Books in Linguistics
-          %br/
-          %small about 23 hours ago
+          %strong Check-out
+          = @property.readable_check_out
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Rod
-          added 51 papers.
-          %br/
-          %small 2 days ago
-/ /.row
+          %strong Minumum Staying Days
+          = @property.minimum_days
