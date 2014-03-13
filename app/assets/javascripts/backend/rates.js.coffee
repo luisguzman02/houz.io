@@ -45,10 +45,10 @@ window.RatesFormRemote =
       else
         $("#rate_start_season, #rate_end_season").attr('disabled', true)        
 
-    alert('holly')
-    $(".input-daterange").bootstrapDP()            
-    alert('damn')
-    
+    $(".input-daterange").datepicker
+      format: "yyyy/mm/dd"            
+      autoclose: true
+      
 $(document).ready ->  
   ready_rates()
 

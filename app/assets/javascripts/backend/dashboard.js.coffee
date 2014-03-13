@@ -3,7 +3,6 @@ ready_dashboard = ->
     $(@).html($('#spinner').html())   
 
 $(document).ready ->
-  $.fn.bootstrapDP = $.fn.datepicker.noConflict()
   ready_dashboard()
   
 $(document).on('page:load', ->
