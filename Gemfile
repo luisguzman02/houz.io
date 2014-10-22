@@ -49,16 +49,16 @@ gem 'draper', '~> 1.3'
 # gem 'ckeditor' 
 gem 'haml_coffee_assets'          # To handle js template
 gem 'execjs'
-#gem 'canvas_admin_rails', :git => 'https://github.com/adbeelitamar/canvas_admin_rails.git'
-gem 'canvas_admin_rails', :path => '../canvas_admin_rails'
-
+gem 'canvas_admin_rails', :git => 'https://github.com/adbeelitamar/canvas_admin_rails.git'
+# gem 'canvas_admin_rails', :path => '../canvas_admin_rails'
+gem 'coveralls', require: false
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
-  gem 'pry-debugger'
+  gem 'pry'
   gem 'rspec-rails', '2.13.1'
   gem 'capybara'
   gem 'better_errors'               # Better way to show error messages in development
