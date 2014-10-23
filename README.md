@@ -17,7 +17,7 @@
     
 #Contribute
 * Send email to owner to add you as contributor and for access to trello.
-* Pick a feature, error or improvement from trello list
-* Create feature branch and try to make as less committs as possible
-* Create pull request
+* Pick a feature, error or improvement from trello list.
+* Create feature branch, code and committ.
+* Create pull request.
     
