@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "sign up process", :js => true, :devise => :su do 
+RSpec.describe "sign up process", :js => true, :devise => :su, type: :feature, ctrl_clean: true do 
 
   before do
     @free_plan = FactoryGirl.create(:ecommerce_plan, :owner_free_pack) 

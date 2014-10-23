@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Property rates", :js => true, :prate => true do 
+RSpec.describe "Property rates", :js => true, :prate => true, type: :feature, ctrl_clean: true do 
   before do
     @acc = FactoryGirl.create(:account)    
     login_as(@acc.user, :scope => :user)
@@ -18,11 +18,7 @@ describe "Property rates", :js => true, :prate => true do
     page.should have_xpath('.//div[@class="row ratelns"]', :count =>  @acc.rates.count)    
   end
 
-  it 'can change values in rates list' do
-    pending
-  end
+  it 'can change values in rates list'
 
-  it 'is able to add more rates to a property rate list' do
-    pending
-  end  
+  it 'is able to add more rates to a property rate list'
 end

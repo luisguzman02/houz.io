@@ -1,11 +1,7 @@
 require 'spec_helper'
 
-describe Rate do
+RSpec.describe Rate, type: :model, ctrl_clean: true do
   
-  before do
-    #@rate = FactoryGirl.build(:rate)
-  end
-
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
   it { should be_timestamped_document.with(:updated) }

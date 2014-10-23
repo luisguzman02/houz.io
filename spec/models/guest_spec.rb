@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Guest do
+RSpec.describe Guest, type: :model, ctrl_clean: true do
   
   it { should be_timestamped_document.with(:created) }
 

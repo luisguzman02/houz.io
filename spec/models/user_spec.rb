@@ -1,11 +1,9 @@
 require 'spec_helper'
 
-describe User do
+RSpec.describe User, type: :model, ctrl_clean: true do
   
-  before do
-    @user = FactoryGirl.build(:user)
-  end
-
+  let(:user) {FactoryGirl.build(:user)}
+  
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
   it { should be_timestamped_document.with(:updated) }
@@ -40,11 +38,8 @@ describe User do
 
 
   it 'should create a new user' do
-    @user.save    
-    @user.should be_persisted          
+    user.save    
+    expect(user).to be_persisted          
   end
 
-  it '' do
-
-  end
 end

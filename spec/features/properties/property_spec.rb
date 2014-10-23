@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Properties", :js => true, :prop => :all do 
+RSpec.describe "Properties", :js => true, :prop => :all, type: :feature, ctrl_clean: true do 
   
   before do
     @acc = FactoryGirl.create(:account)

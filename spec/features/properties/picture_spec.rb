@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Property pictures", :js => true, :ppic => true do 
+RSpec.describe "Property pictures", :js => true, :ppic => true, type: :feature, ctrl_clean: true do 
   before do
     @acc = FactoryGirl.create(:account)    
     login_as(@acc.user, :scope => :user)

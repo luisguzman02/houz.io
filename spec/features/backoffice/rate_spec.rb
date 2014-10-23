@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Rates", :js => true, :rates => :all do 
+RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean: true do 
 
   before do
     @acc = FactoryGirl.create(:account)
@@ -11,9 +11,7 @@ describe "Rates", :js => true, :rates => :all do
   describe 'nav bar' do    
     it 'should highlight back-office option' do      
       visit rates_path  
-      within(:xpath, "//ul[@class='nav navbar-nav']/li[@class='active dropdown']") do 
-        page.should have_content "Back-office"
-      end
+      assert_navbar_option { expect(page).to have_content "Properties" }      
     end
   end
 
@@ -22,7 +20,7 @@ describe "Rates", :js => true, :rates => :all do
       visit dashboard_path
       click_on 'Back-office'
       click_link 'Rates'
-      page.should have_selector('table tbody tr', :count => 2)
+      expect(page).to have_selector('table tbody tr', :count => 2)
     end
   end
 
@@ -80,9 +78,7 @@ describe "Rates", :js => true, :rates => :all do
       end  
     end
 
-    it 'shows properties that includes specific rate' do
-      pending
-    end
+    it 'shows properties that includes specific rate'
   end
 
   it 'deletes a rate' do

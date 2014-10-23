@@ -23,7 +23,7 @@ module  BackendHelper
   
   # nav bar
   def assert_navbar_option
-    within(:xpath, "//ul[@class='nav navbar-nav']/li[@class='active']") do 
+    within(:xpath, "//nav[@id='sidebar']/ul/li[@class='active']") do 
       yield
     end
   end

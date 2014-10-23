@@ -39,46 +39,42 @@ gem "haml-rails"
 gem 'geocoder'
 gem 'countries'
 gem 'i18n_country_select'
+
 gem 'jquery-ui-rails'
 gem 'jquery-ui-themes'
-gem "rmagick"
+gem 'jquery-tokeninput-rails'
+
+gem 'rmagick', require: false
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-gem 'jquery-tokeninput-rails'
 gem 'draper', '~> 1.3'
 # gem 'ckeditor' 
 gem 'haml_coffee_assets'          # To handle js template
 gem 'execjs'
 gem 'canvas_admin_rails', :git => 'https://github.com/adbeelitamar/canvas_admin_rails.git'
 # gem 'canvas_admin_rails', :path => '../canvas_admin_rails'
-gem 'coveralls', require: false
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
+  # Debug
   gem 'pry'
-  gem 'rspec-rails', '2.13.1'
+
+  # Integration
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver' 
+
   gem 'better_errors'               # Better way to show error messages in development
 end
 
 group :test do
-  gem 'database_cleaner'            # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'          # A fixtures replacement
-  gem 'mongoid-rspec'
-  gem 'poltergeist'                 # A PhantomJS driver for Capybara
-  gem 'selenium-webdriver', '~> 2.35.1'
+  gem 'database_cleaner'            # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing
+  gem 'mongoid-rspec', '~> 2.0.0.rc1'
+  gem 'coveralls', require: false  
 end
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

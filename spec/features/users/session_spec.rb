@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "user session", :js => true do   
+RSpec.describe "user session", :js => true, type: :feature, ctrl_clean: true do   
 
   it "signs me in from login page" do    
     login '#main_content'
