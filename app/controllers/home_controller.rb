@@ -20,4 +20,9 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  def send_contact
+    ContactMailer.contact_form(params).deliver
+    redirect_to root_path
+  end
 end

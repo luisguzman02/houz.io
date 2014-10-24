@@ -1,0 +1,10 @@
+= form_tag(send_contact_path) do
+  =label_tag :name, 'Name'
+  =text_field_tag(:name)
+  =label_tag :telephone, 'Telephone'
+  =telephone_field_tag :telephone
+  =label_tag :email, 'Email'
+  =email_field_tag :email
+  =label_tag :message
+  =text_area_tag :message
+  =submit_tag

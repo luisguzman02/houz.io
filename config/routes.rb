@@ -13,7 +13,8 @@ Secondhouz::Application.routes.draw do
   root to: "home#index"
   get 'welcome/plans' => 'home#welcome_plans'
   get 'upgrade' => 'home#upgrade'
-  get 'dashboard' => 'dashboard#index'  
+  get 'dashboard' => 'dashboard#index'
+  post 'send_contact' => 'home#send_contact' 
 
   concern :rateable do
     resources :rates

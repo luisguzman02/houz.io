@@ -1,0 +1,11 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{content: 'text/html'}
+  %body
+    %h1= "There a new contact from #{@contact_info[:name]}"
+    %h2= "Contact Info"
+    %p= "#{@contact_info[:name]}"
+    %p= "#{@contact_info[:telephone]}"
+    %p= "#{@contact_info[:email]}"
+    %p= "#{@contact_info[:message]}"
