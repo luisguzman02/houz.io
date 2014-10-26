@@ -1,15 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe "backend dasboard", :dashboard => true, type: :feature, ctrl_clean: true, js: true do 
-
-  before do
-    @acc = FactoryGirl.create(:account)
-    login_as(@acc.user, :scope => :user)
+  let(:account) { FactoryGirl.create(:account) }
+  before do    
+    login_as(account.user, :scope => :user)
   end
   
   context 'nav bar' do
     before do
-      create_prop.call
+      create_prop(account).call
       visit dashboard_path
     end
 
@@ -34,8 +33,8 @@ RSpec.describe "backend dasboard", :dashboard => true, type: :feature, ctrl_clea
   end
      
   it 'redirect to start welcome page if user dont have an account' do
-    @acc.user = nil
-    @acc.save
+    account.user = nil
+    account.save
     visit dashboard_path
     expect(page).to have_content 'Welcome'
     expect(page).to have_link 'Create new Property'

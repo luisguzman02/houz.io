@@ -3,7 +3,7 @@
   = link_to @property do
     %small= @property.slug
 .thumbnail
-  = image_tag @property.pictures.first.picture.url(:profile)
+  = image_tag @property.pictures.first.picture.url(:profile) unless @property.pictures.empty?
 %br/
 .list-group
   = link_to property_rates_path(@property), :class => 'list-group-item' do

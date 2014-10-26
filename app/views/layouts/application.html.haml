@@ -48,22 +48,25 @@
                   %li
                     = link_to 'Logout', destroy_user_session_path, :method => :delete
             - else
-              = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
-                .form-group
-                  = f.email_field :email, :placeholder => "Email", :class => 'form-control'
-                .form-group
-                  = f.password_field :password, :placeholder => "Password", :class => 'form-control'
-                = f.submit "Sign in", :class => 'button btn btn-default'
+              .pull-right
+                %ul.nav.navbar-nav
+                  %li
+                    = link_to 'Login', login_path
+              / = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
+              /   .form-group
+              /     = f.email_field :email, :placeholder => "Email", :class => 'form-control'
+              /   .form-group
+              /     = f.password_field :password, :placeholder => "Password", :class => 'form-control'
+              /   = f.submit "Sign in", :class => 'button btn btn-default'
 
     - if content_for? :jumbotron
       = yield :jumbotron
     
     #main_content.container
-      / - flash.each do |name, msg|
-      /   .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
-      /     %a.close{'data-dismiss' => 'alert'}x
-      /     = msg
+      - flash.each do |name, msg|
+        .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
+          %a.close{'data-dismiss' => 'alert'}x
+          = msg
       = yield
-
     %hr
       = render 'common/footer'      

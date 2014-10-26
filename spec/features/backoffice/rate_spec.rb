@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean: true do 
+  
+  let(:account) { FactoryGirl.create(:account) }
 
   before do
-    @acc = FactoryGirl.create(:account)
-    login_as(@acc.user, :scope => :user)
-    create_prop.call 1
+    login_as(account.user, :scope => :user)
+    create_prop(account).call 1
   end  
 
   describe 'nav bar' do    
@@ -17,9 +18,7 @@ RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean:
 
   describe 'rates listing' do
     it 'shows 2 default rates created automatically by system' do
-      visit dashboard_path
-      click_on 'Back-office'
-      click_link 'Rates'
+      visit rates_path
       expect(page).to have_selector('table tbody tr', :count => 2)
     end
   end
@@ -38,9 +37,9 @@ RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean:
       fill_in 'rate_value', :with => 65
       check 'Always apply in reservation'
       check 'rate_seasonable'
-      within '.datepicker_range .ui-datepicker-group-first' do
-        click_on '10'
-        click_on '15'
+      within '.datepicker_range .datepicker-days' do
+        find('.day', :text => 10).click
+        find('.day', :text => 15).click
       end
       click_on 'Save'
     end
@@ -60,21 +59,21 @@ RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean:
 
     it 'adds new rate' do
       new_rate
-      page.should have_content 'Rate was successfully created'
+      expect(page).to have_content rate_dummy_name
     end
 
     it 'asserts values when adding a new rate' do
       new_rate
       click_on rate_dummy_name
-      r = @acc.rates.find_by(:name => rate_dummy_name)    
+      r = account.reload.rates.find_by(:name => rate_dummy_name)    
       within('#rates_content .panel-body') do      
-        page.should have_select('Type', :selected => r.type.to_s.humanize)
-        page.should have_field('Name', :with => r.name)
-        page.should have_select('rate_value_type', :selected => r.value_type.to_s.humanize)
-        page.should have_field('rate_value', :with => r.value)
-        page.should have_checked_field 'Always apply in reservation'
-        page.should have_unchecked_field 'Hold for further return'
-        page.should have_checked_field 'rate_seasonable'
+        expect(page).to have_select('Type', :selected => r.type.to_s.humanize)
+        expect(page).to have_field('Name', :with => r.name)
+        expect(page).to have_select('rate_value_type', :selected => r.value_type.to_s.humanize)
+        expect(page).to have_field('rate_value', :with => r.value)
+        expect(page).to have_checked_field 'Always apply in reservation'
+        expect(page).to have_unchecked_field 'Hold for further return'
+        expect(page).to have_checked_field 'rate_seasonable'
       end  
     end
 
@@ -82,9 +81,10 @@ RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean:
   end
 
   it 'deletes a rate' do
+    pending '(need to implement)'
     visit rates_path  
-    click_link 'Cleaning'
-    click_on 'Delete'
-    paga.should have_content 'Rate was successfully deleted.'
+    click_link 'Cleaning'  
+    click_on 'Delete'    
+    expect(page).to have_content 'Rate was successfully deleted.'
   end
 end

@@ -16,7 +16,7 @@ RSpec.describe HomeController, type: :feature, ctrl_clean: true, :homie => true 
   end
 
   it 'should have features and pricing options in nav bar' do
-    within(:xpath, "//ul[@class='nav navbar-nav']") do 
+    within(:xpath, "//div[@class='navbar-collapse collapse']") do 
       expect(page).to have_content 'Features'
       expect(page).to have_content 'Pricing'
     end
