@@ -22,15 +22,4 @@ RSpec.describe HomeController, type: :feature, ctrl_clean: true, :homie => true 
     end
   end
 
-
-  describe 'contact form' do
-    let(:contact_info_valid) do
-      contact_info_valid = name: 'Name', telephone: '2505050',
-        email: 'amin.ogarrio@gmail.com', message: 'lorem itsu'
-    end
-    let(:contact_info_invalid) do
-      contact_info_invalid = name: 'Name', telephone: '2505050',
-        email: 'amin.ogarrio@gmail.com', message: 'lorem itsu'
-    end
-  end
 end
