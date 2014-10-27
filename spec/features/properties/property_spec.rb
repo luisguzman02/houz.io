@@ -4,7 +4,7 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true do
   let(:account) { FactoryGirl.create(:account) }
   before do
     #warden sign in
-    login_as(account.user, :scope => :user)
+    confirm_and_login(account.user)
   end  
 
   describe 'nav bar' do    

@@ -5,7 +5,7 @@ RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean:
   let(:account) { FactoryGirl.create(:account) }
 
   before do
-    login_as(account.user, :scope => :user)
+    confirm_and_login(account.user)
     create_prop(account).call 1
   end  
 

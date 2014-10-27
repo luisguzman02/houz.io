@@ -1,18 +1,19 @@
 module  BackendHelper
 
-  def usr
-    @user ||= FactoryGirl.create(:user)
-  end
-  
-  def login(target='#main_content')
-    #visit !target.eql?('.navbar-form') ? login_path : root_path
+  def login(usr=nil)
+    if usr.nil?
+      usr = FactoryGirl.build(:user)
+      usr.skip_confirmation!
+      usr.save!
+    end
     visit login_path
-    within(target) do
+    within('#main_content') do
       fill_in 'Email', :with => usr.email
       fill_in 'Password', :with => usr.password
       click_on 'Sign in'
     end    
   end
+
 
   # Properties
   def prop_name; 'Pink House'; end
@@ -35,6 +36,11 @@ module  BackendHelper
     fill_in 'Name', :with => prop_name 
     fill_in 'Description', :with => prop_desc
   end
+
+  def confirm_and_login(user)
+    user.confirm!
+    login_as(user, :scope => :user)
+  end  
 end
 
 RSpec.configure do |config|

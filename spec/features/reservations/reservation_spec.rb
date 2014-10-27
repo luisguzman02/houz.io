@@ -5,7 +5,7 @@ RSpec.describe "Reservations", :js => true, :rsv => :all, type: :feature, ctrl_c
   before do
     @acc = FactoryGirl.create(:account)
     #warden sign in
-    login_as(@acc.user, :scope => :user)
+    confirm_and_login(account.user)
   end  
 
   it 'creates new reservation by checking available properties'
