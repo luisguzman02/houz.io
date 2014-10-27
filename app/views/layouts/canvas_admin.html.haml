@@ -77,7 +77,7 @@
               = link_to dashboard_path do
                 %i.fa.fa-dashboard
                 Dashboard
-            %li{:class => controller_name.eql?('properties') ? 'active' : ''}
+            %li{:class => ['properties', 'rates'].include?(controller_name) ? 'active' : ''}
               = link_to properties_path do
                 %i.fa.fa-list
                 Properties                           

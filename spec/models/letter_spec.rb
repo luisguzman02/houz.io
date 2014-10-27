@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Letter do
+RSpec.describe Letter, type: :model, ctrl_clean: true do
   
   before do
     @letter = FactoryGirl.build(:letter)

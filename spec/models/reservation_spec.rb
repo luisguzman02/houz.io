@@ -1,15 +1,13 @@
 require 'spec_helper'
 
-describe Reservation do
+RSpec.describe Reservation, type: :model, ctrl_clean: true do
   
-  before do
-    @acc = FactoryGirl.build(:account)
-    @reservation = FactoryGirl.build(:reservation, :user => @acc.user)
-  end
+  let(:account) {FactoryGirl.build(:account)}
+  let(:reservation) {FactoryGirl.build(:reservation, :user => account.user)}
   
   def assert_rsv_creation
-    @reservation.save
-    @reservation.should be_persisted
+    reservation.save
+    expect(reservation).to be_persisted
   end
 
   it { should be_timestamped_document }
@@ -53,13 +51,13 @@ describe Reservation do
 
   it 'destroys completely the reservation if status is pending' do
     assert_rsv_creation
-    @reservation.discard
-    @reservation.should_not be_persisted
+    reservation.discard
+    expect(reservation).not_to be_persisted
   end
 
   it 'creates booking creation activity' do
     assert_rsv_creation
-    Activity.where(:logeable_type => Reservation.to_s).and(:logeable_id => @reservation.id).should_not be_nil   
+    expect(Activity.where(:logeable_type => Reservation.to_s).and(:logeable_id => reservation.id)).not_to be_nil   
   end
 
 end

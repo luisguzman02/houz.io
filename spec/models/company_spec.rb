@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Company do
+RSpec.describe Company, type: :model, ctrl_clean: true do
   
   before do
     @company = FactoryGirl.build(:company)
@@ -26,6 +26,6 @@ describe Company do
 
   it 'should create a new company' do
     @company.save
-    @company.should be_persisted
+    expect(@company).to be_persisted
   end
 end
