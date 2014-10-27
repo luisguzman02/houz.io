@@ -79,14 +79,15 @@ class PropertiesController < DashboardController
   end
 
   def property_params
+    return {} if params[:property].empty?
     pp = params[:property]
-    if pp[:check_in].nil? && pp[:check_out].nil?
-      check_in = "#{params[:date][:ci_hour]}:#{params[:date][:ci_minutes]}"
+    if pp[:check_in].nil? && pp[:check_out].nil? && params[:date].present?
+      check_in = "#{params[:date][:ci_hour]}:#{params[:date][:ci_minutes]}" 
       check_out = "#{params[:date][:co_hour]}:#{params[:date][:co_minutes]}"
       params[:property].reject! {|k| k.include? 'check'}
       params[:property].merge!({:check_in => check_in, :check_out => check_out})
     end
-    params[:property][:tags] = params[:property][:tags].split(',')    
+    params[:property][:tags] = params[:property][:tags].split(',') if params[:property][:tags].present?
     params.require(:property).permit(:name, :unit_type, :description, { tags: [] }, :check_in, :check_out, :property_size, :minimum_days, 
       :num_persons_allowed, :pets_allowed, :directions, :bedrooms, :bathrooms, :garages, :kitchen, :bedding, :amenities, 
       :contact_attributes => {:address_attributes =>  [:country, :city, :state, :zip_code, :area, :street] })

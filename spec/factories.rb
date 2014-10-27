@@ -58,10 +58,12 @@ FactoryGirl.define do
   end
   factory :property do
     name 'House Beach Front'
+    unit_type  :condo
     description 'Beatiful House in Front of teh Beach at Rocky Point Mexico.'
     contact { FactoryGirl.build(:contact)  }
     user { FactoryGirl.create(:user) }
     account { FactoryGirl.create(:account) }
+    active true
   end  
   factory :reservation do
     check_in Date.today
