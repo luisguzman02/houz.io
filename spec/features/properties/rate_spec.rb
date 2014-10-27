@@ -4,7 +4,7 @@ RSpec.describe "Property rates", :js => true, :prate => true, type: :feature, ct
   let(:account) { FactoryGirl.create(:account) }
   
   before do
-    login_as(account.user, :scope => :user)
+    confirm_and_login(account.user)
     fill_basic_info
     click_on 'Save'
   end

@@ -5,6 +5,7 @@ require 'rspec/rails'
 #require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/email/rspec'
 require 'coveralls'
 Coveralls.wear!('rails')
 # Requires supporting ruby files with custom matchers and macros, etc,

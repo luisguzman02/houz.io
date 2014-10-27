@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe "backend dasboard", :dashboard => true, type: :feature, ctrl_clean: true, js: true do 
   let(:account) { FactoryGirl.create(:account) }
   before do    
-    login_as(account.user, :scope => :user)
+    confirm_and_login(account.user)
   end
   
   context 'nav bar' do
