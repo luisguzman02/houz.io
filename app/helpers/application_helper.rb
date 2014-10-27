@@ -32,6 +32,10 @@ module ApplicationHelper
   def formify(object, options = {}, &block)
     options[:builder] = SimplyBootstrapFormBuilder    
     form_for(object, options, &block)
-  end      
+  end
+
+  def valid_email?(email)
+    /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.match(email)
+  end
   
 end

@@ -22,7 +22,12 @@ class HomeController < ApplicationController
   end
 
   def send_contact
-    ContactMailer.contact_form(params).deliver
+    if (valid_email?(params[:email]) && params[:name] != "" && params[:message] != "")
+      ContactMailer.contact_form(params).deliver
+      flash[:notice] = "Email send"
+    else
+      flash[:error] = "Error"
+    end
     redirect_to root_path
   end
 end

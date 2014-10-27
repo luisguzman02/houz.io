@@ -5,6 +5,7 @@ describe "home page", :js => true, :homie => true do
   before do
     visit root_path
   end
+
   it 'show start now button that leads us to sign up page' do
     click_link 'Start Now »'
     page.should have_content 'Sign up'
@@ -40,6 +41,17 @@ describe "home page", :js => true, :homie => true do
       login
       click_on 'Start Now'
       page.should have_content 'Error 500'
+    end
+  end
+
+  describe 'contact form' do
+    let(:contact_info_valid) do
+      contact_info_valid = name: 'Name', telephone: '2505050',
+        email: 'amin.ogarrio@gmail.com', message: 'lorem itsu'
+    end
+    let(:contact_info_invalid) do
+      contact_info_invalid = name: 'Name', telephone: '2505050',
+        email: 'amin.ogarrio@gmail.com', message: 'lorem itsu'
     end
   end
 end
