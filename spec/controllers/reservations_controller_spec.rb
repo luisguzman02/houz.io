@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe ReservationsController, type: :controller do
   let(:account) { FactoryGirl.create(:account) }
+  let(:user) { account.user }
   let(:property) { FactoryGirl.create(:property, :account => account, :user => account.user) }
   # This should return the minimal set of attributes required to create a valid
   # Reservation. As you add validations to Reservation, be sure to
@@ -10,7 +11,7 @@ RSpec.describe ReservationsController, type: :controller do
     { :rsv_type => :regular, 
       :check_in => Date.today,
       :check_out => Date.tomorrow, 
-      :user => account.user, 
+      :user => user, 
       :property_id => property.id, 
       :account_id => account.id}
   end
@@ -22,8 +23,8 @@ RSpec.describe ReservationsController, type: :controller do
 
   before(:each) do 
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    #user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the "confirmable" module
-    sign_in account.user
+    user.confirm!
+    sign_in user
   end
 
   describe "GET index" do
