@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Activity do
+RSpec.describe Activity, type: :model, ctrl_clean: true do
   
   before do
     @activity = FactoryGirl.build(:activity)

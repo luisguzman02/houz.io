@@ -1,21 +1,16 @@
 require 'spec_helper'
 
-describe "user session", :js => true do   
+RSpec.describe "user session", :js => true, type: :feature, ctrl_clean: true do   
 
   it "signs me in from login page" do    
-    login '#main_content'
-    page.should have_content 'Signed in successfully.'    
-  end
-
-  it "signs me in from nav bar" do
-    login    
-    page.should have_content 'Signed in successfully.'    
+    login
+    expect(page).to have_content 'Create new Property'    
   end
 
   it "logs me out" do
     login
     click_link 'Logout'
-    page.should have_content 'Signed out successfully. ' 
+    expect(page).to have_link 'Login' 
   end
 
 end

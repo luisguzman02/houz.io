@@ -1,10 +1,8 @@
 require 'spec_helper'
 
-describe Property do
+RSpec.describe Property, type: :model, ctrl_clean: true do
   
-  before do
-    @property = FactoryGirl.build(:property)
-  end
+  let(:property) {FactoryGirl.build(:property)}
 
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }
@@ -57,19 +55,19 @@ describe Property do
   it { should have_field(:amenities).of_type(String) }
 
   it 'should create new property' do
-    @property.save    
-    @property.should be_persisted          
+    property.save    
+    expect(property).to be_persisted          
   end
 
   it 'should generate a slug' do
-    @property.save
-    @property.slug.should be_present
+    property.save
+    expect(property.slug).to be_present
   end
 
   it 'set account creator to user field if its not specified' do
-    @property.user = nil
-    @property.save
-    @property.should be_persisted 
+    property.user = nil
+    property.save
+    expect(property).to be_persisted 
   end
 
   it 'adds default rates after property created' do
@@ -77,15 +75,11 @@ describe Property do
     p = @acc.properties.build :name => 'Some house for rental', :description => 'Cool house near the beach'
     p.save
     @acc.rates.where(:always_apply => true).each do |r|
-      p.rates.find_by(:name => r.name).should_not be_nil      
+      expect(p.rates.find_by(:name => r.name)).not_to be_nil      
     end    
   end
 
-  it 'update property rates from json post' do
-    pending
-  end
-
-  it 'check booking availability' do
-    pending
-  end
+  # Pending
+  it 'update property rates from json post'
+  it 'check booking availability'
 end

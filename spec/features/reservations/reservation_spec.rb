@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Reservations", :js => true, :rsv => :all do 
+RSpec.describe "Reservations", :js => true, :rsv => :all, type: :feature, ctrl_clean: true do 
   
   before do
     @acc = FactoryGirl.create(:account)
@@ -8,11 +8,7 @@ describe "Reservations", :js => true, :rsv => :all do
     login_as(@acc.user, :scope => :user)
   end  
 
-  it 'creates new reservation by checking available properties' do
-    pending
-  end
+  it 'creates new reservation by checking available properties'
 
-  it 'deletes single reservation' do
-    pending
-  end
+  it 'deletes single reservation'
 end
