@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "Reservations", :js => true, :rsv => :all, type: :feature, ctrl_clean: true do 
+RSpec.describe "Reservations", :rsv => :all, type: :feature, ctrl_clean: true do 
   
   before do
     @acc = FactoryGirl.create(:account)

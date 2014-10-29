@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "Rates", :js => true, :rates => :all, type: :feature, ctrl_clean: true do 
+RSpec.describe "Rates", :rates => :all, type: :feature, ctrl_clean: true, js: true do 
   
   let(:account) { FactoryGirl.create(:account) }
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "user session", :js => true, type: :feature, ctrl_clean: true do   
+RSpec.describe "user session", type: :feature, ctrl_clean: true do   
 
   before { login }  
   

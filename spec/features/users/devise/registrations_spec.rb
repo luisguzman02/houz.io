@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "Registrations", :js => true, :devise => :re, type: :feature, ctrl_clean: true  do   
+RSpec.describe "Registrations", :devise => :re, type: :feature, ctrl_clean: true, :js => true   do   
   before do
     login
     visit edit_user_registration_path
