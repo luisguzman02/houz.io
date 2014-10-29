@@ -1,6 +1,6 @@
 FactoryGirl.define do  
   factory :company do
-    name 'SecondHouz'
+    name 'Houz.io'
     contact { FactoryGirl.build(:contact) }
     account { FactoryGirl.build(:account) }    
   end
