@@ -22,4 +22,30 @@ RSpec.describe HomeController, type: :feature, ctrl_clean: true, :homie => true 
     end
   end
 
+  describe 'contact form' do
+    before { visit root_path }
+    let(:submit) { "Send request" }
+    describe "with invalid information" do
+      describe "after submission" do
+        subject { click_button submit; page }
+        it { is_expected.to have_selector('.alert-danger', 'Error') }
+      end
+    end
+
+    describe "with valid information" do
+      before do
+        within "#contact" do
+          fill_in "name", with: "Amin Ogarrio"
+          fill_in "telephone", with: "2505050"
+          fill_in "email", with: "amin.ogarrio@gmail.com"
+          fill_in "message", with: "lorem itsu"
+        end
+      end
+      describe "after submission" do
+        subject { click_button submit; page }
+        it { is_expected.to have_selector('.alert-success', 'Email sent') }
+      end
+    end
+  end
+
 end
