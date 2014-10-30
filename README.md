@@ -9,7 +9,9 @@
 
 #Development Setup
 
-## Install
+## Installation
+To install MongoDB just follow this guide: http://docs.mongodb.org/manual/installation/
+
     bundle install
     
 ##Testing
