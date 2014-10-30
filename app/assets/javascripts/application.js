@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require_self
+//= require bootstrapValidator.min
+//= require scripts

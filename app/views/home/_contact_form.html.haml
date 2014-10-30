@@ -1,10 +1,10 @@
 
-=form_tag(send_contact_path, class: "form-horizontal") do
+=form_tag(send_contact_path, class: "form-horizontal", id: "enableForm") do
   .form-group
     =label_tag :name, 'Name'
     =text_field_tag(:name, "", class: "form-control")
   .form-group
-    =label_tag :telephone, 'Telephone'
+    =label_tag :telephone, 'Telephone (Optional)'
     =telephone_field_tag :telephone, "", class: "form-control"
   .form-group
     =label_tag :email, 'Email'
