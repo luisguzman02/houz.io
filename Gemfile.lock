@@ -51,6 +51,9 @@ GEM
       rack (>= 0.9.0)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
+    bootstrap-validator-rails (0.5.2)
+      jquery-rails (>= 3.0)
+      railties (>= 3.0)
     bson (2.3.0)
     bson_ext (1.5.1)
     builder (3.1.4)
@@ -292,6 +295,7 @@ DEPENDENCIES
   angularjs-rails
   better_errors
   bootstrap-sass (~> 3.1.1)
+  bootstrap-validator-rails
   bson_ext
   canvas_admin_rails!
   capybara

@@ -53,6 +53,7 @@ gem 'haml_coffee_assets'          # To handle js template
 gem 'execjs'
 gem 'canvas_admin_rails', :git => 'https://github.com/adbeelitamar/canvas_admin_rails.git'
 # gem 'canvas_admin_rails', :path => '../canvas_admin_rails'
+gem 'bootstrap-validator-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
