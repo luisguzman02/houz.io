@@ -7,7 +7,7 @@ en:
       greeting: 'The Most Innovative Vacation Rental Software'
       description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Secondhouz will make your vacation rental operations easier.'
       enter_email: 'Enter your email'
-      start: 'Start Now »'
+      start_now: 'Start Now »'
       features: 'Features'
       reservation_system:
         title: 'Reservation System'
