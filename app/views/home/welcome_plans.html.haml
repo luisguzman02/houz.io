@@ -8,8 +8,9 @@
         = "#{t('.hello')} #{current_user.full_name},"
       %br  
       %p= t '.alert'
-        = t '.message'
-      %p= t '.question_message'
+      %p= t '.message'
+      %p
+        = t '.question_message'
         = succeed "." do
           = link_to t('.support_team'), ''
       %br

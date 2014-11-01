@@ -11,7 +11,7 @@ module  BackendHelper
       fill_in 'Email', :with => usr.email
       fill_in 'Password', :with => usr.password
       click_on 'Sign in'
-    end    
+    end
   end
 
 
