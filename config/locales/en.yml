@@ -1,23 +1,92 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  accounts:
+    settings_menu:
+      profile_settings: 'Profile Settings'
+  home:
+    index:
+      greeting: 'The Most Innovative Vacation Rental Software'
+      description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Secondhouz will make your vacation rental operations easier.'
+      enter_email: 'Enter your email'
+      start: 'Start Now »'
+      features: 'Features'
+      reservation_system:
+        title: 'Reservation System'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      availability_chart:
+        title: 'Availability Chart'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      owner_login:
+        title: 'Owner Login'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      rental_history:
+        title: 'Rental History'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      seasonal_rates:
+        title: 'Seasonal Rates'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      vacation_rental_website:
+        title: 'Vacation Rental Website'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      pricing: 'Pricing'
+      free_trial:
+        message: 'Start your 14-day free trial today!'
+        comment: 'No sign-up fees. No credit card required. No long-term commitments.'
+      contact: 'Contact'
+    upgrade:
+      trial_expired: 'Your 14-day free trial has expired'
+    welcome_plans:
+      welcome: 'Welcome to SecondHouz!'
+      hello: 'Hi'
+      alert: 'Your 14-day free trial start now.'
+      message: 'Add a new property and discover all the awesome features Secondhouz have for your vacation rental needs.'
+      question_message: "If you have any questions don't hesitate to contact our"
+      support_team: 'support team'
+      create_new_property: 'Create new Property'
+    contact_form:
+      name: 'Name'
+      telephone: 'Telephone Number (Optional)'
+      email: 'Email'
+      message: 'Message'
+      submit: 'Send request'
+  layouts:
+    application:
+      features: 'Features'
+      pricing: 'Pricing'
+      contact: 'Contact'
+      dashboard: 'My Dashboard'
+      logout: 'Logout'
+      login: 'Login'
+    backend:
+      dashboard: 'Dashboard'
+      loading: 'Loading'
+      toggle_navigation: 'Toggle navigation'
+      properties: 'Properties'
+      reservations: 'Reservations'
+      back_office: 'Back Office'
+      company_letters: 'Company Letters'
+      for_developers: 'For Developers'
+      agents: 'Agents'
+      owners: 'Owners'
+      tenants: 'Tenants'
+      help: 'Help'
+      logout: 'Logout'
+    canvas_admin:
+      loading: 'Loading'
+      home: 'Home'
+      dropdown: 'Dropdown'
+      example: 'Example'
+      account_settings: 'Account Settings'
+      logout: 'Logout'
+      search: 'Search...'
+      dashboard: 'Dashboard'
+      properties: 'Properties'
+      reservations: 'Reservations'
+      list_of_reservations: 'List of Reservations'
+      user_management: 'User Management'
+      agents: 'Agents'
+      owners: 'Owners'
+      tenants: 'Tenants'
+      copyright: 'Copyright © 2014, Secondhouz.com.'
+
+
+

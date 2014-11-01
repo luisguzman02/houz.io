@@ -10,7 +10,7 @@
     #blackout
     #main_spinner
       = image_tag('spinner_lg.gif')
-      %center Loading
+      %center= t '.loading'
     #spinner.hide
       %center= image_tag('spinner_mid.gif')      
     #wrapper
@@ -28,25 +28,25 @@
           %li
             = link_to root_path do
               %i.fa.fa-home
-              Home
+              = t '.home'
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javascript:;"}
-              Dropdown
+              = t '.dropdown'
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
                 %a{href: "javascript:;"}
                   %i.fa.fa-user>
-                  \  Example #1
+                  = t('.example')
               %li
                 %a{href: "javascript:;"}
                   %i.fa.fa-calendar>
-                  \  Example #2
+                  = t('.example')
               %li.divider
               %li
                 %a{href: "javascript:;"}
                   %i.fa.fa-tasks>
-                  \  Example #3
+                  = t('.example')
         %ul.nav.navbar-nav.pull-right
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javascript:;"}
@@ -57,17 +57,17 @@
               %li
                 = link_to edit_user_registration_path do 
                   %i.fa.fa-cogs
-                  \  Account Settings
+                  = t '.account_settings'
               %li.divider
               %li
                 = link_to destroy_user_session_path, :method => :delete do
                   %i.fa.fa-sign-out
-                  \  Logout
+                  = t '.logout'
       / /#top-bar
       #sidebar-wrapper.collapse.sidebar-collapse
         #search
           %form
-            %input.form-control.input-sm{name: "search", placeholder: "Search...", type: "text"}/
+            %input.form-control.input-sm{name: "search", placeholder: t('.search'), type: "text"}/
             %button#search-btn.btn{type: "submit"}
               %i.fa.fa-search
         / #search
@@ -76,39 +76,39 @@
             %li{:class => controller_name.eql?('dashboard') ? 'active' : ''}
               = link_to dashboard_path do
                 %i.fa.fa-dashboard
-                Dashboard
+                = t('.dashboard')
             %li{:class => ['properties', 'rates'].include?(controller_name) ? 'active' : ''}
               = link_to properties_path do
                 %i.fa.fa-list
-                Properties                           
+                = t '.properties'                           
             %li.dropdown{:class => controller_name.eql?('reservations') ? 'active' : ''}
               %a{href: "javascript:;"}
                 %i.fa.fa-calendar-o
-                Reservations
+                = t '.reservations'
                 %span.caret
               %ul.sub-nav
                 %li
                   = link_to reservations_path do
                     %i.fa.fa-list
-                    List of Reservations
+                    = t '.list_of_reservations'
             %li.dropdown
               %a{href: "javascript:;"}
                 %i.fa.fa-group
-                User Management
+                = t '.user_management'
                 %span.caret
               %ul.sub-nav
                 %li
                   %a{href: "./ui-buttons.html"}
                     %i.fa.fa-hand-o-up
-                    Agents
+                    = t '.agents'
                 %li
                   %a{href: "./ui-tabs.html"}
                     %i.fa.fa-list
-                    Owners
+                    = t '.owners'
                 %li
                   %a{href: "./ui-popups.html"}
                     %i.fa.fa-asterisk
-                    Tenants
+                    = t '.tenants'
       #content
         #content-header
           %h1 
@@ -120,6 +120,6 @@
     %footer#footer
       %ul.nav.pull-left
         %li
-          Copyright © 2014, Secondhouz.com.
+          = t '.copyright'
     - if content_for? :modals
       = yield :modals
