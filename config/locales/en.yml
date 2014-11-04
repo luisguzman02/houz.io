@@ -1,14 +1,83 @@
 en:
+  dictionary:
+    agents: &agents Agents
+    back: &back Back
+    change_password: &change_password Change my password
+    contact: &contact Contact
+    copyright: &copyright Copyright © 2014, Secondhouz.com.
+    dashboard: &dashboard Dashboard
+    destroy: &destroy Destroy
+    edit: &edit Edit
+    email: &email Email
+    features: &features Features
+    loading: &loading Loading
+    login: &login Login
+    logout: &logout Logout
+    new_activity: &new_activity New activity
+    owners: &owners Owners
+    pricing: &pricing Pricing
+    properties: &properties Properties
+    reservations: &reservations Reservations
+    show: &show Show
+    tenants: &tenants Tenants
   accounts:
-    settings_menu:
+    _settings_menu:
       profile_settings: 'Profile Settings'
+      change_password: *change_password
+      payment_settings: 'Payment Settings'
+  activities:
+    _form:
+      error_explanation: 'prohibited this activity from being saved:'
+      save_form: 'Save'
+    edit:
+      back: *back
+      editing_activity: 'Editing activity'
+      show: *show
+    index:
+      are_you_sure: 'Are you sure?'
+      destroy: *destroy
+      edit: *edit
+      listing_activities: 'Listing activities'
+      new_activity: *new_activity
+      show: *show
+    new:
+      back: *back
+      new_activity: *new_activity
+    show:
+      edit: *edit
+      back: *back
+  common:
+    _footer:
+      copyright: *copyright
+  confirmable:
+    confirmations:
+      new:
+        resend_confirmation_instructions: 'Resend confirmation instructions'
+    mailer:
+      confirmation_instructions:
+        welcome: 'Welcome'
+        you_can_confirm: 'You can confirm your account email through the link below:'
+        confirm_my_account: 'Confirm my account'
+      reset_password_instructions:
+        someone_has_requested: 'Someone has requested a link to change your password. You can do this through the link below.'
+        change_password: *change_password
+        didnt_request: "If you didn't request this, please ignore this email."
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: *welcome
+        account_has_been_locked: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
+        unlock_your_account: "Click the link below to unlock your account:"
+        unlock_my_account: 'Unlock my account'
+
+
+
   home:
     index:
       greeting: 'The Most Innovative Vacation Rental Software'
       description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Secondhouz will make your vacation rental operations easier.'
       enter_email: 'Enter your email'
       start_now: 'Start Now »'
-      features: 'Features'
+      features: *features
       reservation_system:
         title: 'Reservation System'
         text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
@@ -27,66 +96,66 @@ en:
       vacation_rental_website:
         title: 'Vacation Rental Website'
         text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
-      pricing: 'Pricing'
+      pricing: *pricing
       free_trial:
-        message: 'Start your 14-day free trial today!'
         comment: 'No sign-up fees. No credit card required. No long-term commitments.'
-      contact: 'Contact'
+        message: 'Start your 14-day free trial today!'
+      contact: *contact
     upgrade:
       trial_expired: 'Your 14-day free trial has expired'
     welcome_plans:
-      welcome: 'Welcome to SecondHouz!'
-      hello: 'Hi'
       alert: 'Your 14-day free trial start now.'
+      create_new_property: 'Create new Property'
+      hi: 'Hi'
       message: 'Add a new property and discover all the awesome features Secondhouz have for your vacation rental needs.'
       question_message: "If you have any questions don't hesitate to contact our"
       support_team: 'support team'
-      create_new_property: 'Create new Property'
+      welcome: 'Welcome to SecondHouz!'
     contact_form:
-      name: 'Name'
-      telephone: 'Telephone Number (Optional)'
-      email: 'Email'
+      email: *email
       message: 'Message'
+      name: 'Name'
       submit: 'Send request'
+      telephone: 'Telephone Number (Optional)'
   layouts:
     application:
-      features: 'Features'
-      pricing: 'Pricing'
-      contact: 'Contact'
-      dashboard: 'My Dashboard'
-      logout: 'Logout'
-      login: 'Login'
+      contact: *contact
+      dashboard: 'My dashboard'
+      features: *features
+      login: *login
+      logout: *logout
+      pricing: *pricing
     backend:
-      dashboard: 'Dashboard'
-      loading: 'Loading'
-      toggle_navigation: 'Toggle navigation'
-      properties: 'Properties'
-      reservations: 'Reservations'
+      agents: *agents
       back_office: 'Back Office'
       company_letters: 'Company Letters'
+      dashboard: *dashboard
       for_developers: 'For Developers'
-      agents: 'Agents'
-      owners: 'Owners'
-      tenants: 'Tenants'
       help: 'Help'
-      logout: 'Logout'
+      loading: *loading
+      logout: *logout
+      owners: *owners
+      properties: *properties
+      reservations: *reservations
+      tenants: *tenants
+      toggle_navigation: 'Toggle navigation'
     canvas_admin:
-      loading: 'Loading'
-      home: 'Home'
+      account_settings: 'Account Settings'
+      agents: *agents
+      copyright: *copyright
+      dashboard: *dashboard
       dropdown: 'Dropdown'
       example: 'Example'
-      account_settings: 'Account Settings'
-      logout: 'Logout'
-      search: 'Search...'
-      dashboard: 'Dashboard'
-      properties: 'Properties'
-      reservations: 'Reservations'
+      home: 'Home'
       list_of_reservations: 'List of Reservations'
+      loading: *loading
+      logout: *logout
+      owners: *owners
+      properties: *properties
+      reservations: *reservations
+      search: 'Search...'
+      tenants: *tenants
       user_management: 'User Management'
-      agents: 'Agents'
-      owners: 'Owners'
-      tenants: 'Tenants'
-      copyright: 'Copyright © 2014, Secondhouz.com.'
 
 
 
