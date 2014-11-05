@@ -24,10 +24,11 @@ Houzio::Application.routes.draw do
   end
 
   resources :properties do
-    resources :rates
+    resources :rates, controller: 'properties/rates'
     member do     
       match :pictures,  :via => [:put, :get]
-      get :booking_detail
+      get   :booking_detail
+      post  :update_rates
     end
     collection do
       get :tags

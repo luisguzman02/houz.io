@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail, :show]
+  before_action :set_property, :except => [:index, :new, :create]
   respond_to :json, :only => :booking_detail
 
   def index
@@ -15,7 +15,7 @@ class PropertiesController < DashboardController
   def create
     @property = current_account.properties.build property_params
     if @property.save
-      redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
+      redirect_to property_path(@property), :notice => 'New property created successfully.' 
     else
       render :action => 'new'
     end
@@ -27,6 +27,10 @@ class PropertiesController < DashboardController
     else
       render :action => 'edit'
     end
+  end
+
+  def update_rates
+    binding.pry
   end
 
   def destroy

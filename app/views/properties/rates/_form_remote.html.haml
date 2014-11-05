@@ -1,5 +1,5 @@
 = render_model_errors @rate
-= form_for @rate, :remote => true, :html => {:role => 'form', :id => 'rate_form_remote'} do |f|  
+= form_for :rate, :url => property_rates_path(@property), :remote => true, :html => {:role => 'form', :id => 'rate_form_remote'} do |f|  
   .form-group
     .row
       .col-md-4

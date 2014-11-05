@@ -123,3 +123,24 @@
           = "Copyright © #{Date.today.year}, Houz.io."
     - if content_for? :modals
       = yield :modals
+    
+    /= yield(:javascripts)
+    %script{:type => "text/javascript"}
+      - flash.each do |name, msg|
+        - if name == :notice
+          :plain
+            $.howl ({
+              type: 'success', 
+              title: "Notification",
+              content: "#{msg}",
+              iconCls: 'fa fa-check-square-o'
+            });
+        - else
+          :plain
+            $.howl ({
+              type: 'error', 
+              title: "Error",
+              content: "#{msg}",
+              iconCls: 'fa fa-check-square-o'
+            });
+        
