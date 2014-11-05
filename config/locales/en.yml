@@ -20,6 +20,8 @@ en:
     reservations: &reservations Reservations
     show: &show Show
     tenants: &tenants Tenants
+    new_activity: &new_activity New activity
+    welcome: &welcome Welcome
   accounts:
     _settings_menu:
       profile_settings: 'Profile Settings'
