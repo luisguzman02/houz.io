@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "backend dasboard", :dashboard => true, type: :feature, ctrl_clean: true, js: true do 
+RSpec.describe "backend dasboard", :dashboard => true, type: :feature, ctrl_clean: true do 
   let(:account) { FactoryGirl.create(:account) }
   before do    
     confirm_and_login(account.user)

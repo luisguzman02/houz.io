@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "sign up process", :js => true, :devise => :su, type: :feature, ctrl_clean: true do 
+RSpec.describe "sign up process", :devise => :su, type: :feature, ctrl_clean: true do 
   let(:not_persisted_user) { FactoryGirl.build(:user) }
 
   before do

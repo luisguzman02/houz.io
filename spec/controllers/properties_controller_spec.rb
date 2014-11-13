@@ -28,6 +28,14 @@ RSpec.describe PropertiesController, type: :controller do
   # PropertiesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  describe "GET tags" do
+    it "responds successfully to json format" do
+      property = Property.create! valid_attributes
+      get :tags, {:q => '', :format => :json}, valid_session
+      expect(response).to be_success
+    end
+  end
+
   describe "GET index" do
     it "assigns all properties as @properties" do
       property = Property.create! valid_attributes
@@ -78,7 +86,7 @@ RSpec.describe PropertiesController, type: :controller do
 
       it "redirects to the created property" do
         post :create, {:property => valid_attributes}, valid_session
-        expect(response).to redirect_to( edit_property_path(Property.last) )
+        expect(response).to redirect_to( property_path(Property.last) )
       end
     end
 
@@ -154,7 +162,7 @@ RSpec.describe PropertiesController, type: :controller do
     it "redirects to the properties list" do
       property = Property.create! valid_attributes
       delete :destroy, {:id => property.to_param}, valid_session
-      response.should redirect_to(properties_url)
+      expect(response).to redirect_to(properties_url)
     end
   end
 

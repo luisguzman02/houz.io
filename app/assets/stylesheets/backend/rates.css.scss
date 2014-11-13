@@ -14,4 +14,10 @@
      background: none;
      background-color: lightsteelblue;
   }
+
+  #property_rate_form {
+    .checkbox input[type="checkbox"] {
+      margin-left: 0;
+    }
+  }
 }

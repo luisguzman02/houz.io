@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title= "Vacation Rental - Secondhouz.com"
+    %title= "Vacation Rental Software - Houz.io"
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
     = stylesheet_link_tag "backend", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "backend", "data-turbolinks-track" => true, :type => 'text/javascript'
@@ -120,6 +120,27 @@
     %footer#footer
       %ul.nav.pull-left
         %li
-          Copyright © 2014, Secondhouz.com.
+          = "Copyright © #{Date.today.year}, Houz.io."
     - if content_for? :modals
       = yield :modals
+    
+    /= yield(:javascripts)
+    %script{:type => "text/javascript"}
+      - flash.each do |name, msg|
+        - if name == :notice
+          :plain
+            $.howl ({
+              type: 'success', 
+              title: "Notification",
+              content: "#{msg}",
+              iconCls: 'fa fa-check-square-o'
+            });
+        - else
+          :plain
+            $.howl ({
+              type: 'error', 
+              title: "Error",
+              content: "#{msg}",
+              iconCls: 'fa fa-check-square-o'
+            });
+        

@@ -1,48 +1,48 @@
-- if @concern_o.is_a? Property
-  = render 'properties/rates/index'
-- else
-  = render 'lay'
-
-/ .row
-/   .col-md-3
-/     = render 'property_side'
-/   .col-md-9
-/     %h3 Property Rates
-/     %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum. Sed vel magna nunc. Phasellus vitae nisl iaculis, luctus nibh sit amet, ornare felis. Vestibulum ullamcorper viverra pharetra. Ut cursus condimentum ante, nec condimentum diam. 
-/     .row
-/       .col-xs-9
-/       .col-xs-3
-/         = link_to '', :class => 'btn btn-secondary col-xs-12' do
-/           %span.glyphicon.glyphicon-plus
-/           Add a Rate    
-/     = form_tag property_rates_path(@property), :method => :put do
-/       %table.table.table-bordered.table-highlight
-/         %thead
-/           %tr
-/             %th Type
-/             %th Name
-/             %th Value
-/         %tbody
-/           - @property.rates.each do |r|
-/             %tr
-/               %td= r.type.to_s.humanize
-/               %td                
-/                 = r.name.to_s.humanize
-/                 - if r.seasonable
-/                   %em.text-muted= "#{r.start_season.to_date} - #{r.end_season.to_date}"
-/               %td.col-md-3
-/                 .input-group
-/                   %span.input-group-addon= r.value_type.eql?(:percentage) ? " % " : " $ "
-/                   = text_field_tag "rates[#{r.id}]", r.value, :class => 'form-control'               
-/       .row
-/         .col-xs-9
-/           - if request.method.eql? 'POST'
-/             :javascript
-/               $.howl ({
-/                 type: 'success', 
-/                 title: 'Successfully saved', 
-/                 content: 'Property rates were successfully saved.', 
-/                 iconCls: 'fa fa-check-square-o',    
-/               }); 
-/         .col-xs-3
-/           = submit_tag 'Save', :class => 'btn btn-primary col-xs-12'            
+/ - if @concern_o.is_a? Property
+/   = render 'properties/rates/index'
+/ - else
+/   = render 'lay'
+.row
+  .col-md-3
+    = render 'properties/property_side'
+  .col-md-9
+    %h3 Property Rates
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum. Sed vel magna nunc. Phasellus vitae nisl iaculis, luctus nibh sit amet, ornare felis. Vestibulum ullamcorper viverra pharetra. Ut cursus condimentum ante, nec condimentum diam.
+    .row
+      .col-xs-9
+      .col-xs-3
+        = link_to new_property_rate_path(@concern_id), :remote => true, :format => :js, :id => 'new_property_rate', :class => 'btn btn-secondary col-xs-12', 'data-toggle' => 'modal', 'data-target' => '#property_rate_form' do
+          %span.glyphicon.glyphicon-plus
+          Add a Rate
+        = render 'properties/rates/form_modal'
+    = form_tag update_rates_property_path(@concern_o) do 
+      %table.table.table-bordered.table-highlight
+        %thead
+          %tr
+            %th
+            %th Type
+            %th Name
+            %th Value
+        %tbody
+          - @rates.each do |r|
+            %tr
+              %td{:align => "center"}
+                = link_to property_rate_path(@concern_o, r), :method => :delete, :class => 'text-danger', :data => { :confirm => 'Are you sure?' }, :title => "Remove this rate" do
+                  %i.fa.fa-trash-o
+              %td= r.type
+              %td
+                = r.name
+                %em.text-muted 
+              %td.col-md-3
+                .input-group
+                  %span.input-group-addon
+                    - if r.value_type == :amount
+                      %span $
+                    - else
+                      %span %
+                  = text_field_tag :rate_value, r.value, :class => 'form-control'                
+      .row
+        .col-xs-9
+        .col-xs-3
+          %button.btn.btn-primary.col-xs-12 Save

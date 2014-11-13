@@ -1,11 +1,7 @@
-Secondhouz::Application.routes.draw do  
+Houzio::Application.routes.draw do  
   resources :activities
 
   devise_for :users, :path_names => {:sign_in => 'login'}, :controllers => { :registrations => "registrations" }
-  devise_scope :user do
-    # post 'users/update_profile', :to => "registrations#update_profile"
-  end
-
   devise_scope :user do
     get "login", :to => "devise/sessions#new"
   end
@@ -15,10 +11,6 @@ Secondhouz::Application.routes.draw do
   get 'upgrade' => 'home#upgrade'
   get 'dashboard' => 'dashboard#index'
   post 'send_contact' => 'home#send_contact' 
-
-  concern :rateable do
-    resources :rates
-  end
 
   resources :users
   resources :rates
@@ -31,20 +23,15 @@ Secondhouz::Application.routes.draw do
     end 
   end
 
-  resources :properties, concerns: :rateable do
+  resources :properties do
+    resources :rates, controller: 'properties/rates'
     member do     
       match :pictures,  :via => [:put, :get]
-      get :booking_detail
+      get   :booking_detail
+      post  :update_rates
     end
     collection do
       get :tags
     end
   end
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
