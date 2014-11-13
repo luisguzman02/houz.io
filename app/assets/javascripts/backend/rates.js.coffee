@@ -1,5 +1,4 @@
 ready_rates = ->  
-  
 
   if $("#rate_start_season").length > 0 and  $("#rate_end_season").length > 0
     start_ = $('#rate_start_season').val().split('-') 

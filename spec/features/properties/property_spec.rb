@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true do 
+RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js: true do 
   let(:account) { FactoryGirl.create(:account) }
   before do
     #warden sign in

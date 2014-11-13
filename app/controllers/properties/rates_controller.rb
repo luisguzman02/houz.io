@@ -37,11 +37,11 @@ module Properties
         if @rate.update(rate_params)
           format.html { redirect_to rates_path, notice: 'Rate was successfully updated.' }
           format.json { head :no_content }
-          format.js { }
+          format.js { flash[:notice] = 'Rate was successfully updated.' }
         else
           format.html { render action: 'edit' }
           format.json { render json: @rate.errors, status: :unprocessable_entity }
-          format.js { }
+          format.js { flash[:notice] = 'Something went wrong trying to update rate.' }
         end
       end
     end
