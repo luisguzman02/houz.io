@@ -28,6 +28,14 @@ RSpec.describe PropertiesController, type: :controller do
   # PropertiesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  describe "GET tags" do
+    it "responds successfully to json format" do
+      property = Property.create! valid_attributes
+      get :tags, {:q => '', :format => :json}, valid_session
+      expect(response).to be_success
+    end
+  end
+
   describe "GET index" do
     it "assigns all properties as @properties" do
       property = Property.create! valid_attributes

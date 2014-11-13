@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :except => [:index, :new, :create]
+  before_action :set_property, :except => [:index, :new, :create, :tags]
   respond_to :json, :only => :booking_detail
 
   def index
@@ -29,10 +29,6 @@ class PropertiesController < DashboardController
     end
   end
 
-  def update_rates
-    binding.pry
-  end
-
   def destroy
     @property = current_account.properties.find(params[:id])
     if @property.destroy
@@ -46,7 +42,7 @@ class PropertiesController < DashboardController
     @property.pictures.create pic_params if request.method.eql? 'POST'
   end
 
-  def tags    
+  def tags
     respond_to do |format|
       format.html
       format.json { 
