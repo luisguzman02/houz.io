@@ -1,0 +1,42 @@
+.row
+  .col-md-3
+    = render 'properties/property_side'
+  .col-md-9
+    %h3 Rental History
+    %hr
+    .row
+      .col-md-12
+        .table-responsive
+          %table.table
+            %thead
+              %tr
+                %th Purchased On
+                %th Items
+                %th Amount
+                %th
+            %tbody
+              %tr
+                %td 09/21/2013
+                %td 3
+                %td $108.35
+                %td
+                  %span.label.label-success Approved
+              %tr
+                %td 09/21/2013
+                %td 1
+                %td $30.89
+                %td
+                  %span.label.label-default Approved
+              %tr
+                %td 09/20/2013
+                %td 2
+                %td $52.06
+                %td
+                  %span.label.label-success Approved
+              %tr
+                %td 09/19/2013
+                %td 4
+                %td $73.54
+                %td
+                  %span.label.label-default Approved
+              

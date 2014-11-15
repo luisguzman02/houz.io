@@ -9,7 +9,7 @@
       .col-xs-4
         - if property.pictures.empty?
           .no_img_placer.panel.panel-default        
-            = link_to pictures_property_path(property) do
+            = link_to property_pictures_path(property) do
               .text-muted
                 %span.glyphicon.glyphicon-plus
                 %br

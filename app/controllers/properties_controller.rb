@@ -38,10 +38,6 @@ class PropertiesController < DashboardController
     end
   end
 
-  def pictures    
-    @property.pictures.create pic_params if request.method.eql? 'POST'
-  end
-
   def tags
     respond_to do |format|
       format.html
@@ -60,6 +56,10 @@ class PropertiesController < DashboardController
     render :json => @property.booking_info(params[:check_in], params[:check_out])
   end
 
+  def rental_history
+    
+  end
+
   private
 
   def set_property
@@ -72,10 +72,6 @@ class PropertiesController < DashboardController
     Geocoder.configure(:timeout => 5)
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
     {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
-  end
-
-  def pic_params
-    params.require(:picture).permit(:picture)
   end
 
   def property_params

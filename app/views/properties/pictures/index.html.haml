@@ -1,0 +1,24 @@
+.row
+  .col-md-3
+    = render 'properties/property_side'
+  .col-md-9
+    %h3 Property Pictures
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum.
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-12 
+            = form_for :picture, :url => property_pictures_path(@property), :html => {:role => 'form', :multipart => true} do |f| 
+              .form-group
+                .row-fluid          
+                  = f.label 'Upload a picture'
+                .row-fluid
+                  .pull-left          
+                    = f.file_field :picture
+                  .pull-left
+                    = f.submit 'Upload', :class => 'btn btn-primary'   
+        %hr 
+        .row#pic_list
+          .col-md-12
+            = render @property.pictures

@@ -99,11 +99,11 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
       page
     end
 
+    it { is_expected.to have_link 'Property Details' }
     it { is_expected.to have_link 'Rates' }
     it { is_expected.to have_link 'Pictures' }
     it { is_expected.to have_link 'Rental History' }
-    it { is_expected.to have_link 'Edit' }
-    it { is_expected.to have_link 'Delete' }
+    it { is_expected.to have_link 'Edit' }    
 
     it 'successfully updates a property' do
       subject
@@ -116,7 +116,8 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
 
     it 'removes a property with all its references', js: true do
       subject
-      click_on 'Delete'
+      click_on 'Edit'
+      click_on 'Delete this property'
       #sometime needs double accept in chrome, dunno why
       page.driver.browser.switch_to.alert.accept
       #page.driver.browser.switch_to.alert.accept

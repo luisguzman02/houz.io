@@ -15,7 +15,6 @@ Houzio::Application.routes.draw do
   resources :users
   resources :rates
   resources :letters
-  resources :pictures
 
   resources :reservations do
     member do
@@ -25,9 +24,10 @@ Houzio::Application.routes.draw do
 
   resources :properties do
     resources :rates, controller: 'properties/rates'
+    resources :pictures, controller: 'properties/pictures'
     member do     
-      match :pictures,  :via => [:put, :get]
       get   :booking_detail
+      get   :rental_history
       post  :update_rates
     end
     collection do
