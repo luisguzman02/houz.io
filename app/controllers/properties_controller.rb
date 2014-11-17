@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail, :show]
+  before_action :set_property, :except => [:index, :new, :create, :tags]
   respond_to :json, :only => :booking_detail
 
   def index
@@ -15,7 +15,7 @@ class PropertiesController < DashboardController
   def create
     @property = current_account.properties.build property_params
     if @property.save
-      redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
+      redirect_to property_path(@property), :notice => 'New property created successfully.' 
     else
       render :action => 'new'
     end
@@ -42,7 +42,7 @@ class PropertiesController < DashboardController
     @property.pictures.create pic_params if request.method.eql? 'POST'
   end
 
-  def tags    
+  def tags
     respond_to do |format|
       format.html
       format.json { 

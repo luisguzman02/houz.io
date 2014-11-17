@@ -9,6 +9,8 @@ RSpec.describe Rate, type: :model, ctrl_clean: true do
   #required
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:type) }
+  it { should validate_presence_of(:value_type) }
+  it { should validate_presence_of(:value) }
   it { validate_inclusion_of(:type).to_allow([:rent, :adjustment, :rate, :discount, :commision]) }
   it { validate_inclusion_of(:value_type).to_allow([:amount, :percentage]) }
 

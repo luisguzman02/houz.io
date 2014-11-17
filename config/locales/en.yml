@@ -4,7 +4,7 @@ en:
     back: &back Back
     change_password: &change_password Change my password
     contact: &contact Contact
-    copyright: &copyright Copyright © 2014, Secondhouz.com.
+    copyright: &copyright Copyright © 2014, Houz.io
     dashboard: &dashboard Dashboard
     destroy: &destroy Destroy
     edit: &edit Edit
@@ -195,7 +195,7 @@ en:
   home:
     index:
       greeting: 'The Most Innovative Vacation Rental Software'
-      description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Secondhouz will make your vacation rental operations easier.'
+      description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Houz.io will make your vacation rental operations easier.'
       enter_email: 'Enter your email'
       start_now: 'Start Now »'
       features: *features
@@ -228,10 +228,10 @@ en:
       alert: 'Your 14-day free trial start now.'
       create_new_property: 'Create new Property'
       hi: 'Hi'
-      message: 'Add a new property and discover all the awesome features Secondhouz have for your vacation rental needs.'
+      message: 'Add a new property and discover all the awesome features Houz.io have for your vacation rental needs.'
       question_message: "If you have any questions don't hesitate to contact our"
       support_team: 'support team'
-      welcome: 'Welcome to SecondHouz!'
+      welcome: 'Welcome to Houz.io!'
     contact_form:
       email: *email
       message: 'Message'

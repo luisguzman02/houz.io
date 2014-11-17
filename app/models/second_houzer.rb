@@ -1,3 +1,0 @@
-module SecondHouzer
-
-end

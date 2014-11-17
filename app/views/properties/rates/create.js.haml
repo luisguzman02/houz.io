@@ -1,0 +1,12 @@
+- if @rate.persisted?
+  / window.location.reload();
+  / $('#property_rate_form').modal('hide')  
+  Turbolinks.visit("#{property_rates_path(@property)}")
+- else
+  :plain
+    $.howl ({
+      type: 'error', 
+      title: 'Please review the fields in rate form',
+      content: "",
+      iconCls: 'fa fa-check-square-o'
+    });
