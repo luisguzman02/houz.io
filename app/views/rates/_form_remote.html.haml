@@ -1,5 +1,5 @@
 = render_model_errors @rate
-= form_for property_rates_path(@property), :html => {:role => 'form', :id => 'rate_form'} do |f|  
+= form_for @rate, :remote => true, :html => {:role => 'form', :id => 'rate_form_remote'} do |f|  
   .form-group
     .row
       .col-md-4
@@ -26,14 +26,17 @@
           = f.label :hold_for_return, t('.hold_for_further_return')
           = f.check_box :hold_for_return
   .form-group
-    .checkbox
-      = f.label :seasonable, t('.season_rate')
-      = f.check_box :seasonable
-    = f.hidden_field :start_season, :class => 'form-control'
-    = f.hidden_field :end_season, :class => 'form-control'
-  .row
-    .col-md-12
-      .datepicker_range{:style => "#{@rate.seasonable ? '' : 'display: none'}"}
+    .row
+      .col-md-4
+        .checkbox
+          = f.label :seasonable, t('.season_rate')
+          = f.check_box :seasonable
+      .col-md-8
+        .input-daterange.input-group#datepicker
+          %span.input-group-addon from
+          = f.text_field :start_season, {:class => 'form-control', :disabled => true}.delete_if{|k| @rate.seasonable && k.eql?(:disabled)}
+          %span.input-group-addon to
+          = f.text_field :end_season, {:class => 'form-control', :disabled => true}.delete_if{|k| @rate.seasonable && k.eql?(:disabled)}
   %hr
   .pull-right= f.submit t('.save'), :class => 'btn btn-primary btn-lg'
   .clearfix

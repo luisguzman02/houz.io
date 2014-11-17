@@ -1,21 +1,19 @@
 .row
   .col-md-3
   .col-md-6
-    .page-header 
-      %h1 
-        Welcome to Houzio!    
+    .page-header
+      %h1= t '.welcome'
     .lead
       %p
-        = "Hi #{current_user.full_name},"
+        = "#{t('.hi')} #{current_user.full_name},"
       %br  
+      %p= t '.alert'
+      %p= t '.message'
       %p
-        Your 14-day free trial start now.
-        Add a new property and discover all the awesome features Houz.io have for your vacation rental needs.
-      %p
-        If you have any questions don't hesitate to contact our
+        = t '.question_message'
         = succeed "." do
-          = link_to 'support team', ''
+          = link_to t('.support_team'), ''
       %br
       %p
-        %center= link_to 'Create new Property', welcome_plans_path(:o => :trial), :class => 'button btn btn-success btn-lg'
+        %center= link_to t('.create_new_property'), welcome_plans_path(o: :trial), class: 'button btn btn-success btn-lg'
   .col-md-3

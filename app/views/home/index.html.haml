@@ -2,24 +2,22 @@
   .jumbotron#start_front
     .container
       .row
-        .col-md-2                    
-        .col-md-8              
-          %center    
-            %h1 The Most Innovative Vacation Rental Software    
-            %br/     
-            %p             
-              Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Houz.io will 
-              make your vacation rental operations easier.              
+        .col-md-2
+        .col-md-8
+          %center
+            %h1= t 'home.index.greeting'
+            %br/
+            %p= t '.description'
             = form_tag '', :class => 'form-inline', :role => 'form' do
               .form-group
-                = text_field_tag :email, '', :class => 'form-control input-lg',  :placeholder => 'Enter your email'
-                = link_to 'Start Now »', new_user_registration_path,:class => 'btn btn-secondary btn-lg', :role => "button"
+                = text_field_tag :email, '', :class => 'form-control input-lg',placeholder: t('.enter_email')
+                = link_to t('.start_now'), new_user_registration_path,:class => 'btn btn-secondary btn-lg', role: "button"
         .col-md-2
-.clearfix        
-.row{:id => 'features'}     
+.clearfix
+.row{:id => 'features'}
   %center
     .page-header 
-      %h1 Features
+      %h1= t '.features'
 .row
   .row
     %br/
@@ -29,20 +27,20 @@
       %center 
         %i.fa.fa-calendar-o.fa-5x.text-primary
         %br/
-        %h2 Reservation System
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.    
+        %h2= t '.reservation_system.title'
+        %p= t '.reservation_system.text'
     .col-md-4
       %center 
         %i.fa.fa-calendar.fa-5x.text-primary
         %br/
-        %h2 Availability Chart
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.  
+        %h2= t '.availability_chart.title'
+        %p= t '.availability_chart.text'
     .col-md-4
       %center 
         %i.fa.fa-key.fa-5x.text-primary
         %br/
-        %h2 Owner Login
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        %h2= t '.owner_login.title'
+        %p= t '.owner_login.text'
   .row
     %br/
   .row
@@ -50,35 +48,35 @@
       %center 
         %i.fa.fa-archive.fa-5x.text-primary
         %br/
-        %h2 Rental History
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.    
+        %h2= t '.rental_history.title'
+        %p= t '.rental_history.text'   
     .col-md-4
       %center 
         %i.fa.fa-money.fa-5x.text-primary
         %br/
-        %h2 Seasonal Rates
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.  
+        %h2= t '.seasonal_rates.title'
+        %p= t '.seasonal_rates.text'
     .col-md-4
-      %center 
+      %center
         %i.fa.fa-desktop.fa-5x.text-primary
         %br/
-        %h2 Vacation Rental Website
-        %p Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.    
+        %h2= t '.vacation_rental_website.title'
+        %p= t '.vacation_rental_website.text'   
 %br/  
-.div{:id => 'features'}     
+.div{:id => 'features'}
   %center
     .page-header 
-      %h1 Pricing    
-.jumbotron{:id => 'pricing'}      
+      %h1= t '.pricing'
+.jumbotron{:id => 'pricing'}
   %center
-    %h3 Start your 14-day free trial today!
-    %h4 No sign-up fees. No credit card required. No long-term commitments.
+    %h3= t '.free_trial.message'
+    %h4= t '.free_trial.comment'
     %br/    
   = render 'pricing'
-.div{:id => 'contact-form'}     
+.div{:id => 'contact-form'}
   %center
     .page-header
-      %h1 Contact   
+      %h1= t '.contact'
 .jumbotron{:id => 'contact'}      
   %center
   = render 'contact_form'

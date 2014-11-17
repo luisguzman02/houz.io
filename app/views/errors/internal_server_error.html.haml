@@ -1,7 +1,7 @@
 .jumbotron
   %center
-    %h1 Error 500 
+    %h1= t '.error_500'
     %p
-      .lead We're sorry, but something went wrong.
+      .lead= t '.something_went_wrong'
     %p
-      %a{href: "/", role: "button"} Send me back to home
+      %a{href: "/", role: "button"}= t '.send_me_back_to_home'

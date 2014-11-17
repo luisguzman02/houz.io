@@ -1,9 +1,9 @@
 %center
-  %h1 Error 404 
+  %h1= t '.error_404' 
   %p
     .lead 
       = image_tag('404_lego.png')
       %br
-      The page you were looking for doesn't exist.
+      = t '.the_page_you_were_looking_for_doesn_t_exist'
   %p
-    %a{href: "/", role: "button"} Go Home
+    %a{href: "/", role: "button"}= t '.go_home'
