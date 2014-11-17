@@ -1,18 +1,18 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b= "#{t('.name'):}"
   = @rate.name
 %p
-  %b Type:
+  %b= "#{t('.type')}:"
   = @rate.type
 %p
-  %b Always apply:
+  %b= "#{t('.always_apply')}:"
   = @rate.always_apply
 %p
-  %b Hold for return:
+  %b= "#{t('.hold_for_return')}:"
   = @rate.hold_for_return
 
-= link_to 'Edit', edit_rate_path(@rate)
+= link_to t('.edit'), edit_rate_path(@rate)
 \|
-= link_to 'Back', rates_path
+= link_to t('.back'), rates_path

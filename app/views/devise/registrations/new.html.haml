@@ -1,7 +1,8 @@
 .page-header
-  %h2 
-    Sign up now!
-    %small 14-day free trial
+  %h2
+    = t '.sign_up_now'
+    %small
+      = t '.14_day_free_trial'
 - if resource.errors.any?    
   .row
     .alert.alert-warning
@@ -25,4 +26,4 @@
       .form-group
         = f.label :password_confirmation
         = f.password_field :password_confirmation, :class => 'form-control'
-      %div= f.submit 'Create an account', :class => "btn btn-success"
+      %div= f.submit t('.create_an_account'), :class => "btn btn-success"

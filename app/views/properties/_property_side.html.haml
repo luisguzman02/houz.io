@@ -1,5 +1,5 @@
 - content_for :page_title do
-  Property  
+  = t '.property'
   = link_to @property do
     %small= @property.slug
 .thumbnail
@@ -8,24 +8,24 @@
 .list-group
   = link_to property_rates_path(@property), :class => 'list-group-item' do
     %i.fa.fa-money
-    \  Rates            
+    = t '.rates'            
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.rates.count
   %a.list-group-item{href: "javascript:;"}
     %i.fa.fa-picture-o
-    \  Pictures
+    = t '.pictures'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.pictures.count
   %a.list-group-item{href: "javascript:;"}
     %i.fa.fa-archive
-    \  Rental History
+    = t '.rental_history'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.reservations.count
   = link_to edit_property_path(@property), :class => 'list-group-item' do
     %i.fa.fa-edit
-    \  Edit
+    = t '.edit'
     %i.fa.fa-chevron-right.list-group-chevron            
   = link_to @property, :method => :delete, :id => 'del_prop_lnk', :class => 'list-group-item', data: { confirm: 'Are you sure you want to remove this property?' } do
     %i.fa.fa-trash-o
-    \  Delete
+    = t '.delete'
     %i.fa.fa-chevron-right.list-group-chevron
