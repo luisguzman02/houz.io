@@ -1,42 +1,60 @@
 .row
   .col-md-3
     = render 'properties/property_side'
-  .col-md-9
+  .col-md-9    
     %h3 Rental History
     %hr
+    .row
+      .col-sm-6        
+        .row
+          .col-sm-6
+            #dp-ex-start.input-group.date{"data-date-autoclose" => "true", "data-date-format" => "mm/dd/yyyy"}
+              %input.form-control{:placeholder => "Start date"}
+              %span.input-group-addon
+                %i.fa.fa-calendar
+            %span.help-block mm/dd/yyyy
+          .col-sm-6
+            #dp-ex-end.input-group.date{"data-date-autoclose" => "true", "data-date-format" => "mm/dd/yyyy"}
+              %input.form-control{:placeholder => "End date"}
+              %span.input-group-addon
+                %i.fa.fa-calendar
+            %span.help-block mm/dd/yyyy
+      .col-sm-6
+        %em Select a date range
     .row
       .col-md-12
         .table-responsive
           %table.table
             %thead
               %tr
-                %th Purchased On
-                %th Items
+                %th
+                %th Guest
+                %th Arrival
+                %th Departure
                 %th Amount
                 %th
             %tbody
               %tr
+                %td Owner Time
+                %td Manuel Medina
                 %td 09/21/2013
-                %td 3
+                %td 09/21/2013
                 %td $108.35
-                %td
+                %td 
                   %span.label.label-success Approved
               %tr
+                %td Standar
+                %td Jose Jose Lopez
                 %td 09/21/2013
-                %td 1
-                %td $30.89
-                %td
-                  %span.label.label-default Approved
+                %td 09/21/2013
+                %td $108.35
+                %td 
+                  %span.label.label-default Rejected
               %tr
-                %td 09/20/2013
-                %td 2
-                %td $52.06
-                %td
-                  %span.label.label-success Approved
-              %tr
-                %td 09/19/2013
-                %td 4
-                %td $73.54
-                %td
-                  %span.label.label-default Approved
-              
+                %td Standar
+                %td Isidro Perez M.
+                %td 09/21/2013
+                %td 09/21/2013
+                %td $108.35
+                %td 
+                  %span.label.label-default Rejected              
