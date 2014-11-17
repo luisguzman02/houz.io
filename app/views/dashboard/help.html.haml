@@ -1,0 +1,205 @@
+- content_for :page_title do
+  Support Center 
+.row
+  .col-md-12
+    %form#support-search.form
+      .form-group
+        .input-group
+          %input#support-search-field.form-control.input-lg{:name => "search", :placeholder => "Have a question? Ask or enter a search term.", :type => "text"}
+          %span.input-group-btn
+            %button#support-search-btn.btn.btn-primary.btn-lg{:type => "button"}
+              %i.fa.fa-search
+              Search
+.row
+  .col-md-8
+    %h3.heading Article Categories
+    .row
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          Account Settings
+          %small (12)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Secure Is My Password?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Can I Change My Username?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Where Can I Upload My Avatar?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I Change My Timezone?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I Change My Password?
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          API Questions
+          %small (12)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              What Technologies Are Used?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              What Are The API Limits?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Why Was My Developer Application Rejected?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Where can I find the documentation?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I Get An API Key?
+    .row
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          Billing
+          %small (12)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Can I Contact A Salés Rep?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Do I Need To Pay VAT?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Can I Get A Refund?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              What’s The Difference Between Annual & Monthly Billing
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              What Happens If The Price Increases?
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          Copyright & Legal
+          %small (12)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I Contact Legal?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Where Are Your Offices Located?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Who Owns The Copyright On Uploaded Text & Images?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Our Content Policy
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I File A DMCA?
+    .row
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          Mobile Apps
+          %small (12)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How Do I Download The Andoird App?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How To Download Our iPad App
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Incompatibilities With Horizon Phones
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Can I Use My Android Phone?
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Is There An iOS App?
+      .col-md-6.col-sm-6
+        %h4
+          %i.fa.fa-folder-close
+          Upgrading
+          %small (2)
+        %ul.icons-list.support-list
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              Recommended Plugins
+          %li
+            %i.icon-li.fa.fa-file-text-o
+            %a{:href => "javascript:;"}
+              How To Update Seamlessly Every Time
+  .col-md-4.col-sidebar-right
+    %a.btn.btn-secondary.btn-jumbo.btn-block{:href => "javascript:;"} Ask a Question
+    %br/
+    %a.btn.btn-default.btn-lg.btn-block{:href => "javascript:;"} Contact Support
+    %br/
+    %br/
+    %h4 Categories
+    .list-group
+      %a.list-group-item{:href => "javascript:;"}
+        Account Settings
+        %span.badge.badge-primary 6
+      %a.list-group-item{:href => "javascript:;"}
+        API Questions
+        %span.badge.badge-primary 5
+      %a.list-group-item{:href => "javascript:;"}
+        Billing
+        %span.badge.badge-primary 12
+      %a.list-group-item{:href => "javascript:;"}
+        Copyright & Legal
+        %span.badge.badge-primary 4
+    %br/
+    %h4.heading Popular Articles
+    %ul.icons-list
+      %li
+        %i.icon-li.fa.fa-star
+        %a{:href => "javascript:;"}
+          How Secure Is My Password?
+      %li
+        %i.icon-li.fa.fa-star
+        %a{:href => "javascript:;"}
+          Can I Change My Username?
+      %li
+        %i.icon-li.fa.fa-star
+        %a{:href => "javascript:;"}
+          Where Can I Upload My Avatar?
+      %li
+        %i.icon-li.fa.fa-star
+        %a{:href => "javascript:;"}
+          How Do I Change My Timezone?
+      %li
+        %i.icon-li.fa.fa-star
+        %a{:href => "javascript:;"}
+          How Do I Change My Password?
