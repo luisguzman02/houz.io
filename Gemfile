@@ -55,6 +55,7 @@ gem 'canvas_admin_rails', :git => 'https://github.com/adbeelitamar/canvas_admin_
 # gem 'canvas_admin_rails', :path => '../canvas_admin_rails'
 gem 'bootstrap-validator-rails'
 
+gem 'kaminari'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
