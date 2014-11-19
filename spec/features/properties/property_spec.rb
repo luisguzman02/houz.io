@@ -82,7 +82,7 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
       expect(find_field('Country').value).to eq local.first.country_code
       expect(find_field('City').value).to eq local.first.city
       expect(find_field('State').value).to eq local.first.state_code
-      expect(find_field('Zip code').value).to eq local.first.postal_code
+      expect(find_field('Zip code').value).to eq local.first.data['zip_code']
     end    
   end
 

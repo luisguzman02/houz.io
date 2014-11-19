@@ -77,7 +77,7 @@ class PropertiesController < DashboardController
   def local_info
     Geocoder.configure(:timeout => 5)
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
-    {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
+    {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.data['zip_code']}
   end
 
   def property_params
