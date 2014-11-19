@@ -57,7 +57,13 @@ class PropertiesController < DashboardController
   end
 
   def rental_history
-    
+    @dt_start = params[:dt_start].present? ? Date.parse(params[:dt_start]) : (Date.today - 1.month) rescue Date.today
+    @dt_end   = params[:dt_end].present? ? Date.parse(params[:dt_end]) : Date.today rescue Date.today
+
+    @bookings = @property.reservations.any_of( 
+      {'$and' => [{:check_in.gte => @dt_start}, {:check_in.lte => @dt_end}]},
+      {'$and' => [{:check_out.gte => @dt_start}, {:check_out.lte => @dt_end}]}
+    ).order_by(check_in: :asc)
   end
 
   private

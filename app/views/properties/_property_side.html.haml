@@ -5,7 +5,7 @@
     
 .thumbnail
   - if @property.pictures.empty?
-    %center= link_to t('Upload a Picture'), @property, class: 'text-primary'
+    %center= link_to t('upload_a_picture'), property_pictures_path(@property), class: 'text-primary'
   - else
     = link_to @property do
       = image_tag @property.pictures.first.picture.url(:profile) unless @property.pictures.empty?

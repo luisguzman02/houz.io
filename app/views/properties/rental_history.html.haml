@@ -4,23 +4,26 @@
   .col-md-9    
     %h3 Rental History
     %hr
-    .row
-      .col-sm-6        
-        .row
-          .col-sm-6
-            #dp-ex-start.input-group.date{"data-date-autoclose" => "true", "data-date-format" => "mm/dd/yyyy"}
-              %input.form-control{:placeholder => "Start date"}
-              %span.input-group-addon
-                %i.fa.fa-calendar
-            %span.help-block mm/dd/yyyy
-          .col-sm-6
-            #dp-ex-end.input-group.date{"data-date-autoclose" => "true", "data-date-format" => "mm/dd/yyyy"}
-              %input.form-control{:placeholder => "End date"}
-              %span.input-group-addon
-                %i.fa.fa-calendar
-            %span.help-block mm/dd/yyyy
-      .col-sm-6
-        %em Select a date range
+    = form_tag rental_history_property_path(@property),  method: :get do
+      .row
+        .col-sm-6        
+          .row
+            .col-sm-6
+              #dp-ex-start.input-group.date{"data-date-autoclose" => 'true', "data-date-format" => 'yyyy-mm-dd'}
+                / %input.form-control{:placeholder => "Start date", value: @dt_start.to_formatted_s(:north_america), name: :start_dt}
+                = text_field_tag :dt_start, @dt_start.to_formatted_s(:db), class: 'form-control', :placeholder => 'Start date'
+                %span.input-group-addon
+                  %i.fa.fa-calendar
+              %span.help-block yyyy-mm-dd
+            .col-sm-6
+              #dp-ex-end.input-group.date{"data-date-autoclose" => 'true', "data-date-format" => 'yyyy-mm-dd'}
+                / %input.form-control{:placeholder => "End date"}
+                = text_field_tag :dt_end, @dt_end.to_formatted_s(:db), class: 'form-control', :placeholder => 'End date'
+                %span.input-group-addon
+                  %i.fa.fa-calendar
+              %span.help-block yyyy-mm-dd
+        .col-sm-6
+          = submit_tag 'Filter', class: 'btn btn-secondary'
     .row
       .col-md-12
         .table-responsive
@@ -34,27 +37,12 @@
                 %th Amount
                 %th
             %tbody
-              %tr
-                %td Owner Time
-                %td Manuel Medina
-                %td 09/21/2013
-                %td 09/21/2013
-                %td $108.35
-                %td 
-                  %span.label.label-success Approved
-              %tr
-                %td Standar
-                %td Jose Jose Lopez
-                %td 09/21/2013
-                %td 09/21/2013
-                %td $108.35
-                %td 
-                  %span.label.label-default Rejected
-              %tr
-                %td Standar
-                %td Isidro Perez M.
-                %td 09/21/2013
-                %td 09/21/2013
-                %td $108.35
-                %td 
-                  %span.label.label-default Rejected              
+              - @bookings.each do |b|
+                %tr
+                  %td= b.rsv_type.to_s.humanize
+                  %td= b.guest.name
+                  %td= b.check_in.to_date
+                  %td= b.check_out.to_date
+                  %td= b.total_payment
+                  %td 
+                    %span.label.label-success Approved

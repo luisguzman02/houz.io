@@ -45,4 +45,8 @@ class Reservation
   def discard
     self.destroy
   end
+
+  def total_payment
+    0
+  end
 end
