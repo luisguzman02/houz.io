@@ -22,6 +22,10 @@ en:
     tenants: &tenants Tenants
     new_activity: &new_activity New activity
     welcome: &welcome Welcome
+  views:
+    pagination:
+      previous: '← Previous'
+      next: 'Next → '
   accounts:
     settings_menu:
       profile_settings: 'Profile Settings'

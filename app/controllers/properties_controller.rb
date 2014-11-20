@@ -3,12 +3,12 @@ class PropertiesController < DashboardController
   respond_to :json, :only => :booking_detail
 
   def index
-    @properties = current_account.properties.order_by(:created_at => :desc)
+    @properties = current_account.properties.order_by(:created_at => :desc).page(params[:page]).per(20)
   end
 
-  def new    
-    @property = current_account.properties.build   
-    @property.contact.build_address(local_info)      
+  def new
+    @property = current_account.properties.build
+    @property.contact.build_address(local_info)
     @property = @property.decorate
   end
 
@@ -38,7 +38,7 @@ class PropertiesController < DashboardController
     end
   end
 
-  def pictures    
+  def pictures
     @property.pictures.create pic_params if request.method.eql? 'POST'
   end
 
@@ -53,7 +53,7 @@ class PropertiesController < DashboardController
         tags.map! { |t| {:id => t, :name => t} }
         render :json => tags
       }
-    end    
+    end
   end
 
   def booking_detail
