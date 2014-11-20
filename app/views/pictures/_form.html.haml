@@ -1,10 +1,10 @@
 = form_for @picture do |f|
   - if @picture.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@picture.errors.count, "error")} prohibited this picture from being saved:"
+      %h2= "#{pluralize(@picture.errors.count, "error")} #{t('.prohibited_this_picture_from_being_saved')}:"
       %ul
         - @picture.errors.full_messages.each do |msg|
           %li= msg
 
   .actions
-    = f.submit 'Save'
+    = f.submit t('.save')

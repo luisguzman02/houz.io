@@ -1,7 +1,7 @@
-%h1 Editing picture
+%h1= t '.editing_picture'
 
 = render 'form'
 
-= link_to 'Show', @picture
+= link_to t('.show'), @picture
 \|
-= link_to 'Back', pictures_path
+= link_to t('.back'), pictures_path

@@ -1,48 +1,48 @@
-= form_for @reservation, :format => :js, :html => {:id => 'inquiery_booking_form', :role => 'form'}, :remote => true, :method => :post do |f| 
+= form_for @reservation, :format => :js, :html => {:id => 'inquiery_booking_form', :role => 'form'}, :remote => true, :method => :post do |f|
   .row
     .col-md-12
       .form-group
-        = f.label :property                    
+        = f.label :property, t('.property')
         = f.select :property_id, options_for_select(account_properties_select_options), {}, :class => 'form-control'      
   .row#date_range_icon
     .col-md-6
-      .form-group            
-        = f.label :check_in, 'Arrival'  
-        .input-group                 
+      .form-group
+        = f.label :check_in, t('.arrival')
+        .input-group
           = f.text_field :check_in, :class => 'form-control datepicker'
           %a.input-group-addon{:trigger => :reservation_check_in, :href => '#'}
             %span.glyphicon.glyphicon-calendar
     .col-md-6
-      = f.label :check_out , 'Departure'
-      .input-group                
+      = f.label :check_out , t('.departure')
+      .input-group
         = f.text_field :check_out, :class => 'form-control datepicker'
         %a.input-group-addon{:trigger => :reservation_check_out, :href => '#'}
           %span.glyphicon.glyphicon-calendar
   .row
     .col-md-6
       .form-group
-        = label_tag :staying_field, 'Staying'
-        .input-group                
+        = label_tag :staying_field, t('.staying')
+        .input-group
           = text_field_tag :staying_field, '', :class => 'form-control'
-          %span.input-group-addon Nights  
-    .col-md-6   
+          %span.input-group-addon= t '.nights'
+    .col-md-6
       .row
         .col-md-6
           .form-group
-            = f.label :num_adults, 'Adults'
+            = f.label :num_adults, t('.adults')
             = f.text_field  :num_adults, :class => 'form-control'
-        .col-md-6        
+        .col-md-6
           .form-group
-            = f.label :num_children, 'Children'
+            = f.label :num_children, t('.children')
             = f.text_field  :num_children, :class => 'form-control'
 
   %hr
-  %h4 Reservation Details
+  %h4= t('.reservation_details')
   .alert.alert-warning#booking_info
-    %p Please choose arrival and departure dates.
+    %p= t('.plase_choose')
   %hr
   .row
     .col-md-12
       .pull-right
-        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"}= t '.close'
         = submit_tag 'Continue', :class => 'btn btn-primary', :disabled => true, :id => :book_btn

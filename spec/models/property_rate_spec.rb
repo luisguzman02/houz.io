@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PropertyRate do
+RSpec.describe PropertyRate, type: :model, ctrl_clean: true do
   pending
 end

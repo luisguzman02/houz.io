@@ -1,45 +1,51 @@
  require 'spec_helper'
 
-describe "home page", :js => true, :homie => true do   
+RSpec.describe HomeController, type: :feature, ctrl_clean: true, :homie => true do   
 
   before do
     visit root_path
   end
+
   it 'show start now button that leads us to sign up page' do
     click_link 'Start Now »'
-    page.should have_content 'Sign up'
-    page.should have_field 'Email'
-    page.should have_field 'First name'
-    page.should have_field 'Password confirmation'
-    page.should have_button 'Create an account'
+    expect(page).to have_content 'Sign up'
+    expect(page).to have_field 'Email'
+    expect(page).to have_field 'First name'
+    expect(page).to have_field 'Password confirmation'
+    expect(page).to have_button 'Create an account'
   end
 
   it 'should have features and pricing options in nav bar' do
-    within(:xpath, "//ul[@class='nav navbar-nav']") do 
-      page.should have_content 'Features'
-      page.should have_content 'Pricing'
+    within(:xpath, "//div[@class='navbar-collapse collapse']") do 
+      expect(page).to have_content 'Features'
+      expect(page).to have_content 'Pricing'
     end
   end
 
-  it 'should have features content' do
-    pending
-  end
-
-  it 'should have pricing content' do
-    pending
-  end
-
-  describe 'welcome start page' do
-    it 'redirects to signup page if theres no user session present' do
-      visit welcome_plans_path
-      page.should have_content 'Sign up now'
-      page.should have_button 'Create an account'
+  describe 'contact form' do
+    before { visit root_path }
+    let(:submit) { "Send request" }
+    describe "with invalid information" do
+      describe "after submission" do
+        subject { click_button submit; page }
+        it { is_expected.to have_selector('.alert-danger', 'Error') }
+      end
     end
 
-    it 'redirect to 500 error page if theres no free plan' do
-      login
-      click_on 'Start Now'
-      page.should have_content 'Error 500'
+    describe "with valid information" do
+      before do
+        within "#contact" do
+          fill_in "name", with: "Amin Ogarrio"
+          fill_in "telephone", with: "2505050"
+          fill_in "email", with: "amin.ogarrio@gmail.com"
+          fill_in "message", with: "lorem itsu"
+        end
+      end
+      describe "after submission" do
+        subject { click_button submit; page }
+        it { is_expected.to have_selector('.alert-success', 'Email sent') }
+      end
     end
   end
+
 end

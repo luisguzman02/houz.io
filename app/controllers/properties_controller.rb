@@ -1,5 +1,5 @@
 class PropertiesController < DashboardController
-  before_action :set_property, :only => [:edit, :update, :rates, :pictures, :booking_detail, :show]
+  before_action :set_property, :except => [:index, :new, :create, :tags]
   respond_to :json, :only => :booking_detail
 
   def index
@@ -15,7 +15,7 @@ class PropertiesController < DashboardController
   def create
     @property = current_account.properties.build property_params
     if @property.save
-      redirect_to edit_property_path(@property), :notice => 'New property created successfully.' 
+      redirect_to property_path(@property), :notice => 'New property created successfully.' 
     else
       render :action => 'new'
     end
@@ -42,7 +42,7 @@ class PropertiesController < DashboardController
     @property.pictures.create pic_params if request.method.eql? 'POST'
   end
 
-  def tags    
+  def tags
     respond_to do |format|
       format.html
       format.json { 
@@ -69,6 +69,7 @@ class PropertiesController < DashboardController
   end
 
   def local_info
+    Geocoder.configure(:timeout => 5)
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
     {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
   end
@@ -78,14 +79,15 @@ class PropertiesController < DashboardController
   end
 
   def property_params
+    return {} if params[:property].empty?
     pp = params[:property]
-    if pp[:check_in].nil? && pp[:check_out].nil?
-      check_in = "#{params[:date][:ci_hour]}:#{params[:date][:ci_minutes]}"
+    if pp[:check_in].nil? && pp[:check_out].nil? && params[:date].present?
+      check_in = "#{params[:date][:ci_hour]}:#{params[:date][:ci_minutes]}" 
       check_out = "#{params[:date][:co_hour]}:#{params[:date][:co_minutes]}"
       params[:property].reject! {|k| k.include? 'check'}
       params[:property].merge!({:check_in => check_in, :check_out => check_out})
     end
-    params[:property][:tags] = params[:property][:tags].split(',')    
+    params[:property][:tags] = params[:property][:tags].split(',') if params[:property][:tags].present?
     params.require(:property).permit(:name, :unit_type, :description, { tags: [] }, :check_in, :check_out, :property_size, :minimum_days, 
       :num_persons_allowed, :pets_allowed, :directions, :bedrooms, :bathrooms, :garages, :kitchen, :bedding, :amenities, 
       :contact_attributes => {:address_attributes =>  [:country, :city, :state, :zip_code, :area, :street] })

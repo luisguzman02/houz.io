@@ -1,18 +1,18 @@
 %p#notice= notice
 
 %p
-  %b First name:
+  %b= "#{t('.first_name')}:"
   = @user.first_name
 %p
-  %b Last name:
+  %b= "#{t('.last_name')}:"
   = @user.last_name
 %p
-  %b Email:
+  %b= "#{t('.email')}:"
   = @user.email
 %p
-  %b Password:
+  %b= "#{t('.password')}:"
   = @user.password
 
-= link_to 'Edit', edit_user_path(@user)
+= link_to t('.edit'), edit_user_path(@user)
 \|
-= link_to 'Back', users_path
+= link_to t('.back'), users_path

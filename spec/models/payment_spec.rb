@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Payment do
+RSpec.describe Payment, type: :model, ctrl_clean: true do
   
   it { should be_timestamped_document }
   it { should be_timestamped_document.with(:created) }

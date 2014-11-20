@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe EcommercePlan do
+RSpec.describe EcommercePlan, type: :model, ctrl_clean: true do
   
   before do
     @basic_pack = FactoryGirl.create(:ecommerce_plan, :basic_pack)
@@ -26,10 +26,10 @@ describe EcommercePlan do
   it { should have_field(:price).of_type(Float) }
 
   it 'successfully creates a new ecommerce plan' do
-    @basic_pack.should be_persisted
+    expect(@basic_pack).to be_persisted
   end
 
   it 'should have 3 ecommerce plans created by default' do
-    EcommercePlan.all.count.should eql(3)
+    expect(EcommercePlan.all.count).to eql(3)
   end
 end

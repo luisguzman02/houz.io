@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Secondhouz::Application.load_tasks
+Houzio::Application.load_tasks

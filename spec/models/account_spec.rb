@@ -1,11 +1,7 @@
 require 'spec_helper'
 
-describe Account do
+RSpec.describe Account, type: :model, ctrl_clean: true do
   
-  before do
-    
-  end
-
   let(:acc) { FactoryGirl.create(:account) }
 
   def add_prop
@@ -39,33 +35,25 @@ describe Account do
   it 'should create a new account' do
     @account = FactoryGirl.build(:account)    
     @account.save    
-    @account.should be_persisted
+    expect(@account).to be_persisted
   end
 
   it 'is able to create a new property' do
     p = add_prop
-    p.should be_persisted
+    expect(p).to be_persisted
   end
 
-  it 'notify to update to premium if trial period expired' do
-    pending
-  end
+  it 'notify to update to premium if trial period expired'
 
-  it 'attach insufficient credits error to the document, if its trying to create more than the allowed' do
-    pending
-    # add_prop
-    # p = add_prop
-    # p.should_not be_persisted
-    # p.errors.messages[:account].first.should eql 'does not have the enought credits to add more properties'    
-  end
+  it 'attach insufficient credits error to the document, if its trying to create more than the allowed'
 
   it 'creates 2 default rates on each account' do
-    acc.rates.count.should eq 2
-    acc.rates.find_by(:name => 'Default').class.should eq Rate
+    expect(acc.rates.count).to be 2
+    expect(acc.rates.find_by(:name => 'Default').class).to be Rate
   end
 
   it 'returns free trial as package name, and user doesnt have a premium package' do
-    acc.package.should eq 'Free Trial'
+    expect(acc.package).to  eql('Free Trial')
   end
 
   it 'throws an error when free trial has expired' do    
@@ -73,7 +61,5 @@ describe Account do
     expect { acc.package }.to raise_error(AccountExpiredTrialError)    
   end
 
-  it 'returns all account properties' do
-    pending
-  end
+  it 'returns all account properties'
 end

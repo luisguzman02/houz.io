@@ -11,7 +11,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module Secondhouz
+module Houzio
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,5 +27,6 @@ module Secondhouz
     config.i18n.enforce_available_locales = true
 
     config.assets.precompile += %w(.svg .eot .woff .ttf .otf)
+    config.i18n.default_locale = :en
   end
 end

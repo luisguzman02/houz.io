@@ -6,7 +6,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
-    %title Secondhouz
+    %title Houz.io - Vacation Rental Software as a Service
     = csrf_meta_tags
     / Bootstrap core CSS
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
@@ -28,42 +28,46 @@
             %span.icon-bar
           %a.navbar-brand{:href => "/"}
             %i.fa.fa-home.text-primary
-            Secondhouz
+            Houz.io
             %sup
               %small.text-secondary Beta
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li
-              = link_to 'Features', '#features'
+              = link_to t('.features'), '#features'
             %li
-              = link_to 'Pricing', '#pricing'
+              = link_to t('.pricing'), '#pricing'
             %li
-              %a{href: "#contact"} Contact            
+              = link_to t('.contact'), '#contact'
+
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               .pull-right
                 %ul.nav.navbar-nav
                   %li
-                    = link_to 'My Dashboard', dashboard_path
+                    = link_to t('.dashboard'), dashboard_path
                   %li
-                    = link_to 'Logout', destroy_user_session_path, :method => :delete
+                    = link_to t('.logout'), destroy_user_session_path, :method => :delete
             - else
-              = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
-                .form-group
-                  = f.email_field :email, :placeholder => "Email", :class => 'form-control'
-                .form-group
-                  = f.password_field :password, :placeholder => "Password", :class => 'form-control'
-                = f.submit "Sign in", :class => 'button btn btn-default'
+              .pull-right
+                %ul.nav.navbar-nav
+                  %li
+                    = link_to t('.login'), login_path
+              / = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'navbar_login', :role => "form", :class => 'navbar-form navbar-right'}) do |f|
+              /   .form-group
+              /     = f.email_field :email, :placeholder => "Email", :class => 'form-control'
+              /   .form-group
+              /     = f.password_field :password, :placeholder => "Password", :class => 'form-control'
+              /   = f.submit "Sign in", :class => 'button btn btn-default'
 
     - if content_for? :jumbotron
       = yield :jumbotron
     
     #main_content.container
-      / - flash.each do |name, msg|
-      /   .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
-      /     %a.close{'data-dismiss' => 'alert'}x
-      /     = msg
+      - flash.each do |name, msg|
+        .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}
+          %a.close{'data-dismiss' => 'alert'}x
+          = msg
       = yield
-
     %hr
       = render 'common/footer'      

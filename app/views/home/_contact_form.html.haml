@@ -1,0 +1,15 @@
+
+=form_tag(send_contact_path, class: "form-horizontal", id: "enableForm") do
+  .form-group
+    =label_tag :name, t('.name')
+    =text_field_tag(:name, "", class: "form-control")
+  .form-group
+    =label_tag :telephone, t('.telephone')
+    =telephone_field_tag :telephone, "", class: "form-control"
+  .form-group
+    =label_tag :email, t('.email')
+    =email_field_tag :email, "", class: "form-control"
+  .form-group
+    =label_tag :message, t('.message')
+    =text_area_tag :message, "", class: "form-control", rows: 4
+  =submit_tag t('.submit'), class: "btn btn-default"

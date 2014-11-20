@@ -1,23 +1,541 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  dictionary:
+    agents: &agents Agents
+    back: &back Back
+    change_password: &change_password Change my password
+    contact: &contact Contact
+    copyright: &copyright Copyright © 2014, Houz.io
+    dashboard: &dashboard Dashboard
+    destroy: &destroy Destroy
+    edit: &edit Edit
+    email: &email Email
+    features: &features Features
+    loading: &loading Loading
+    login: &login Login
+    logout: &logout Logout
+    new_activity: &new_activity New activity
+    owners: &owners Owners
+    pricing: &pricing Pricing
+    properties: &properties Properties
+    reservations: &reservations Reservations
+    show: &show Show
+    tenants: &tenants Tenants
+    new_activity: &new_activity New activity
+    welcome: &welcome Welcome
+  accounts:
+    settings_menu:
+      profile_settings: 'Profile Settings'
+      change_password: 'Change Password'
+      payment_settings: 'Payment Settings'
+  activities:
+    form:
+      error_explanation: 'prohibited this activity from being saved:'
+      save_form: 'Save'
+    edit:
+      back: *back
+      editing_activity: 'Editing activity'
+      show: *show
+    index:
+      are_you_sure: 'Are you sure?'
+      destroy: *destroy
+      edit: *edit
+      listing_activities: 'Listing activities'
+      new_activity: *new_activity
+      show: *show
+    new:
+      back: *back
+      new_activity: *new_activity
+    show:
+      edit: *edit
+      back: *back
+  common:
+    footer:
+      copyright: *copyright
+  confirmable:
+    confirmations:
+      new:
+        resend_confirmation_instructions: 'Resend confirmation instructions'
+    mailer:
+      confirmation_instructions:
+        confirm_my_account: 'Confirm my account'
+        welcome: 'Welcome'
+        you_can_confirm: 'You can confirm your account email through the link below:'
+      reset_password_instructions:
+        change_password: *change_password
+        didnt_request: "If you didn't request this, please ignore this email."
+        someone_has_requested: 'Someone has requested a link to change your password. You can do this through the link below.'
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        account_has_been_locked: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
+        hello: *welcome
+        unlock_my_account: 'Unlock my account'
+        unlock_your_account: "Click the link below to unlock your account:"
+    passwords:
+      edit:
+        change_my_password: 'Change my password'
+        change_your_password: 'Change your password'
+        confirm_new_password: 'Confirm new password'
+        new_password: 'New Password'
+      new:
+        forgot_your_password: 'Forgot your password?'
+        send_me_reset_password_instructions: 'Send me reset password instructions'
+    registrations:
+      edit:
+        edit: *edit
+        currently_waiting_confirmation_for: 'Currently waiting confirmation for:'
+        leave_blank: "(leave blank if you don't want to change it)"
+        need_your_current_password: '(we need your current password to confirm your changes)'
+        update: 'Update'
+        cancel_my_account: 'Cancel my account'
+        unhappy: 'Unhappy?'
+        are_you_sure: 'Are you sure?'
+        back: *back
+      new:
+        sign_up: 'Sign up'
+    sessions:
+      new:
+        sign_in: 'Sign in'
+    shared:
+      link:
+        sign_in: 'Sign in'
+        sign_up: 'Sign up'
+        forgot_your_password?: 'Forgot your password?'
+        Didnt_receive_confirmation_instructions?: "Didn't receive confirmation instructions?"
+        Didnt_receive_unlock_instructions?: "Didn't receive unlock instructions?"
+        Sign_in_with: 'Sign in with'
+    unlocks:
+      new:
+        resend_unlock_instructions: 'Resend unlock instructions'
+  contact_mailer:
+    contact_form:
+      there_a_new_contact_from: 'There a new contact from'
+      contact_info: 'Contact Info'
+  dashboard:
+    index:
+      weekly_sales_stats: 'Weekly Sales Stats'
+
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: 'Resend confirmation instructions'
+    mailer:
+      confirmation_instructions:
+        welcome: 'Welcome'
+        confirm_your_account_email: 'You can confirm your account email through the link below:'
+        confirm_my_account: 'Confirm my account'
+      reset_password_instructions:
+        hello: 'Hello'
+        someone_has_requested_a_link_to_change_your_password: 'Someone has requested a link to change your password.'
+        you_can_do_this_through_the_link_below: 'You can do this through the link below.'
+        change_my_password: 'Change my password'
+        please_ignore_this_email: "If you didn't request this, please ignore this email."
+        your_password_wont_change_until: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: 'Hello'
+        your_account_has_been_locked: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
+        click_to_unlock_your_account: 'Click the link below to unlock your account:'
+        unlock_my_account: 'Unlock my account'
+    passwords:
+      edit:
+        change_your_password: 'Change your password'
+        new_password: 'New password'
+        confirm_new_password: 'Confirm new password'
+        change_my_password: 'Change my password'
+      new:
+        forgot_your_password?: 'Forgot your password?'
+        send_me_reset_password_instructions: 'Send me reset password instructions'
+    registrations:
+      edit:
+        account_settings: 'Account Settings'
+        edit_user_basic_info: 'Edit User Basic Info'
+        currently_waiting_confirmation_for: 'Currently waiting confirmation for:'
+        change_your_password: 'Change Your Password'
+        update: 'Update'
+        message_settings: 'Message Settings'
+        payments_settings: 'Payments Settings'
+        reports_settings: 'Reports Settings'
+      new:
+        sign_up_now: 'Sign up now!'
+        14_day_free_trial: '14-day free trial'
+        create_an_account: 'Create an account'
+    sessions:
+      new:
+        sign_in: "Sign in"
+        click_sign_in: "Sign in"
+    shared:
+      links:
+        back: "Back"
+        didn_t_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+        didn_t_receive_unlock_instructions: "Didn't receive unlock instructions?"
+        forgot_your_password: "Forgot your password?"
+        don_t_have_an_account: "Don't have an account?"
+        sign_in: "Sign in"
+        sign_up_here: 'Sign up here'
+        sign_in_with: "Sign in with"
+        sign_up: "Sign up"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Resend unlock instructions"
+  erros:
+    internal_server_error:
+      error_500: 'Error 500'
+      something_went_wrong: "We're sorry, but something went wrong."
+      send_me_back_to_home: 'Send me back to home'
+    not_found:
+      error_404: 'Error 404'
+      the_page_you_were_looking_for_doesn_t_exist: "The page you were looking for doesn't exist."
+      go_home: 'Go Home'
+    unauthorized:
+      error_401: "Error 401"
+      you_are_not_authorized_to_access_this_page: "You are not authorized to access this page."
+      send_me_back_to_home: "Send me back to home"
+
+
+
+  home:
+    index:
+      greeting: 'The Most Innovative Vacation Rental Software'
+      description: 'Whether you are a property owner with one or more properties, or a vacation rental agency manager with many units and owners under management, Houz.io will make your vacation rental operations easier.'
+      enter_email: 'Enter your email'
+      start_now: 'Start Now »'
+      features: *features
+      reservation_system:
+        title: 'Reservation System'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      availability_chart:
+        title: 'Availability Chart'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      owner_login:
+        title: 'Owner Login'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      rental_history:
+        title: 'Rental History'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      seasonal_rates:
+        title: 'Seasonal Rates'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      vacation_rental_website:
+        title: 'Vacation Rental Website'
+        text: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+      pricing: *pricing
+      free_trial:
+        comment: 'No sign-up fees. No credit card required. No long-term commitments.'
+        message: 'Start your 14-day free trial today!'
+      contact: *contact
+    upgrade:
+      trial_expired: 'Your 14-day free trial has expired'
+    welcome_plans:
+      alert: 'Your 14-day free trial start now.'
+      create_new_property: 'Create new Property'
+      hi: 'Hi'
+      message: 'Add a new property and discover all the awesome features Houz.io have for your vacation rental needs.'
+      question_message: "If you have any questions don't hesitate to contact our"
+      support_team: 'support team'
+      welcome: 'Welcome to Houz.io!'
+    contact_form:
+      email: *email
+      message: 'Message'
+      name: 'Name'
+      submit: 'Send request'
+      telephone: 'Telephone Number (Optional)'
+  layouts:
+    application:
+      contact: *contact
+      dashboard: 'My dashboard'
+      features: *features
+      login: *login
+      logout: *logout
+      pricing: *pricing
+    backend:
+      agents: *agents
+      back_office: 'Back Office'
+      company_letters: 'Company Letters'
+      dashboard: *dashboard
+      for_developers: 'For Developers'
+      help: 'Help'
+      loading: *loading
+      logout: *logout
+      owners: *owners
+      properties: *properties
+      reservations: *reservations
+      tenants: *tenants
+      toggle_navigation: 'Toggle navigation'
+    canvas_admin:
+      account_settings: 'Account Settings'
+      agents: *agents
+      copyright: *copyright
+      dashboard: *dashboard
+      dropdown: 'Dropdown'
+      example: 'Example'
+      home: 'Home'
+      list_of_reservations: 'List of Reservations'
+      loading: *loading
+      logout: *logout
+      owners: *owners
+      properties: *properties
+      reservations: *reservations
+      search: 'Search...'
+      tenants: *tenants
+      user_management: 'User Management'
+  letters:
+    form:
+      save: 'Save'
+    edit:
+      editing_letter: 'Editing letter'
+      show: 'Show'
+      back: 'Back'
+    index:
+      listing_letters: "Listing letters"
+      name: "Name"
+      body: "Body"
+      document: "Document"
+      show: Show
+      edit: "Edit"
+      destroy: "Destroy"
+      are_you_sure: "Are you sure?"
+      new_letter: 'New Letter'
+    new:
+      new_letter: 'New letter'
+      back: 'Back'
+    show:
+      name: "Name"
+      body: "Body"
+      document: "Document"
+      edit: "Edit"
+      back: "Back"
+  pictures:
+    form:
+      prohibited_this_picture_from_being_saved: 'prohibited this picture from being saved'
+      save: 'Save'
+    picture:
+      are_you_sure_you_want_to_remove_this_picture: 'Are you sure you want to remove this picture?'
+    edit:
+      editing_picture: 'Editing picture'
+      show: 'Show'
+      back: 'Back'
+    index:
+      listing_pictures: 'Listing pictures'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      are_you_sure: 'Are you sure?'
+      new_picture: 'New Picture'
+    new:
+      new_picture: 'New picture'
+      back: 'Back'
+    show:
+      edit: 'Edit'
+      back: 'Back'
+  properties:
+    rates:
+      form_modal:
+        add_a_rate: ''
+    form:
+      details: 'Details'
+      property_type: 'Property Type'
+      name: 'Name'
+      description: 'Description'
+      tags: 'Tags'
+      placeholder_tags: 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"'
+      placeholder_name: 'e.g. "Rocky Point Blue House"'
+      rental_details: 'Rental details'
+      check_in: 'Check in'
+      check_out: 'Check out'
+      minimum_stay: 'Minimum stay'
+      property_size: 'Property size'
+      nights: 'nights'
+      SQ_M: 'SQ M.'
+      num_persons_allowed: 'Num persons allowed'
+      pets_allowed: 'Pets allowed'
+      location: 'Location'
+      placeholder_street: 'e.g Golf Links Road 5055'
+      country: 'Country'
+      city: 'City'
+      state: 'State'
+      zip_code: 'Zip code'
+      area: 'Area'
+      placeholder_area: 'e.g. "Downtown",  "Lions Gate", etc.'
+      directions: 'Directions'
+      placeholder_directions: 'e.g. "Right in front of Empire State building"'
+      bedrooms: 'Bedrooms'
+      bathrooms: 'Bathrooms'
+      garages: 'Garages'
+      kitchen: 'Kitchen'
+      bedding: 'Bedding'
+      placeholder_bedding: 'e.g. "2 Kings, 1 Queen, 1 Individual"'
+      other_amenities: 'Other amenities'
+      placeholder_other_amenities: 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
+      save: 'Save'
+    property:
+      add_pictures: 'Add Pictures'
+      edit: 'Edit'
+      availability: 'Availability'
+    property_side:
+      property: 'Property'
+      rates: 'Rates'
+      pictures: 'Pictures'
+      rental_history: 'Rental History'
+      edit: 'Edit'
+      delete: 'Delete'
+    edit:
+      edit_property: 'Edit Property'
+    index:
+      new_property: 'New Property'
+      properties: 'Properties'
+    new:
+      new_property: 'New Property'
+    pictures:
+      pictures: 'Pictures'
+      upload_a_picture: 'Upload a picture'
+      update: 'Update'
+    show:
+      availability: 'Availability'
+      upcoming_ocupancy: 'Upcoming Ocupancy'
+      description: 'Description'
+      rental_details: 'Rental Details'
+      amenities: 'Amenities'
+      check_in: 'Check-in'
+      check_out: 'Check-out'
+      minumum_staying_days: 'Minimum Staying Days'
+  rates:
+    form:
+      type: 'Type'
+      name: 'Name'
+      value: 'Value'
+      hold_for_further_return: 'Hold for further return'
+      season_rate: 'Season Rate'
+      save: 'Save'
+      always_apply_in_reservation: 'Always apply in reservation'
+    lay:
+      rates: 'Rates'
+      add_new_rate: 'Add new rate'
+      or: 'Or'
+      click_on_a_rate_name: 'Click on a rate name to be able to update or delete a rate.'
+    show:
+      name: 'Name'
+      type: 'Type'
+      always_apply: 'Always apply'
+      hold_for_return: 'Hold for return'
+      edit: 'Edit'
+      back: 'Back'
+  reservations:
+    detail:
+      booking_notes:
+        notes: 'Notes'
+        close: 'Close'
+    booking_details:
+      property: 'Property'
+      arrival: 'Arrival'
+      departure: 'Departure'
+      staying: 'Staying'
+      nights: 'Nights'
+      adults: 'Adults'
+      children: 'Children'
+      reservation_details: 'Reservation Details'
+      please_choose: 'Please choose arrival and departure dates.'
+      close: 'Close'
+    booking_guest:
+      reservation_type: 'Reservation Type'
+      guest: 'Guest'
+      registered_tenant: 'Registered Tenant'
+      full_name: 'Full name'
+      placeholde_full_name: 'e.g. John Medina'
+      email: 'Email'
+      adress: 'Address'
+      country: 'Country'
+      city: 'City'
+      state: 'State'
+      phone: 'Phone'
+      source: 'Source'
+      placeholder_source: 'e.g. Google, Local news, 9flats'
+      tenant: 'Tenant'
+      nights: 'Nights'
+      close: 'Close'
+    form:
+      save: 'Save'
+    rsv_detail_sidebar:
+      add_payment: 'Add Payment'
+      remove_reservation: 'Remove Reservation'
+      rates: 'Rates'
+      total: 'Total'
+      reservation_actions: 'Reservation Actions'
+      send: 'Send'
+      reservation: 'Reservation'
+      print: 'Print'
+      delete: 'Delete'
+      closed_invoices: 'Closed Invoices'
+    edit:
+      editing_reservation: 'Editing reservation'
+      show: 'Show'
+      back: 'Back'
+    index:
+      reservations: 'Reservation'
+      new_reservation: 'New Reservation'
+      delete: 'Delete'
+      placeholder_search: 'search'
+      type: 'Type'
+      created: 'Created'
+      guest_tenant: 'Guest/Tenant'
+      property: 'Property'
+      staying: 'Staying'
+      arrival: 'Arrival'
+      departure: 'Departure'
+      edit: 'Edit'
+      show: 'Show'
+    new:
+      new_reservation: 'New reservation'
+      back: 'Back'
+    show:
+      reservation: 'Reservation'
+      property: 'Property'
+      owner: 'Owner'
+      tenant_guest: 'Tenant/Guest'
+      source: 'Source'
+      add_tenant_guest: 'Add Tenant/Guest'
+      reservation_details: 'Reservation Details'
+      staying: 'Staying'
+      nights: 'nights'
+      check_in: 'Check-in'
+      check_out: 'Check-out'
+      adults: 'Adults'
+      children: 'Children'
+      id: 'Id'
+      status: 'Status'
+      on_hold: 'On Hold'
+      reservation_notes: 'Reservation Notes'
+      edit_notes: 'Edit Notes'
+      activity: 'Activity'
+  users:
+    form:
+      first_name: 'First name'
+      last_name: 'Last name'
+      email: 'Email'
+      password: 'Password'
+      save: 'Save'
+    edit:
+      editing_user: 'Editing user'
+      show: 'Show'
+      back: 'Back'
+    index:
+      listing_users: 'Listing users'
+      first_name: 'First name'
+      last_name: 'Last name'
+      email: 'Email'
+      password: 'Password'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      are_you_sure: 'Are you sure?'
+      new_user: 'New User'
+    new:
+      new_user: 'New user'
+      back: 'Back'
+    show:
+      first_name: 'First name'
+      last_name: 'Last name'
+      email: 'Email'
+      password: 'Password'
+      edit: 'Edit'
+      back: 'Back'
+
+

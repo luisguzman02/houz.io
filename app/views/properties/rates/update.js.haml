@@ -1,0 +1,10 @@
+- if @rate.errors.any?
+  :plain
+    $.howl ({
+      type: 'error', 
+      title: 'Please review the fields in rate form',
+      content: "",
+      iconCls: 'fa fa-check-square-o'
+    });
+- else
+  Turbolinks.visit("#{property_rates_path(@property)}")
