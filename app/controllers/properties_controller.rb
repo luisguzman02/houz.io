@@ -3,7 +3,7 @@ class PropertiesController < DashboardController
   respond_to :json, :only => :booking_detail
 
   def index
-    @properties = current_account.properties.order_by(:created_at => :desc).page(params[:page]).per(20)
+    @properties = current_account.properties.order_by(:created_at => :desc).page(params[:page]).per(10)
   end
 
   def new
