@@ -63,7 +63,7 @@ class PropertiesController < DashboardController
     @bookings = @property.reservations.any_of( 
       {'$and' => [{:check_in.gte => @dt_start}, {:check_in.lte => @dt_end}]},
       {'$and' => [{:check_out.gte => @dt_start}, {:check_out.lte => @dt_end}]}
-    ).order_by(check_in: :asc)
+    ).order_by(check_in: :asc).page(params[:page]||1).per(20)
   end
 
   private
