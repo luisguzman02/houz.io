@@ -2,30 +2,47 @@
   = t '.property'
   = link_to @property do
     %small= @property.slug
+    
 .thumbnail
-  = image_tag @property.pictures.first.picture.url(:profile) unless @property.pictures.empty?
-%br/
+  - if @property.pictures.empty?
+    %center= link_to t('upload_a_picture'), property_pictures_path(@property), class: 'text-primary'
+  - else
+    = link_to @property do
+      = image_tag @property.pictures.first.picture.url(:profile) unless @property.pictures.empty?
 .list-group
-  = link_to property_rates_path(@property), :class => 'list-group-item' do
+  = link_to property_path(@property), class: 'list-group-item' do
+    %i.fa.fa-info-circle
+    = precede '&nbsp;&nbsp;'.html_safe do 
+      \ 
+      = t '.property_details'
+    %i.fa.fa-chevron-right.list-group-chevron
+  
+  = link_to property_rates_path(@property), class: 'list-group-item' do
     %i.fa.fa-money
-    = t '.rates'            
+    = precede '&nbsp;&nbsp;'.html_safe do 
+      \  
+      = t '.rates'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.rates.count
-  %a.list-group-item{href: "javascript:;"}
+  
+  = link_to property_pictures_path(@property), class: 'list-group-item' do
     %i.fa.fa-picture-o
-    = t '.pictures'
+    = precede '&nbsp;&nbsp;'.html_safe do 
+      \  
+      = t '.pictures'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.pictures.count
-  %a.list-group-item{href: "javascript:;"}
+  
+  = link_to  rental_history_property_path(@property), class: 'list-group-item' do
     %i.fa.fa-archive
-    = t '.rental_history'
+    = precede '&nbsp;&nbsp;'.html_safe do 
+      \  
+      = t '.rental_history'
     %i.fa.fa-chevron-right.list-group-chevron
-    %span.badge= @property.reservations.count
-  = link_to edit_property_path(@property), :class => 'list-group-item' do
+  
+  = link_to edit_property_path(@property), class: 'list-group-item' do
     %i.fa.fa-edit
-    = t '.edit'
-    %i.fa.fa-chevron-right.list-group-chevron            
-  = link_to @property, :method => :delete, :id => 'del_prop_lnk', :class => 'list-group-item', data: { confirm: 'Are you sure you want to remove this property?' } do
-    %i.fa.fa-trash-o
-    = t '.delete'
+    = precede '&nbsp;&nbsp;'.html_safe do 
+      \  
+      = t '.edit'
     %i.fa.fa-chevron-right.list-group-chevron

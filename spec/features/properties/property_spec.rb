@@ -32,9 +32,9 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
     end
 
     it 'list only 20 properties with pagination' do
-      25.times.each &create_prop(account)
+      20.times.each &create_prop(account)
       visit properties_path 
-      expect(page).to have_selector('.property_item', :count => 25)
+      expect(page).to have_selector('.property_item', :count => 10)
     end
   end
 
@@ -77,12 +77,12 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
     end
 
     it 'assigns current location by default' do
-      local = Geocoder.search("204.57.220.1") 
+      local = Geocoder.search("204.57.220.1")
       visit properties_path 
       expect(find_field('Country').value).to eq local.first.country_code
       expect(find_field('City').value).to eq local.first.city
       expect(find_field('State').value).to eq local.first.state_code
-      expect(find_field('Zip code').value).to eq local.first.postal_code
+      expect(find_field('Zip code').value).to eq local.first.data['zip_code']
     end    
   end
 
@@ -99,11 +99,11 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
       page
     end
 
+    it { is_expected.to have_link 'Property Details' }
     it { is_expected.to have_link 'Rates' }
     it { is_expected.to have_link 'Pictures' }
     it { is_expected.to have_link 'Rental History' }
-    it { is_expected.to have_link 'Edit' }
-    it { is_expected.to have_link 'Delete' }
+    it { is_expected.to have_link 'Edit' }    
 
     it 'successfully updates a property' do
       subject
@@ -114,9 +114,23 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
       expect(page).to have_content name
     end
 
-    it 'removes a property with all its references', js: true do
+    it 'lits rental history' do
       subject
-      click_on 'Delete'
+      p = account.properties.first
+      (1..12).each do |n|
+        FactoryGirl.create :reservation, account: account, check_in: Date.new(2014,n,1), check_out: Date.new(2014,n,5), property_id: p.id
+      end
+      click_on 'Rental History'
+      fill_in 'dt_start', with: '2014-01-01'
+      fill_in 'dt_end', with: '2014-12-31'
+      click_button 'Filter'
+      expect(page).to have_selector('#reservation_list tbody tr', :count => 12)
+    end
+
+    it 'removes a property with all its references' do
+      subject
+      click_on 'Edit'
+      click_on 'Delete this property'
       #sometime needs double accept in chrome, dunno why
       page.driver.browser.switch_to.alert.accept
       #page.driver.browser.switch_to.alert.accept

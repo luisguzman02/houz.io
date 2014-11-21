@@ -1,0 +1,8 @@
+.prop_pic{:id => picture.id}
+  = image_tag picture.picture.url(:large), :class => "img-thumbnail"
+  .clearfix10
+  .row
+    .col-xs-12
+      %center
+        = link_to property_picture_path(@property, picture), :method => :delete, :id => 'del_pic_lnk', :class => 'btn btn-danger btn-sm', :title => 'Delete picture', data: { confirm: 'Are you sure you want to remove this picture?' } do
+          %span.glyphicon.glyphicon-trash

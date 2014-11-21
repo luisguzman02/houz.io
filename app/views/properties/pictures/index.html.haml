@@ -1,0 +1,34 @@
+.row
+  .col-md-3
+    = render 'properties/property_side'
+  .col-md-9
+    %h3 Property Pictures
+    %p
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis arcu id purus sodales bibendum.
+    .portlet
+      .portlet-header
+        %h3
+          %i.fa.fa-cloud-upload
+          = t 'File Upload'
+      .portlet-content      
+        .row
+          = form_for :picture, :url => property_pictures_path(@property), :html => {:role => 'form', :multipart => true} do |f| 
+            .col-sm-9
+              .fileupload.fileupload-new{"data-provides" => "fileupload"}
+                %input{:name => "", :type => "hidden", :value => ""}/
+                .input-group
+                  .form-control
+                    %i.fa.fa-file.fileupload-exists
+                    %span.fileupload-preview
+                  .input-group-btn
+                    %a.btn.btn-default.fileupload-exists{"data-dismiss" => "fileupload", :href => "#"} Remove
+                    %span.btn.btn-default.btn-file
+                      %span.fileupload-new Select file
+                      %span.fileupload-exists Change
+                      = f.file_field :picture
+            .col-sm-3
+              = f.submit 'Upload', :class => 'btn btn-primary col-xs-12'   
+    %hr 
+    .row#pic_list
+      .col-md-12
+        = render @property.pictures
