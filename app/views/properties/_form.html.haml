@@ -5,91 +5,91 @@
       .panel.panel-default
         .panel-heading 
           %i.fa.fa-list-alt
-          %strong Details
+          %strong= t '.details'
         .panel-body     
           .form-group
-            = f.label :unit_type, 'Property Type'
+            = f.label :unit_type, t('.property_type')
             = f.select :unit_type, property_types_select_options, {}, :class => 'form-control'
           .form-group
-            = f.label :name
-            = f.text_field :name, :class => 'form-control', :placeholder => 'e.g. "Rocky Point Blue House"'
+            = f.label :name, t('.name')
+            = f.text_field :name, :class => 'form-control', :placeholder => t('.placeholder_name')
           .form-group
-            = f.label :description
+            = f.label :description, t('.description')
             = f.text_area :description, :class => 'form-control'  
           .form-group
-            = f.label :tags
-            = f.text_field :tags, :class => 'form-control', :placeholder => 'Separate tags with commas, e.g. "Beach Front, Ocean View, Venice Beach"', 'data-pre' => @property.tags_token_input                   
+            = f.label :tags, t('.tags')
+            = f.text_field :tags, :class => 'form-control', :placeholder => t('.placeholder_tags'), 'data-pre' => @property.tags_token_input
       .panel.panel-default#rental_details
         .panel-heading 
           %i.fa.fa-calendar
-          %strong Rental details
+          %strong= t('.rental_details')
         .panel-body
           .row
             .col-md-3
               .form-group.time_select_group              
-                = f.label :check_in
+                = f.label :check_in, t('.check_in')
                 %br
                 = select_hour(@property.hour_check_in, {field_name: 'ci_hour', ampm: true}, {:class => 'form-control'})
                 = ":"
                 = select_minute(@property.minute_check_in, {field_name: 'ci_minutes', minute_step: 15}, {:class => 'form-control'})
             .col-md-3.time_select_group
-              = f.label :check_out
+              = f.label :check_out, t('.check_out')
               %br
               = select_hour(@property.hour_check_out, {field_name: 'co_hour', ampm: true}, {:class => 'form-control'})
               = ":"
               = select_minute(@property.minute_check_out, {field_name: 'co_minutes', minute_step: 15}, {:class => 'form-control'})
             .col-md-3
-              = f.label :minimum_days, 'Minimum stay'
+              = f.label :minimum_days, t('.minimum_stay')
               .input-group
                 = f.text_field :minimum_days, :class => 'form-control'
-                %span.input-group-addon nights
-            .col-md-3    
-              = f.label :property_size
+                %span.input-group-addon= t 'nights'
+            .col-md-3
+              = f.label :property_size, t('.property_size')
               .input-group
                 = f.text_field :property_size, :class => 'form-control'
-                %span.input-group-addon SQ M.
+                %span.input-group-addon= t '.SQ_M'
           .row
             .col-md-3
-              = f.label :num_persons_allowed
+              = f.label :num_persons_allowed, t('.num_persons_allowed')
               = f.text_field :num_persons_allowed, :class => 'form-control'
             .col-md-3
               .checkbox
                 %label
                   = f.check_box :pets_allowed
-                  Pets allowed
+                  = t('.pets_allowed')
             .col-md-3
             .col-md-3
       .panel.panel-default.prop_sect
         .panel-heading 
           %i.fa.fa-location-arrow
-          %strong Location
+          %strong= t '.location'
         .panel-body                
           = f.fields_for :contact do |c|
             = c.fields_for :address do |a|
               .row
                 .col-md-12
-                  = a.label :street, 'Address'
-                  = a.text_field :street, :class => 'form-control' , :placeholder => 'e.g Golf Links Road 5055'
+                  = a.label :street, t('.address')
+                  = a.text_field :street, :class => 'form-control' , :placeholder => t('.placeholder_street')
               .row
                 .col-md-3
-                  = a.label :country
+                  = a.label :country, t('.country')
                   = a.country_code_select :country, [], {}, {:class => 'form-control'}
                 .col-md-3
-                  = a.label :city
+                  = a.label :city, t('.city')
                   = a.text_field :city, :class => 'form-control'   
                 .col-md-3
-                  = a.label :state
+                  = a.label :state, t('.state')
                   = a.text_field :state, :class => 'form-control'   
                 .col-md-3
-                  = a.label :zip_code
+                  = a.label :zip_code, t('.zip_code')
                   = a.text_field :zip_code, :class => 'form-control' 
               .row
                 .col-md-6
-                  = a.label :area
+                  = a.label :area, t('.area')
                   = a.text_field :area, :class => 'form-control', :placeholder => 'e.g. "Downtown",  "Lion\'s Gate", etc.'
                 .col-md-6
-                  = f.label :directions
-                  = f.text_field :directions, :class => 'form-control', :placeholder => 'e.g. "Right in front of Empire State building"'
+                  = f.label :directions, t('.directions')
+                  = f.text_field :directions, :class => 'form-control', :placeholder => t('.placeholder_directions')
       .panel.panel-default.prop_sect
         .panel-heading 
           %i.fa.fa-th-list
@@ -97,24 +97,24 @@
         .panel-body                              
           .row
             .col-md-3
-              = f.label :bedrooms
+              = f.label :bedrooms, t('.bedrooms')
               = f.text_field :bedrooms,:class => 'form-control'
             .col-md-3
-              = f.label :bathrooms
+              = f.label :bathrooms, t('.bathrooms')
               = f.text_field :bathrooms, :class => 'form-control'   
             .col-md-3
-              = f.label :garages
+              = f.label :garages, t('.garages')
               = f.text_field :garages, :class => 'form-control'   
             .col-md-3
-              = f.label :kitchen
+              = f.label :kitchen, t('.kitchen')
               = f.text_field :kitchen, :class => 'form-control' 
           .row
             .col-md-6
-              = f.label :bedding
-              = f.text_field :bedding, :class => 'form-control', :placeholder => 'e.g. "2 Kings, 1 Queen, 1 Individual"'
+              = f.label :bedding, t('.bedding')
+              = f.text_field :bedding, :class => 'form-control', :placeholder => t('.placeholder_bedding')
             .col-md-6
-              = f.label :other_amenities
-              = f.text_field :amenities, :class => 'form-control', :placeholder => 'e.g. "Internet, TV Cable, A/C, Hot tub, etc'
+              = f.label :other_amenities, t('.other_amenities')
+              = f.text_field :amenities, :class => 'form-control', :placeholder => t('.placeholder_other_amenities')
       .pull-left
         = link_to @property, :method => :delete, :id => 'del_prop_lnk', :class => 'list-group-item', data: { confirm: 'Are you sure you want to remove this property?' } do
           %i.fa.fa-trash-o
@@ -122,4 +122,4 @@
       .pull-right
         %button{:type => 'submit', :class =>"btn btn-primary btn-lg"}
           %span.glyphicon.glyphicon-floppy-disk
-          Save        
+          = t('.save')        

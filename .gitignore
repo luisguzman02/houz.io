@@ -16,3 +16,4 @@ coverage
 /tmp
 /public/uploads/*
 .rspec
+*.swp

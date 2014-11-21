@@ -1,16 +1,16 @@
 - content_for :page_title do
-  Reservation  
+  = t '.reservation'
 = render 'booking_popup'
 .row
   .col-md-8
     %h3
-      = "#{@reservation.rsv_type.to_s.humanize}"      
+      = "#{@reservation.rsv_type.to_s.humanize}"
       %small.pull-right= @reservation.created_at.to_s(:short_date)
     %hr/
     %br/
     .row
       .col-md-6.col-sm-6
-        %h4 Property:
+        %h4= "#{t('.property')}:"
         %table.table
           %tbody
             %tr
@@ -26,12 +26,12 @@
                 = "#{@reservation.property.contact.address.city}, #{@reservation.property.contact.address.state} #{@reservation.property.contact.address.zip_code}"
                 %br/
                 = @reservation.property.contact.address.country
-                %br/ 
-                %strong Owner:
-                = @reservation.property.owner.full_name             
+                %br/
+                %strong= "#{t('.owner')}:"
+                = @reservation.property.owner.full_name
       / /.col
       .col-md-6.col-sm-6
-        %h4 Tenant/Guest:
+        %h4= "#{t('.tenant_guest')}:"
         %table.table
           %tbody
             %tr
@@ -51,67 +51,67 @@
                     %br/
                     = @reservation.guest.contact.address.country
                     %br/
-                    %strong Source: 
+                    %strong= "#{t('.source')}:"
                     = @reservation.guest.source
                 - else
                   %td
                     = link_to edit_reservation_path(@reservation), :format => :js, :class => 'btn btn-xs btn-secondary  add_tenant', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true do
                       %i.fa.fa-user
-                      Add Tenant/Guest
+                      = t '.add_tenant_guest'
     %hr/
-    %h3 Reservation Details    
+    %h3= t '.reservation_details'
     %hr/
     .row
       .col-md-4
         %ul.icons-list
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Staying: 
+            %strong= "#{t('.staying')}:"
             = @reservation.nights_staying
-            nights
+            = t '.nights'
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Check-in: 
+            %strong= "#{t('.check_in')}:"
             = @reservation.check_in.to_date
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Check-in: 
-            = @reservation.check_out.to_date            
+            %strong= "#{t('.check_out')}:"
+            = @reservation.check_out.to_date
       .col-md-4
         %ul.icons-list
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Adults: 
+            %strong= "#{t('.adults')}:"
             = @reservation.num_adults
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Children: 
+            %strong= "#{t('.children')}:"
             = @reservation.num_children
       .col-md-4
         %ul.icons-list
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Id: 
-            = @reservation.id          
+            %strong= "#{t('.id')}:"
+            = @reservation.id
           %li
             %i.icon-li.fa.fa-caret-right
-            %strong Status:  
+              %strong= "#{t('.status')}:"
             %span.label.label-default
-              On Hold
+              = t '.on_hold'
     %br/
     %h3
-      Reservation Notes
+      = t '.reservation_notes'
       = link_to edit_notes_reservation_path(@reservation), :format => :js, :class => 'btn btn-xs btn-secondary pull-right edit_notes', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking', :remote => true do
         %i.fa.fa-pencil
-        Edit Notes      
+        = t '.edit_notes'
     %hr/
     %p= @reservation.notes
-    %br/    
+    %br/
     %h3
-      Activity
+      = t '.activity'
     %br/
     .table-responsive
       %table.table.table-striped
         %tbody
-          = render @reservation.logs            
+          = render @reservation.logs
   = render 'rsv_detail_sidebar'

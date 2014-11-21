@@ -1,10 +1,10 @@
-%h1 Listing letters
+%h1= t '.listing_letters'
 
 %table
   %tr
-    %th Name
-    %th Body
-    %th Document
+    %th= t '.name'
+    %th= t '.body'
+    %th= t '.document'
     %th
     %th
     %th
@@ -14,10 +14,10 @@
       %td= letter.name
       %td= letter.body
       %td= letter.document
-      %td= link_to 'Show', letter
-      %td= link_to 'Edit', edit_letter_path(letter)
-      %td= link_to 'Destroy', letter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to t('.show'), letter
+      %td= link_to t('.edit'), edit_letter_path(letter)
+      %td= link_to t('.destroy'), letter, :method => :delete, :data => { :confirm => t('.are_you_sure') }
 
 %br
 
-= link_to 'New Letter', new_letter_path
+= link_to t('.new_letter'), new_letter_path

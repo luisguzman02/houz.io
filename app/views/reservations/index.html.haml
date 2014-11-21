@@ -1,39 +1,39 @@
 - content_for :page_title do
-  Reservations 
+  = t '.reservations'
 .pull-right#head_right
   = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-primary btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
     %span.glyphicon.glyphicon-plus
-    New Reservation
+    = t '.new_reservation'
   = render 'booking_popup'
-.clearfix        
+.clearfix
 .panel.panel-default
   .panel-body
     .row
       .col-md-6
         = link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do
           %span.glyphicon.glyphicon-remove
-          Delete
+          = t '.delete'
       .col-md-6
         .pull-right
           .input-group
-            = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
+            = text_field_tag :q, '', :class => 'form-control', :placehoder => t('.search')
             .input-group-addon
               %span.glyphicon.glyphicon-search
   %table.table.table-striped
     %thead
       %th
-      %th Type
-      %th Created
-      %th Property
-      %th Guest/Tenant
-      %th Staying
+      %th= t '.type'
+      %th= t '.created'
+      %th= t '.property'
+      %th= t '.guest_tenant'
+      %th= t '.staying'
     - @reservations.each do |r|
       %tr
         %td= check_box_tag "rsv_selector_#{r.id}", r.id, false, :class => :rsv_selector
         %td= r.type_humanized
         %td= r.created_at.to_date
         %td= r.property.name
-        %td= r.tenant_info          
-        %td= r.staying_info          
+        %td= r.tenant_info
+        %td= r.staying_info
 
 

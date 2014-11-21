@@ -32,9 +32,9 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
     end
 
     it 'list only 20 properties with pagination' do
-      25.times.each &create_prop(account)
+      20.times.each &create_prop(account)
       visit properties_path 
-      expect(page).to have_selector('.property_item', :count => 25)
+      expect(page).to have_selector('.property_item', :count => 20)
     end
   end
 
@@ -77,7 +77,7 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
     end
 
     it 'assigns current location by default' do
-      local = Geocoder.search("204.57.220.1") 
+      local = Geocoder.search("204.57.220.1")
       visit properties_path 
       expect(find_field('Country').value).to eq local.first.country_code
       expect(find_field('City').value).to eq local.first.city

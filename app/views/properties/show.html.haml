@@ -8,10 +8,10 @@
     %p
       = link_to '', :class => "btn btn-secondary" do
         %i.fa.fa-sign-in
-        Upcoming Ocupancy
+        = t '.upcoming_ocupancy'
       = link_to '', :class => "btn btn-secondary" do
         %i.fa.fa-calendar
-        Availability
+          = t '.availability'
     %hr/
     %ul.icons-list
       %li
@@ -26,31 +26,31 @@
         - @property.tags.each do |t|
           .label.label-tertiary= link_to t, ''
     %br/
-    %h4 Description
+    %h4= t '.descrition'
     %hr/
     %p= @property.description
     %br/
-    %h4 Rental Details
+    %h4= t '.rental_details'
     %hr/
     %br/
-    %h4 Amenities
+    %h4= t '.amanities'
     %hr/        
   .col-md-3.col-sm-5.col-sidebar-right
     %p
       =link_to 'Reserve', '', class: "btn btn-jumbo btn-primary btn-block"
     %br/
     .well
-      %h4 Rental Details
+      %h4= t '.rental_details'
       %ul.icons-list.text-md
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Check-in
+          %strong= t '.check_in'
           = @property.readable_check_in
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Check-out
+          %strong= t '.check_out'
           = @property.readable_check_out
         %li
           %i.icon-li.fa.fa-location-arrow
-          %strong Minumum Staying Days
+          %strong= t '.minumum_staying_days'
           = @property.minimum_days

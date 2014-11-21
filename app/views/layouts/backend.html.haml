@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Houz.io - Dashboard
+    %title Houz.io - #{t('.dashboard')}
     %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/    
     = stylesheet_link_tag "backend", media: "all", "data-turbolinks-track" => true
@@ -19,7 +19,7 @@
     #blackout
     #main_spinner
       = image_tag('spinner_lg.gif')
-      %center Loading
+      %center= t '.loading'
     #spinner.hide
       %center= image_tag('spinner_mid.gif')      
     #wrap
@@ -27,7 +27,7 @@
         .container
           .navbar-header
             %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-              %span.sr-only Toggle navigation
+              %span.sr-only= t '.toggle_navigation'
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
@@ -35,35 +35,35 @@
           .navbar-collapse.collapse
             %ul.nav.navbar-nav
               %li{:class => controller_name.eql?('dashboard') ? 'active' : ''}
-                = link_to 'Dashboard', dashboard_path
+                = link_to t('.dashboard'), dashboard_path
               %li{:class => controller_name.eql?('properties') ? 'active' : ''}
-                = link_to 'Properties', properties_path
+                = link_to t('.properties'), properties_path
               %li{:class => controller_name.eql?('reservations') ? 'active' : ''}
-                = link_to 'Reservations', reservations_path
+                = link_to t('.reservations'), reservations_path
               %li.dropdown{:class => ['rates'].include?(controller_name) ? 'active' : ''}
                 %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                  Back Office
+                  = t '.back_office'
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    = link_to 'Company Letters', ''
+                    = link_to t('.company_letters'), ''
                   %li
-                    = link_to 'For Developers', ''
+                    = link_to t('.for_developers'), ''
                   %li.divider
                   %li.dropdown-header User Management
                   %li
-                    = link_to 'Agents', ''
+                    = link_to t('.agents'), ''
                   %li
-                    = link_to 'Owners', ''
+                    = link_to t('.owners'), ''
                   %li
-                    = link_to 'Tenants', ''
+                    = link_to t('.tenants'), ''
             %ul.nav.navbar-nav.navbar-right
               %li
                 = link_to '' do
                   %span.glyphicon.glyphicon-question-sign
-                  Help
+                  = t '.help'
               %li
-                = link_to 'Logout', destroy_user_session_path, :method => :delete            
+                = link_to t('.logout'), destroy_user_session_path, :method => :delete            
       #content-container.container      
         - flash.each do |name, msg|
           .alert{:class => "alert-#{name == :notice ? "success" : "danger"}"}

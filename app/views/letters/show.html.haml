@@ -1,15 +1,15 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b= "#{t('.name'):}"
   = @letter.name
 %p
-  %b Body:
+  %b= "#{t('.body')}:"
   = @letter.body
 %p
-  %b Document:
+  %b= "#{t('.document')}:" Document:
   = @letter.document
 
-= link_to 'Edit', edit_letter_path(@letter)
+= link_to t('.edit'), edit_letter_path(@letter)
 \|
-= link_to 'Back', letters_path
+= link_to t('.back'), letters_path

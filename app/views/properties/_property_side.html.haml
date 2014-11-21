@@ -1,5 +1,5 @@
 - content_for :page_title do
-  Property  
+  = t '.property'
   = link_to @property do
     %small= @property.slug
     
@@ -13,32 +13,37 @@
   = link_to property_path(@property), class: 'list-group-item' do
     %i.fa.fa-info-circle
     = precede '&nbsp;&nbsp;'.html_safe do 
-      \ Property Details
+      \ 
+      = t '.property_details'
     %i.fa.fa-chevron-right.list-group-chevron
   
   = link_to property_rates_path(@property), class: 'list-group-item' do
     %i.fa.fa-money
     = precede '&nbsp;&nbsp;'.html_safe do 
-      \  Rates
+      \  
+      = t '.rates'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.rates.count
   
   = link_to property_pictures_path(@property), class: 'list-group-item' do
     %i.fa.fa-picture-o
     = precede '&nbsp;&nbsp;'.html_safe do 
-      \  Pictures
+      \  
+      = t '.pictures'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.pictures.count
   
   = link_to  rental_history_property_path(@property), class: 'list-group-item' do
     %i.fa.fa-archive
     = precede '&nbsp;&nbsp;'.html_safe do 
-      \  Rental History
+      \  
+      = t '.rental_history'
     %i.fa.fa-chevron-right.list-group-chevron
     %span.badge= @property.reservations.count
   
   = link_to edit_property_path(@property), class: 'list-group-item' do
     %i.fa.fa-edit
     = precede '&nbsp;&nbsp;'.html_safe do 
-      \  Edit
+      \  
+      = t '.edit'
     %i.fa.fa-chevron-right.list-group-chevron

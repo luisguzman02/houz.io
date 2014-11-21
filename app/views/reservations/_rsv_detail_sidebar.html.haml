@@ -1,45 +1,45 @@
 .col-md-4.col-sidebar-right
   %p
     %a.btn.btn-jumbo.btn-primary.btn-block{href: "javascript:;"}
-      Add Payment
+      = t '.add_payment'
       %br/
   %p
-    %a.btn.btn-lg.btn-tertiary.btn-block{href: "javascript:;"} Remove Reservation
+    %a.btn.btn-lg.btn-tertiary.btn-block{href: "javascript:;"}= t '.remove_reservation'
   %br/
-  %h3 Rates
+  %h3= t '.rates'
   %hr/
   .list-group#rates_detail
     - @reservation.rates.each do |r|
       .list-group-item
-        %h4 
-          = r.name            
-          .pull-right= r.value    
+        %h4
+          = r.name
+          .pull-right= r.value
     .list-group-item
-      %h4 
-        Total          
+      %h4
+        = t '.total'
         .pull-right.text-primary$ 120.00
   %br/
-  %h4 Reservation Actions
+  %h4= t '.reservation_actions'
   %hr/
   .list-group
     %a.list-group-item{href: "javascript:;"}
       %i.fa.fa-envelope
-      %strong Send
-      Reservation
+      %strong= t '.send'
+      = t '.reservation'
     %a.list-group-item{href: "javascript:;"}
       %i.fa.fa-pencil
-      %strong Edit
-      Reservation
+      %strong= t '.edit'
+      = t '.reservation'
     %a.list-group-item{href: "javascript:;"}
       %i.fa.fa-print
-      %strong Print
+      %strong= t '.print'
       Reservation
     = link_to @reservation, :method => :delete, :class=> 'list-group-item', data: { confirm: 'Are you sure you want to remove this reservation?' } do
       %i.fa.fa-times
       %strong Delete
-      Reservation
+      = t '.reservation'
   %br/
-  %h4 Closed Invoices
+  %h4= t '.closed_invoices'
   %hr/
   .list-group
     %a.list-group-item{href: "javascript:;"}
