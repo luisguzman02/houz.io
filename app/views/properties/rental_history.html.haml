@@ -1,0 +1,49 @@
+.row
+  .col-md-3
+    = render 'properties/property_side'
+  .col-md-9    
+    %h3 Rental History
+    %hr
+    = form_tag rental_history_property_path(@property),  method: :get do
+      .row
+        .col-sm-6        
+          .row
+            .col-sm-6
+              #dp-ex-start.input-group.date{"data-date-autoclose" => 'true', "data-date-format" => 'yyyy-mm-dd'}
+                / %input.form-control{:placeholder => "Start date", value: @dt_start.to_formatted_s(:north_america), name: :start_dt}
+                = text_field_tag :dt_start, @dt_start.to_formatted_s(:db), class: 'form-control', :placeholder => 'Start date'
+                %span.input-group-addon
+                  %i.fa.fa-calendar
+              %span.help-block yyyy-mm-dd
+            .col-sm-6
+              #dp-ex-end.input-group.date{"data-date-autoclose" => 'true', "data-date-format" => 'yyyy-mm-dd'}
+                / %input.form-control{:placeholder => "End date"}
+                = text_field_tag :dt_end, @dt_end.to_formatted_s(:db), class: 'form-control', :placeholder => 'End date'
+                %span.input-group-addon
+                  %i.fa.fa-calendar
+              %span.help-block yyyy-mm-dd
+        .col-sm-6
+          = submit_tag 'Filter', class: 'btn btn-secondary'
+    .row
+      .col-md-12
+        .table-responsive
+          %table.table#reservation_list
+            %thead
+              %tr
+                %th
+                %th Guest
+                %th Arrival
+                %th Departure
+                %th Amount
+                %th
+            %tbody
+              - @bookings.each do |b|
+                %tr
+                  %td= b.rsv_type.to_s.humanize
+                  %td= b.guest.name
+                  %td= b.check_in.to_date
+                  %td= b.check_out.to_date
+                  %td= b.total_payment
+                  %td 
+                    %span.label.label-success Approved
+    %center= paginate @bookings

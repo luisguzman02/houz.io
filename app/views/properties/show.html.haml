@@ -6,7 +6,7 @@
     %h4= @property.unit_type.to_s.humanize
     %hr/
     %p
-      = link_to '', :class => "btn btn-primary" do
+      = link_to '', :class => "btn btn-secondary" do
         %i.fa.fa-sign-in
         = t '.upcoming_ocupancy'
       = link_to '', :class => "btn btn-secondary" do
@@ -34,8 +34,10 @@
     %hr/
     %br/
     %h4= t '.amanities'
-    %hr/
+    %hr/        
   .col-md-3.col-sm-5.col-sidebar-right
+    %p
+      =link_to 'Reserve', '', class: "btn btn-jumbo btn-primary btn-block"
     %br/
     .well
       %h4= t '.rental_details'

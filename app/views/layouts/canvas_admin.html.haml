@@ -29,6 +29,10 @@
             = link_to root_path do
               %i.fa.fa-home
               = t '.home'
+          %li
+            = link_to help_path do
+              %i.fa.fa-question
+              = t 'Help'
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "javascript:;"}
               = t '.dropdown'

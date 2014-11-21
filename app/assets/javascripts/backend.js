@@ -27,5 +27,6 @@
 //= require hamlcoffee
 //= require canvas_admin
 //= require canvas_admin/datepicker/bootstrap-datepicker
+//= require canvas_admin/fileupload/bootstrap-fileupload
 //= require canvas_admin/howl/howl
 //= require_tree ./templates

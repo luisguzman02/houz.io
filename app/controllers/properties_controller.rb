@@ -38,10 +38,6 @@ class PropertiesController < DashboardController
     end
   end
 
-  def pictures
-    @property.pictures.create pic_params if request.method.eql? 'POST'
-  end
-
   def tags
     respond_to do |format|
       format.html
@@ -60,6 +56,16 @@ class PropertiesController < DashboardController
     render :json => @property.booking_info(params[:check_in], params[:check_out])
   end
 
+  def rental_history
+    @dt_start = params[:dt_start].present? ? Date.parse(params[:dt_start]) : (Date.today - 1.month) rescue Date.today
+    @dt_end   = params[:dt_end].present? ? Date.parse(params[:dt_end]) : Date.today rescue Date.today
+
+    @bookings = @property.reservations.any_of( 
+      {'$and' => [{:check_in.gte => @dt_start}, {:check_in.lte => @dt_end}]},
+      {'$and' => [{:check_out.gte => @dt_start}, {:check_out.lte => @dt_end}]}
+    ).order_by(check_in: :asc).page(params[:page]||1).per(20)
+  end
+
   private
 
   def set_property
@@ -71,11 +77,7 @@ class PropertiesController < DashboardController
   def local_info
     Geocoder.configure(:timeout => 5)
     local = request.ip.eql?('127.0.0.1') ? Geocoder.search("204.57.220.1").first : request.location
-    {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.postal_code }
-  end
-
-  def pic_params
-    params.require(:picture).permit(:picture)
+    local.nil? ? {} : {:country => local.country_code, :state => local.state_code, :city => local.city, :zip_code => local.data['zip_code']}
   end
 
   def property_params
