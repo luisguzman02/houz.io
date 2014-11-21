@@ -34,7 +34,7 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
     it 'list only 20 properties with pagination' do
       20.times.each &create_prop(account)
       visit properties_path 
-      expect(page).to have_selector('.property_item', :count => 20)
+      expect(page).to have_selector('.property_item', :count => 10)
     end
   end
 
