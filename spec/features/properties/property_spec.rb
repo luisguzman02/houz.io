@@ -114,7 +114,20 @@ RSpec.describe "Properties", :prop => :all, type: :feature, ctrl_clean: true, js
       expect(page).to have_content name
     end
 
-    it 'removes a property with all its references', js: true do
+    it 'lits rental history' do
+      subject
+      p = account.properties.first
+      (1..12).each do |n|
+        FactoryGirl.create :reservation, account: account, check_in: Date.new(2014,n,1), check_out: Date.new(2014,n,5), property_id: p.id
+      end
+      click_on 'Rental History'
+      fill_in 'dt_start', with: '2014-01-01'
+      fill_in 'dt_end', with: '2014-12-31'
+      click_button 'Filter'
+      expect(page).to have_selector('#reservation_list tbody tr', :count => 12)
+    end
+
+    it 'removes a property with all its references' do
       subject
       click_on 'Edit'
       click_on 'Delete this property'
