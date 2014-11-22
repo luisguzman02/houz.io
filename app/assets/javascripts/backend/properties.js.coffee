@@ -1,4 +1,15 @@
 ready_properties = ->
+  $(".ui-lightbox-gallery").magnificPopup
+    delegate: "a"
+    type: "image"
+    tLoading: "Loading image #%curr%..."
+    mainClass: "mfp-img-mobile"
+    gallery:
+      enabled: true
+      navigateByImgClick: true
+    image:
+      titleSrc: "title"
+      tError: "<a href=\"%url%\">The image #%curr%</a> could not be loaded."
 
   $(".properties_rental_history #dp-ex-start").datepicker().on "changeDate", (e) ->
     $(".properties_rental_history #dp-ex-end").datepicker "setStartDate", e.date
