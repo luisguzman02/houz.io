@@ -1,5 +1,7 @@
 .prop_pic{:id => picture.id}
-  = image_tag picture.picture.url(:large), :class => "img-thumbnail"
+  .ui-lightbox-gallery
+    = link_to picture.picture.url do 
+      = image_tag picture.picture.url(:large), :class => "img-thumbnail"
   .clearfix10
   .row
     .col-xs-12
