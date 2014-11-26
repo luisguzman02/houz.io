@@ -11,7 +11,7 @@
         = t '.upcoming_ocupancy'
       = link_to '', :class => "btn btn-secondary" do
         %i.fa.fa-calendar
-          = t '.availability'
+        = t '.availability'
     %hr/
     %ul.icons-list
       %li
@@ -26,7 +26,7 @@
         - @property.tags.each do |t|
           .label.label-tertiary= link_to t, ''
     %br/
-    %h4= t '.descrition'
+    %h4= t '.descrition'  
     %hr/
     %p= @property.description
     %br/
@@ -37,7 +37,8 @@
     %hr/        
   .col-md-3.col-sm-5.col-sidebar-right
     %p
-      =link_to 'Reserve', '', class: "btn btn-jumbo btn-primary btn-block"
+      = link_to t('.new_booking'), book_property_path(@property), :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-jumbo btn-primary btn-block', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking'
+      = render 'add_booking'
     %br/
     .well
       %h4= t '.rental_details'

@@ -85,16 +85,10 @@
               = link_to properties_path do
                 %i.fa.fa-list
                 = t '.properties'                           
-            %li.dropdown{:class => controller_name.eql?('reservations') ? 'active' : ''}
-              %a{href: "javascript:;"}
+            %li{:class => controller_name.eql?('reservations') ? 'active' : ''}
+              = link_to reservations_path do
                 %i.fa.fa-calendar-o
-                = t '.reservations'
-                %span.caret
-              %ul.sub-nav
-                %li
-                  = link_to reservations_path do
-                    %i.fa.fa-list
-                    = t '.list_of_reservations'
+                = t '.bookings'                
             %li.dropdown
               %a{href: "javascript:;"}
                 %i.fa.fa-group

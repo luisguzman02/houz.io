@@ -52,6 +52,14 @@ class PropertiesController < DashboardController
     end
   end
 
+  def book
+    @reservation = current_user.reservations.build property: @property
+    respond_to do |format|
+      format.html { }
+      format.js
+    end
+  end
+
   def booking_detail
     render :json => @property.booking_info(params[:check_in], params[:check_out])
   end

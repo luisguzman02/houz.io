@@ -1,0 +1,55 @@
+= form_for @reservation, :format => :js, :html => {:id => 'property_booking_form', :role => 'form'}, :remote => true, :method => :post do |f|
+  = f.hidden_field :property_id
+  .row
+    .col-md-12
+      %p#selected_prop_title.text-muted
+        %strong= t('.property') + " : "
+        %span= @property.name
+  .clearfix10
+  .row
+    .col-md-12
+      #datepicker.input-daterange.input-group
+        = f.text_field :check_in, :class => 'form-control datepicker input-lg', placeholder: 'Check in'
+        %span.input-group-addon to
+        = f.text_field :check_out, :class => 'form-control datepicker input-lg', placeholder: 'Check out'
+  / .row#date_range_icon
+  /   .col-md-6
+  /     .form-group
+  /       = f.label :check_in, t('.arrival')
+  /       .input-group
+  /         = f.text_field :check_in, :class => 'form-control datepicker input-lg'
+  /         %a.input-group-addon{:trigger => :reservation_check_in, :href => '#'}
+  /           %span.glyphicon.glyphicon-calendar
+  /   .col-md-6
+  /     = f.label :check_out , t('.departure')
+  /     .input-group
+  /       = f.text_field :check_out, :class => 'form-control datepicker input-lg'
+  /       %a.input-group-addon{:trigger => :reservation_check_out, :href => '#'}
+  /         %span.glyphicon.glyphicon-calendar
+  .clearfix10
+  .row
+    .col-md-4
+      .form-group
+        = label_tag :staying_field, t('.staying')
+        .input-group
+          = text_field_tag :staying_field, '', :class => 'form-control', readonly: true
+          %span.input-group-addon= t '.nights'
+    .col-md-4
+      .form-group
+        = f.label :num_adults, t('.adults')
+        = f.number_field  :num_adults, :class => 'form-control', in: 1..50
+    .col-md-4
+      .form-group
+        = f.label :num_children, t('.children')
+        = f.number_field  :num_children, :class => 'form-control', in: 0..50
+
+  %hr
+  %h4= t('.booking_details')
+  .alert.alert-warning#booking_info
+    %p= t('.please_choose')
+  %hr
+  .row
+    .col-md-12
+      .pull-right
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"}= t '.close'
+        = submit_tag 'Continue', :class => 'btn btn-primary', :disabled => true, :id => :book_btn

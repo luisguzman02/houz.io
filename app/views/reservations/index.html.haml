@@ -1,24 +1,24 @@
 - content_for :page_title do
-  = t '.reservations'
+  = t '.bookings'
 .pull-right#head_right
   = link_to new_reservation_path, :remote => true, :format => :js, :id => 'new_reservation_btn', :class => 'btn btn-primary btn-lg', 'data-toggle' => 'modal',  'data-target' => '#inquiery_booking' do
     %span.glyphicon.glyphicon-plus
-    = t '.new_reservation'
+    = t '.new_booking'
   = render 'booking_popup'
-.clearfix
+.clearfix10
 .panel.panel-default
   .panel-body
     .row
       .col-md-6
-        = link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do
-          %span.glyphicon.glyphicon-remove
-          = t '.delete'
+        / = link_to '#', :class => 'btn btn-danger', :id => 'reservations_remove' do
+        /   %span.glyphicon.glyphicon-remove
+        /   = t '.delete'
       .col-md-6
         .pull-right
           .input-group
-            = text_field_tag :q, '', :class => 'form-control', :placehoder => t('.search')
+            = text_field_tag :q, '', :class => 'form-control', :placehoder => 'Search'
             .input-group-addon
-              %span.glyphicon.glyphicon-search
+              %div.glyphicon.glyphicon-search
   %table.table.table-striped
     %thead
       %th
